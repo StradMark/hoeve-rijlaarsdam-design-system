@@ -1,0 +1,24 @@
+<!-- @dsCard group="Panelen en quotes" viewport="1180x760" name="PullQuote" subtitle="Met portret, en de drie kleurvarianten" -->
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;background:var(--white)}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const { PullQuote } = window.HoeveRijlaarsdamDesignSystem_374762;
+const A='../../assets/';
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.Fragment>
+    <PullQuote portrait={A+'photo-chef-buitenkeuken.jpg'} name="Wouter Berghuis" role="Chef-kok en patissier" tone="cream">
+      Roos en ik kunnen lezen en schrijven met elkaar, we delen samen een gedachte zonder deze uit te hoeven spreken. Dat komt de beleving van de gasten ten goede.
+    </PullQuote>
+    <PullQuote tone="sage" align="center">
+      In een restaurant kun je makkelijker improviseren. Bij een grote groep moet alles tegelijk op tafel staan.
+    </PullQuote>
+    <PullQuote tone="deep" name="Roos Rijlaarsdam" role="Hospitality">
+      Hoe mooier en gelijkmatiger je bereidt, hoe lekkerder het eindproduct.
+    </PullQuote>
+  </React.Fragment>
+);
+</script></body></html>

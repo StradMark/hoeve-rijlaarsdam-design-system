@@ -1,0 +1,60 @@
+:root{
+/* --- base palette (sampled from the brand mockups) --- */
+--green-900:#1f4a3c;
+--green-800:#295e4e;
+--green-700:#31705d;
+--green-600:#4d8a72;
+--sage-500:#7eab8c;
+--sage-400:#95bfa2;
+--sage-300:#b6d3bf;
+--sage-200:#d7e5db;
+--sage-100:#edf3ee;
+--gold-600:#966d33;
+--gold-500:#b08344;
+--gold-400:#c39a57;
+--gold-300:#d9bd8c;
+--gold-200:#eddfc6;
+--cream-100:#fbf8f3;
+--cream-200:#f3ece1;
+--white:#ffffff;
+--ink-900:#16191a;
+--ink-700:#33393a;
+--ink-500:#5b6362;
+--ink-300:#909796;
+--ink-100:#e2e5e3;
+
+/* --- semantic surfaces --- */
+--surface-page:var(--white);
+--surface-cream:var(--cream-100);
+--surface-sage:var(--sage-500);
+--surface-sage-soft:var(--sage-200);
+--surface-deep:var(--green-800);
+--surface-deep-alt:var(--green-900);
+--surface-card:var(--white);
+--surface-panel:var(--green-800);
+--surface-panel-soft:var(--sage-400);
+
+/* --- semantic text --- */
+--text-heading:var(--ink-900);
+--text-body:var(--ink-500);
+--text-muted:var(--ink-300);
+--text-kicker:var(--gold-500);
+--text-accent:var(--gold-500);
+--text-on-dark:var(--cream-100);
+--text-on-dark-muted:var(--sage-200);
+--text-on-sage:var(--white);
+--text-link:var(--green-800);
+--text-link-hover:var(--gold-500);
+
+/* --- lines & interaction --- */
+--border-hairline:var(--ink-100);
+--border-on-dark:rgba(251,248,243,.28);
+--accent:var(--green-800);
+--accent-hover:var(--green-900);
+--accent-alt:var(--gold-500);
+--accent-alt-hover:var(--gold-600);
+--focus-ring:var(--gold-400);
+--field-error:#a4553d; /* warm brick — form validation on white/cream */
+--field-error-on-dark:#f2c8b8; /* same hue, lifted so 4.5:1 holds on deep green */
+--overlay-photo:linear-gradient(180deg,rgba(22,25,26,0) 30%,rgba(22,25,26,.55) 100%); /* @kind other */
+}

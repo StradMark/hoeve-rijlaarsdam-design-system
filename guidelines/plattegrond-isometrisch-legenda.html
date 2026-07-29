@@ -1,0 +1,37 @@
+<!-- @dsCard group="Pagina-onderdelen" viewport="1180x1080" name="Plattegrond isometrisch — met legenda" subtitle="SitePlan op de isometrische kaart; zelfde interactie, punten op de nok van elk volume" -->
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../_ds_bundle.js"></script>
+<style>body{margin:0;background:var(--surface-page);font-family:var(--font-body);padding:28px 0}
+.note{max-width:76ch;margin:0 auto var(--space-6);padding:0 var(--space-6);font-size:var(--fs-body-s);line-height:var(--lh-body);color:var(--text-body);text-align:center}
+b{font-weight:var(--fw-body-strong)}</style>
+</head>
+<body><div id="root"></div>
+<script type="text/babel">
+const { SitePlan } = window.HoeveRijlaarsdamDesignSystem_374762;
+const A='../assets/';
+const spots=[
+    {name:'Woonhuis',x:69.29,y:33.61,w:2.8,h:3.8,image:A+'photo-hoeve-heerlijckheid.jpg',body:'Het monumentale voorhuis aan de Nieuwveenseweg. Hier vindt u ons kantoor.'},
+    {name:'De Stal',x:64.45,y:42.12,w:2.8,h:3.8,image:A+'photo-stal-zoettafel.jpg',href:'Stal',body:'Ruim 110 jaar oud, nu expositieruimte en zaal voor 60 gasten.'},
+    {name:'De Hooiberg',x:55.37,y:49.34,w:2.8,h:3.8,image:A+'photo-hooiberg.jpg',href:'Hooiberg',body:'De vijfhoekige berg; boven plaats voor maximaal 30 gasten.'},
+    {name:'Het Koetshuis',x:65.57,y:53.25,w:2.8,h:3.8,side:'left',image:A+'photo-koetshuis-feest.jpg',href:'Koetshuis',body:'De grote zaal met eigen entree en bar, tot 250 gasten.'},
+    {name:'Ontwikkelatelier',x:55.35,y:61.01,w:2.8,h:3.8,side:'left',image:A+'photo-atelier.jpg',href:'Ontwikkelatelier',body:'De oude lijstenmakerij, nu atelier en werkruimte voor kleine groepen.'},
+    {name:'Beeldentuin',x:34.51,y:39.87,w:2.8,h:3.8,image:A+'photo-beeldentuin-vogels.jpg',href:'Beeldentuin',body:'Bronzen beelden tussen de hagen, de boomgaard en het water.'},
+    {name:'Parkeren',x:41.89,y:70.95,w:2.8,h:3.8,side:'left',body:'Ruim eigen terrein direct naast de zalen. Gratis, geen reservering nodig.'},
+    {name:'Water',x:24.70,y:46.20,w:2.8,h:3.8,image:A+'photo-omgeving-water.jpg',body:'De sloot langs het voorhuis loopt uit op de vijver bij de entree.'}
+];
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.Fragment>
+    <p className="note"><b>Indicatie.</b> Dezelfde legenda als de vlakke plattegrond, nu op de isometrische
+      versie. De punten staan op de nok van elk volume in plaats van op het grondvlak. Hoogtes en
+      dakvlakken zijn een schatting; de zonnepanelen ontbreken nog.</p>
+    <SitePlan image={A+'map-iso.png'} spots={spots} title="Het erf, van bovenaf"
+      hint="Beweeg over de kaart of kies een plek in de lijst."
+      onSelect={s=>console.log(s.href)}/>
+  </React.Fragment>
+);
+</script>
+</body></html>

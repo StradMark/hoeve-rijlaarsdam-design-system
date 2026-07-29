@@ -1,0 +1,20 @@
+<!-- @dsCard group="Typografie" viewport="700x400" name="Kicker-regels" subtitle="Wanneer werkt de script-kicker, en wanneer niet" -->
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>body{margin:0;padding:20px 20px 20px 30px;background:var(--surface-page);font-family:var(--font-body);color:var(--ink-500)}
+.row{display:flex;align-items:baseline;gap:var(--space-5);padding:7px 0;border-bottom:1px solid rgba(22,25,26,.07)}
+.row:last-child{border:none}
+.pair{flex:0 0 300px;position:relative;padding-top:13px}
+.k{position:absolute;left:-.18em;top:0;white-space:nowrap;font-family:var(--font-script);font-size:22px;line-height:.9;color:var(--gold-500)}
+.t{font-family:var(--font-display);font-size:19px;line-height:1.1;color:var(--ink-900)}
+.no .t,.no .k{opacity:.55}
+.note{font-size:11.5px;line-height:1.5}
+.ok{color:var(--green-700)}.no{color:#9A4B3B}
+.no .pair{text-decoration:line-through;text-decoration-color:rgba(154,75,59,.5)}</style>
+<body>
+<div class="row"><div class="pair"><span class="k">alles over</span><span class="t">Onze locatie</span></div><div class="note ok">Titel benoemt zelf de zaak — de kicker is alleen aanloop</div></div>
+<div class="row"><div class="pair"><span class="k">culinaire</span><span class="t">Hoogstandjes</span></div><div class="note ok">Bijvoeglijk naamwoord, één woord, kernwoord in de titel</div></div>
+<div class="row"><div class="pair"><span class="k">heel veel</span><span class="t">Mooie ruimtes</span></div><div class="note ok">Versterker; titel blijft los leesbaar in een menu</div></div>
+<div class="row no"><div class="pair"><span class="k">de plek waar</span><span class="t">Alles samenkomt</span></div><div class="note no">Halve zin: de titel kan niet op zichzelf staan</div></div>
+<div class="row no"><div class="pair"><span class="k">wat u moet weten over</span><span class="t">Parkeren</span></div><div class="note no">Te lang: 4 woorden, en 2,6x de titellengte</div></div>
+<div class="row no"><div class="pair"><span class="k">onze</span><span class="t">Beeldentuin met moderne sculpturen</span></div><div class="note no">Titel te lang: de kicker verdwijnt ernaast</div></div>
+</body></html>

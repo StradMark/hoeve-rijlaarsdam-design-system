@@ -1,0 +1,8 @@
+/* Hoeve Rijlaarsdam webfonts.
+   SUBSTITUTION NOTICE: no font binaries were supplied with the brand material.
+   These are the closest Google Fonts matches to the mockups:
+     Playfair Display  -> high-contrast Didone-ish display serif of the logo wordmark & headings
+     Italianno         -> monoline signature script of the logo's "Hoeve" and the kickers ("alles over", "van harte")
+     Jost              -> light geometric sans used for body copy
+   Replace with the real licensed files when available. */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..700&family=Italianno&family=Jost:ital,wght@0,300..600;1,300..500&display=swap");

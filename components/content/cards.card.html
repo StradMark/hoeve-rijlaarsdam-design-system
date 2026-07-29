@@ -1,0 +1,42 @@
+<!-- @dsCard group="Kaarten" viewport="700x760" name="Fotokaarten — ruimtes" subtitle="RoomCard: feiten altijd zichtbaar (aanbevolen), op hover, en de gesplitste balk uit de ontwerpen" -->
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{padding:var(--space-6);background:var(--surface-page)}</style></head>
+<body><div id="root"></div>
+<script type="text/babel">
+const DS=window.HoeveRijlaarsdamDesignSystem_374762;const A='../../assets/';
+const { RoomCard, ImageCaptionCard } = DS;
+const label={fontFamily:'var(--font-display)',fontSize:'var(--fs-label-s)',letterSpacing:'var(--ls-label-wide)',
+  textTransform:'uppercase',color:'var(--ink-900)',margin:'0 0 var(--space-4)'};
+const grid={display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'var(--space-5)'};
+const rooms=[
+  {image:A+'photo-koetshuis-expositie.jpg',caption:'Koetshuis',meta:['250 gasten','300 m²'],summary:'Vrij indeelbaar, met kunst aan de wand.'},
+  {image:A+'photo-hooiberg-gedekt.jpg',caption:'Hooiberg',meta:['30 gasten','Boven'],summary:'Intiem diner onder de oude kap.'},
+  {image:A+'photo-beeldentuin-vogels.jpg',caption:'Beeldentuin',meta:['Buiten','Bij mooi weer'],summary:'Ontvangst tussen het brons.'}
+];
+function Card(){
+  return <div style={{display:'flex',flexDirection:'column',gap:'var(--space-7)'}}>
+    <div>
+      <p style={label}>Feiten altijd zichtbaar — aanbevolen</p>
+      <div style={grid}>{rooms.map(r=><RoomCard key={r.caption} {...r} onReadMore={()=>{}}/>)}</div>
+    </div>
+    <div>
+      <p style={label}>Feiten op hover — alleen desktop</p>
+      <div style={grid}>{rooms.map(r=><RoomCard key={r.caption} {...r} reveal="hover" onReadMore={()=>{}}/>)}</div>
+    </div>
+    <div>
+      <p style={label}>Gesplitste balk uit de ontwerpen — twee acties</p>
+      <div style={grid}>
+        {rooms.slice(0,2).map(r=><RoomCard key={r.caption} image={r.image} caption={r.caption} ratio="4 / 3"
+          variant="bar" onReadMore={()=>{}} onBook={()=>{}}/>)}
+        <ImageCaptionCard image={A+'photo-hoeve-heerlijckheid.jpg'} caption="De Hoeve" ratio="4 / 3"/>
+      </div>
+    </div>
+  </div>;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Card/>);
+</script></body></html>

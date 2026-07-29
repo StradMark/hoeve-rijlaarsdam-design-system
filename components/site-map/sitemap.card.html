@@ -1,0 +1,35 @@
+<!-- @dsCard group="Pagina-onderdelen" viewport="1180x2400" name="Plattegrond — plan met legenda, en de eenvoudige variant" subtitle="Het hertekende plan: goud is boekbaar, inkt is overige bebouwing. Licht, diep, en de ruwe bron" -->
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<style>body{margin:0;background:var(--surface-page);font-family:var(--font-body)}#r{padding:28px}
+.lbl{margin:0 0 var(--space-5);font-family:var(--font-display);font-size:var(--fs-label-s);letter-spacing:var(--ls-label-wide);text-transform:uppercase;color:var(--text-muted)}</style></head>
+<body><div id="r"></div>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<script type="text/babel">
+const { SiteMap, SitePlan } = window.HoeveRijlaarsdamDesignSystem_374762;
+const A='../../assets/';
+const spots=[
+  {name:'Woonhuis',x:50.5,y:4,w:10.5,h:15,image:A+'photo-hoeve-heerlijckheid.jpg',body:'Het monumentale voorhuis aan de Nieuwveenseweg.'},
+  {name:'De Stal',x:51.5,y:19,w:8.5,h:15,image:A+'photo-stal-zoettafel.jpg',body:'Ruim 110 jaar oud, nu expositieruimte en zaal.',href:'Stal'},
+  {name:'De Hooiberg',x:49.5,y:33,w:11.5,h:13,image:A+'photo-hooiberg.jpg',body:'Vijfhoekige berg; boven plaats voor 30 gasten.',href:'Hooiberg'},
+  {name:'Het Koetshuis',x:65.5,y:33,w:14,h:18,side:'left',image:A+'photo-koetshuis-feest.jpg',body:'De grote zaal, tot 250 gasten.',href:'Koetshuis'},
+  {name:'Ontwikkelatelier',x:65.5,y:59,w:14,h:9,side:'left',image:A+'photo-atelier.jpg',body:'De oude lijstenmakerij, nu atelier en werkruimte.',href:'Ontwikkelatelier'},
+  {name:'Beeldentuin',x:9,y:24,w:36,h:54,image:A+'photo-beeldentuin-vogels.jpg',body:'Bronzen beelden tussen de hagen en het water.',href:'Beeldentuin'},
+  {name:'Parkeren',x:60,y:72,w:9,h:26,side:'left',body:'Ruim parkeerterrein direct naast de zalen, gratis.'},
+  {name:'Water',x:46.5,y:2,w:4,h:42,body:'De sloot en de vijver langs het voorhuis.'}
+];
+ReactDOM.createRoot(document.getElementById('r')).render(
+  <React.Fragment>
+    <p className="lbl">SitePlan — plan met genummerde legenda</p>
+    <SitePlan image={A+'map-plan-licht.png'} spots={spots} title="Het erf, van bovenaf"
+      onSelect={s=>console.log(s.href)}/>
+    <p className="lbl" style={{marginTop:'56px'}}>Diepe variant — voor een donkere sectie</p>
+    <SitePlan image={A+'map-plan-diep.png'} spots={spots} title="Het erf, van bovenaf"
+      onSelect={s=>console.log(s.href)}/>
+    <p className="lbl" style={{marginTop:'56px'}}>SiteMap — de eenvoudige variant, met de ruwe werkplattegrond</p>
+    <SiteMap image={A+'map-plattegrond.png'} spots={spots} onSelect={s=>console.log(s.href)}/>
+  </React.Fragment>
+);
+</script></body></html>

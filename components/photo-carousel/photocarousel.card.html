@@ -1,0 +1,35 @@
+<!-- @dsCard group="Pagina-onderdelen" viewport="1180x1080" name="PhotoCarousel — vlak of gekanteld" subtitle="Boven: de vlakke versie die nu in gebruik is. Onder: echte coverflow met perspectief" -->
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;background:var(--surface-page);font-family:var(--font-body)}
+.lbl{max-width:var(--container);margin:0 auto;padding:0 var(--space-6) var(--space-4);font-family:var(--font-display);font-size:var(--fs-label-s);letter-spacing:var(--ls-label-wide);text-transform:uppercase;color:var(--text-muted)}
+.note{max-width:66ch;margin:0 auto;padding:var(--space-4) var(--space-6) 0;font-size:var(--fs-body-s);line-height:var(--lh-body);color:var(--text-body);text-align:center}
+</style>
+</head>
+<body><div id="root"></div>
+<script type="text/babel">
+const { PhotoCarousel } = window.HoeveRijlaarsdamDesignSystem_374762;
+const A='../../assets/';
+const ITEMS=[
+  {src:A+'photo-koetshuis-feest.jpg',caption:'Koetshuis'},
+  {src:A+'photo-hooiberg-gedekt.jpg',caption:'Hooiberg'},
+  {src:A+'photo-beeldentuin-vogel.jpg',caption:'Beeldentuin'},
+  {src:A+'photo-lounge-zonsondergang.jpg',caption:'Buitenterrein'},
+  {src:A+'photo-hoeve-gazon.jpg',caption:'De hoeve'}
+];
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <div style={{padding:'28px 0 40px'}}>
+    <p className="lbl">Vlak — in gebruik</p>
+    <PhotoCarousel items={ITEMS} height={340}/>
+    <p className="lbl" style={{paddingTop:'44px'}}>Gekanteld — tilt</p>
+    <PhotoCarousel items={ITEMS} height={340} tilt initial={2}/>
+    <p className="note">De kanteling geeft diepte, maar vervormt de foto&rsquo;s in de zijposities en trekt
+      aandacht naar de beweging in plaats van naar het beeld. Op mobiel valt hij automatisch weg.</p>
+  </div>
+);
+</script>
+</body></html>

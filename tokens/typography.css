@@ -1,0 +1,36 @@
+:root{
+--font-display:"Playfair Display",Georgia,"Times New Roman",serif;
+--font-script:"Italianno","Segoe Script",cursive;
+--font-body:"Jost","Helvetica Neue",Arial,sans-serif;
+
+/* display serif — section titles, page titles, card captions, nav, buttons */
+--fs-display-xl:64px;
+--fs-display-l:44px;
+--fs-display-m:34px;
+--fs-display-s:26px;
+--fs-quote:23px; /* long-form quote in PullQuote */
+--lh-display:1.1; /* @kind other */
+--ls-display:.005em; /* @kind other */
+
+/* script kicker — always sits above/behind a display title */
+--fs-script-l:70px;
+--fs-script-m:52px;
+--fs-script-s:38px;
+--lh-script:.9; /* @kind other */
+
+/* body sans */
+--fs-body-l:16px;
+--fs-body-m:14px;
+--fs-body-s:12.5px;
+--fs-body-xs:11px;
+--lh-body:1.75; /* @kind other */
+--fw-body:300; /* @kind font */
+--fw-body-strong:500; /* @kind font */
+
+/* letterspaced serif small caps — nav, buttons, labels, faq rows */
+--fs-label-l:14px;
+--fs-label-m:12px;
+--fs-label-s:10.5px;
+--ls-label:.14em; /* @kind other */
+--ls-label-wide:.2em; /* @kind other */
+}

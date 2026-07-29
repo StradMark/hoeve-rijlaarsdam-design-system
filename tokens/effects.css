@@ -1,0 +1,16 @@
+:root{
+/* the brand is square: photography and panels have NO radius.
+   only interactive pills and faq rows are rounded. */
+--radius-none:0px;
+--radius-xs:2px;
+--radius-pill:999px;
+--shadow-card:0 2px 14px rgba(22,25,26,.10);
+--shadow-panel:0 10px 40px rgba(22,25,26,.14);
+--shadow-none:none;
+--dur-fast:150ms; /* @kind other */
+--dur-base:280ms; /* @kind other */
+--dur-slow:520ms; /* @kind other */
+--ease-out:cubic-bezier(.22,.61,.36,1); /* @kind other */
+--ease-inout:cubic-bezier(.45,.05,.55,.95); /* @kind other */
+--blur-glass:blur(6px); /* @kind other */
+}

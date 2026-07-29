@@ -1,0 +1,89 @@
+<!-- @dsCard group="Brand" viewport="700x400" name="Logo-animatie" subtitle="De nagetraceerde Hoeve wordt in schrijfvolgorde geschreven, Rijlaarsdam schuift op, de streep trekt zich, het schuurtje valt erop" -->
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>
+body{margin:0;background:var(--surface-page);display:flex;align-items:center;justify-content:center;min-height:100vh;font-family:var(--font-body)}
+.stage{width:600px;cursor:pointer;user-select:none}
+#barn{transform-box:fill-box;transform-origin:50% 100%}
+.hint{margin-top:var(--space-6);text-align:center;font-family:var(--font-display);font-size:var(--fs-label-s);letter-spacing:var(--ls-label-wide);text-transform:uppercase;color:var(--text-muted)}
+</style></head>
+<body>
+<div>
+<div class="stage" id="stage" title="Klik om de animatie te spelen">
+<svg viewBox="0 0 600 268" width="100%" role="img" aria-label="Hoeve Rijlaarsdam — Art &amp; Events">
+<defs><mask id="write" maskUnits="userSpaceOnUse" x="-40" y="-40" width="680" height="348"><path id="penH" d="M18,100 C10,70 20,44 34,46 C46,48 40,74 30,94 C22,110 18,104 24,96 C36,80 48,58 60,50 C70,44 78,52 72,66 C66,80 56,94 52,104 C48,112 54,110 62,100" stroke="#fff" fill="none" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"></path><path id="penO" d="M114,58 C110,50 96,48 90,58 C84,70 90,82 100,82 C110,82 116,70 114,60" stroke="#fff" fill="none" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"></path><path id="penE1" d="M120,72 C130,68 142,62 140,56 C138,50 128,52 124,62 C120,72 124,82 136,82 C142,83 146,78 148,74" stroke="#fff" fill="none" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"></path><path id="penV" d="M150,56 C152,70 156,80 164,82 C172,84 178,64 180,54" stroke="#fff" fill="none" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"></path><path id="penE2" d="M182,72 C192,68 204,62 202,56 C200,50 190,52 186,62 C182,72 186,82 198,82 C204,83 208,78 210,74" stroke="#fff" fill="none" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"></path><path id="penTail" d="M208,74 C240,66 280,58 318,52" stroke="#fff" fill="none" stroke-width="30" stroke-linecap="round" stroke-linejoin="round"></path></mask>
+<clipPath id="clipRij"><rect x="0" y="140" width="600" height="88"></rect></clipPath></defs>
+
+<!-- 1. Hoeve — de inkt is nagetraceerd uit assets/logo.png; de pen loopt er in schrijfvolgorde over -->
+<g transform="translate(120,41) scale(1.142,0.98)"><g mask="url(#write)"><path fill="var(--ink-900)" fill-rule="evenodd" d="M109.88 9.00L111.00 8.88L111.63 9.50L111.63 10.75L103.13 19.25L96.88 26.50L79.63 48.25L79.63 48.75L81.00 49.63L83.75 49.38L92.75 49.88L93.88 50.50L93.88 52.00L93.25 52.63L87.75 52.63L84.75 52.13L77.50 51.88L75.88 53.00L69.63 61.75L69.13 63.00L67.88 64.25L56.13 82.50L46.63 98.50L45.88 100.25L45.63 103.25L43.75 105.13L41.75 105.38L41.13 104.75L41.13 103.50L42.88 99.75L51.88 84.75L51.88 84.25L58.38 74.00L68.13 59.50L72.88 53.25L73.13 52.50L72.50 51.88L56.50 51.88L52.25 52.13L50.50 52.63L34.75 53.13L32.25 53.63L27.13 60.25L16.63 75.75L13.88 79.25L11.63 83.00L10.75 83.63L9.63 83.50L9.38 81.75L10.13 80.25L28.13 54.50L27.75 53.88L25.00 53.88L21.50 54.88L16.25 55.13L15.63 54.50L15.88 53.25L16.25 52.88L18.50 52.63L20.50 51.88L24.00 51.88L29.75 51.13L30.75 50.63L51.13 23.25L62.00 10.63L63.75 10.38L64.13 10.75L63.63 12.75L60.13 16.25L59.88 17.00L50.63 28.25L34.88 49.50L34.63 50.25L35.25 50.88L38.25 50.88L43.75 49.88L51.25 49.88L60.25 49.13L75.50 49.13L77.13 47.50L83.13 39.25L94.13 25.75L102.63 16.25L109.88 9.00ZM203.63 49.00L206.00 49.13L206.88 50.00L207.13 52.50L204.63 58.25L200.88 63.75L200.88 65.00L201.50 65.63L203.00 66.13L211.50 66.13L219.25 64.63L220.75 63.88L222.50 63.63L224.38 62.25L224.88 61.00L228.13 56.75L232.25 53.63L238.00 51.13L240.00 51.13L241.25 51.63L242.63 53.25L242.63 55.25L241.63 57.00L239.75 58.88L234.00 62.38L232.25 62.88L231.50 63.63L226.75 65.13L225.88 66.25L226.13 69.50L228.50 71.88L231.50 72.88L236.00 73.38L249.75 72.63L256.25 71.63L258.00 70.88L267.00 69.63L268.50 68.88L270.00 68.88L275.50 67.63L276.50 66.88L278.50 66.88L281.50 65.88L283.00 65.88L285.00 64.88L286.50 64.88L292.25 62.88L293.75 62.88L299.00 61.13L301.00 60.88L302.50 60.13L309.50 58.63L313.50 57.13L317.00 56.63L318.25 55.88L320.75 55.63L322.25 54.88L323.50 54.88L325.00 54.13L330.00 52.88L331.50 52.88L332.50 52.13L334.00 52.13L336.75 51.13L339.75 50.63L339.88 52.25L338.50 52.88L332.25 53.88L331.00 54.63L324.25 55.88L323.00 56.63L316.75 57.88L315.50 58.63L313.00 58.88L299.50 62.88L297.75 62.88L292.75 64.63L289.25 65.13L285.00 66.63L282.50 66.88L280.25 67.88L274.25 68.88L272.00 69.88L269.50 70.13L267.75 70.88L265.00 70.88L262.75 71.88L260.75 71.88L257.25 72.88L255.50 72.88L252.75 73.88L248.75 74.13L247.25 74.63L236.00 75.13L231.00 74.88L228.25 74.13L226.25 73.13L224.38 71.50L222.88 69.00L222.88 67.25L222.25 66.63L218.25 67.13L215.25 68.13L208.00 68.88L204.00 68.88L200.50 67.88L199.50 67.13L198.25 67.13L192.88 73.75L187.88 78.75L187.63 79.50L186.50 80.13L183.25 83.63L175.75 89.63L170.75 91.88L168.50 91.63L167.13 90.50L166.63 88.50L166.88 86.00L169.13 80.25L169.88 79.50L172.13 75.00L179.13 64.50L179.00 63.63L177.25 64.13L174.00 66.13L172.25 66.63L169.50 68.13L167.00 68.88L165.25 69.88L162.00 70.63L159.50 71.88L157.00 72.63L154.00 72.88L151.50 73.88L146.00 74.13L142.75 73.38L140.50 72.13L138.63 69.50L138.38 67.50L138.88 64.00L140.13 61.75L139.75 60.88L138.25 60.88L135.25 61.88L124.00 61.63L123.50 61.13L119.25 60.63L115.25 58.88L114.00 58.88L109.25 56.13L108.88 56.50L108.88 60.50L107.88 64.75L105.63 69.25L101.75 73.63L99.75 74.63L96.25 74.88L95.00 74.38L94.13 73.50L93.63 72.50L93.38 69.50L94.88 64.25L96.88 61.50L101.00 57.13L106.50 52.63L107.25 52.13L109.00 52.13L111.25 51.13L112.63 51.75L112.13 54.50L116.25 56.88L118.00 57.13L122.50 58.88L127.00 59.13L128.75 59.63L131.75 59.63L133.00 59.13L139.00 58.63L144.00 56.63L148.00 53.63L151.75 51.63L153.25 51.13L156.25 51.13L157.50 51.63L158.63 53.25L158.63 55.50L157.88 56.75L155.50 58.88L152.50 59.88L145.25 59.88L141.88 64.25L141.13 66.50L141.13 68.50L141.63 69.50L143.00 70.63L145.75 71.13L150.50 71.13L156.00 70.13L171.25 64.63L179.00 60.63L184.50 57.13L187.00 54.63L188.25 54.63L188.88 55.25L188.63 56.75L180.38 67.25L173.63 77.50L172.88 79.50L171.88 80.75L171.63 82.00L170.13 84.75L169.38 87.75L170.00 89.13L171.25 89.38L174.50 87.63L179.25 83.63L189.63 73.25L194.63 67.50L196.63 64.75L195.88 61.75L195.88 59.50L197.38 54.75L199.38 51.75L201.25 49.88L202.50 49.13L203.63 49.00ZM203.13 52.00L204.38 52.00L203.88 54.25L200.38 60.00L199.75 60.63L199.00 60.63L198.63 59.00L199.38 56.75L201.63 53.25L203.13 52.00ZM154.13 53.75L155.25 53.63L155.88 54.00L155.88 55.00L155.25 55.63L152.00 57.38L149.50 57.63L148.88 57.25L148.88 56.25L149.25 55.88L153.00 53.88L154.13 53.75ZM237.63 53.75L239.50 53.63L240.13 54.75L239.88 55.75L238.50 57.13L236.75 58.38L229.50 61.63L228.50 61.88L227.88 61.25L228.13 60.50L233.25 55.88L236.25 54.13L237.63 53.75ZM105.13 57.25L105.50 57.13L106.38 58.25L106.13 61.25L105.63 63.25L104.88 64.25L103.63 67.50L102.13 69.75L99.75 71.88L97.50 72.63L96.75 72.38L95.88 71.00L95.88 69.25L96.38 67.00L97.38 65.00L99.88 61.75L105.13 57.25ZM200.13 106.00L201.75 106.13L202.13 106.75L201.50 107.13L200.13 106.00ZM309.13 107.00L310.50 107.13L310.88 108.00L309.75 107.88L309.13 107.00Z"></path></g></g>
+
+<!-- 2. Rijlaarsdam -->
+<g clip-path="url(#clipRij)">
+<text id="rij" x="18" y="209" font-family="Playfair Display, serif" font-size="86.5" letter-spacing="0.5" fill="var(--gold-500)">RIJLAARSDAM</text>
+</g>
+
+<!-- 3. de streep -->
+<g id="rule"><line id="ruleA" x1="15" y1="234" x2="87" y2="234" stroke="var(--ink-900)" stroke-width="6"></line><line id="ruleB" x1="122" y1="234" x2="389" y2="234" stroke="var(--ink-900)" stroke-width="6"></line></g>
+
+<!-- 4. het schuurtje valt erop — de palen stoppen boven Rijlaarsdam -->
+<g id="barn" transform="translate(14,31) scale(0.963)">
+<g fill="var(--gold-500)"><polygon points="0.1,54.9 55.3,-0.3 62.5,7.0 7.3,62.2"></polygon><polygon points="16.2,55.0 63.4,7.9 70.5,15.0 23.3,62.1"></polygon><polygon points="32.8,54.8 71.5,16.0 78.6,23.1 39.8,61.8"></polygon><polygon points="48.6,55.1 79.6,24.1 86.7,31.2 55.7,62.2"></polygon><polygon points="64.9,55.1 87.7,32.4 94.8,39.4 72.0,62.2"></polygon><polygon points="81.2,55.1 95.8,40.5 102.5,47.2 88.0,61.8"></polygon><polygon points="97.9,55.7 104.6,49.1 110.8,55.3 104.1,61.9"></polygon></g>
+<g fill="var(--ink-900)"><rect x="9.8" y="9.3" width="8.4" height="91"></rect><rect x="93.8" y="9.3" width="8.6" height="91"></rect></g>
+</g>
+
+<!-- 5. de ondertitel -->
+<text id="ae" x="585" y="243" text-anchor="end" font-family="Playfair Display, serif" font-size="21" letter-spacing="2.8" fill="var(--ink-900)">ART &amp; EVENTS</text>
+</svg>
+</div>
+<p class="hint">Klik op het logo om de animatie te spelen</p>
+</div>
+<script>
+const $=id=>document.getElementById(id);
+const stage=$('stage'),rij=$('rij'),ruleG=$('rule'),ae=$('ae'),barn=$('barn');
+const PENS=[['penH',700],['penO',330],['penE1',330],['penV',300],['penE2',330],['penTail',560]];
+const LEN={};PENS.forEach(([id])=>{const p=$(id);LEN[id]=p.getTotalLength();
+  p.setAttribute('stroke-dasharray',LEN[id])});
+// schrijfschema: elke letter begint 50ms voor het einde van de vorige, zodat de haal doorloopt
+const SCHED=[];let t=200;PENS.forEach(([id,dur],i)=>{SCHED.push({id,start:t,dur,last:i===PENS.length-1});t+=dur-50});
+const T_RIJ=t+320,T_RULE=t+860,T_BARN=t+1340,T_AE=t+1960,DURATION=T_AE+620+400;
+const cl=(v,a,b)=>Math.max(a,Math.min(b,v));
+const easeWrite=k=>k<.5?2*k*k:1-Math.pow(-2*k+2,2)/2;
+const easeOut=k=>1-Math.pow(1-k,2);
+const easeOut3=k=>1-Math.pow(1-k,3);
+const back=k=>{const c=1.7;return 1+2.6*Math.pow(k-1,3)+c*Math.pow(k-1,2)};
+/* Alles is een pure functie van de tijd — daardoor kan de animatie zowel spelen als frame voor
+   frame geëxporteerd worden (zie exportFrames / de GIF in assets/). */
+function seek(ms){
+  SCHED.forEach(({id,start,dur,last})=>{
+    const k=cl((ms-start)/dur,0,1),e=last?easeOut(k):easeWrite(k);
+    $(id).setAttribute('stroke-dashoffset',LEN[id]*(1-e));
+  });
+  const kr=cl((ms-T_RIJ)/660,0,1);
+  rij.style.transform='translateY('+(88*(1-easeOut3(kr)))+'px)';
+  rij.style.opacity=cl((ms-T_RIJ)/360,0,1);
+  ruleG.style.transformOrigin='15px 234px';
+  ruleG.style.transform='scaleX('+easeOut3(cl((ms-T_RULE)/540,0,1))+')';
+  const kb=cl((ms-T_BARN)/780,0,1),eb=kb>=1?1:back(kb);
+  barn.style.opacity=cl((ms-T_BARN)/140,0,1);
+  barn.style.transform='translate(14px,31px) scale(0.963) translateY('+(-320*(1-eb))+'px) rotate('+(-8*(1-eb))+'deg)';
+  ae.style.opacity=cl((ms-T_AE)/620,0,1);
+}
+let raf=0;
+function play(){
+  cancelAnimationFrame(raf);
+  const t0=performance.now();
+  (function step(now){const ms=now-t0;seek(ms);if(ms<DURATION)raf=requestAnimationFrame(step)})(t0);
+}
+// De rusttoestand IS het afgemaakte logo; klikken speelt de animatie opnieuw.
+seek(DURATION);
+stage.addEventListener('click',play);
+// Zet de pagina klaar voor beeldexport: alleen het logo, schermvullend vanaf linksboven.
+window.exportMode=()=>{document.querySelector('.hint').style.display='none';
+  document.body.style.cssText='margin:0;background:#fff;display:block';
+  stage.style.width='100vw';stage.querySelector('svg').style.display='block';return DURATION};
+window.seek=seek;window.play=play;window.DURATION=DURATION;
+if(location.search.includes('debug'))PENS.forEach(([id])=>{const p=$(id).cloneNode();
+  p.setAttribute('stroke','#e0218a');p.setAttribute('stroke-width','1.5');p.removeAttribute('stroke-dasharray');
+  document.querySelector('g[transform^="translate(120,41)"]').appendChild(p)});
+</script>
+</body></html>

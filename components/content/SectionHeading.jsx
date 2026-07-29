@@ -28,9 +28,9 @@ export function SectionHeading({kicker,title,align='left',tone='light',size='m',
   return (
     <div style={{textAlign:align,...style}}>
       <span style={{display:'inline-block',position:'relative',textAlign:align,
-        paddingTop:kicker?'calc('+fsScript+' * .62)':0}}>
+        paddingTop:kicker?'calc('+fsScript+' * .64)':0}}>
         {kicker&&<span style={{position:'absolute',left:'-.18em',top:0,whiteSpace:'nowrap',
-          fontFamily:'var(--font-script)',fontSize:fsScript,lineHeight:'var(--lh-script)',
+          fontFamily:'var(--font-script)',fontVariantLigatures:'none',fontSize:fsScript,lineHeight:'var(--lh-script)',
           color:scriptColor}}>{kicker}</span>}
         <h2 style={{fontFamily:'var(--font-display)',fontSize:fsTitle,lineHeight:'var(--lh-display)',
           letterSpacing:'var(--ls-display)',color:titleColor,fontWeight:400,margin:0}}>{title}</h2>

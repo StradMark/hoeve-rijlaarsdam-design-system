@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Winter Rijlaarsdam" description="Het seizoensthema met het echte winterlogo: sneeuwvlok-lockup en woordmerk, plus mockups voor social, menukaart, hero en kaartje." -->
+<helmet><script src="./ds-base.js"></script><style>body{margin:0;background:#e9edee}</style></helmet>
+<div data-season="winter" style="font-family:var(--font-body);color:var(--ink-700);background:#e9edee;padding:56px 48px;display:grid;gap:56px;justify-items:center">
+
+<div style="width:100%;max-width:1180px;display:flex;align-items:flex-end;justify-content:space-between;gap:24px;border-bottom:1px solid #c8d9de;padding-bottom:20px">
+<div>
+<div style="font-family:var(--font-script);font-variant-ligatures:none;font-size:44px;line-height:.9;color:#b08344;margin-bottom:-.22em;margin-left:-.14em">elk jaar weer</div>
+<h1 style="font-family:var(--font-display);font-size:46px;line-height:1.1;color:#0f2a24;font-weight:400;margin:0">Winters Rijlaarsdam</h1>
+</div>
+<div style="font-size:12.5px;line-height:1.7;color:#5b6362;max-width:38ch">Van eerste advent tot en met januari. Het seizoenslogo van de ontwerper, en dezelfde site in een koudere jas: sage wijkt voor vorst, het groen zakt dieper, goud wordt kaarslicht.</div>
+</div>
+
+<div style="width:100%;max-width:1180px;display:grid;grid-template-columns:380px 1fr;gap:40px;align-items:start">
+
+<div style="display:grid;gap:12px">
+<div style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8fa9b1">Social — 1080 &times; 1080</div>
+<div style="width:380px;height:380px;background:#16382f;padding:30px;display:grid;grid-template-rows:auto 1fr auto;box-shadow:0 18px 40px rgba(15,42,36,.22)">
+<div style="display:flex;justify-content:center">
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.WinterLockup" variant="reversed" size="{{ 128 }}" script="{{ altWord }}" tone="onDeep" asset-base="../../assets/" hint-size="240px,128px"></x-import>
+</div>
+<div style="align-self:center;text-align:center">
+<div style="font-family:var(--font-script);font-variant-ligatures:none;font-size:46px;line-height:.9;color:#d9bd8c;margin-bottom:-.18em">aan tafel met</div>
+<div style="font-family:var(--font-display);font-size:30px;line-height:1.1;color:#f6f9fa">Kerstdiner in de Hooiberg</div>
+</div>
+<div style="display:flex;align-items:center;justify-content:space-between;border-top:1px solid rgba(246,249,250,.24);padding-top:12px">
+<span style="font-family:var(--font-display);font-size:11px;letter-spacing:.2em;color:#f6f9fa">25 &amp; 26 DECEMBER</span>
+<span style="font-family:var(--font-display);font-size:11px;letter-spacing:.2em;color:#d9bd8c">RIJLAARSDAM.NL</span>
+</div>
+</div>
+</div>
+
+<div style="display:grid;gap:12px">
+<div style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8fa9b1">Menukaart — A5, goud op sneeuw</div>
+<div style="background:#f6f9fa;padding:40px 44px;box-shadow:0 18px 40px rgba(15,42,36,.14)">
+<div style="display:flex;justify-content:center">
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.WinterLockup" variant="wordmark" tone="gold" size="{{ 64 }}" script="{{ altWord }}" asset-base="../../assets/" hint-size="260px,64px"></x-import>
+</div>
+<div style="text-align:center;margin-top:30px">
+<div style="font-family:var(--font-script);font-variant-ligatures:none;font-size:38px;line-height:.9;color:#b08344;margin-bottom:-.2em">vijf gangen</div>
+<div style="font-family:var(--font-display);font-size:32px;color:#0f2a24">Winterkeuken</div>
+</div>
+<div style="display:grid;gap:18px;margin-top:32px;max-width:44ch;margin-left:auto;margin-right:auto;text-align:center">
+<div><div style="font-family:var(--font-display);font-size:16px;color:#0f2a24">Coquille &amp; knolselderij</div><div style="font-size:12.5px;color:#5b6362;line-height:1.7">geroosterde hazelnoot, bruine boter</div></div>
+<div><div style="font-family:var(--font-display);font-size:16px;color:#0f2a24">Hertenrug van de Nieuwkoopse plassen</div><div style="font-size:12.5px;color:#5b6362;line-height:1.7">rode kool, jus van jeneverbes</div></div>
+<div><div style="font-family:var(--font-display);font-size:16px;color:#0f2a24">Gepocheerde peer</div><div style="font-size:12.5px;color:#5b6362;line-height:1.7">kruidnagelijs, karamel van muscovado</div></div>
+</div>
+<div style="display:flex;align-items:center;gap:14px;margin-top:34px">
+<span style="flex:1;height:1px;background:#c8d9de"></span>
+<span style="font-family:var(--font-display);font-size:10.5px;letter-spacing:.2em;color:#8fa9b1">HOEVE RIJLAARSDAM &middot; NIEUWKOOP</span>
+<span style="flex:1;height:1px;background:#c8d9de"></span>
+</div>
+</div>
+</div>
+
+</div>
+
+<div style="width:100%;max-width:1180px;display:grid;gap:12px">
+<div style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8fa9b1">Hero — winterband op de site</div>
+<div style="position:relative;height:420px;overflow:hidden;box-shadow:0 18px 40px rgba(15,42,36,.18)">
+<img src="../../assets/photo-hoeve-heerlijckheid.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.72) brightness(.94) contrast(1.04)">
+<div style="position:absolute;inset:0;background:linear-gradient(180deg,rgba(15,42,36,.58) 0%,rgba(15,42,36,.2) 42%,rgba(15,42,36,.78) 100%)"></div>
+<div style="position:absolute;inset:0;padding:28px 44px;display:grid;grid-template-rows:auto 1fr auto">
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.WinterLockup" variant="wordmark" tone="onDeep" size="{{ 48 }}" script="{{ altWord }}" asset-base="../../assets/" hint-size="220px,48px"></x-import>
+<div style="align-self:center;text-align:center">
+<div style="font-family:var(--font-script);font-variant-ligatures:none;font-size:64px;line-height:.9;color:#d9bd8c;margin-bottom:-.2em">kom binnen uit</div>
+<div style="font-family:var(--font-display);font-size:52px;line-height:1.08;color:#f6f9fa">De kou</div>
+</div>
+<div style="display:flex;justify-content:center">
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.Button" variant="primary" hint-size="200px,44px">BEKIJK HET WINTERPROGRAMMA</x-import>
+</div>
+</div>
+</div>
+</div>
+
+<div style="width:100%;max-width:1180px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:24px;align-items:start">
+
+<div style="display:grid;gap:12px">
+<div style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8fa9b1">Kaartje — mono, gestempeld</div>
+<div style="background:#fff;padding:26px;border:1px solid #c8d9de;display:grid;gap:18px;justify-items:center;text-align:center;color:#16191a">
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.WinterLockup" variant="wordmark" tone="mono" size="{{ 40 }}" script="{{ altWord }}" asset-base="../../assets/" hint-size="170px,40px"></x-import>
+<div style="font-family:var(--font-display);font-size:13px;letter-spacing:.16em;color:#16191a">TAFEL VOOR TWEE</div>
+<div style="font-size:12px;color:#5b6362;line-height:1.7">19.30 uur &middot; Hooiberg boven</div>
+<sc-if value="{{ useBerry }}" hint-placeholder-val="{{ true }}"><span style="width:44px;height:3px;background:#6e2a2c"></span></sc-if>
+</div>
+</div>
+
+<div style="display:grid;gap:12px">
+<div style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8fa9b1">Bord — panel op sneeuw</div>
+<div style="background:#f6f9fa;padding:22px;border:1px solid #c8d9de;display:grid;gap:18px;justify-items:center;text-align:center">
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.WinterLockup" variant="panel" size="{{ 112 }}" script="{{ altWord }}" asset-base="../../assets/" hint-size="100%,112px"></x-import>
+<div style="font-family:var(--font-script);font-variant-ligatures:none;font-size:34px;line-height:.9;color:#b08344">welkom</div>
+<div style="font-size:12px;color:#5b6362;line-height:1.7">Jassen graag links,<br>de gl&uuml;hwein staat rechts</div>
+</div>
+</div>
+
+<div style="display:grid;gap:12px">
+<div style="font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#8fa9b1">Bestaande componenten in het seizoen</div>
+<div style="background:#f6f9fa;border:1px solid #c8d9de;padding:14px;display:grid;gap:14px">
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.RoomCard" image="../../assets/photo-hooiberg-gedekt.jpg" caption="Hooiberg" dc-props="{{ roomProps }}" hint-size="100%,260px"></x-import>
+<div style="font-size:11px;color:#8fa9b1;line-height:1.7">Dezelfde <code>RoomCard</code> — alleen <code>data-season="winter"</code> op de sectie.</div>
+</div>
+</div>
+
+</div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;seasonWord&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Winters&quot;,&quot;Kerst&quot;,&quot;Oud &amp; Nieuw&quot;,&quot;Winterpop-up&quot;],&quot;default&quot;:&quot;Winters&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Seizoen&quot;},&quot;useBerry&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Seizoen&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    // 'Winters' = het aangeleverde artwork; elk ander woord laat WinterLockup het lockup
+    // typografisch nabouwen (alleen voor schetsen op scherm, niet voor drukwerk).
+    const word = this.props.seasonWord ?? 'Winters';
+    return {
+      altWord: word === 'Winters' ? null : word,
+      useBerry: this.props.useBerry ?? true,
+      roomProps: { meta: ['30 gasten', 'Boven, met balken'], summary: 'Intiem kerstdiner onder de oude kap.' }
+    };
+  }
+}
+
+</script>
+</body>
+</html>

@@ -153,8 +153,7 @@ script-koppen, kaartcaptions, de verzendbutton, het actieve navigatie-item; nooi
 per pagina** (wit/crème + saliegroen óf donkergroen). Nergens gradiënten, behalve de beschermlaag over foto's.
 
 **Typografie.** Drie rollen, niet meer. De kicker hangt altijd 0,34em links van de titelrand en overlapt hem verticaal — nooit naar binnen inspringen, en nooit met de hand nabouwen; `SectionHeading`, `HeroVideo` en `BenefitsPanel` regelen dit. Gekozen richting: **A · Klassiek & scherp** (zie `guidelines/fontkeuze.html`) — tijdelijke Google-Fonts-vervangers tot de echte fontbestanden er zijn. Display-serif (vervanger: Playfair Display) voor elke kop, navigatie-item,
-button, caption en FAQ-vraag. Monolineair handschrift (vervanger: Italianno) *alleen* voor de script-koppen. Lichte
-geometrische sans (vervanger: Jost) op 14px/1,75 voor alle bodytekst. Bodytekst is bewust klein en licht tegenover
+button, caption en FAQ-vraag. **BDScript** (vervanger: Italianno) *alleen* voor de script-koppen, met de swirl achter de ‘e’ — die swirl mag ook achter de `&` en elders waar het beeld het verantwoordt. **Raleway** 300 op 14px/1,75 voor alle bodytekst. Bodytekst is bewust klein en licht tegenover
 zeer grote koppen — dat contrast is het ritme van het merk.
 
 **Layout.** Container van 1180px, 96px sectiepadding, 24px grid-gap, drie kolommen als standaard. Volle
@@ -204,26 +203,86 @@ carrouseldriehoekjes staan vast aan de randen van het scherm, verticaal gecentre
 
 ---
 
+## WINTER RIJLAARSDAM
+
+Het winterthema komt elk jaar terug (advent tot en met januari: kerstdiners, winterpop-up, borrels) en is
+**geen tweede merk**. Dezelfde flessengroen, hetzelfde goud, dezelfde drie typografische rollen — alleen
+het klimaat verandert: saliegroen wijkt voor vorst-neutralen, het groen zakt een stap dieper naar pine
+`#16382F`, en goud wordt op donker het warmere kaarslicht `#D9BD8C`. Berry `#6E2A2C` mag als accent van
+**één element per uiting** (een zegel, een streep) en nooit als vlak.
+
+**Aanzetten met één attribuut.** `data-season="winter"` op `<html>` of op één sectie herschrijft de
+semantische tokens (`tokens/winter.css`); alle bestaande componenten volgen mee, want ze lezen nooit een
+ruwe kleur. Zo is een winterpagina dezelfde pagina, niet een tweede versie ervan.
+
+**`WinterLockup`** is het aangeleverde seizoenslogo als vector: `variant="panel"` (sneeuwvlok-lockup op
+flessengroen), `variant="reversed"` (dezelfde tekening wit/goud op transparant, voor foto's en pine) en
+`variant="wordmark"` (het losse "Winters RIJLAARSDAM" in zwart, wit, goud of currentColor). Het
+**vervangt** het hoofdlogo voor de duur van de campagne — de twee staan nooit samen in één beeld. Panel en
+reversed minimaal 96px hoog (daaronder loopt de sneeuwvlok dicht), wordmark minimaal 34px. Voor een ander
+seizoenswoord (`script="Kerst"`) bouwt het component het lockup typografisch na: alleen voor schetsen op
+scherm, nooit voor drukwerk.
+
+`guidelines/color-winter.html` toont het palet, `components/seasonal/winter-logo.card.html` de tekeningen,
+`templates/winter-rijlaarsdam/` de mockups (social, menukaart, hero, kaartje, bord).
+
 ## LOGO-ANIMATIE
 
-`guidelines/logo-animation.html` speelt het merk in vijf tellen op: **Hoeve** wordt geschreven,
-**RIJLAARSDAM** schuift van onderen zijn eigen band in, de **zwarte streep** trekt zich van links naar
-rechts, het **schuurtje** valt met een lichte doorschot op zijn plek (`cubic-bezier(.3,1.48,.55,1)` —
-de enige plek in het systeem waar iets doorschiet), en **ART & EVENTS** sluit af met een fade. Klik op het logo om te spelen; de rusttoestand is het afgemaakte merk, zodat een miniatuur nooit leeg is.
+`guidelines/logo-animation.html` schrijft het **echte vectorlogo** in vijf tellen op: **Hoeve** wordt met de
+pen geschreven, **RIJLAARSDAM** wist van links open, de twee **strepen** trekken zich, het **schuurmerk** komt
+met een korte lift op zijn plek en **ART & EVENTS** sluit af met een fade. Klik op het logo om opnieuw te
+schrijven; de rusttoestand is het afgemaakte merk, zodat een miniatuur nooit leeg is.
 
-Het schrijven werkt met een **pennenroute**: een pad dat op en neer beweegt terwijl het vordert, gebruikt
-als masker. Daardoor komt de inkt met een schuine, onregelmatige rand tevoorschijn in plaats van als een
-rechte wisser — een hand die schrijft, niet een gordijn dat opengaat. De **uithaal** achter de laatste e
-is wél een echte pennenstreek: een pad dat zichzelf uittrekt met `stroke-dashoffset`.
+**Hoe het schrijven werkt.** De letters zijn geen namaak meer: het is het woordmerk uit de huisstijl-PDF
+(`assets/logo-hoeve-script.svg`). Over die inkt ligt een masker van **vier pennestreken** — de pen zet de
+H in drie halen (linkerstok naar beneden, rechterstok naar beneden, dan de dwarsstreep van links naar
+rechts) en schrijft daarna `oeve` plus de uithaal in **één doorlopende haal**. Tussen de halen zit een
+gaatje in de tijdlijn: dat is de **pennelichting**, en die maakt het verschil tussen tekenen en schrijven.
 
-Belangrijk: het woordmerk is hier gezet in de **vervangende fonts** (Italianno + Playfair Display), niet
-het echte logo. Het schuurtje is de nagemeten vector, dat deel is wel echt. Zodra het originele logo als
-SVG beschikbaar is, wordt het schrift één doorlopend pad en kan het letterlijk met de pen geschreven
-worden — zelfde code, ander pad, en dan is het masker niet meer nodig.
+De pennenroutes zijn niet op het oog getekend maar **uit de letter gemeten**: voor `oeve` is elk punt van
+de omtrek met de helft van de pendikte naar binnen geschoven (dat geeft de hartlijn), en voor de H is de
+letter gerasterd en per scanlijn het midden van de haal gevolgd. Daardoor loopt het masker exact over de
+inkt en niet ernaast.
 
-**Let op**: dit bestand bevat een tweede schuurtje-geometrie (palen van 118 in plaats van 91 hoog), omdat
-de lockup langere palen heeft dan het losse merkteken in `assets/logo-mark.svg`. Bij het aanleveren van
-het echte logo moeten die twee weer één worden.
+Bij de **kruispunten** van de H is elke stok in vijf stukken geknipt: 3,4 breed op de haal zelf, via 2,8
+geknepen naar 2,15 in de vijf eenheden rond het kruispunt — smaller dan de inkt van de stok (2,4), zodat het
+masker de dwarsstreep daar niet kan aanraken en er geen stukje dwarsstreep meelicht voordat de pen er is.
+De haal houdt overal dezelfde dikte; alleen de buitenste inktrand op het kruispunt blijft nog even liggen
+tot de dwarsstreep langskomt en die zelf opvult. De stukken overlappen 0,3 eenheid, anders komen er
+maskernaden in de inkt te staan.
+
+De **snelheid is ongelijk**, zoals bij een hand: traag door de lussen van o, e, v en e, en dan haalt de
+uithaal uit over de laatste 45% van de lijn in 30% van de tijd. Een klein **goudkleurig penpunt** rijdt met
+de streek mee (`offset-path`) en verdwijnt zodra de haal klaar is. Met `prefers-reduced-motion` staat het
+afgemaakte merk er meteen, zonder pen.
+
+**Vier varianten in dezelfde kaart.** De tijden staan in CSS-variabelen, dus elke variant zet alleen die
+variabelen: **Vlotte hand** (2,5s — de H in één vlotte beweging, caps en schuurmerk landen samen in het goud),
+**Letterpers** (2,8s — de caps zetten zich in negen groepen van links naar rechts in plaats van met een wisser),
+**Merk eerst** (2,8s — het schuurmerk staat er eerst, daarna wordt het merk ondertekend) en
+**Alleen schrijven** (2,2s — schuurmerk, strepen en ART & EVENTS staan er al; alleen het schrift beweegt).
+RIJLAARSDAM staat in alle varianten in goud.
+
+**Winter.** `guidelines/logo-animation-winter.html` doet hetzelfde met het winterlogo op het groene vlak.
+Het gouden `Winters` wordt met de pen geschreven in **dertien halen** die niet meer uit de letteromtrek maar uit
+het **skelet van de inkt zelf** komen: de letters zijn verdund tot een lijn van één pixel, dat skelet is als graaf
+gelezen (eindpunten en kruispunten), en de takken zijn van links naar rechts aan elkaar geregen — W, i, n, dan de t
+van bovenaf naar beneden met de lus eronder, de e, r, s en de uithaal, met het streepje door de t en de punt op
+de i als laatste. Elke haal krijgt `pathLength="1000"`, zodat de streepmaat exact op de lijn past en er op t=0
+geen inkt zichtbaar is. Bij het kruispunt met het streepje is de neerhaal van de t in vijf stukken geknipt en de
+pen daar tot 1,72 geknepen — smaller dan de inkt van het streepje, dus dat kan niet vooruit lichten (zelfde
+ingreep als bij de H van Hoeve). Waar een haal over al getekende inkt terugloopt (de W, de n, de s) is dat stuk
+apart gezet en gaat de pen er vier keer zo snel over; anders lijkt de animatie te haperen omdat er even niets
+verschijnt. Elke hartlijn
+ligt daardoor per definitie op de inkt, en de pendikte per haal is de gemeten inktdikte plus een vijfde: dekkend
+zonder de buurletters vooruit te laten lichten (99,6% van de inkt, met zeven kleine tikjes voor de rest).
+Pas als het schrift staat komt de **grote sneeuwvlok** op; daarna landen caps en schuurmerk samen in het goud.
+De dwarrelende vlokjes zijn getekende zesarmige vlokken die over de volle hoogte van het vlak zakken — elk met
+eigen zijwaartse drift (naar links, naar rechts of bijna recht), eigen zwaai, eigen draai en eigen tempo van 11
+tot 23 seconden; grote vlokken zakken sneller en dekkender dan kleine, wat diepte geeft. In het
+statische logo blijven de originele spikkels van de ontwerper staan — de vlokken bestaan alleen in de animatie.
+Naast **Vlotte hand** staan er nog twee opbouwen in dezelfde kaart: **Sneeuw eerst** (3,0s — het vlak begint met sneeuw, daaruit zet de grote vlok zich vast en pas dan wordt de naam eronder geschreven) en **Vlok als slot** (3,2s — eerst de naam, dan landen caps en schuurmerk samen in het goud, en de vlok sluit af als seizoensteken). De vertraging van het schrift zit in één variabele (`--shift`), dus een variant hoeft alleen de tijden te zetten. De vierde variant, **Alleen dwarrelen**, laat het logo staan en beweegt alleen de sneeuw; elk vlokje verdooft aan
+begin en eind van zijn cyclus, dus de lus loopt eeuwig naadloos rond.
 
 ## ICONOGRAFIE
 
@@ -239,12 +298,12 @@ on-brand terwijl het merkteken onaangetast blijft.
 
 Profielen: instagram.com/hoeverijlaarsdam · facebook.com/HoeveRijlaarsdam
 
-- **Het boerderijmonogram** is het enige echte merkteken — zeven gouden dakbalken van 45° boven twee zwarte palen.
+- **Het boerderijmonogram** is het enige echte merkteken — gouden dakbalken van 45° boven twee zwarte palen.
   Beschikbaar als **`assets/logo-mark.svg`** (kleur) en **`assets/logo-mark-mono.svg`** (volgt `currentColor`, voor
-  éénkleurig gebruik op groen of goud). Deze SVG's zijn *nagemeten* uit het aangeleverde logo: de balken en palen zijn
-  per pixel opgemeten en als exacte polygonen weggeschreven, niet natekend benaderd. Ze zijn dus schaalbaar en scherp,
-  maar blijven een reconstructie — vraag bij de ontwerper het originele vectorbestand op ter controle. Het merk staat
-  alleen in de smalste navigatievarianten. **Minimaal 32px hoog**: door de zeven balken en de witte tussenruimtes
+  éénkleurig gebruik op groen of goud). Deze SVG's zijn **uit het vectorlockup van de ontwerper gesneden** — de eerder
+  nagemeten versie is vervangen, zodat het losse merkteken en het merkteken in het logo exact dezelfde tekening zijn.
+  Het merk staat
+  alleen in de smalste navigatievarianten. **Minimaal 32px hoog**: door de balken en de witte tussenruimtes
   loopt het daaronder dicht en wordt het een vlek. Voor favicon- en app-icoonformaten is een **vereenvoudigde variant
   met 3 of 4 balken** nodig — die heb ik niet zelf gemaakt, omdat dat de merkgeometrie verandert; vraag die bij de
   ontwerper op.
@@ -292,12 +351,14 @@ De overzichtspagina is in drie lagen geordend: eerst de **fundamenten**, dan de 
 | Panelen en quotes | `BenefitsPanel`, `FaqAccordion`, `TestimonialCard` · `SplitPanel` · `QuoteBar` · `PullQuote` | `content/`, `layout/`, `quote-bar/`, `pull-quote/` |
 | Hero's | `SplitHero` (alleen homepage) · `HeroVideo` (alle overige pagina's) | `split-hero/`, `hero/` |
 | Pagina-onderdelen | `NavBar` · `CtaBand` · `PhotoCarousel` · `PageOutro` · `Footer` · `SitePlan` (plan met legenda) · `SiteMap` (eenvoudig, hovertegel) | eigen map per component |
+| Seizoen | `WinterLockup` (het logo in zijn winterjas) | `seasonal/` |
 
 **Voorbeelden**
 
 | Pad | Wat het is |
 | --- | --- |
 | `templates/website-page/` | Startpunt voor een nieuwe paginaopzet (nav · hero · quotebalk · intro · raster · FAQ · footer) — groep "Templates" |
+| `templates/winter-rijlaarsdam/` | Het seizoensthema: `WinterLockup` in vier tonen plus mockups voor social, menukaart, hero en kaartje — groep "Templates" |
 | `ui_kits/website/` | Doorklikbare reconstructie van de site, 15 pagina's, met eigen README — groep "Voorbeeldsite" |
 
 **Losse bestanden**
@@ -306,7 +367,7 @@ De overzichtspagina is in drie lagen geordend: eerst de **fundamenten**, dan de 
 | --- | --- |
 | `styles.css` | Het enige bestand dat afnemers koppelen — uitsluitend `@import`-regels |
 | `tokens/colors.css` · `typography.css` · `spacing.css` · `effects.css` · `base.css` · `fonts.css` | Tokenlagen, element-resets en webfontdeclaraties |
-| `assets/` | `logo.png`, `logo-mark.svg` + `logo-mark-mono.svg`, `logo-mark.png`, de werkplattegrond en circa 45 echte foto's, benoemd per categorie (`photo-koetshuis-*`, `photo-hooiberg-*`, `photo-stal-*`, `photo-beeldentuin-*`, `photo-bruiloft-*`, `photo-hoeve-*`, plus culinair en personeel) |
+| `assets/` | De logo's als **vector**: `logo-lockup.svg` (+ `-goud`, `-liggend`, `-wit`, `-mono`), `logo-wordmark.svg`, `logo-mark.svg` + `logo-mark-mono.svg`, `logo-winter-*.svg`, `ornament-swirl.svg`. Verder `logo.png`/`logo-mark.png` (historie), de werkplattegrond en circa 45 echte foto's, benoemd per categorie (`photo-koetshuis-*`, `photo-hooiberg-*`, `photo-stal-*`, `photo-beeldentuin-*`, `photo-bruiloft-*`, `photo-hoeve-*`, plus culinair en personeel) |
 | `guidelines/content-en-feiten.md` | Tekst- en feitenbank uit de live sites — prijzen, capaciteiten, contactgegevens, echte koppenparen |
 | `SKILL.md` | Wrapper zodat dit systeem ook vanuit Claude Code te gebruiken is (bewust in het Engels: instructie voor de agent) |
 
@@ -317,14 +378,22 @@ De overzichtspagina is in drie lagen geordend: eerst de **fundamenten**, dan de 
   checkbox, radio, switch, datumkiezer) komt in het aangeleverde materiaal voor, dus is er geen gemaakt.
 
 ### Bekende hiaten — graag aanleveren
-1. **Fontbestanden.** Playfair Display / Italianno / Jost zijn Google-Fonts-vervangers voor de echte display-serif,
-   het handschrift en de body-sans; zie `guidelines/fontkeuze.html` voor de drie richtingen en de onderbouwing.
-   Vooral het woordmerk in het logo is een andere didone.
-2. **Logo**: het volledige logo bestaat alleen als JPEG-uitsnede op wit — geen origineel vectorbestand, geen versie in
-   één kleur of omgekeerd. Het schuurmerk heb ik wel nagemeten tot SVG (zie ICONOGRAFIE); het woordmerk en de
-   *Hoeve*-handschriftregel kunnen dat niet, die vragen het echte bestand of de letternaam.
+1. **BDScript.** De huisstijl van de ontwerper (`uploads/Logo RIJLAARSDAM huisstijl.pdf`) schrijft **Playfair Display**
+   (koppen, logocombinatie, CAPS; klein voor USP’s; semibold/bold mag op socials) en **Raleway** (bodycopy) voor —
+   die staan nu in de tokens. Alleen **BDScript** ontbreekt nog als bestand (commercieel, niet op Google Fonts);
+   Italianno staat er tijdelijk voor in. Lever het BDScript-bestand aan, dan is alleen `--font-script` een wijziging.
+2. ~~**Logo**~~ Opgelost: alle logoversies staan nu als **vector** in `assets/`, rechtstreeks uit de huisstijl-PDF van
+   de ontwerper gehaald (`logo-lockup.svg`, `-goud`, `-liggend`, `-wit`, `-mono`, `logo-wordmark.svg`,
+   `logo-winter-*.svg`, `ornament-swirl.svg`). Zie de kaarten **Logo**, **Winterlogo** en **Swirl-ornament**.
+   Nog wél de vraag aan de ontwerper: officiële naamgeving en eventuele PMS-waarden.
 3. ~~**Fotografie.**~~ Opgelost: 39 echte foto's van de locatie staan in `assets/` (aangeleverd 28-07-2026, circa 2000px breed). De oude uitsnedes uit de ontwerpen zijn verwijderd.
 4. **Lijniconen** en de **geïllustreerde plattegrond**.
+7. **Winterartwork voor andere seizoenswoorden.** De ontwerper leverde "Winters RIJLAARSDAM"; `Kerst` en
+   `Oud & Nieuw` worden nu typografisch nagebouwd — goed voor schetsen op scherm, niet voor drukwerk.
 5. **Nog ontbrekend beeldmateriaal**: video's voor de hero's (twee rustige loops van 8–12 seconden, één in de galerie en één op een feest), en foto's van de Stal als vergaderruimte en van het Ontwikkelatelier in gebruik.
 6. **Welke cijfers actueel zijn.** Prijzen en capaciteiten in de feitenbank zijn zoals gepubliceerd op
    feestenmeetings.nl in juli 2026; openingstijden verschillen per bron (zie de notitie in dat bestand).
+
+## Ingang
+
+`index.html` in de projectmap is de voordeur van de export: daar staan de doorklikbare voorbeeldsite (met een levende preview), het kaartenoverzicht, de deel- en printversies en de losse animaties en plattegrond. De overzichten hebben linksboven een terugkoppeling naar de index.

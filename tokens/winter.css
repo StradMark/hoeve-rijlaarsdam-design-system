@@ -1,0 +1,46 @@
+/* --- Winter Rijlaarsdam ------------------------------------------------------
+   Het seizoensthema dat elk jaar terugkomt (kerstdiners, winterpop-up, borrels).
+   Geen tweede merk: dezelfde flessengroen en hetzelfde goud, maar de zomerse sage
+   wordt vervangen door koude vorst-neutralen en het groen zakt een stap dieper.
+
+   Gebruik: zet data-season="winter" op <html> of op een sectie. Alle bestaande
+   componenten volgen dan mee — ze lezen alleen de semantische tokens.            */
+:root{
+--winter-pine-900:#0f2a24;
+--winter-pine-800:#16382f;
+--winter-pine-700:#1f4a3c;
+--winter-frost-500:#8fa9b1;
+--winter-frost-400:#a9c2c8;
+--winter-frost-300:#c8d9de;
+--winter-frost-200:#dfeaed;
+--winter-snow-100:#f6f9fa;
+--winter-candle-400:#d9bd8c; /* warm kaarslicht — goud dat oplicht op donker */
+--winter-berry-700:#6e2a2c; /* uiterst spaarzaam: één accent per uiting */
+}
+
+[data-season="winter"]{
+--surface-page:var(--winter-snow-100);
+--surface-cream:var(--winter-snow-100);
+--surface-sage:var(--winter-pine-700);
+--surface-sage-soft:var(--winter-frost-200);
+--surface-deep:var(--winter-pine-800);
+--surface-deep-alt:var(--winter-pine-900);
+--surface-panel:var(--winter-pine-900);
+--surface-panel-soft:var(--winter-frost-300);
+
+--text-body:var(--ink-700);
+--text-muted:var(--winter-frost-500);
+--text-kicker:var(--gold-500);
+--text-on-dark:var(--winter-snow-100);
+--text-on-dark-muted:var(--winter-frost-400);
+--text-on-sage:var(--winter-snow-100);
+--text-link:var(--winter-pine-800);
+
+--border-hairline:var(--winter-frost-300);
+--border-on-dark:rgba(246,249,250,.24);
+--accent:var(--winter-pine-800);
+--accent-hover:var(--winter-pine-900);
+--accent-alt:var(--gold-500);
+--accent-alt-hover:var(--gold-600);
+--overlay-photo:linear-gradient(180deg,rgba(15,42,36,0) 26%,rgba(15,42,36,.62) 100%); /* @kind other */
+}

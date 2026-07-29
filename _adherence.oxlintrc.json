@@ -28,6 +28,7 @@
               "components/photo-carousel/**",
               "components/pull-quote/**",
               "components/quote-bar/**",
+              "components/seasonal/**",
               "components/site-map/**",
               "components/split-hero/**",
               "doc-page.js",
@@ -49,8 +50,8 @@
         "message": "Raw px value — use a design-system spacing token via var()."
       },
       {
-        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:Playfair Display|Italianno|Jost))/i]",
-        "message": "Font not provided by the design system. Available: Playfair Display, Italianno, Jost."
+        "selector": "Literal[value=/font-family\\s*:\\s*(?!['\\\"]?(?:BDScript|Playfair Display|Italianno|Raleway))/i]",
+        "message": "Font not provided by the design system. Available: BDScript, Playfair Display, Italianno, Raleway."
       },
       {
         "selector": "JSXOpeningElement[name.name='BenefitsPanel'] > JSXAttribute > JSXIdentifier[name!=/^(?:kicker|title|items|tone|style|key|ref|className|style|children)$/]",
@@ -213,8 +214,8 @@
         "message": "<SiteMapSpot> side must be one of 'left' | 'right'."
       },
       {
-        "selector": "JSXOpeningElement[name.name='SitePlan'] > JSXAttribute > JSXIdentifier[name!=/^(?:image|spots|alt|title|hint|onSelect|style|key|ref|className|style|children)$/]",
-        "message": "<SitePlan> doesn't accept that prop. Declared props: image, spots, alt, title, hint, onSelect, style."
+        "selector": "JSXOpeningElement[name.name='SitePlan'] > JSXAttribute > JSXIdentifier[name!=/^(?:image|spots|alt|title|hint|onSelect|openOnHover|style|key|ref|className|style|children)$/]",
+        "message": "<SitePlan> doesn't accept that prop. Declared props: image, spots, alt, title, hint, onSelect, openOnHover, style."
       },
       {
         "selector": "JSXOpeningElement[name.name='SplitHeroItem'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|ctaLabel|image|video|onSelect|key|ref|className|style|children)$/]",
@@ -243,6 +244,18 @@
       {
         "selector": "JSXOpeningElement[name.name='TestimonialCard'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:sage|deep)$/]",
         "message": "<TestimonialCard> tone must be one of 'sage' | 'deep'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='WinterLockup'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|tone|size|assetBase|script|word|tagline|showMark|style|key|ref|className|style|children)$/]",
+        "message": "<WinterLockup> doesn't accept that prop. Declared props: variant, tone, size, assetBase, script, word, tagline, showMark, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='WinterLockup'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:panel|reversed|wordmark)$/]",
+        "message": "<WinterLockup> variant must be one of 'panel' | 'reversed' | 'wordmark'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='WinterLockup'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:light|onDeep|gold|mono)$/]",
+        "message": "<WinterLockup> tone must be one of 'light' | 'onDeep' | 'gold' | 'mono'."
       }
     ]
   },
@@ -329,6 +342,9 @@
       },
       "TestimonialCard": {
         "replaces": []
+      },
+      "WinterLockup": {
+        "replaces": []
       }
     },
     "tokens": [
@@ -354,6 +370,7 @@
       "--font-body",
       "--font-display",
       "--font-script",
+      "--font-script-bd",
       "--fs-body-l",
       "--fs-body-m",
       "--fs-body-s",
@@ -436,7 +453,17 @@
       "--text-on-dark",
       "--text-on-dark-muted",
       "--text-on-sage",
-      "--white"
+      "--white",
+      "--winter-berry-700",
+      "--winter-candle-400",
+      "--winter-frost-200",
+      "--winter-frost-300",
+      "--winter-frost-400",
+      "--winter-frost-500",
+      "--winter-pine-700",
+      "--winter-pine-800",
+      "--winter-pine-900",
+      "--winter-snow-100"
     ],
     "tokenKinds": {
       "--green-900": "color",
@@ -492,6 +519,7 @@
       "--overlay-photo": "other",
       "--font-display": "font",
       "--font-script": "font",
+      "--font-script-bd": "font",
       "--font-body": "font",
       "--fs-display-xl": "spacing",
       "--fs-display-l": "spacing",
@@ -516,6 +544,16 @@
       "--fs-label-s": "spacing",
       "--ls-label": "other",
       "--ls-label-wide": "other",
+      "--winter-pine-900": "color",
+      "--winter-pine-800": "color",
+      "--winter-pine-700": "color",
+      "--winter-frost-500": "color",
+      "--winter-frost-400": "color",
+      "--winter-frost-300": "color",
+      "--winter-frost-200": "color",
+      "--winter-snow-100": "color",
+      "--winter-candle-400": "color",
+      "--winter-berry-700": "color",
       "--space-1": "spacing",
       "--space-2": "spacing",
       "--space-3": "spacing",
@@ -546,9 +584,10 @@
       "--blur-glass": "other"
     },
     "fontFamilies": [
+      "BDScript",
       "Italianno",
-      "Jost",
-      "Playfair Display"
+      "Playfair Display",
+      "Raleway"
     ]
   }
 }

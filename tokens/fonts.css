@@ -1,8 +1,14 @@
 /* Hoeve Rijlaarsdam webfonts.
-   SUBSTITUTION NOTICE: no font binaries were supplied with the brand material.
-   These are the closest Google Fonts matches to the mockups:
-     Playfair Display  -> high-contrast Didone-ish display serif of the logo wordmark & headings
-     Italianno         -> monoline signature script of the logo's "Hoeve" and the kickers ("alles over", "van harte")
-     Jost              -> light geometric sans used for body copy
-   Replace with the real licensed files when available. */
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..700&family=Italianno&family=Jost:ital,wght@0,300..600;1,300..500&display=swap");
+   Bron: 'Logo RIJLAARSDAM huisstijl.pdf' (ontwerper Janneke van Soeren-Aupers) schrijft voor:
+     Playfair Display (CAPS)  -> koppen en de logocombinatie; klein voor USP's; semibold/bold mag op socials
+     BDScript                 -> het geschreven deel van het logo en de kickers, met de swirl achter de 'e'
+     Raleway                  -> geschreven tekst (bodycopy)
+   Alle drie zijn de echte, voorgeschreven fonts. BDScript is aangeleverd door de ontwerper.
+
+   LET OP 1 — @import moet boven elke andere regel staan, anders negeert de parser hem stilzwijgend.
+   LET OP 2 — BDScript heeft een defecte ligatuurtabel: standaardligaturen vervangen b f h k l s door
+   vormen zonder breedte, waardoor die letters op hun buur stapelen en verdwijnen ("van harte" -> "van arte").
+   Daarom staat op ELKE plek waar --font-script gebruikt wordt 'font-variant-ligatures:none'.
+   Verwijder dat niet, en neem het mee in nieuw werk. */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..700&family=Italianno&family=Raleway:ital,wght@0,300..700;1,300..600&display=swap");
+@font-face{font-family:"BDScript";src:url("../assets/fonts/BDScript-Regular.woff2") format("woff2"),url("../assets/fonts/BDScript-Regular.otf") format("opentype");font-weight:400;font-style:normal;font-display:swap}

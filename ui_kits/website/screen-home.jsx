@@ -1,7 +1,7 @@
 function HomeScreen({onNavigate}){
   const [tab,setTab]=React.useState('Catering');
   return <React.Fragment>
-    <SplitHero offset={64}
+    <SplitHero offset={64} ampersandSrc={IMG.swirl}
       caption={<React.Fragment>&ldquo;Daar waar hospitality een kunstvorm is!&rdquo;</React.Fragment>}
       onScrollHint={()=>window.scrollBy({top:window.innerHeight-64,behavior:'smooth'})}
       items={[

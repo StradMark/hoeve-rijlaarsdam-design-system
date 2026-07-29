@@ -1,7 +1,10 @@
 :root{
 --font-display:"Playfair Display",Georgia,"Times New Roman",serif;
---font-script:"Italianno","Segoe Script",cursive;
---font-body:"Jost","Helvetica Neue",Arial,sans-serif;
+/* BDScript is het echte script-font. Gebruik het ALTIJD samen met font-variant-ligatures:none —
+   de ligatuurtabel van het font laat b f h k l s anders verdwijnen. Zie tokens/fonts.css. */
+--font-script:"BDScript","Italianno","Segoe Script",cursive;
+--font-script-bd:"BDScript","Italianno","Segoe Script",cursive;
+--font-body:"Raleway","Helvetica Neue",Arial,sans-serif;
 
 /* display serif — section titles, page titles, card captions, nav, buttons */
 --fs-display-xl:64px;
@@ -12,10 +15,12 @@
 --lh-display:1.1; /* @kind other */
 --ls-display:.005em; /* @kind other */
 
-/* script kicker — always sits above/behind a display title */
---fs-script-l:70px;
---fs-script-m:52px;
---fs-script-s:38px;
+/* script kicker — always sits above/behind a display title.
+   Maten zijn afgestemd op BDScript: dat font is monolineair, dun en heeft een kleine x-hoogte,
+   dus het leest ~18% lichter dan een gewone schrijfletter op dezelfde pixelmaat. */
+--fs-script-l:82px;
+--fs-script-m:62px;
+--fs-script-s:46px;
 --lh-script:.9; /* @kind other */
 
 /* body sans */

@@ -2,7 +2,7 @@ import React from 'react';
 
 /* Full-viewport doorway hero: two equal choices, calm motion on hover, one scroll hint.
    Only ever used on the homepage — every other page uses <HeroVideo>. */
-export function SplitHero({items=[],caption,ampersand=true,offset=64,fullHeight=true,scrollHint='Scroll',onScrollHint,style}){
+export function SplitHero({items=[],caption,ampersand=true,ampersandSrc='/assets/ornament-swirl.svg',offset=64,fullHeight=true,scrollHint='Scroll',onScrollHint,style}){
   const [hover,setHover]=React.useState(-1);
   const [narrow,setNarrow]=React.useState(false);
   const [top,setTop]=React.useState(offset);
@@ -54,9 +54,11 @@ export function SplitHero({items=[],caption,ampersand=true,offset=64,fullHeight=
           );
         })}
         {ampersand&&!narrow&&(
-          <div style={{position:'absolute',left:'50%',top:'50%',transform:'translate(-50%,-50%)',pointerEvents:'none',
-            fontFamily:'var(--font-script)',fontSize:'clamp(64px,7vw,120px)',lineHeight:1,color:'var(--white)',
-            opacity:hover>-1?0:1,transition:'opacity var(--dur-base) var(--ease-out)'}}>&amp;</div>
+          /* de swirl-ampersand uit de huisstijl (assets/ornament-swirl.svg), wit op de naad */
+          <img src={ampersandSrc} alt="en" style={{position:'absolute',left:'50%',top:'50%',
+            transform:'translate(-36%,-50%)',pointerEvents:'none',width:'clamp(76px,8vw,140px)',height:'auto',
+            filter:'brightness(0) invert(1) drop-shadow(0 1px 6px rgba(22,25,26,.45))',
+            opacity:hover>-1?0:1,transition:'opacity var(--dur-base) var(--ease-out)'}}/>
         )}
         {scrollHint&&(
           <div style={{position:'absolute',left:0,right:0,bottom:'var(--space-5)',display:'flex',justifyContent:'center',pointerEvents:'none'}}>

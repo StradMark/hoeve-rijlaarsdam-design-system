@@ -1,0 +1,58 @@
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8"><title>Hoeve Rijlaarsdam — Design System</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link rel="stylesheet" href="styles.css">
+<style>
+body{margin:0;background:var(--surface-page);color:var(--text-body);font-family:var(--font-body)}
+.wrap{max-width:1180px;margin:0 auto;padding:76px 40px 64px}
+.kick{font-family:var(--font-script);font-variant-ligatures:none;font-size:52px;line-height:.8;color:var(--gold-500);margin:0 0 -4px -2px}
+h1{margin:0;font-family:var(--font-display);font-weight:400;font-size:52px;letter-spacing:.04em;text-transform:uppercase;color:var(--text-heading)}
+.lede{max-width:64ch;margin:22px 0 0;font-size:var(--fs-body-m);line-height:var(--lh-body)}
+h2{margin:56px 0 22px;font-family:var(--font-display);font-size:14px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-600)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{display:flex;flex-direction:column;gap:10px;padding:26px 26px 24px;border:1px solid var(--hairline);background:#fff;text-decoration:none;color:inherit;transition:border-color 150ms ease,transform 150ms ease}
+.card:hover{border-color:var(--gold-500);transform:translateY(-2px)}
+.card b{font-family:var(--font-display);font-weight:400;font-size:22px;color:var(--text-heading)}
+.card span{font-size:var(--fs-body-s);line-height:var(--lh-body);color:var(--text-muted)}
+.card em{margin-top:6px;font-family:var(--font-display);font-style:normal;font-size:var(--fs-label-s);letter-spacing:var(--ls-label-wide);text-transform:uppercase;color:var(--gold-600)}
+.hero{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:0;padding:0;overflow:hidden}
+.hero .txt{padding:34px 30px 30px;display:flex;flex-direction:column;gap:10px;justify-content:center}
+.hero .shot{background:var(--green-700);overflow:hidden;min-height:230px;position:relative}
+.hero iframe{border:0;position:absolute;top:0;left:0;width:1280px;height:900px;transform:scale(.44);transform-origin:0 0;pointer-events:none}
+footer{padding:40px;border-top:1px solid var(--hairline);font-size:var(--fs-body-s);color:var(--text-muted)}
+a{color:var(--gold-600)}a:hover{color:var(--gold-500)}
+@media(max-width:760px){.hero{grid-template-columns:1fr}.hero .shot{display:none}}
+</style></head>
+<body>
+<template id="__bundler_thumbnail"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#285e4e"></rect><text x="50" y="62" text-anchor="middle" font-family="Playfair Display, serif" font-size="34" fill="#c99a55">HR</text></svg></template>
+<div class="wrap">
+<p class="kick">het</p><h1>Design System</h1>
+<p class="lede">Hoeve Rijlaarsdam &mdash; Art &amp; Events. Hieronder de doorklikbare voorbeeldsite, het volledige kaartenoverzicht en de versies die als losse link of als pdf te delen zijn.</p>
+
+<h2>Beginnen</h2>
+<div class="grid">
+<a class="card hero" href="ui_kits/website/index.html">
+  <div class="txt"><b>Voorbeeldsite</b><span>Vijftien doorklikbare pagina&rsquo;s: homepage met keuzehero, galerie, chef, evenementen, bruiloft, catering, ruimtes, over ons, praktisch, locatie en contact.</span><em>Openen &rarr;</em></div>
+  <div class="shot"><iframe src="ui_kits/website/index.html" title="Voorbeeldsite" loading="lazy" tabindex="-1" aria-hidden="true"></iframe></div>
+</a>
+<a class="card" href="overzicht.html"><b>Kaartenoverzicht</b><span>Alle 44 kaarten: merk, kleur, typografie, ritme, componenten en beide logo-animaties, live in de pagina.</span><em>Openen &rarr;</em></a>
+<a class="card" href="thumbnail.html"><b>Merktegel</b><span>De tegel van het systeem: hoofdkleur met het woordmerk en de kleurstrook.</span><em>Openen &rarr;</em></a>
+</div>
+
+<h2>Delen</h2>
+<div class="grid">
+<a class="card" href="overzicht-deel.html"><b>Overzicht &mdash; deelversie</b><span>34 kaarten zonder de fotozware onderdelen, licht genoeg voor een losse link.</span><em>Openen &rarr;</em></a>
+<a class="card" href="overzicht-fundamenten.html"><b>Fundamenten</b><span>22 kaarten: alleen merk, kleur, typografie en ritme.</span><em>Openen &rarr;</em></a>
+<a class="card" href="overzicht-print.html"><b>Overzicht &mdash; printversie</b><span>Op papierformaat, animaties in hun eindstand. Print of bewaar als pdf.</span><em>Openen &rarr;</em></a>
+<a class="card" href="overzicht-fundamenten-print.html"><b>Fundamenten &mdash; printversie</b><span>Dezelfde fundamenten als document van 23 kaarten.</span><em>Openen &rarr;</em></a>
+</div>
+
+<h2>Losse onderdelen</h2>
+<div class="grid">
+<a class="card" href="guidelines/logo-animation.html"><b>Logo-animatie</b><span>Het woordmerk wordt geschreven &mdash; vier varianten in tempo en opbouw.</span><em>Openen &rarr;</em></a>
+<a class="card" href="guidelines/logo-animation-winter.html"><b>Logo-animatie winter</b><span>Winters Rijlaarsdam op het groene vlak, met dwarrelende sneeuw &mdash; vier opbouwen.</span><em>Openen &rarr;</em></a>
+<a class="card" href="guidelines/brand-logo.html"><b>Logo&rsquo;s</b><span>Alle aangeleverde versies als vector: lockup, goud, liggend, wit, mono en woordmerk.</span><em>Openen &rarr;</em></a>
+<a class="card" href="guidelines/plattegrond-isometrisch-legenda.html"><b>Plattegrond</b><span>Het erf isometrisch, met legenda en aanklikbare ruimtes.</span><em>Openen &rarr;</em></a>
+</div>
+</div>
+<footer>Werkversie, 29 juli 2026. Fonts zijn deels tijdelijke vervangers tot de echte bestanden er zijn &mdash; zie <a href="readme.md">readme</a>.</footer>
+</body></html>

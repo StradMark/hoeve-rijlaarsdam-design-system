@@ -8,7 +8,7 @@ export type NavItem = string | { label: string; items: string[] };
  * Entries given as { label, items } open a deep-green panel on hover or focus.
  */
 export interface NavBarProps {
-  /** logo image URL (assets/logo.png) */
+  /** logo image URL — de vectorlockup, bv. assets/logo-lockup.svg (wit: -wit.svg) */
   logo?: string;
   left?: NavItem[];
   right?: NavItem[];

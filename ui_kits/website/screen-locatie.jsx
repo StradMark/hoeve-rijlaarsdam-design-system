@@ -1,20 +1,22 @@
 function LocatieScreen({onNavigate}){
+  /* Coördinaten horen bij de ISOMETRISCHE kaart (assets/map-iso.png): de punten staan op de nok
+     van elk volume. Ze gelden niet voor de vlakke plattegrond — die heeft een eigen set. */
   const spots=[
-    {name:'Woonhuis',x:50.5,y:4,w:10.5,h:15,image:IMG.hoeve,
+    {name:'Woonhuis',x:69.56,y:25.12,w:2.8,h:3.8,image:IMG.hoeve,
      body:'Het monumentale voorhuis aan de Nieuwveenseweg. Hier vindt u ons kantoor.'},
-    {name:'De Stal',x:51.5,y:19,w:8.5,h:15,image:IMG.stal,
+    {name:'De Stal',x:64.65,y:35.2,w:2.8,h:3.8,image:IMG.stal,
      body:'Ruim 110 jaar oud, nu expositieruimte en zaal voor 60 gasten.',href:'Stal'},
-    {name:'De Hooiberg',x:49.5,y:33,w:11.5,h:13,image:IMG.hooiberg,
+    {name:'De Hooiberg',x:55.46,y:43.75,w:2.8,h:3.8,image:IMG.hooiberg,
      body:'De vijfhoekige berg; boven plaats voor maximaal 30 gasten.',href:'Hooiberg'},
-    {name:'Het Koetshuis',x:65.5,y:33,w:14,h:18,side:'left',image:IMG.koetshuisFeest,
+    {name:'Het Koetshuis',x:65.79,y:48.39,w:2.8,h:3.8,side:'left',image:IMG.koetshuisFeest,
      body:'De grote zaal met eigen entree en bar, tot 250 gasten.',href:'Koetshuis'},
-    {name:'Ontwikkelatelier',x:65.5,y:59,w:14,h:9,side:'left',image:IMG.atelier,
+    {name:'Ontwikkelatelier',x:55.44,y:57.58,w:2.8,h:3.8,side:'left',image:IMG.atelier,
      body:'De oude lijstenmakerij, nu atelier en werkruimte voor kleine groepen.',href:'Ontwikkelatelier'},
-    {name:'Beeldentuin',x:9,y:24,w:36,h:54,image:IMG.beeldentuinVogels,
+    {name:'Beeldentuin',x:34.33,y:32.54,w:2.8,h:3.8,image:IMG.beeldentuinVogels,
      body:'Bronzen beelden tussen de hagen, de boomgaard en het water.',href:'Beeldentuin'},
-    {name:'Parkeren',x:60,y:72,w:9,h:26,side:'left',
+    {name:'Parkeren',x:41.8,y:69.35,w:2.8,h:3.8,side:'left',
      body:'Ruim eigen terrein direct naast de zalen. Gratis, geen reservering nodig.'},
-    {name:'Water',x:46.5,y:2,w:4,h:42,image:IMG.water,
+    {name:'Water',x:24.39,y:40.04,w:2.8,h:3.8,image:IMG.water,
      body:'De sloot langs het voorhuis loopt uit op de vijver bij de entree.'}
   ];
   return <React.Fragment>
@@ -29,12 +31,13 @@ function LocatieScreen({onNavigate}){
           kies een plek op de kaart of in de lijst.
         </Lead>
       </div>
-      <SitePlan image="../../assets/map-plan-licht.png" spots={spots} title="Het erf, van bovenaf"
+      <SitePlan image="../../assets/map-iso.png" spots={spots} title="Het erf, van bovenaf"
         onSelect={s=>s.href&&onNavigate(s.href)}
         style={{marginTop:'var(--space-8)'}}/>
       <p style={{margin:'var(--space-5) 0 0',textAlign:'center',fontSize:'var(--fs-body-s)',
-        color:'var(--ink-400)'}}>
-        Goud zijn de boekbare ruimtes, donker de overige bebouwing. Deze plattegrond is getekend naar de werkversie van het erf; maten zijn indicatief.
+        color:'var(--text-muted)'}}>
+Goud zijn de boekbare ruimtes, donker het woonhuis en het bijgebouw. Deze kaart is opgebouwd uit de
+        werkplattegrond van het erf; hoogtes en dakvlakken zijn een schatting en de zonnepanelen ontbreken nog.
       </p>
     </Section>
 

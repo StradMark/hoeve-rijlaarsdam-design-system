@@ -4,7 +4,7 @@ export function BenefitsPanel({kicker,title,items=[],tone='deep',style}){
   const deep=tone==='deep';
   return (
     <div style={{background:deep?'var(--surface-deep)':'var(--surface-panel-soft)',padding:'var(--space-7) var(--space-7)',...style}}>
-      {kicker&&<div style={{fontFamily:'var(--font-script)',fontSize:'var(--fs-script-m)',lineHeight:'var(--lh-script)',
+      {kicker&&<div style={{fontFamily:'var(--font-script)',fontVariantLigatures:'none',fontSize:'var(--fs-script-m)',lineHeight:'var(--lh-script)',
         color:deep?'var(--sage-300)':'var(--cream-100)',marginBottom:'-.24em',marginLeft:'-.18em'}}>{kicker}</div>}
       {title&&<h3 style={{fontFamily:'var(--font-display)',fontSize:'var(--fs-display-m)',color:'var(--white)',
         fontWeight:400,margin:'0 0 var(--space-5)'}}>{title}</h3>}

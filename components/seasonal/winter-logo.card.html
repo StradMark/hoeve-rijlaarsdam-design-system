@@ -1,0 +1,51 @@
+<!-- @dsCard group="Merk" viewport="700x520" name="Winterlogo" subtitle="Het seizoenslogo van de ontwerper — sneeuwvlok-lockup en los woordmerk, als vector" -->
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;background:var(--winter-snow-100);font-family:var(--font-body)}</style></head>
+<body><div id="root"></div>
+<script type="text/babel">
+const DS=window.HoeveRijlaarsdamDesignSystem_374762;const A='../../assets/';
+const { WinterLockup } = DS;
+const label={fontSize:'var(--fs-body-xs)',letterSpacing:'var(--ls-label)',textTransform:'uppercase',color:'var(--winter-frost-500)'};
+const note={fontSize:11,lineHeight:1.7,color:'var(--winter-frost-500)'};
+function Card(){
+  return <div style={{padding:22,display:'grid',gap:22}}>
+    <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:18,alignItems:'start'}}>
+      <div style={{display:'grid',gap:10}}>
+        <div style={label}>panel — eigen groen vlak</div>
+        <WinterLockup variant="panel" size={170} assetBase={A}/>
+      </div>
+      <div style={{display:'grid',gap:10}}>
+        <div style={label}>reversed — op foto of pine</div>
+        <div style={{background:'var(--winter-pine-900)',padding:14,display:'flex',justifyContent:'center'}}>
+          <WinterLockup variant="reversed" size={142} assetBase={A}/>
+        </div>
+      </div>
+    </div>
+    <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:1,background:'var(--winter-frost-300)'}}>
+      <div style={{background:'var(--winter-snow-100)',padding:20,display:'grid',gap:12}}>
+        <div style={label}>wordmark · light</div>
+        <WinterLockup variant="wordmark" size={54} assetBase={A}/>
+      </div>
+      <div style={{background:'var(--winter-pine-800)',padding:20,display:'grid',gap:12}}>
+        <div style={{...label,color:'var(--winter-frost-400)'}}>wordmark · onDeep</div>
+        <WinterLockup variant="wordmark" tone="onDeep" size={54} assetBase={A}/>
+      </div>
+      <div style={{background:'var(--cream-200)',padding:20,display:'grid',gap:12}}>
+        <div style={label}>wordmark · gold</div>
+        <WinterLockup variant="wordmark" tone="gold" size={54} assetBase={A}/>
+      </div>
+      <div style={{background:'var(--white)',padding:20,display:'grid',gap:12,color:'var(--winter-pine-900)'}}>
+        <div style={label}>wordmark · mono (currentColor)</div>
+        <WinterLockup variant="wordmark" tone="mono" size={54} assetBase={A}/>
+      </div>
+    </div>
+    <div style={note}>Vector uit <code>uploads/Logo RIJLAARSDAM huisstijl.pdf</code>, blad 2 — <code>logo-winter-groen.svg</code>, <code>logo-winter-wit.svg</code>, <code>logo-winter-zwart.svg</code> (+ wit, goud, mono). Panel minimaal 96px hoog, wordmark minimaal 34px. Een ander seizoenswoord (<code>script="Kerst"</code>) wordt typografisch nagebouwd: alleen voor schetsen op scherm.</div>
+  </div>;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Card/>);
+</script></body></html>

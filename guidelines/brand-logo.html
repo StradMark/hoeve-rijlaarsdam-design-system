@@ -1,7 +1,18 @@
-<!-- @dsCard group="Merk" viewport="700x200" name="Logo" subtitle="Primary lockup: barn mark + Hoeve script + RIJLAARSDAM + ART & EVENTS" -->
+<!-- @dsCard group="Merk" viewport="700x520" name="Logo" subtitle="Alle aangeleverde versies als vector: hoofdlockup, goud, liggend, wit, mono en woordmerk" -->
 <!DOCTYPE html><html lang="nl"><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
-<style>body{margin:0;padding:20px;background:var(--surface-page);font-family:var(--font-body)}</style></head><body><div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
-<img src="../assets/logo.png" alt="Hoeve Rijlaarsdam" style="height:110px">
-<div style="background:var(--surface-deep);padding:18px 22px"><img src="../assets/logo.png" alt="" style="height:70px;mix-blend-mode:screen;filter:brightness(1.15)"></div>
+<style>body{margin:0;padding:20px;background:var(--surface-page);font-family:var(--font-body)}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--border-hairline)}
+.cell{background:var(--white);padding:20px;display:grid;gap:12px;align-content:start}
+.l{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-300)}
+.note{font-size:11px;line-height:1.7;color:var(--ink-300);margin-top:14px}</style></head><body>
+<div class="grid">
+<div class="cell"><div class="l">hoofdlockup — logo-lockup.svg</div><img src="../assets/logo-lockup.svg" alt="Hoeve Rijlaarsdam" style="height:84px;width:auto"></div>
+<div class="cell"><div class="l">gouden caps — logo-lockup-goud.svg</div><img src="../assets/logo-lockup-goud.svg" alt="" style="height:84px;width:auto"></div>
+<div class="cell" style="grid-column:1 / -1"><div class="l">liggend — logo-lockup-liggend.svg</div><img src="../assets/logo-lockup-liggend.svg" alt="" style="height:52px;width:auto"></div>
+<div class="cell" style="background:var(--surface-deep)"><div class="l" style="color:var(--sage-200)">wit op donker — logo-lockup-wit.svg</div><img src="../assets/logo-lockup-wit.svg" alt="" style="height:84px;width:auto"></div>
+<div class="cell" style="color:var(--green-800)"><div class="l">mono — logo-lockup-mono.svg (currentColor)</div><img src="../assets/logo-lockup-mono.svg" alt="" style="height:84px;width:auto"></div>
+<div class="cell"><div class="l">woordmerk — logo-wordmark.svg</div><img src="../assets/logo-wordmark.svg" alt="RIJLAARSDAM" style="height:44px;width:auto"></div>
+<div class="cell"><div class="l">schuurmerk — logo-mark.svg</div><img src="../assets/logo-mark.svg" alt="" style="height:74px;width:auto"></div>
 </div>
-<div style="font-size:11px;color:var(--ink-300);margin-top:10px">Supplied as raster only. On deep green use the light lockup — request an SVG / reversed version from the brand owner.</div></body></html>
+<div class="note">Alle versies zijn vector, nagetrokken uit <code>uploads/Logo RIJLAARSDAM huisstijl.pdf</code> — geen raster meer nodig. <b style="color:var(--ink-500);font-weight:500">Kies op ondergrond:</b> zwarte caps op wit en crème, gouden caps als het beeld al rustig is, wit op flessengroen en op foto's, mono voor stempel en gravure. Het liggende lockup is voor smalle balken (navigatie, briefhoofd), nooit als hoofdlogo op een pagina. Minimaal 48px hoog voor het volledige lockup, 32px voor het losse schuurmerk. Nooit hertekend, uitgerekt of van kleur veranderd buiten deze versies.</div>
+</body></html>

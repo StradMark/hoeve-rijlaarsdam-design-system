@@ -2,7 +2,7 @@ One-line: the site's only header — white, never transparent, centred logo, and
 
 ```jsx
 <NavBar
-  logo="/assets/logo.png"
+  logo="/assets/logo-lockup.svg"
   active="Galerie"
   left={['De Hoeve', {label:'Art', items:['Galerie','Beeldentuin','Kunstenaars']},
          {label:'Events', items:['Zakelijk','Particulier','Bruiloft']}]}

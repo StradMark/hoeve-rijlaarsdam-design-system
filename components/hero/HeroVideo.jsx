@@ -27,9 +27,9 @@ export function HeroVideo({image,video,kicker,title,height=460,showPlay=false,al
           /* zelfde geometrie als SectionHeading: de kicker hangt links van de titel en
              overlapt verticaal — ook bij gecentreerde heroes */
           <span style={{display:'inline-block',position:'relative',
-            paddingTop:kicker?'calc(var(--fs-script-l) * .62)':0}}>
+            paddingTop:kicker?'calc(var(--fs-script-l) * .64)':0}}>
             {kicker&&<span style={{position:'absolute',left:'-.18em',top:0,whiteSpace:'nowrap',
-              fontFamily:'var(--font-script)',fontSize:'var(--fs-script-l)',
+              fontFamily:'var(--font-script)',fontVariantLigatures:'none',fontSize:'var(--fs-script-l)',
               lineHeight:'var(--lh-script)',color:'var(--cream-100)'}}>{kicker}</span>}
             {title&&<h1 style={{fontFamily:'var(--font-display)',fontSize:'var(--fs-display-l)',fontWeight:400,
               textTransform:'uppercase',letterSpacing:'.02em',color:'var(--white)',margin:0}}>{title}</h1>}

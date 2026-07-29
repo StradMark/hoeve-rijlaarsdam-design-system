@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"HoeveRijlaarsdamDesignSystem_374762","components":[{"name":"BenefitsPanel","sourcePath":"components/content/BenefitsPanel.jsx"},{"name":"ImageCaptionCard","sourcePath":"components/content/ImageCaptionCard.jsx"},{"name":"InfoTile","sourcePath":"components/content/InfoTile.jsx"},{"name":"PersonCard","sourcePath":"components/content/PersonCard.jsx"},{"name":"RoomCard","sourcePath":"components/content/RoomCard.jsx"},{"name":"SectionHeading","sourcePath":"components/content/SectionHeading.jsx"},{"name":"TestimonialCard","sourcePath":"components/content/TestimonialCard.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"CarouselNav","sourcePath":"components/core/CarouselNav.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"TabPills","sourcePath":"components/core/TabPills.jsx"},{"name":"CtaBand","sourcePath":"components/cta-band/CtaBand.jsx"},{"name":"FaqAccordion","sourcePath":"components/faq/FaqAccordion.jsx"},{"name":"Footer","sourcePath":"components/footer/Footer.jsx"},{"name":"HeroVideo","sourcePath":"components/hero/HeroVideo.jsx"},{"name":"SplitPanel","sourcePath":"components/layout/SplitPanel.jsx"},{"name":"NavBar","sourcePath":"components/navigation/NavBar.jsx"},{"name":"PageOutro","sourcePath":"components/page-outro/PageOutro.jsx"},{"name":"PhotoCarousel","sourcePath":"components/photo-carousel/PhotoCarousel.jsx"},{"name":"PullQuote","sourcePath":"components/pull-quote/PullQuote.jsx"},{"name":"QuoteBar","sourcePath":"components/quote-bar/QuoteBar.jsx"},{"name":"SiteMap","sourcePath":"components/site-map/SiteMap.jsx"},{"name":"SitePlan","sourcePath":"components/site-map/SitePlan.jsx"},{"name":"SplitHero","sourcePath":"components/split-hero/SplitHero.jsx"}],"sourceHashes":{"components/content/BenefitsPanel.jsx":"3f476b92b68a","components/content/ImageCaptionCard.jsx":"bb80671e9bed","components/content/InfoTile.jsx":"dc50789defad","components/content/PersonCard.jsx":"5bcb902f6219","components/content/RoomCard.jsx":"4d31e3e1880c","components/content/SectionHeading.jsx":"1e52e1a9bb64","components/content/TestimonialCard.jsx":"d590f769215e","components/core/Button.jsx":"5385c1c13492","components/core/CarouselNav.jsx":"1708e27a0a13","components/core/Input.jsx":"3c6c6605a91a","components/core/TabPills.jsx":"3da024e38382","components/cta-band/CtaBand.jsx":"ea9c9266e02c","components/faq/FaqAccordion.jsx":"3c3d04783093","components/footer/Footer.jsx":"3ca471b1969e","components/hero/HeroVideo.jsx":"7f1e6f9c6e61","components/layout/SplitPanel.jsx":"88205b0574e3","components/navigation/NavBar.jsx":"72633c3a59d5","components/page-outro/PageOutro.jsx":"ad449c152c9d","components/photo-carousel/PhotoCarousel.jsx":"4682719c9ccd","components/pull-quote/PullQuote.jsx":"d2d59dfcfbdd","components/quote-bar/QuoteBar.jsx":"65375ad3c119","components/site-map/SiteMap.jsx":"57efec3bc1a5","components/site-map/SitePlan.jsx":"73c0859e36d8","components/split-hero/SplitHero.jsx":"3b8637ba761a","doc-page.js":"371bab66f42d","ui_kits/website/app.jsx":"0d808ed10a92","ui_kits/website/parts.jsx":"7251e12aba1e","ui_kits/website/screen-bruiloft.jsx":"27e7f472d6d1","ui_kits/website/screen-catering.jsx":"545113a14bb2","ui_kits/website/screen-chef.jsx":"8179e2947abb","ui_kits/website/screen-contact.jsx":"1c97be26d74e","ui_kits/website/screen-galerie.jsx":"3f0e647594b3","ui_kits/website/screen-home.jsx":"49bde3982f1c","ui_kits/website/screen-hospitality.jsx":"ba9d53bf581e","ui_kits/website/screen-locatie.jsx":"cb4f46a8c023","ui_kits/website/screen-overons.jsx":"dc5d88636a21","ui_kits/website/screen-particulier.jsx":"0669c18700c5","ui_kits/website/screen-popup.jsx":"1ef79677867d","ui_kits/website/screen-praktisch.jsx":"5bb58f498b59","ui_kits/website/screen-ruimte.jsx":"9dcfff3df8d4","ui_kits/website/screen-zakelijk.jsx":"06e65680069c","ui_kits/website/tweaks-panel.jsx":"d259e3a86f73"},"inlinedExternals":[],"unexposedExports":[]} */
+/* @ds-bundle: {"format":4,"namespace":"HoeveRijlaarsdamDesignSystem_374762","components":[{"name":"BenefitsPanel","sourcePath":"components/content/BenefitsPanel.jsx"},{"name":"ImageCaptionCard","sourcePath":"components/content/ImageCaptionCard.jsx"},{"name":"InfoTile","sourcePath":"components/content/InfoTile.jsx"},{"name":"PersonCard","sourcePath":"components/content/PersonCard.jsx"},{"name":"RoomCard","sourcePath":"components/content/RoomCard.jsx"},{"name":"SectionHeading","sourcePath":"components/content/SectionHeading.jsx"},{"name":"TestimonialCard","sourcePath":"components/content/TestimonialCard.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"CarouselNav","sourcePath":"components/core/CarouselNav.jsx"},{"name":"Input","sourcePath":"components/core/Input.jsx"},{"name":"TabPills","sourcePath":"components/core/TabPills.jsx"},{"name":"CtaBand","sourcePath":"components/cta-band/CtaBand.jsx"},{"name":"FaqAccordion","sourcePath":"components/faq/FaqAccordion.jsx"},{"name":"Footer","sourcePath":"components/footer/Footer.jsx"},{"name":"HeroVideo","sourcePath":"components/hero/HeroVideo.jsx"},{"name":"SplitPanel","sourcePath":"components/layout/SplitPanel.jsx"},{"name":"NavBar","sourcePath":"components/navigation/NavBar.jsx"},{"name":"PageOutro","sourcePath":"components/page-outro/PageOutro.jsx"},{"name":"PhotoCarousel","sourcePath":"components/photo-carousel/PhotoCarousel.jsx"},{"name":"PullQuote","sourcePath":"components/pull-quote/PullQuote.jsx"},{"name":"QuoteBar","sourcePath":"components/quote-bar/QuoteBar.jsx"},{"name":"WinterLockup","sourcePath":"components/seasonal/WinterLockup.jsx"},{"name":"SiteMap","sourcePath":"components/site-map/SiteMap.jsx"},{"name":"SitePlan","sourcePath":"components/site-map/SitePlan.jsx"},{"name":"SplitHero","sourcePath":"components/split-hero/SplitHero.jsx"}],"sourceHashes":{"components/content/BenefitsPanel.jsx":"daf0390cca7a","components/content/ImageCaptionCard.jsx":"bb80671e9bed","components/content/InfoTile.jsx":"dc50789defad","components/content/PersonCard.jsx":"5bcb902f6219","components/content/RoomCard.jsx":"4d31e3e1880c","components/content/SectionHeading.jsx":"5ae50bed10fc","components/content/TestimonialCard.jsx":"d590f769215e","components/core/Button.jsx":"5385c1c13492","components/core/CarouselNav.jsx":"1708e27a0a13","components/core/Input.jsx":"3c6c6605a91a","components/core/TabPills.jsx":"3da024e38382","components/cta-band/CtaBand.jsx":"ea9c9266e02c","components/faq/FaqAccordion.jsx":"3c3d04783093","components/footer/Footer.jsx":"3ca471b1969e","components/hero/HeroVideo.jsx":"91fe798d9146","components/layout/SplitPanel.jsx":"88205b0574e3","components/navigation/NavBar.jsx":"72633c3a59d5","components/page-outro/PageOutro.jsx":"ad449c152c9d","components/photo-carousel/PhotoCarousel.jsx":"4682719c9ccd","components/pull-quote/PullQuote.jsx":"d2d59dfcfbdd","components/quote-bar/QuoteBar.jsx":"65375ad3c119","components/seasonal/WinterLockup.jsx":"a0b0cb0e012c","components/site-map/SiteMap.jsx":"57efec3bc1a5","components/site-map/SitePlan.jsx":"a2f228861867","components/split-hero/SplitHero.jsx":"344a2358e946","doc-page.js":"371bab66f42d","ui_kits/website/app.jsx":"0d808ed10a92","ui_kits/website/parts.jsx":"42e3aaf3694c","ui_kits/website/screen-bruiloft.jsx":"27e7f472d6d1","ui_kits/website/screen-catering.jsx":"545113a14bb2","ui_kits/website/screen-chef.jsx":"8179e2947abb","ui_kits/website/screen-contact.jsx":"1c97be26d74e","ui_kits/website/screen-galerie.jsx":"3f0e647594b3","ui_kits/website/screen-home.jsx":"e77b694ce5bd","ui_kits/website/screen-hospitality.jsx":"ba9d53bf581e","ui_kits/website/screen-locatie.jsx":"2d79f188c33d","ui_kits/website/screen-overons.jsx":"dc5d88636a21","ui_kits/website/screen-particulier.jsx":"0669c18700c5","ui_kits/website/screen-popup.jsx":"1ef79677867d","ui_kits/website/screen-praktisch.jsx":"5bb58f498b59","ui_kits/website/screen-ruimte.jsx":"9dcfff3df8d4","ui_kits/website/screen-zakelijk.jsx":"06e65680069c","ui_kits/website/tweaks-panel.jsx":"d259e3a86f73"},"inlinedExternals":[],"unexposedExports":[]} */
 
 (() => {
 
@@ -27,6 +27,7 @@ function BenefitsPanel({
   }, kicker && /*#__PURE__*/React.createElement("div", {
     style: {
       fontFamily: 'var(--font-script)',
+      fontVariantLigatures: 'none',
       fontSize: 'var(--fs-script-m)',
       lineHeight: 'var(--lh-script)',
       color: deep ? 'var(--sage-300)' : 'var(--cream-100)',
@@ -486,7 +487,7 @@ function SectionHeading({
       display: 'inline-block',
       position: 'relative',
       textAlign: align,
-      paddingTop: kicker ? 'calc(' + fsScript + ' * .62)' : 0
+      paddingTop: kicker ? 'calc(' + fsScript + ' * .64)' : 0
     }
   }, kicker && /*#__PURE__*/React.createElement("span", {
     style: {
@@ -495,6 +496,7 @@ function SectionHeading({
       top: 0,
       whiteSpace: 'nowrap',
       fontFamily: 'var(--font-script)',
+      fontVariantLigatures: 'none',
       fontSize: fsScript,
       lineHeight: 'var(--lh-script)',
       color: scriptColor
@@ -1361,7 +1363,7 @@ function HeroVideo({
     style: {
       display: 'inline-block',
       position: 'relative',
-      paddingTop: kicker ? 'calc(var(--fs-script-l) * .62)' : 0
+      paddingTop: kicker ? 'calc(var(--fs-script-l) * .64)' : 0
     }
   }, kicker && /*#__PURE__*/React.createElement("span", {
     style: {
@@ -1370,6 +1372,7 @@ function HeroVideo({
       top: 0,
       whiteSpace: 'nowrap',
       fontFamily: 'var(--font-script)',
+      fontVariantLigatures: 'none',
       fontSize: 'var(--fs-script-l)',
       lineHeight: 'var(--lh-script)',
       color: 'var(--cream-100)'
@@ -2114,6 +2117,147 @@ function QuoteBar({
 Object.assign(__ds_scope, { QuoteBar });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/quote-bar/QuoteBar.jsx", error: String((e && e.message) || e) }); }
 
+// components/seasonal/WinterLockup.jsx
+try { (() => {
+/* Winter Rijlaarsdam. De echte tekening komt uit de huisstijl van de ontwerper
+   (uploads/Logo RIJLAARSDAM huisstijl.pdf, blad 2) en staat als vector in assets/:
+   sneeuwvlok-lockup op flessengroen, dezelfde omgekeerd op transparant, en het
+   losse script-woordmerk "Winters RIJLAARSDAM" in zwart, wit en goud.
+
+   Alleen wanneer een ander seizoenswoord nodig is (Kerst, Oud & Nieuw) valt het
+   component terug op de typografische constructie — dan is het merk nagebouwd,
+   niet aangeleverd, dus gebruik dat spaarzaam en nooit voor drukwerk. */
+const ART = {
+  panel: 'logo-winter-groen.svg',
+  reversed: 'logo-winter-wit.svg',
+  wordmarkLight: 'logo-winter-zwart.svg',
+  wordmarkOnDeep: 'logo-winter-wordmark-wit.svg',
+  wordmarkGold: 'logo-winter-wordmark-goud.svg',
+  wordmarkMono: 'logo-winter-mono.svg'
+};
+const MIN = {
+  panel: 96,
+  reversed: 96,
+  wordmark: 34
+};
+let warned = false;
+function WinterLockup({
+  variant = 'wordmark',
+  tone = 'light',
+  size,
+  script,
+  word = 'RIJLAARSDAM',
+  tagline = 'ART & EVENTS',
+  showMark = true,
+  assetBase = '/assets/',
+  style
+}) {
+  const h = size ?? (variant === 'wordmark' ? 52 : 180);
+  if (h < MIN[variant] && !warned) {
+    warned = true;
+    console.warn('[WinterLockup] ' + variant + ' op ' + h + 'px — onder de ' + MIN[variant] + 'px lopen de haarlijnen en de sneeuwvlok dicht.');
+  }
+  if (script) {
+    /* Nagebouwd seizoenswoord: schuurmerk + script + caps + regel, zelfde constructie als het logo. */
+    const em = Math.max(22, Math.round(h * .62));
+    const onDark = tone === 'onDeep';
+    const ink = onDark ? 'var(--winter-snow-100)' : tone === 'gold' ? 'var(--gold-600)' : 'var(--ink-900)';
+    const scriptColor = onDark ? 'var(--winter-candle-400)' : tone === 'mono' ? ink : 'var(--gold-500)';
+    const rule = onDark ? 'var(--border-on-dark)' : tone === 'gold' ? 'var(--gold-500)' : 'var(--ink-900)';
+    const markStyle = onDark ? {
+      filter: 'brightness(0) invert(1)'
+    } : tone === 'mono' ? {
+      filter: 'brightness(0)'
+    } : undefined;
+    return /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: 'flex',
+        alignItems: 'flex-end',
+        gap: '.34em',
+        fontSize: em + 'px',
+        lineHeight: 1,
+        ...style
+      }
+    }, showMark && /*#__PURE__*/React.createElement("img", {
+      src: assetBase + (tone === 'light' ? 'logo-mark.svg' : 'logo-mark-mono.svg'),
+      alt: "",
+      "aria-hidden": "true",
+      style: {
+        height: '2.1em',
+        width: 'auto',
+        flex: 'none',
+        ...markStyle
+      }
+    }), /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: 'grid',
+        gap: '.16em'
+      }
+    }, /*#__PURE__*/React.createElement("div", {
+      style: {
+        position: 'relative',
+        paddingTop: '.92em'
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        position: 'absolute',
+        left: '.34em',
+        top: 0,
+        whiteSpace: 'nowrap',
+        fontFamily: 'var(--font-script)',
+        fontVariantLigatures: 'none',
+        fontSize: '1.55em',
+        lineHeight: 'var(--lh-script)',
+        color: scriptColor
+      }
+    }, script), /*#__PURE__*/React.createElement("span", {
+      style: {
+        display: 'block',
+        fontFamily: 'var(--font-display)',
+        fontWeight: 400,
+        fontSize: '1em',
+        letterSpacing: '.03em',
+        color: ink,
+        whiteSpace: 'nowrap'
+      }
+    }, word)), tagline && /*#__PURE__*/React.createElement("div", {
+      style: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: '.5em'
+      }
+    }, /*#__PURE__*/React.createElement("span", {
+      style: {
+        flex: 1,
+        height: '.09em',
+        background: rule,
+        minWidth: '1.2em'
+      }
+    }), /*#__PURE__*/React.createElement("span", {
+      style: {
+        fontFamily: 'var(--font-display)',
+        fontSize: 'max(.34em, var(--fs-label-s))',
+        letterSpacing: 'var(--ls-label-wide)',
+        color: ink,
+        whiteSpace: 'nowrap'
+      }
+    }, tagline))));
+  }
+  const file = variant === 'panel' ? ART.panel : variant === 'reversed' ? ART.reversed : tone === 'onDeep' ? ART.wordmarkOnDeep : tone === 'gold' ? ART.wordmarkGold : tone === 'mono' ? ART.wordmarkMono : ART.wordmarkLight;
+  return /*#__PURE__*/React.createElement("img", {
+    src: assetBase + file,
+    alt: "Winters Rijlaarsdam \u2014 Art & Events",
+    style: {
+      height: h + 'px',
+      width: 'auto',
+      display: 'block',
+      ...style
+    }
+  });
+}
+Object.assign(__ds_scope, { WinterLockup });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/seasonal/WinterLockup.jsx", error: String((e && e.message) || e) }); }
+
 // components/site-map/SiteMap.jsx
 try { (() => {
 /* Interactive site plan. Hotspots are declared in percentages of the map image so the
@@ -2332,17 +2476,30 @@ function SitePlan({
   alt = 'Plattegrond van de hoeve',
   title,
   onSelect,
-  hint = 'Kies een plek op de kaart of in de lijst',
+  openOnHover = true,
+  hint = 'Beweeg over de kaart of kies een plek in de lijst',
   style
 }) {
   const [hot, setHot] = React.useState(-1); // hover of focus — verandert alleen kleur
   const [open, setOpen] = React.useState(-1); // klik — klapt de regel uit
   const [narrow, setNarrow] = React.useState(false);
+  const [pin, setPin] = React.useState(30);
+  const imgRef = React.useRef(null);
   React.useEffect(() => {
-    const check = () => setNarrow(window.innerWidth < 900);
+    const check = () => {
+      setNarrow(window.innerWidth < 900);
+      /* De hotspots zijn percentages, dus hun onderlinge afstand krimpt met de kaart terwijl een
+         vaste punt dat niet doet. Schaal de punt mee: 30px bij een kaart van 620px, min 20px. */
+      const w = imgRef.current && imgRef.current.getBoundingClientRect().width;
+      if (w) setPin(Math.max(20, Math.min(30, Math.round(w / 620 * 30))));
+    };
     check();
     window.addEventListener('resize', check);
-    return () => window.removeEventListener('resize', check);
+    const t = setTimeout(check, 120);
+    return () => {
+      window.removeEventListener('resize', check);
+      clearTimeout(t);
+    };
   }, []);
   const num = i => String(i + 1).padStart(2, '0');
   const toggle = i => setOpen(v => v === i ? -1 : i);
@@ -2350,7 +2507,7 @@ function SitePlan({
   return /*#__PURE__*/React.createElement("div", {
     style: {
       display: 'grid',
-      gridTemplateColumns: narrow ? '1fr' : '1.35fr 1fr',
+      gridTemplateColumns: narrow ? '1fr' : '1.75fr 1fr',
       gap: narrow ? 'var(--space-6)' : 'var(--space-7)',
       alignItems: 'start',
       ...style
@@ -2368,8 +2525,13 @@ function SitePlan({
       position: 'relative'
     }
   }, /*#__PURE__*/React.createElement("img", {
+    ref: imgRef,
     src: image,
     alt: alt,
+    onLoad: () => {
+      const w = imgRef.current && imgRef.current.getBoundingClientRect().width;
+      if (w) setPin(Math.max(20, Math.min(30, Math.round(w / 620 * 30))));
+    },
     style: {
       display: 'block',
       width: '100%',
@@ -2382,17 +2544,24 @@ function SitePlan({
       type: "button",
       "aria-label": s.name,
       "aria-pressed": open === i,
-      onMouseEnter: () => !narrow && setHot(i),
+      onMouseEnter: () => {
+        if (narrow) return;
+        setHot(i);
+        if (openOnHover) setOpen(i);
+      },
       onMouseLeave: () => !narrow && setHot(-1),
-      onFocus: () => setHot(i),
+      onFocus: () => {
+        setHot(i);
+        if (openOnHover) setOpen(i);
+      },
       onBlur: () => setHot(-1),
       onClick: () => toggle(i),
       style: {
         position: 'absolute',
-        left: 'calc(' + (s.x + s.w / 2) + '% - 15px)',
-        top: 'calc(' + (s.y + s.h / 2) + '% - 15px)',
-        width: 30,
-        height: 30,
+        left: 'calc(' + (s.x + s.w / 2) + '% - ' + pin / 2 + 'px)',
+        top: 'calc(' + (s.y + s.h / 2) + '% - ' + pin / 2 + 'px)',
+        width: pin,
+        height: pin,
         padding: 0,
         cursor: 'pointer',
         borderRadius: 'var(--radius-pill)',
@@ -2400,13 +2569,13 @@ function SitePlan({
         background: on ? 'var(--gold-500)' : 'rgba(251,248,243,.96)',
         color: on ? 'var(--white)' : 'var(--green-900)',
         fontFamily: 'var(--font-display)',
-        fontSize: 14,
+        fontSize: Math.round(pin * .47),
         letterSpacing: '.02em',
         lineHeight: 1,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        boxShadow: on ? '0 0 0 6px rgba(176,131,68,.16)' : 'none',
+        boxShadow: on ? '0 0 0 ' + Math.round(pin / 5) + 'px rgba(176,131,68,.16)' : 'none',
         transition: 'background var(--dur-base) var(--ease-out),color var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out),border-color var(--dur-base) var(--ease-out)'
       }
     }, num(i));
@@ -2549,6 +2718,7 @@ function SplitHero({
   items = [],
   caption,
   ampersand = true,
+  ampersandSrc = '/assets/ornament-swirl.svg',
   offset = 64,
   fullHeight = true,
   scrollHint = 'Scroll',
@@ -2678,21 +2848,25 @@ function SplitHero({
         transition: 'background var(--dur-base) var(--ease-out),color var(--dur-base) var(--ease-out)'
       }
     }, it.ctaLabel)));
-  }), ampersand && !narrow && /*#__PURE__*/React.createElement("div", {
+  }), ampersand && !narrow &&
+  /*#__PURE__*/
+  /* de swirl-ampersand uit de huisstijl (assets/ornament-swirl.svg), wit op de naad */
+  React.createElement("img", {
+    src: ampersandSrc,
+    alt: "en",
     style: {
       position: 'absolute',
       left: '50%',
       top: '50%',
-      transform: 'translate(-50%,-50%)',
+      transform: 'translate(-36%,-50%)',
       pointerEvents: 'none',
-      fontFamily: 'var(--font-script)',
-      fontSize: 'clamp(64px,7vw,120px)',
-      lineHeight: 1,
-      color: 'var(--white)',
+      width: 'clamp(76px,8vw,140px)',
+      height: 'auto',
+      filter: 'brightness(0) invert(1) drop-shadow(0 1px 6px rgba(22,25,26,.45))',
       opacity: hover > -1 ? 0 : 1,
       transition: 'opacity var(--dur-base) var(--ease-out)'
     }
-  }, "&"), scrollHint && /*#__PURE__*/React.createElement("div", {
+  }), scrollHint && /*#__PURE__*/React.createElement("div", {
     style: {
       position: 'absolute',
       left: 0,
@@ -3714,7 +3888,8 @@ const IMG = {
   lounge: '../../assets/photo-lounge-zonsondergang.jpg',
   water: '../../assets/photo-omgeving-water.jpg',
   gazon: '../../assets/photo-hoeve-gazon.jpg',
-  logo: '../../assets/logo.png'
+  logo: '../../assets/logo-lockup.svg',
+  swirl: '../../assets/ornament-swirl.svg'
 };
 const FOOTER_COLS = [{
   title: 'Hoeve Rijlaarsdam',
@@ -5005,6 +5180,7 @@ function HomeScreen({
   const [tab, setTab] = React.useState('Catering');
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(SplitHero, {
     offset: 64,
+    ampersandSrc: IMG.swirl,
     caption: /*#__PURE__*/React.createElement(React.Fragment, null, "\u201CDaar waar hospitality een kunstvorm is!\u201D"),
     onScrollHint: () => window.scrollBy({
       top: window.innerHeight - 64,
@@ -5269,75 +5445,77 @@ try { (() => {
 function LocatieScreen({
   onNavigate
 }) {
+  /* Coördinaten horen bij de ISOMETRISCHE kaart (assets/map-iso.png): de punten staan op de nok
+     van elk volume. Ze gelden niet voor de vlakke plattegrond — die heeft een eigen set. */
   const spots = [{
     name: 'Woonhuis',
-    x: 50.5,
-    y: 4,
-    w: 10.5,
-    h: 15,
+    x: 69.56,
+    y: 25.12,
+    w: 2.8,
+    h: 3.8,
     image: IMG.hoeve,
     body: 'Het monumentale voorhuis aan de Nieuwveenseweg. Hier vindt u ons kantoor.'
   }, {
     name: 'De Stal',
-    x: 51.5,
-    y: 19,
-    w: 8.5,
-    h: 15,
+    x: 64.65,
+    y: 35.2,
+    w: 2.8,
+    h: 3.8,
     image: IMG.stal,
     body: 'Ruim 110 jaar oud, nu expositieruimte en zaal voor 60 gasten.',
     href: 'Stal'
   }, {
     name: 'De Hooiberg',
-    x: 49.5,
-    y: 33,
-    w: 11.5,
-    h: 13,
+    x: 55.46,
+    y: 43.75,
+    w: 2.8,
+    h: 3.8,
     image: IMG.hooiberg,
     body: 'De vijfhoekige berg; boven plaats voor maximaal 30 gasten.',
     href: 'Hooiberg'
   }, {
     name: 'Het Koetshuis',
-    x: 65.5,
-    y: 33,
-    w: 14,
-    h: 18,
+    x: 65.79,
+    y: 48.39,
+    w: 2.8,
+    h: 3.8,
     side: 'left',
     image: IMG.koetshuisFeest,
     body: 'De grote zaal met eigen entree en bar, tot 250 gasten.',
     href: 'Koetshuis'
   }, {
     name: 'Ontwikkelatelier',
-    x: 65.5,
-    y: 59,
-    w: 14,
-    h: 9,
+    x: 55.44,
+    y: 57.58,
+    w: 2.8,
+    h: 3.8,
     side: 'left',
     image: IMG.atelier,
     body: 'De oude lijstenmakerij, nu atelier en werkruimte voor kleine groepen.',
     href: 'Ontwikkelatelier'
   }, {
     name: 'Beeldentuin',
-    x: 9,
-    y: 24,
-    w: 36,
-    h: 54,
+    x: 34.33,
+    y: 32.54,
+    w: 2.8,
+    h: 3.8,
     image: IMG.beeldentuinVogels,
     body: 'Bronzen beelden tussen de hagen, de boomgaard en het water.',
     href: 'Beeldentuin'
   }, {
     name: 'Parkeren',
-    x: 60,
-    y: 72,
-    w: 9,
-    h: 26,
+    x: 41.8,
+    y: 69.35,
+    w: 2.8,
+    h: 3.8,
     side: 'left',
     body: 'Ruim eigen terrein direct naast de zalen. Gratis, geen reservering nodig.'
   }, {
     name: 'Water',
-    x: 46.5,
-    y: 2,
-    w: 4,
-    h: 42,
+    x: 24.39,
+    y: 40.04,
+    w: 2.8,
+    h: 3.8,
     image: IMG.water,
     body: 'De sloot langs het voorhuis loopt uit op de vijver bij de entree.'
   }];
@@ -5361,7 +5539,7 @@ function LocatieScreen({
     align: "center",
     width: "76ch"
   }, "Vier zalen, een galerie en een beeldentuin op \xE9\xE9n erf. Op de plattegrond ziet u hoe alles ligt \u2014 kies een plek op de kaart of in de lijst.")), /*#__PURE__*/React.createElement(SitePlan, {
-    image: "../../assets/map-plan-licht.png",
+    image: "../../assets/map-iso.png",
     spots: spots,
     title: "Het erf, van bovenaf",
     onSelect: s => s.href && onNavigate(s.href),
@@ -5373,9 +5551,9 @@ function LocatieScreen({
       margin: 'var(--space-5) 0 0',
       textAlign: 'center',
       fontSize: 'var(--fs-body-s)',
-      color: 'var(--ink-400)'
+      color: 'var(--text-muted)'
     }
-  }, "Goud zijn de boekbare ruimtes, donker de overige bebouwing. Deze plattegrond is getekend naar de werkversie van het erf; maten zijn indicatief.")), /*#__PURE__*/React.createElement(Section, {
+  }, "Goud zijn de boekbare ruimtes, donker het woonhuis en het bijgebouw. Deze kaart is opgebouwd uit de werkplattegrond van het erf; hoogtes en dakvlakken zijn een schatting en de zonnepanelen ontbreken nog.")), /*#__PURE__*/React.createElement(Section, {
     tone: "sage",
     pad: "var(--section-y-tight) var(--space-8)"
   }, /*#__PURE__*/React.createElement("div", {
@@ -7523,6 +7701,8 @@ __ds_ns.PhotoCarousel = __ds_scope.PhotoCarousel;
 __ds_ns.PullQuote = __ds_scope.PullQuote;
 
 __ds_ns.QuoteBar = __ds_scope.QuoteBar;
+
+__ds_ns.WinterLockup = __ds_scope.WinterLockup;
 
 __ds_ns.SiteMap = __ds_scope.SiteMap;
 

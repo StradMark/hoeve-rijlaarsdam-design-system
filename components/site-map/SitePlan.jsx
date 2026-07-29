@@ -5,20 +5,29 @@ import React from 'react';
    carries the photo — so nothing floats over the plan and nothing jumps.
    Hotspots stay percentages of the image, exactly as in SiteMap. */
 export function SitePlan({image,spots=[],alt='Plattegrond van de hoeve',title,onSelect,
-  hint='Kies een plek op de kaart of in de lijst',style}){
+  openOnHover=true,hint='Beweeg over de kaart of kies een plek in de lijst',style}){
   const [hot,setHot]=React.useState(-1);    // hover of focus — verandert alleen kleur
   const [open,setOpen]=React.useState(-1);  // klik — klapt de regel uit
   const [narrow,setNarrow]=React.useState(false);
+  const [pin,setPin]=React.useState(30);
+  const imgRef=React.useRef(null);
   React.useEffect(()=>{
-    const check=()=>setNarrow(window.innerWidth<900);
+    const check=()=>{
+      setNarrow(window.innerWidth<900);
+      /* De hotspots zijn percentages, dus hun onderlinge afstand krimpt met de kaart terwijl een
+         vaste punt dat niet doet. Schaal de punt mee: 30px bij een kaart van 620px, min 20px. */
+      const w=imgRef.current&&imgRef.current.getBoundingClientRect().width;
+      if(w)setPin(Math.max(20,Math.min(30,Math.round(w/620*30))));
+    };
     check();window.addEventListener('resize',check);
-    return ()=>window.removeEventListener('resize',check);
+    const t=setTimeout(check,120);
+    return ()=>{window.removeEventListener('resize',check);clearTimeout(t)};
   },[]);
   const num=i=>String(i+1).padStart(2,'0');
   const toggle=i=>setOpen(v=>v===i?-1:i);
   const lit=i=>hot===i||open===i;
   return (
-    <div style={{display:'grid',gridTemplateColumns:narrow?'1fr':'1.35fr 1fr',
+    <div style={{display:'grid',gridTemplateColumns:narrow?'1fr':'1.75fr 1fr',
       gap:narrow?'var(--space-6)':'var(--space-7)',alignItems:'start',...style}}
       onMouseLeave={()=>setHot(-1)}>
 
@@ -26,23 +35,27 @@ export function SitePlan({image,spots=[],alt='Plattegrond van de hoeve',title,on
       <div style={{position:'relative',background:'var(--cream-100)',
         padding:narrow?'var(--space-4)':'var(--space-5)',boxShadow:'var(--shadow-card)'}}>
         <div style={{position:'relative'}}>
-          <img src={image} alt={alt} style={{display:'block',width:'100%',height:'auto'}}/>
+          <img ref={imgRef} src={image} alt={alt} onLoad={()=>{
+            const w=imgRef.current&&imgRef.current.getBoundingClientRect().width;
+            if(w)setPin(Math.max(20,Math.min(30,Math.round(w/620*30))));
+          }} style={{display:'block',width:'100%',height:'auto'}}/>
           {spots.map((s,i)=>{
             const on=lit(i);
             return (
               <button key={s.name} type="button" aria-label={s.name} aria-pressed={open===i}
-                onMouseEnter={()=>!narrow&&setHot(i)}
+                onMouseEnter={()=>{if(narrow)return;setHot(i);if(openOnHover)setOpen(i)}}
                 onMouseLeave={()=>!narrow&&setHot(-1)}
-                onFocus={()=>setHot(i)} onBlur={()=>setHot(-1)}
+                onFocus={()=>{setHot(i);if(openOnHover)setOpen(i)}} onBlur={()=>setHot(-1)}
                 onClick={()=>toggle(i)}
-                style={{position:'absolute',left:'calc('+(s.x+s.w/2)+'% - 15px)',top:'calc('+(s.y+s.h/2)+'% - 15px)',
-                  width:30,height:30,padding:0,cursor:'pointer',borderRadius:'var(--radius-pill)',
+                style={{position:'absolute',left:'calc('+(s.x+s.w/2)+'% - '+(pin/2)+'px)',
+                  top:'calc('+(s.y+s.h/2)+'% - '+(pin/2)+'px)',
+                  width:pin,height:pin,padding:0,cursor:'pointer',borderRadius:'var(--radius-pill)',
                   border:'1px solid '+(on?'var(--gold-500)':'rgba(40,94,77,.5)'),
                   background:on?'var(--gold-500)':'rgba(251,248,243,.96)',
                   color:on?'var(--white)':'var(--green-900)',
-                  fontFamily:'var(--font-display)',fontSize:14,letterSpacing:'.02em',lineHeight:1,
+                  fontFamily:'var(--font-display)',fontSize:Math.round(pin*.47),letterSpacing:'.02em',lineHeight:1,
                   display:'flex',alignItems:'center',justifyContent:'center',
-                  boxShadow:on?'0 0 0 6px rgba(176,131,68,.16)':'none',
+                  boxShadow:on?'0 0 0 '+Math.round(pin/5)+'px rgba(176,131,68,.16)':'none',
                   transition:'background var(--dur-base) var(--ease-out),color var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out),border-color var(--dur-base) var(--ease-out)'}}>
                 {num(i)}
               </button>

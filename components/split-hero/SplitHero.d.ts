@@ -11,15 +11,18 @@ export interface SplitHeroItem {
   onSelect?: () => void;
 }
 /**
- * Homepage-only doorway hero: two full-height halves, one script ampersand between them,
- * calm motion and a widening half on hover, plus a scroll hint. Every other page uses HeroVideo.
+ * Homepage-only doorway hero: two full-height halves, the swirl-ampersand from the huisstijl
+ * between them, calm motion and a widening half on hover, plus a scroll hint. Every other page uses HeroVideo.
  */
 export interface SplitHeroProps {
   /** exactly two items — the pattern breaks with three */
   items: SplitHeroItem[];
   /** italic serif line in the deep-green strip at the bottom of the viewport */
   caption?: React.ReactNode;
+  /** show the swirl-ampersand on the seam; it fades out as soon as a half is hovered */
   ampersand?: boolean;
+  /** path to the swirl asset — set this when the page is not served from the project root */
+  ampersandSrc?: string;
 /** fallback height of whatever sits above the hero; the real offset is measured after mount */
   offset?: number;
   fullHeight?: boolean;

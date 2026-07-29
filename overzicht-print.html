@@ -5,7 +5,7 @@ doc-page:not(:defined){visibility:hidden}
 *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
 *{animation-delay:-99s !important;animation-duration:.001s !important;animation-iteration-count:1 !important;animation-fill-mode:both !important;animation-play-state:running !important;transition-duration:0s !important}
 body{font-family:var(--font-body);color:var(--text-body)}
-.kick{font-family:var(--font-script);font-size:40px;line-height:.8;color:var(--gold-500);margin:0 0 -4px -2px}
+.kick{font-family:var(--font-script);font-variant-ligatures:none;font-size:40px;line-height:.8;color:var(--gold-500);margin:0 0 -4px -2px}
 h1{margin:0 0 14px;font-family:var(--font-display);font-weight:400;font-size:38px;letter-spacing:.04em;text-transform:uppercase;color:var(--text-heading)}
 .lede{margin:0 0 8px;font-size:var(--fs-body-m);line-height:var(--lh-body)}
 h2{margin:34px 0 18px;font-family:var(--font-display);font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-600);break-after:avoid;break-before:page}
@@ -22,63 +22,69 @@ a{color:var(--gold-600)}a:hover{color:var(--gold-500)}
 <body>
 <doc-page margin="0.75in">
 <p class="kick">het</p><h1>Design System</h1>
-<p class="lede">Hoeve Rijlaarsdam &mdash; Art &amp; Events. Alle fundamenten en componenten op een rij:
-kleur, typografie, ritme, merk, knoppen en velden, koppen, kaarten, panelen, hero&rsquo;s en pagina-onderdelen.
-Fonts zijn tijdelijke vervangers (Italianno, Playfair Display, Jost) tot de echte bestanden er zijn.</p>
+<p class="lede">Hoeve Rijlaarsdam &mdash; Art &amp; Events. Alle fundamenten en componenten op een rij: kleur (inclusief het winterpalet), typografie, ritme, merk met het seizoenslogo, knoppen en velden, koppen, kaarten, panelen, hero&rsquo;s en pagina-onderdelen. Fonts zijn tijdelijke vervangers (Italianno, Playfair Display, Jost) tot de echte bestanden er zijn.</p>
 <h2>Merk</h2>
 <figure><figcaption><b>Shape &amp; radius</b><span>Square photography and panels; pills only for controls</span></figcaption>
 <div class="frame" style="width:660px;height:170px"><iframe src="guidelines/shape-radius.html" title="Shape &amp; radius" style="width:700px;height:180px;transform:scale(0.9429)"></iframe></div></figure>
 <figure><figcaption><b>Motion &amp; states</b><span>150ms fills, 280ms media, 520ms photo scale; press shrinks 3%</span></figcaption>
 <div class="frame" style="width:660px;height:170px"><iframe src="guidelines/motion-states.html" title="Motion &amp; states" style="width:700px;height:180px;transform:scale(0.9429)"></iframe></div></figure>
-<figure><figcaption><b>Logo</b><span>Primary lockup: barn mark + Hoeve script + RIJLAARSDAM + ART &amp; EVENTS</span></figcaption>
-<div class="frame" style="width:660px;height:189px"><iframe src="guidelines/brand-logo.html" title="Logo" style="width:700px;height:200px;transform:scale(0.9429)"></iframe></div></figure>
-<figure><figcaption><b>Schuurmerk</b><span>Het monogram als SVG — kleur, mono en op klein formaat</span></figcaption>
+<figure><figcaption><b>Logo</b><span>Alle aangeleverde versies als vector: hoofdlockup, goud, liggend, wit, mono en woordmerk</span></figcaption>
+<div class="frame" style="width:660px;height:490px"><iframe src="guidelines/brand-logo.html" title="Logo" style="width:700px;height:520px;transform:scale(0.9429)"></iframe></div></figure>
+<figure><figcaption><b>Schuurmerk</b><span>Het monogram als SVG &mdash; kleur, mono en op klein formaat</span></figcaption>
 <div class="frame" style="width:660px;height:189px"><iframe src="guidelines/brand-mark.html" title="Schuurmerk" style="width:700px;height:200px;transform:scale(0.9429)"></iframe></div></figure>
+<figure><figcaption><b>Swirl-ornament</b><span>De ampersand-swirl uit de huisstijl &mdash; als scheiding en als &amp;amp;, spaarzaam</span></figcaption>
+<div class="frame" style="width:660px;height:217px"><iframe src="guidelines/brand-ornament.html" title="Swirl-ornament" style="width:700px;height:230px;transform:scale(0.9429)"></iframe></div></figure>
+<figure><figcaption><b>Winterlogo</b><span>Het seizoenslogo van de ontwerper &mdash; sneeuwvlok-lockup en los woordmerk, als vector</span></figcaption>
+<div class="frame" style="width:660px;height:490px"><iframe src="components/seasonal/winter-logo.card.html" title="Winterlogo" style="width:700px;height:520px;transform:scale(0.9429)"></iframe></div></figure>
 <figure><figcaption><b>Photography</b><span>Warm, candid, daylight; square crops; bottom protection gradient</span></figcaption>
 <div class="frame" style="width:660px;height:217px"><iframe src="guidelines/brand-photography.html" title="Photography" style="width:700px;height:230px;transform:scale(0.9429)"></iframe></div></figure>
 <h2>Brand</h2>
-<figure><figcaption><b>Logo-animatie</b><span>De nagetraceerde Hoeve wordt in schrijfvolgorde geschreven, Rijlaarsdam schuift op, de streep trekt zich, het schuurtje valt erop</span></figcaption>
-<div class="frame" style="width:660px;height:377px"><iframe src="guidelines/logo-animation.html" title="Logo-animatie" style="width:700px;height:400px;transform:scale(0.9429)"></iframe></div></figure>
+<figure><figcaption><b>Logo-animatie</b><span>Het echte vectorlogo wordt geschreven &mdash; vier varianten in tempo en opbouw, klik om te vergelijken</span></figcaption>
+<div class="frame" style="width:660px;height:434px"><iframe src="guidelines/logo-animation.html" title="Logo-animatie" style="width:700px;height:460px;transform:scale(0.9429)"></iframe></div></figure>
+<figure><figcaption><b>Logo-animatie winter</b><span>Winters Rijlaarsdam op het groene vlak: met de pen geschreven en dwarrelende vlokjes, of alleen de sneeuw die eeuwig doorvalt</span></figcaption>
+<div class="frame" style="width:660px;height:443px"><iframe src="guidelines/logo-animation-winter.html" title="Logo-animatie winter" style="width:700px;height:470px;transform:scale(0.9429)"></iframe></div></figure>
 <h2>Kleur</h2>
-<figure><figcaption><b>Deep green</b><span>The primary brand green — bands, panels, buttons, footer</span></figcaption>
+<figure><figcaption><b>Deep green</b><span>The primary brand green &mdash; bands, panels, buttons, footer</span></figcaption>
 <div class="frame" style="width:660px;height:141px"><iframe src="guidelines/color-green.html" title="Deep green" style="width:700px;height:150px;transform:scale(0.9429)"></iframe></div></figure>
 <figure><figcaption><b>Sage</b><span>Section fields, secondary panels, soft pills</span></figcaption>
 <div class="frame" style="width:660px;height:141px"><iframe src="guidelines/color-sage.html" title="Sage" style="width:700px;height:150px;transform:scale(0.9429)"></iframe></div></figure>
-<figure><figcaption><b>Gold</b><span>Kickers, captions, form submit — accent only, never a field</span></figcaption>
+<figure><figcaption><b>Gold</b><span>Kickers, captions, form submit &mdash; accent only, never a field</span></figcaption>
 <div class="frame" style="width:660px;height:141px"><iframe src="guidelines/color-gold.html" title="Gold" style="width:700px;height:150px;transform:scale(0.9429)"></iframe></div></figure>
 <figure><figcaption><b>Neutrals</b><span>Cream page fields, ink text scale, hairlines</span></figcaption>
 <div class="frame" style="width:660px;height:141px"><iframe src="guidelines/color-neutrals.html" title="Neutrals" style="width:700px;height:150px;transform:scale(0.9429)"></iframe></div></figure>
 <figure><figcaption><b>Surfaces in use</b><span>How the four fields stack down a page</span></figcaption>
 <div class="frame" style="width:660px;height:189px"><iframe src="guidelines/color-semantic.html" title="Surfaces in use" style="width:700px;height:200px;transform:scale(0.9429)"></iframe></div></figure>
+<figure><figcaption><b>Winterpalet</b><span>Sage wijkt voor vorst; groen zakt dieper; goud wordt kaarslicht</span></figcaption>
+<div class="frame" style="width:660px;height:245px"><iframe src="guidelines/color-winter.html" title="Winterpalet" style="width:700px;height:260px;transform:scale(0.9429)"></iframe></div></figure>
 <h2>Typografie</h2>
-<figure><figcaption><b>Display serif</b><span>Playfair Display 400 — every heading, caption, nav item and button</span></figcaption>
+<figure><figcaption><b>Display serif</b><span>Playfair Display 400 &mdash; every heading, caption, nav item and button</span></figcaption>
 <div class="frame" style="width:660px;height:217px"><iframe src="guidelines/type-display.html" title="Display serif" style="width:700px;height:230px;transform:scale(0.9429)"></iframe></div></figure>
-<figure><figcaption><b>Script kicker</b><span>Italianno — hangt links van de titel en overlapt hem verticaal</span></figcaption>
-<div class="frame" style="width:660px;height:198px"><iframe src="guidelines/type-script.html" title="Script kicker" style="width:700px;height:210px;transform:scale(0.9429)"></iframe></div></figure>
-<figure><figcaption><b>Body sans</b><span>Jost 300 at 14px / 1.75 — small, light, generous leading</span></figcaption>
+<figure><figcaption><b>Script kicker</b><span>BDScript &mdash; hangt links van de titel en overlapt hem verticaal; altijd met font-variant-ligatures:none</span></figcaption>
+<div class="frame" style="width:660px;height:283px"><iframe src="guidelines/type-script.html" title="Script kicker" style="width:700px;height:300px;transform:scale(0.9429)"></iframe></div></figure>
+<figure><figcaption><b>Body sans</b><span>Raleway 300 op 14px / 1,75 &mdash; klein, licht, ruime regelafstand (voorgeschreven font)</span></figcaption>
 <div class="frame" style="width:660px;height:189px"><iframe src="guidelines/type-body.html" title="Body sans" style="width:700px;height:200px;transform:scale(0.9429)"></iframe></div></figure>
-<figure><figcaption><b>Letterspaced caps</b><span>Serif uppercase with .14em tracking — nav, buttons, captions, FAQ rows</span></figcaption>
+<figure><figcaption><b>Letterspaced caps</b><span>Serif uppercase with .14em tracking &mdash; nav, buttons, captions, FAQ rows</span></figcaption>
 <div class="frame" style="width:660px;height:160px"><iframe src="guidelines/type-label.html" title="Letterspaced caps" style="width:700px;height:170px;transform:scale(0.9429)"></iframe></div></figure>
 <figure><figcaption><b>Kicker-regels</b><span>Wanneer werkt de script-kicker, en wanneer niet</span></figcaption>
 <div class="frame" style="width:660px;height:377px"><iframe src="guidelines/kicker-regels.html" title="Kicker-regels" style="width:700px;height:400px;transform:scale(0.9429)"></iframe></div></figure>
-<figure><figcaption><b>Fontkeuze — 3 richtingen</b><span>Voorstellen op basis van het logo: script, display-serif en body-sans naast elkaar</span></figcaption>
-<div class="frame" style="width:660px;height:481px"><iframe src="guidelines/fontkeuze.html" title="Fontkeuze — 3 richtingen" style="width:1180px;height:860px;transform:scale(0.5593)"></iframe></div></figure>
+<figure><figcaption><b>Fontkeuze &mdash; vastgesteld</b><span>De huisstijl van de ontwerper schrijft Playfair Display + Raleway voor; BDScript ontbreekt nog als bestand</span></figcaption>
+<div class="frame" style="width:660px;height:515px"><iframe src="guidelines/fontkeuze.html" title="Fontkeuze &mdash; vastgesteld" style="width:1180px;height:920px;transform:scale(0.5593)"></iframe></div></figure>
 <h2>Ritme en ruimte</h2>
 <figure><figcaption><b>Spacing scale</b><span>4px base; 8-point rhythm above 16</span></figcaption>
 <div class="frame" style="width:660px;height:160px"><iframe src="guidelines/spacing-scale.html" title="Spacing scale" style="width:700px;height:170px;transform:scale(0.9429)"></iframe></div></figure>
 <figure><figcaption><b>Section rhythm</b><span>96px vertical section padding, 1180px container, 24px grid gap</span></figcaption>
 <div class="frame" style="width:660px;height:207px"><iframe src="guidelines/spacing-rhythm.html" title="Section rhythm" style="width:700px;height:220px;transform:scale(0.9429)"></iframe></div></figure>
 <h2>Knoppen en velden</h2>
-<figure><figcaption><b>Knoppen</b><span>Vijf tonen, twee maten, disabled — altijd pilvorm en gespatieerde kapitalen</span></figcaption>
+<figure><figcaption><b>Knoppen</b><span>Vijf tonen, twee maten, disabled &mdash; altijd pilvorm en gespatieerde kapitalen</span></figcaption>
 <div class="frame" style="width:660px;height:217px"><iframe src="components/core/buttons.card.html" title="Knoppen" style="width:700px;height:230px;transform:scale(0.9429)"></iframe></div></figure>
-<figure><figcaption><b>Velden, pillen en pijlen</b><span>Zwevend label: leeg, ingevuld, met fout — plus segmentpillen en carouselpijlen</span></figcaption>
+<figure><figcaption><b>Velden, pillen en pijlen</b><span>Zwevend label: leeg, ingevuld, met fout &mdash; plus segmentpillen en carouselpijlen</span></figcaption>
 <div class="frame" style="width:660px;height:339px"><iframe src="components/core/fields.card.html" title="Velden, pillen en pijlen" style="width:700px;height:360px;transform:scale(0.9429)"></iframe></div></figure>
 <h2>Koppen en tekst</h2>
-<figure><figcaption><b>SectionHeading</b><span>Script-kicker over de serif-titel — drie maten, links en gecentreerd, licht en donker</span></figcaption>
+<figure><figcaption><b>SectionHeading</b><span>Script-kicker over de serif-titel &mdash; drie maten, links en gecentreerd, licht en donker</span></figcaption>
 <div class="frame" style="width:660px;height:339px"><iframe src="components/content/headings.card.html" title="SectionHeading" style="width:700px;height:360px;transform:scale(0.9429)"></iframe></div></figure>
 <h2>Kaarten</h2>
-<figure><figcaption><b>Fotokaarten — ruimtes</b><span>RoomCard: feiten altijd zichtbaar (aanbevolen), op hover, en de gesplitste balk uit de ontwerpen</span></figcaption>
-<div class="frame" style="width:660px;height:717px"><iframe src="components/content/cards.card.html" title="Fotokaarten — ruimtes" style="width:700px;height:760px;transform:scale(0.9429)"></iframe></div></figure>
+<figure><figcaption><b>Fotokaarten &mdash; ruimtes</b><span>RoomCard: feiten altijd zichtbaar (aanbevolen), op hover, en de gesplitste balk uit de ontwerpen</span></figcaption>
+<div class="frame" style="width:660px;height:717px"><iframe src="components/content/cards.card.html" title="Fotokaarten &mdash; ruimtes" style="width:700px;height:760px;transform:scale(0.9429)"></iframe></div></figure>
 <figure><figcaption><b>PersonCard en InfoTile</b><span>Portret met rol en telefoon of Boek mij; InfoTile voor korte uitleg op een gekleurd vlak</span></figcaption>
 <div class="frame" style="width:660px;height:585px"><iframe src="components/content/people.card.html" title="PersonCard en InfoTile" style="width:700px;height:620px;transform:scale(0.9429)"></iframe></div></figure>
 <h2>Panelen en quotes</h2>
@@ -93,28 +99,28 @@ Fonts zijn tijdelijke vervangers (Italianno, Playfair Display, Jost) tot de echt
 <figure><figcaption><b>SplitPanel</b><span>SplitPanel met faciliteitenpaneel over de foto</span></figcaption>
 <div class="frame" style="width:660px;height:224px"><iframe src="components/layout/layout.card.html" title="SplitPanel" style="width:1180px;height:400px;transform:scale(0.5593)"></iframe></div></figure>
 <h2>Heros</h2>
-<figure><figcaption><b>SplitHero — keuzehero homepage</b><span>Alleen op de homepage: ART / EVENTS, hover verbreedt de helft, quote-lint onderin</span></figcaption>
-<div class="frame" style="width:660px;height:246px"><iframe src="components/split-hero/splithero.card.html" title="SplitHero — keuzehero homepage" style="width:1180px;height:440px;transform:scale(0.5593)"></iframe></div></figure>
-<figure><figcaption><b>HeroVideo — paginahero</b><span>Elke pagina behalve de homepage: dezelfde titel op een foto of op een stille lopende video</span></figcaption>
-<div class="frame" style="width:660px;height:380px"><iframe src="components/hero/herovideo.card.html" title="HeroVideo — paginahero" style="width:1180px;height:680px;transform:scale(0.5593)"></iframe></div></figure>
+<figure><figcaption><b>SplitHero &mdash; keuzehero homepage</b><span>Alleen op de homepage: ART / EVENTS, hover verbreedt de helft, quote-lint onderin</span></figcaption>
+<div class="frame" style="width:660px;height:246px"><iframe src="components/split-hero/splithero.card.html" title="SplitHero &mdash; keuzehero homepage" style="width:1180px;height:440px;transform:scale(0.5593)"></iframe></div></figure>
+<figure><figcaption><b>HeroVideo &mdash; paginahero</b><span>Elke pagina behalve de homepage: dezelfde titel op een foto of op een stille lopende video</span></figcaption>
+<div class="frame" style="width:660px;height:380px"><iframe src="components/hero/herovideo.card.html" title="HeroVideo &mdash; paginahero" style="width:1180px;height:680px;transform:scale(0.5593)"></iframe></div></figure>
 <h2>Pagina-onderdelen</h2>
 <figure><figcaption><b>NavBar</b><span>Gecentreerd logo, gesplitste navigatie, actief item in goud, offerte-knop</span></figcaption>
 <div class="frame" style="width:660px;height:112px"><iframe src="components/navigation/navbar.card.html" title="NavBar" style="width:1180px;height:200px;transform:scale(0.5593)"></iframe></div></figure>
-<figure><figcaption><b>PhotoCarousel — vlak of gekanteld</b><span>Boven: de vlakke versie die nu in gebruik is. Onder: echte coverflow met perspectief</span></figcaption>
-<div class="frame" style="width:660px;height:604px"><iframe src="components/photo-carousel/photocarousel.card.html" title="PhotoCarousel — vlak of gekanteld" style="width:1180px;height:1080px;transform:scale(0.5593)"></iframe></div></figure>
-<figure><figcaption><b>CtaBand</b><span>cream (standaard) en sage — nooit donkergroen, dat is de footer</span></figcaption>
+<figure><figcaption><b>PhotoCarousel &mdash; vlak of gekanteld</b><span>Boven: de vlakke versie die nu in gebruik is. Onder: echte coverflow met perspectief</span></figcaption>
+<div class="frame" style="width:660px;height:604px"><iframe src="components/photo-carousel/photocarousel.card.html" title="PhotoCarousel &mdash; vlak of gekanteld" style="width:1180px;height:1080px;transform:scale(0.5593)"></iframe></div></figure>
+<figure><figcaption><b>CtaBand</b><span>cream (standaard) en sage &mdash; nooit donkergroen, dat is de footer</span></figcaption>
 <div class="frame" style="width:660px;height:347px"><iframe src="components/cta-band/ctaband.card.html" title="CtaBand" style="width:1180px;height:620px;transform:scale(0.5593)"></iframe></div></figure>
-<figure><figcaption><b>PageOutro — CTA, carousel en footer</b><span>PageOutro: de carousel hangt over de CTA-band, daarna de footer in eigen sectie</span></figcaption>
-<div class="frame" style="width:660px;height:604px"><iframe src="components/page-outro/pageoutro.card.html" title="PageOutro — CTA, carousel en footer" style="width:1180px;height:1080px;transform:scale(0.5593)"></iframe></div></figure>
+<figure><figcaption><b>PageOutro &mdash; CTA, carousel en footer</b><span>PageOutro: de carousel hangt over de CTA-band, daarna de footer in eigen sectie</span></figcaption>
+<div class="frame" style="width:660px;height:604px"><iframe src="components/page-outro/pageoutro.card.html" title="PageOutro &mdash; CTA, carousel en footer" style="width:1180px;height:1080px;transform:scale(0.5593)"></iframe></div></figure>
 <figure><figcaption><b>Footer</b><span>Drie kolommen, sociale knoppen, juridische regel</span></figcaption>
 <div class="frame" style="width:660px;height:185px"><iframe src="components/footer/footer.card.html" title="Footer" style="width:1180px;height:330px;transform:scale(0.5593)"></iframe></div></figure>
-<figure><figcaption><b>Plattegrond — plan met legenda, en de eenvoudige variant</b><span>Het hertekende plan: goud is boekbaar, inkt is overige bebouwing. Licht, diep, en de ruwe bron</span></figcaption>
-<div class="frame" style="width:660px;height:1342px"><iframe src="components/site-map/sitemap.card.html" title="Plattegrond — plan met legenda, en de eenvoudige variant" style="width:1180px;height:2400px;transform:scale(0.5593)"></iframe></div></figure>
-<figure><figcaption><b>Plattegrond — isometrisch</b><span>Footprints uit het eigen plan geëxtrudeerd; goud = boekbare ruimte, donker = overige bebouwing</span></figcaption>
-<div class="frame" style="width:660px;height:559px"><iframe src="guidelines/plattegrond-isometrisch.html" title="Plattegrond — isometrisch" style="width:1180px;height:1000px;transform:scale(0.5593)"></iframe></div></figure>
-<figure><figcaption><b>Plattegrond isometrisch — met legenda</b><span>SitePlan op de isometrische kaart; zelfde interactie, punten op de nok van elk volume</span></figcaption>
-<div class="frame" style="width:660px;height:604px"><iframe src="guidelines/plattegrond-isometrisch-legenda.html" title="Plattegrond isometrisch — met legenda" style="width:1180px;height:1080px;transform:scale(0.5593)"></iframe></div></figure>
-<p class="tail">Werkversie, 29 juli 2026. 39 kaarten. De doorklikbare website zit niet in dit document &mdash; die is interactief en wordt apart gedeeld.</p>
+<figure><figcaption><b>Plattegrond &mdash; plan met legenda, en de eenvoudige variant</b><span>Het hertekende plan: goud is boekbaar, inkt is overige bebouwing. Licht, diep, en de ruwe bron</span></figcaption>
+<div class="frame" style="width:660px;height:1342px"><iframe src="components/site-map/sitemap.card.html" title="Plattegrond &mdash; plan met legenda, en de eenvoudige variant" style="width:1180px;height:2400px;transform:scale(0.5593)"></iframe></div></figure>
+<figure><figcaption><b>Plattegrond &mdash; isometrisch</b><span>Footprints uit het eigen plan geëxtrudeerd; goud = boekbare ruimte, donker = overige bebouwing</span></figcaption>
+<div class="frame" style="width:660px;height:559px"><iframe src="guidelines/plattegrond-isometrisch.html" title="Plattegrond &mdash; isometrisch" style="width:1180px;height:1000px;transform:scale(0.5593)"></iframe></div></figure>
+<figure><figcaption><b>Plattegrond isometrisch &mdash; met legenda</b><span>SitePlan op de isometrische kaart; zelfde interactie, punten op de nok van elk volume</span></figcaption>
+<div class="frame" style="width:660px;height:604px"><iframe src="guidelines/plattegrond-isometrisch-legenda.html" title="Plattegrond isometrisch &mdash; met legenda" style="width:1180px;height:1080px;transform:scale(0.5593)"></iframe></div></figure>
+<p class="tail">Werkversie, 29 juli 2026. 43 kaarten. De doorklikbare website zit niet in dit document &mdash; die is interactief en wordt apart gedeeld.</p>
 </doc-page>
 <script src="doc-page.js"></script>
 </body></html>

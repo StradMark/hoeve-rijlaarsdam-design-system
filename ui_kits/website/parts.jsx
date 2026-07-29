@@ -65,7 +65,8 @@ const IMG = {
   lounge:'../../assets/photo-lounge-zonsondergang.jpg',
   water:'../../assets/photo-omgeving-water.jpg',
   gazon:'../../assets/photo-hoeve-gazon.jpg',
-  logo:'../../assets/logo.png'
+  logo:'../../assets/logo-lockup.svg',
+  swirl:'../../assets/ornament-swirl.svg'
 };
 
 const FOOTER_COLS = [

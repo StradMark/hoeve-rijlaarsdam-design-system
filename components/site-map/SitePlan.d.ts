@@ -5,7 +5,6 @@ import { SiteMapSpot } from './SiteMap';
  * paper, markers are gold serif numerals, and a numbered legend sits beside it. Hovering either
  * side highlights the other; the open legend row carries the photo, so nothing floats over the
  * plan. Prefer this on a full page; keep SiteMap where the plan must stand alone without a legend.
- * @startingPoint section="Layout" subtitle="Plan met genummerde legenda" viewport="1180x680"
  */
 export interface SitePlanProps {
   /** the plan image; fills the left column */
@@ -18,6 +17,9 @@ export interface SitePlanProps {
   /** line under the legend while nothing is open; pass "" to hide */
   hint?: string;
   onSelect?: (spot: SiteMapSpot) => void;
+  /** hovering a map point also opens its legend row (default true). Legend rows themselves only
+   *  highlight on hover — they open on click, so the list never reflows under the pointer. */
+  openOnHover?: boolean;
   style?: React.CSSProperties;
 }
 export declare function SitePlan(props: SitePlanProps): JSX.Element;

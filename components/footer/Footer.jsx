@@ -24,10 +24,21 @@ function SocialButton({name}){
 }
 
 export function Footer({columns=[],social=['instagram','facebook'],legal='Ontwerp: Janneke van Soeren-Aupers · Realisatie: Mark Stradmann · © 2026 Hoeve Rijlaarsdam Hospitality B.V.',links=['Algemene voorwaarden','Cookies','Privacy'],style}){
+  /* Gestapeld op telefoon: drie kolommen onder elkaar met minder lucht ertussen dan naast
+     elkaar, en de labelkolom van de openingstijden krijgt geen vaste breedte meer — die liet
+     anders een gat van 64px in elke regel staan. */
+  const [narrow,setNarrow]=React.useState(false);
+  React.useEffect(()=>{
+    const check=()=>setNarrow(window.innerWidth<760);
+    check();window.addEventListener('resize',check);
+    return ()=>window.removeEventListener('resize',check);
+  },[]);
   return (
     <footer style={{background:'var(--surface-deep)',color:'var(--text-on-dark)',...style}}>
-      <div style={{maxWidth:'var(--container)',margin:'0 auto',padding:'var(--space-7) var(--space-6)',
-        display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'var(--space-7)'}}>
+      <div style={{maxWidth:'var(--container)',margin:'0 auto',
+        padding:narrow?'var(--space-6) var(--gutter)':'var(--space-7) var(--space-6)',
+        display:'grid',gridTemplateColumns:narrow?'1fr':'repeat(3,1fr)',
+        gap:narrow?'var(--space-6)':'var(--space-7)'}}>
         {columns.map((col,i)=>(
           <div key={i}>
             <h4 style={{fontFamily:'var(--font-display)',fontSize:'var(--fs-label-m)',letterSpacing:'var(--ls-label)',
@@ -35,8 +46,10 @@ export function Footer({columns=[],social=['instagram','facebook'],legal='Ontwer
             <div style={{display:'grid',gap:'2px'}}>
               {col.lines.map((l,j)=>(
                 <div key={j} style={{fontSize:'var(--fs-body-s)',fontWeight:l.strong?'var(--fw-body-strong)':'var(--fw-body)',
-                  color:l.strong?'var(--white)':'var(--sage-200)',display:'flex',gap:'var(--space-4)'}}>
-                  {l.label&&<span style={{fontWeight:'var(--fw-body-strong)',color:'var(--white)',minWidth:64}}>{l.label}</span>}
+                  color:l.strong?'var(--white)':'var(--sage-200)',display:'flex',
+                  gap:narrow?'var(--space-3)':'var(--space-4)'}}>
+                  {l.label&&<span style={{fontWeight:'var(--fw-body-strong)',color:'var(--white)',
+                    minWidth:narrow?undefined:64,flex:narrow?'0 0 auto':undefined}}>{l.label}</span>}
                   <span>{l.text}</span>
                 </div>
               ))}
@@ -50,10 +63,14 @@ export function Footer({columns=[],social=['instagram','facebook'],legal='Ontwer
         ))}
       </div>
       <div style={{borderTop:'1px solid var(--border-on-dark)'}}>
-        <div style={{maxWidth:'var(--container)',margin:'0 auto',padding:'10px var(--space-6)',display:'flex',
-          justifyContent:'space-between',gap:'var(--space-5)',fontSize:'var(--fs-body-xs)',color:'var(--sage-200)'}}>
+        <div style={{maxWidth:'var(--container)',margin:'0 auto',
+          padding:narrow?'var(--space-4) var(--gutter)':'10px var(--space-6)',display:'flex',
+          flexDirection:narrow?'column':'row',
+          alignItems:narrow?'flex-start':'center',
+          justifyContent:'space-between',gap:narrow?'var(--space-3)':'var(--space-5)',
+          fontSize:'var(--fs-body-xs)',color:'var(--sage-200)'}}>
           <span>{legal}</span>
-          <span style={{display:'flex',gap:'var(--space-4)'}}>{links.map(l=><a key={l} href="#" style={{color:'var(--sage-200)'}}>{l}</a>)}</span>
+          <span style={{display:'flex',flexWrap:'wrap',gap:'var(--space-4)'}}>{links.map(l=><a key={l} href="#" style={{color:'var(--sage-200)'}}>{l}</a>)}</span>
         </div>
       </div>
     </footer>

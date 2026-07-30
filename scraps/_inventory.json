@@ -1,0 +1,415 @@
+{
+ "CH": [
+  [
+   "Fundamenten",
+   [
+    [
+     "Merk",
+     [
+      "guidelines/brand-logo.html",
+      "guidelines/brand-mark.html",
+      "guidelines/brand-ornament.html",
+      "guidelines/brand-photography.html"
+     ]
+    ],
+    [
+     "Logo-animatie",
+     [
+      "guidelines/logo-animation.html",
+      "guidelines/logo-animation-winter.html",
+      "guidelines/logo-animation-winter-scherm.html",
+      "guidelines/logo-animation-kerst.html",
+      "guidelines/logo-animation-kerst-scherm.html"
+     ]
+    ],
+    [
+     "Kleur",
+     [
+      "guidelines/color-green.html",
+      "guidelines/color-sage.html",
+      "guidelines/color-gold.html",
+      "guidelines/color-neutrals.html",
+      "guidelines/color-semantic.html"
+     ]
+    ],
+    [
+     "Typografie",
+     [
+      "guidelines/type-display.html",
+      "guidelines/type-body.html",
+      "guidelines/type-label.html",
+      "guidelines/type-script.html",
+      "guidelines/kicker-regels.html",
+      "guidelines/kop-varianten.html"
+     ]
+    ],
+    [
+     "Ritme en vorm",
+     [
+      "guidelines/spacing-scale.html",
+      "guidelines/spacing-rhythm.html",
+      "guidelines/shape-radius.html",
+      "guidelines/motion-states.html"
+     ]
+    ]
+   ]
+  ],
+  [
+   "Componenten",
+   [
+    [
+     "Bouwstenen",
+     [
+      "components/core/buttons.card.html",
+      "components/core/fields.card.html",
+      "components/content/headings.card.html"
+     ]
+    ],
+    [
+     "Kaarten",
+     [
+      "components/content/cards.card.html",
+      "components/content/people.card.html"
+     ]
+    ],
+    [
+     "Panelen en quotes",
+     [
+      "components/content/panels.card.html",
+      "components/layout/layout.card.html",
+      "components/faq/faq.card.html",
+      "components/pull-quote/pullquote.card.html",
+      "components/quote-bar/quotebar.card.html"
+     ]
+    ],
+    [
+     "Heros",
+     [
+      "components/split-hero/splithero.card.html",
+      "components/hero/herovideo.card.html",
+      "components/hero/herointro.card.html"
+     ]
+    ],
+    [
+     "Pagina-onderdelen",
+     [
+      "components/navigation/navbar.card.html",
+      "components/cta-band/ctaband.card.html",
+      "components/photo-carousel/photocarousel.card.html",
+      "components/page-outro/pageoutro.card.html",
+      "components/footer/footer.card.html"
+     ]
+    ],
+    [
+     "Plattegrond",
+     [
+      "components/site-map/sitemap.card.html",
+      "guidelines/plattegrond-isometrisch-legenda.html",
+      "guidelines/plattegrond-isometrisch.html"
+     ]
+    ]
+   ]
+  ],
+  [
+   "Toepassing",
+   [
+    [
+     "Seizoenen",
+     [
+      "guidelines/color-winter.html",
+      "guidelines/color-kerst.html",
+      "components/seasonal/winter-logo.card.html"
+     ]
+    ],
+    [
+     "Mobiel",
+     [
+      "guidelines/mobiel-breekpunten.html",
+      "components/navigation/navbar-mobiel.card.html",
+      "components/split-hero/splithero-mobiel.card.html",
+      "guidelines/mobiel-tik.html",
+      "ui_kits/website/mobiel.html"
+     ]
+    ],
+    [
+     "Voorbeeldsite",
+     [
+      "ui_kits/website/index.html"
+     ]
+    ]
+   ]
+  ]
+ ],
+ "meta": {
+  "guidelines/brand-logo.html": {
+   "name": "Logo",
+   "sub": "Alle aangeleverde versies als vector: hoofdlockup, goud, liggend, wit, mono en woordmerk",
+   "vp": "700x520"
+  },
+  "guidelines/brand-mark.html": {
+   "name": "Schuurmerk",
+   "sub": "Het monogram als SVG — kleur, mono en op klein formaat",
+   "vp": "700x200"
+  },
+  "guidelines/brand-ornament.html": {
+   "name": "Swirl-ampersand",
+   "sub": "Het &-teken uit de huisstijl — tussen kapitalen, en als scheiding",
+   "vp": "700x230"
+  },
+  "guidelines/brand-photography.html": {
+   "name": "Fotografie",
+   "sub": "Warm, ongedwongen, daglicht; vierkante uitsnedes; beschermende gradient onderin",
+   "vp": "700x230"
+  },
+  "guidelines/logo-animation.html": {
+   "name": "Basis — het logo wordt geschreven",
+   "sub": "Het echte vectorlogo wordt geschreven — vier varianten in tempo en opbouw, klik om te vergelijken",
+   "vp": "700x460"
+  },
+  "guidelines/logo-animation-winter.html": {
+   "name": "Winter",
+   "sub": "Winters Rijlaarsdam wordt geschreven op het eigen groene vlak, met dwarrelende sneeuw — vijf opbouwen, waaronder letterpers-caps",
+   "vp": "700x470"
+  },
+  "guidelines/logo-animation-winter-scherm.html": {
+   "name": "Winter — schermvullende sneeuw",
+   "sub": "Dezelfde vijf opbouwen, maar met de sneeuw over het hele beeld in plaats van in het vlak",
+   "vp": "700x470"
+  },
+  "guidelines/logo-animation-kerst.html": {
+   "name": "Kerst",
+   "sub": "De kerstlaag over het winterlogo: zilver, kaarslicht of berry-zegel, met berry op precies één element — drie uitvoeringen",
+   "vp": "700x470"
+  },
+  "guidelines/logo-animation-kerst-scherm.html": {
+   "name": "Kerst — schermvullende sneeuw",
+   "sub": "De kerstlaag met zilveren sneeuw over het hele beeld: drie uitvoeringen over dezelfde vijf opbouwen",
+   "vp": "700x470"
+  },
+  "guidelines/color-green.html": {
+   "name": "Diepgroen",
+   "sub": "Het dragende merkgroen — banden, panelen, knoppen, footer",
+   "vp": "700x150"
+  },
+  "guidelines/color-sage.html": {
+   "name": "Sage",
+   "sub": "Sectievlakken, tweede-orde panelen, zachte pillen",
+   "vp": "700x150"
+  },
+  "guidelines/color-gold.html": {
+   "name": "Goud",
+   "sub": "Kickers, captions, verzendknop — accent, nooit een vlak",
+   "vp": "700x150"
+  },
+  "guidelines/color-neutrals.html": {
+   "name": "Neutralen",
+   "sub": "Crème paginavlakken, de inktschaal voor tekst, haarlijnen",
+   "vp": "700x150"
+  },
+  "guidelines/color-semantic.html": {
+   "name": "Vlakken in gebruik",
+   "sub": "Hoe de vier vlakken zich over een pagina stapelen",
+   "vp": "700x200"
+  },
+  "guidelines/type-display.html": {
+   "name": "Displayserif",
+   "sub": "Playfair Display 400 — elke kop, caption, navigatie-item en knop",
+   "vp": "700x230"
+  },
+  "guidelines/type-body.html": {
+   "name": "Bodycopy",
+   "sub": "Raleway 300 op 14px / 1,75 — klein, licht, ruime regelafstand (voorgeschreven font)",
+   "vp": "700x200"
+  },
+  "guidelines/type-label.html": {
+   "name": "Gespatieerde kapitalen",
+   "sub": "Serif in kapitalen met .14em tracking — navigatie, knoppen, captions, FAQ-regels",
+   "vp": "700x170"
+  },
+  "guidelines/type-script.html": {
+   "name": "Script-kicker",
+   "sub": "BDScript — hangt links van de titel en overlapt hem verticaal; altijd met font-variant-ligatures:none",
+   "vp": "700x300"
+  },
+  "guidelines/kicker-regels.html": {
+   "name": "Kicker-regels",
+   "sub": "Wanneer werkt de script-kicker, en wanneer niet",
+   "vp": "700x400"
+  },
+  "guidelines/kop-varianten.html": {
+   "name": "Kop-varianten",
+   "sub": "Twee manieren om de systeemkop het systeem zelf te laten tonen",
+   "vp": "1180x880"
+  },
+  "guidelines/spacing-scale.html": {
+   "name": "Ruimteschaal",
+   "sub": "Basis van 4px; boven 16 een ritme van 8",
+   "vp": "700x170"
+  },
+  "guidelines/spacing-rhythm.html": {
+   "name": "Sectieritme",
+   "sub": "96px verticale sectiepadding, container van 1180px, grid-gap van 24px",
+   "vp": "700x220"
+  },
+  "guidelines/shape-radius.html": {
+   "name": "Vorm en radius",
+   "sub": "Vierkante fotografie en panelen; pilvorm alleen voor bedienelementen",
+   "vp": "700x180"
+  },
+  "guidelines/motion-states.html": {
+   "name": "Beweging en states",
+   "sub": "150ms vullingen, 280ms media, 520ms fotoschaal; indrukken krimpt 3%",
+   "vp": "700x180"
+  },
+  "components/core/buttons.card.html": {
+   "name": "Knoppen",
+   "sub": "Vijf tonen, twee maten, disabled — altijd pilvorm en gespatieerde kapitalen",
+   "vp": "700x230"
+  },
+  "components/core/fields.card.html": {
+   "name": "Velden, pillen en pijlen",
+   "sub": "Zwevend label: leeg, ingevuld, met fout — plus segmentpillen en carouselpijlen",
+   "vp": "700x360"
+  },
+  "components/content/headings.card.html": {
+   "name": "SectionHeading",
+   "sub": "Script-kicker over de serif-titel — drie maten, links en gecentreerd, licht en donker",
+   "vp": "700x360"
+  },
+  "components/content/cards.card.html": {
+   "name": "Fotokaarten — ruimtes",
+   "sub": "RoomCard: feiten altijd zichtbaar (aanbevolen), op hover, en de gesplitste balk uit de ontwerpen",
+   "vp": "700x760"
+  },
+  "components/content/people.card.html": {
+   "name": "PersonCard en InfoTile",
+   "sub": "Portret met rol en telefoon of Boek mij; InfoTile voor korte uitleg op een gekleurd vlak",
+   "vp": "700x620"
+  },
+  "components/content/panels.card.html": {
+   "name": "BenefitsPanel en reviews",
+   "sub": "Opsommingspaneel op sage, klantreacties in twee tonen",
+   "vp": "700x360"
+  },
+  "components/layout/layout.card.html": {
+   "name": "SplitPanel",
+   "sub": "SplitPanel met faciliteitenpaneel over de foto",
+   "vp": "1180x400"
+  },
+  "components/faq/faq.card.html": {
+   "name": "FaqAccordion",
+   "sub": "Uitklapbare vragen, twee tonen, hoogte-animatie en gecentreerde plus-markering",
+   "vp": "700x420"
+  },
+  "components/pull-quote/pullquote.card.html": {
+   "name": "PullQuote",
+   "sub": "Met portret, en de drie kleurvarianten",
+   "vp": "1180x760"
+  },
+  "components/quote-bar/quotebar.card.html": {
+   "name": "QuoteBar",
+   "sub": "Volle breedte, diepgroen, gespatieerde serif-kapitalen",
+   "vp": "1180x250"
+  },
+  "components/split-hero/splithero.card.html": {
+   "name": "SplitHero — keuzehero homepage",
+   "sub": "Alleen op de homepage: ART / EVENTS, hover verbreedt de helft, quote-lint onderin — met intro-motion die het beeld zelf stil laat",
+   "vp": "1180x560"
+  },
+  "components/hero/herovideo.card.html": {
+   "name": "HeroVideo — paginahero",
+   "sub": "Elke pagina behalve de homepage: dezelfde titel op een foto of op een stille lopende video — met intro-motion die het beeld zelf stil laat",
+   "vp": "1180x760"
+  },
+  "components/hero/herointro.card.html": {
+   "name": "Hero — intro-motion",
+   "sub": "Alles wat beweegt zit in de lagen bóven het beeld: de overlay trekt open, tekst zet zich 10px omhoog, de naad groeit uit het midden en de swirl sluit af. Het beeld blijft stil, zodat video erachter niet meevecht.",
+   "vp": "1180x880"
+  },
+  "components/navigation/navbar.card.html": {
+   "name": "NavBar",
+   "sub": "Gecentreerd logo, gesplitste navigatie, actief item in goud, offerte-knop — vlak en met uitklapmenu (onderste balk staat open)",
+   "vp": "1180x560"
+  },
+  "components/cta-band/ctaband.card.html": {
+   "name": "CtaBand",
+   "sub": "cream (standaard) en sage — nooit donkergroen, dat is de footer",
+   "vp": "1180x620"
+  },
+  "components/photo-carousel/photocarousel.card.html": {
+   "name": "PhotoCarousel — vlak of gekanteld",
+   "sub": "Boven: de vlakke versie die nu in gebruik is. Onder: echte coverflow met perspectief",
+   "vp": "1180x1080"
+  },
+  "components/page-outro/pageoutro.card.html": {
+   "name": "PageOutro — CTA, carousel en footer",
+   "sub": "PageOutro: de carousel hangt over de CTA-band, daarna de footer in eigen sectie",
+   "vp": "1180x1080"
+  },
+  "components/footer/footer.card.html": {
+   "name": "Footer",
+   "sub": "Drie kolommen, sociale knoppen, juridische regel",
+   "vp": "1180x330"
+  },
+  "components/site-map/sitemap.card.html": {
+   "name": "Plan met legenda (leidend)",
+   "sub": "Het hertekende plan: goud is boekbaar, inkt is overige bebouwing. Licht, diep, en de ruwe bron",
+   "vp": "1180x2400"
+  },
+  "guidelines/plattegrond-isometrisch-legenda.html": {
+   "name": "Isometrisch met legenda",
+   "sub": "SitePlan op de isometrische kaart; zelfde interactie, punten op de nok van elk volume",
+   "vp": "1180x1080"
+  },
+  "guidelines/plattegrond-isometrisch.html": {
+   "name": "Isometrisch — studie",
+   "sub": "Footprints uit het eigen plan geëxtrudeerd; goud = boekbare ruimte, donker = overige bebouwing",
+   "vp": "1180x1000"
+  },
+  "guidelines/color-winter.html": {
+   "name": "Winterpalet",
+   "sub": "Sage wijkt voor vorst; groen zakt dieper; goud wordt kaarslicht",
+   "vp": "700x260"
+  },
+  "guidelines/color-kerst.html": {
+   "name": "Kerstlaag",
+   "sub": "December-laag óp winter: zilver naast goud, berry van accent naar dragend accent",
+   "vp": "700x300"
+  },
+  "components/seasonal/winter-logo.card.html": {
+   "name": "Winterlogo",
+   "sub": "Het seizoenslogo van de ontwerper — sneeuwvlok-lockup en los woordmerk, als vector",
+   "vp": "700x520"
+  },
+  "guidelines/mobiel-breekpunten.html": {
+   "name": "Breekpunten en meeschalen",
+   "sub": "Drie maten: mobiel tot 599px, tablet tot 1023px, desktop daarboven. De typemaat, het verticale ritme en de marge schalen mee uit tokens — componenten hoeven alleen iets te doen als ze van vórm veranderen.",
+   "vp": "1180x620"
+  },
+  "components/navigation/navbar-mobiel.card.html": {
+   "name": "NavBar — lade op telefoon",
+   "sub": "Onder 900px: logo links, lade-knop rechts, en de hele navigatie als lijst over het scherm. Groepen worden accordeons in plaats van zweefpanelen — hover bestaat niet op een telefoon.",
+   "vp": "1180x760"
+  },
+  "components/split-hero/splithero-mobiel.card.html": {
+   "name": "SplitHero — gestapeld op telefoon",
+   "sub": "Onder 760px staan de twee keuzes boven elkaar, elk een halve schermhoogte. De naad kantelt mee en de swirl blijft er: gestapeld staat hij op de horizontale naad, want dat is de enige plek waar de twee kanten elkaar raken.",
+   "vp": "1180x800"
+  },
+  "guidelines/mobiel-tik.html": {
+   "name": "Tik in plaats van hover",
+   "sub": "Drie componenten die op desktop van hover leven: de carousel wordt vegen met een teller, fotokaarten zetten hun feiten permanent onder de titel, en de plattegrond draait de rolverdeling om — de kaart wordt een prent, de lijst bedient.",
+   "vp": "1180x900"
+  },
+  "ui_kits/website/mobiel.html": {
+   "name": "Voorbeeldsite op telefoon",
+   "sub": "Dezelfde site, in een venster van 390px — doorklikbaar. Alle vijftien pagina's zijn hier te bekijken op telefoonmaat, met de lade-navigatie, de gestapelde hero en de veegcarousel in hun echte gedrag.",
+   "vp": "1180x900"
+  },
+  "ui_kits/website/index.html": {
+   "name": "Doorklikbare website",
+   "sub": "Vijftien pagina&#39;s, dropdownnavigatie, hash-routing — de site waar alle componenten samenkomen",
+   "vp": "1280x900"
+  }
+ }
+}

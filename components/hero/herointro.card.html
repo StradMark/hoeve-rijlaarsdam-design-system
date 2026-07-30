@@ -1,0 +1,48 @@
+<!-- @dsCard group="Heros" viewport="1180x880" name="Hero — intro-motion" subtitle="Alles wat beweegt zit in de lagen bóven het beeld: de overlay trekt open, tekst zet zich 10px omhoog, de naad groeit uit het midden en de swirl sluit af. Het beeld blijft stil, zodat video erachter niet meevecht." -->
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:var(--space-6);background:var(--surface-page);font-family:var(--font-body)}
+.lbl{font-family:var(--font-display);font-size:var(--fs-label-s);letter-spacing:var(--ls-label-wide);text-transform:uppercase;color:var(--gold-600);margin:0 0 10px}
+.note{margin:10px 0 0;font-size:var(--fs-body-xs);line-height:var(--lh-body);color:var(--text-muted);max-width:88ch}
+.bar{display:flex;gap:14px;align-items:center;margin-bottom:var(--space-6)}
+.btn{font-family:var(--font-display);font-size:var(--fs-label-s);letter-spacing:var(--ls-label);text-transform:uppercase;white-space:nowrap;padding:9px 18px;border:1px solid var(--border-hairline);border-radius:var(--radius-pill);background:none;color:var(--ink-500);cursor:pointer}
+.btn:hover{border-color:var(--gold-400);color:var(--ink-900)}
+.tl{display:grid;grid-template-columns:96px 1fr;gap:6px 16px;margin:var(--space-6) 0 0;font-size:var(--fs-body-xs);line-height:var(--lh-body);color:var(--text-muted);max-width:96ch}
+.tl b{font-family:var(--font-display);font-weight:400;color:var(--ink-900)}
+code{font-family:var(--font-body);color:var(--ink-900)}
+a{color:var(--gold-600)}a:hover{color:var(--gold-500)}</style></head>
+<body><div id="root"></div>
+<script type="text/babel">
+const { SplitHero } = window.HoeveRijlaarsdamDesignSystem_374762;
+const A='../../assets/';
+function Demo(){
+  const [run,setRun]=React.useState(0);
+  const replay=()=>{ try{sessionStorage.removeItem('hr-hero-intro')}catch(e){} setRun(r=>r+1); };
+  return <div>
+    <div className="bar">
+      <button className="btn" type="button" onClick={replay}>Speel de intro opnieuw</button>
+      <span className="note" style={{margin:0}}>De intro speelt &eacute;&eacute;n keer per sessie &mdash; bij doorklikken naar een volgende pagina staat de hero er meteen.</span>
+    </div>
+    <p className="lbl">Split-hero &mdash; de volledige opbouw</p>
+    <div key={run} style={{height:430,overflow:'hidden'}}>
+      <SplitHero fullHeight={false} style={{height:430}} intro={true} ampersandSrc={A+'ornament-swirl.svg'}
+        items={[{label:'Art',ctaLabel:'Naar de galerie',image:A+'photo-koetshuis-expositie.jpg'},
+                {label:'Events',ctaLabel:'Bekijk de mogelijkheden',image:A+'photo-hooiberg-gedekt.jpg'}]}
+        scrollHint="Scroll"/>
+    </div>
+    <div className="tl">
+      <b>0 &ndash; 0,7s</b><span>De overlay trekt open, van 0,62 naar 0,22. Het beeld komt <em>uit</em> het donker in plaats van te bewegen &mdash; dat dekt tegelijk het laadmoment van een videobestand.</span>
+      <b>0,25 &ndash; 0,9s</b><span>Titel op 250 ms, knop op 330 ms, 10 px omhoog. Beide helften gelijktijdig: zou de ene eerder komen, dan lijkt die belangrijker, en dat is precies de keuze die je aan de bezoeker laat.</span>
+      <b>0,6 &ndash; 1,5s</b><span>De naad groeit uit het midden open (620 ms), daarna komt de swirl op (900 ms). Het oog eindigt op de naad, waar de keuze zit.</span>
+      <b>1,45s</b><span>De scroll-hint verschijnt als laatste, zodat het bobben niet met de opbouw concurreert.</span>
+      <b>altijd</b><span>Geen zoom, pan of parallax op het beeld zelf &mdash; die zouden met bewegend beeld vechten. Bij <code>prefers-reduced-motion</code> blijft alleen de overlay-fade over.</span>
+    </div>
+    <p className="note">Voor de pagina-hero geldt dezelfde opbouw zonder naad en swirl: scrim opent, titel op 250 ms, kicker 110 ms later. Zie de kaart <b>HeroVideo</b> voor die variant en voor <code>intro=&#123;false&#125;</code>.</p>
+  </div>;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script></body></html>

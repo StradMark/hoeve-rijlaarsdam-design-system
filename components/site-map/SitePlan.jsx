@@ -5,15 +5,15 @@ import React from 'react';
    carries the photo — so nothing floats over the plan and nothing jumps.
    Hotspots stay percentages of the image, exactly as in SiteMap. */
 export function SitePlan({image,spots=[],alt='Plattegrond van de hoeve',title,onSelect,
-  openOnHover=true,hint='Beweeg over de kaart of kies een plek in de lijst',style}){
+  openOnHover=true,hint='Beweeg over de kaart of kies een plek in de lijst',narrow:narrowProp,style}){
   const [hot,setHot]=React.useState(-1);    // hover of focus — verandert alleen kleur
   const [open,setOpen]=React.useState(-1);  // klik — klapt de regel uit
-  const [narrow,setNarrow]=React.useState(false);
+  const [narrowAuto,setNarrowAuto]=React.useState(false);
   const [pin,setPin]=React.useState(30);
   const imgRef=React.useRef(null);
   React.useEffect(()=>{
     const check=()=>{
-      setNarrow(window.innerWidth<900);
+      setNarrowAuto(window.innerWidth<900);
       /* De hotspots zijn percentages, dus hun onderlinge afstand krimpt met de kaart terwijl een
          vaste punt dat niet doet. Schaal de punt mee: 30px bij een kaart van 620px, min 20px. */
       const w=imgRef.current&&imgRef.current.getBoundingClientRect().width;
@@ -23,6 +23,14 @@ export function SitePlan({image,spots=[],alt='Plattegrond van de hoeve',title,on
     const t=setTimeout(check,120);
     return ()=>{window.removeEventListener('resize',check);clearTimeout(t)};
   },[]);
+  /* narrow is normaal de vensterbreedte; als prop is het ook los te forceren, zodat een kaart de
+     telefoonvorm naast de desktopvorm kan tonen. */
+  const narrow=narrowProp===undefined?narrowAuto:narrowProp;
+  /* Onder 600px zijn de punten kleiner dan een duim (de hotspots zijn percentages, dus ze krimpen
+     mee met de kaart). Daar draait de rolverdeling om: de kaart wordt een prent om naar te kijken,
+     met de nummers er alleen als verwijzing op, en de lijst eronder is het bedieningsvlak. Een tik
+     op een regel licht het bijbehorende nummer op de kaart op. */
+  const listOnly=narrow&&pin<28;
   const num=i=>String(i+1).padStart(2,'0');
   const toggle=i=>setOpen(v=>v===i?-1:i);
   const lit=i=>hot===i||open===i;
@@ -41,15 +49,20 @@ export function SitePlan({image,spots=[],alt='Plattegrond van de hoeve',title,on
           }} style={{display:'block',width:'100%',height:'auto'}}/>
           {spots.map((s,i)=>{
             const on=lit(i);
+            /* op telefoon is de punt een merkteken, geen knop — de lijst bedient */
+            const Tag=listOnly?'span':'button';
+            const tap=listOnly?{'aria-hidden':'true'}:{
+              type:'button','aria-label':s.name,'aria-pressed':open===i,
+              onMouseEnter:()=>{if(narrow)return;setHot(i);if(openOnHover)setOpen(i)},
+              onMouseLeave:()=>!narrow&&setHot(-1),
+              onFocus:()=>{setHot(i);if(openOnHover)setOpen(i)},onBlur:()=>setHot(-1),
+              onClick:()=>toggle(i)};
             return (
-              <button key={s.name} type="button" aria-label={s.name} aria-pressed={open===i}
-                onMouseEnter={()=>{if(narrow)return;setHot(i);if(openOnHover)setOpen(i)}}
-                onMouseLeave={()=>!narrow&&setHot(-1)}
-                onFocus={()=>{setHot(i);if(openOnHover)setOpen(i)}} onBlur={()=>setHot(-1)}
-                onClick={()=>toggle(i)}
+              <Tag key={s.name} {...tap}
                 style={{position:'absolute',left:'calc('+(s.x+s.w/2)+'% - '+(pin/2)+'px)',
                   top:'calc('+(s.y+s.h/2)+'% - '+(pin/2)+'px)',
-                  width:pin,height:pin,padding:0,cursor:'pointer',borderRadius:'var(--radius-pill)',
+                  width:pin,height:pin,padding:0,cursor:listOnly?'default':'pointer',
+                  pointerEvents:listOnly?'none':'auto',borderRadius:'var(--radius-pill)',
                   border:'1px solid '+(on?'var(--gold-500)':'rgba(40,94,77,.5)'),
                   background:on?'var(--gold-500)':'rgba(251,248,243,.96)',
                   color:on?'var(--white)':'var(--green-900)',
@@ -58,7 +71,7 @@ export function SitePlan({image,spots=[],alt='Plattegrond van de hoeve',title,on
                   boxShadow:on?'0 0 0 '+Math.round(pin/5)+'px rgba(176,131,68,.16)':'none',
                   transition:'background var(--dur-base) var(--ease-out),color var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out),border-color var(--dur-base) var(--ease-out)'}}>
                 {num(i)}
-              </button>
+              </Tag>
             );
           })}
         </div>
@@ -81,7 +94,8 @@ export function SitePlan({image,spots=[],alt='Plattegrond van de hoeve',title,on
                   onFocus={()=>setHot(i)} onBlur={()=>setHot(-1)}
                   aria-expanded={up}
                   style={{width:'100%',display:'grid',gridTemplateColumns:'32px 1fr auto',alignItems:'center',
-                    gap:'var(--space-4)',padding:'15px 0',background:'none',border:'none',cursor:'pointer',
+                    gap:'var(--space-4)',padding:'15px 0',minHeight:narrow?'var(--touch-min)':undefined,
+                    background:'none',border:'none',cursor:'pointer',
                     textAlign:'left'}}>
                   <span style={{fontFamily:'var(--font-display)',fontSize:'var(--fs-label-m)',
                     letterSpacing:'.04em',color:on?'var(--gold-500)':'var(--green-900)',
@@ -124,7 +138,7 @@ export function SitePlan({image,spots=[],alt='Plattegrond van de hoeve',title,on
         </div>
         {hint&&open<0&&(
           <p style={{margin:'var(--space-5) 0 0',fontSize:'var(--fs-body-s)',lineHeight:'var(--lh-body)',
-            color:'var(--text-body)'}}>{hint}</p>
+            color:'var(--text-body)'}}>{listOnly?'Kies een plek in de lijst; het nummer licht op de kaart op.':hint}</p>
         )}
       </div>
     </div>

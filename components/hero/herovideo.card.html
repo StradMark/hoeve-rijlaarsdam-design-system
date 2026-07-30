@@ -1,29 +1,39 @@
-<!-- @dsCard group="Heros" viewport="1180x680" name="HeroVideo — paginahero" subtitle="Elke pagina behalve de homepage: dezelfde titel op een foto of op een stille lopende video" -->
+<!-- @dsCard group="Heros" viewport="1180x760" name="HeroVideo — paginahero" subtitle="Elke pagina behalve de homepage: dezelfde titel op een foto of op een stille lopende video — met intro-motion die het beeld zelf stil laat" -->
 <!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">
 <link rel="stylesheet" href="../../styles.css">
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 <script src="../../_ds_bundle.js"></script>
-<style>body{padding:0;background:var(--surface-page)}</style></head>
+<style>body{padding:0;background:var(--surface-page)}.lbl{font-family:var(--font-display);font-size:var(--fs-label-s);letter-spacing:var(--ls-label-wide);text-transform:uppercase;color:var(--gold-600);margin:0 0 8px}.replay{font-family:var(--font-display);font-size:var(--fs-label-s);letter-spacing:var(--ls-label);text-transform:uppercase;padding:8px 16px;border:1px solid var(--border-hairline);border-radius:var(--radius-pill);background:none;color:var(--ink-500);cursor:pointer}.replay:hover{border-color:var(--gold-400);color:var(--ink-900)}</style></head>
 <body><div id="root"></div>
 <script type="text/babel">
 const { HeroVideo } = window.HoeveRijlaarsdamDesignSystem_374762;
 const A='../../assets/';
 function Card(){
-  return <div style={{display:'flex',flexDirection:'column',gap:'var(--space-5)'}}>
-    {/* foto */}
-    <HeroVideo image={A+'photo-koetshuis-ontvangst.jpg'} kicker="een kijkje in" title="Het Koetshuis" height={300}/>
-    {/* videovariant: identieke behandeling, speelt zelf, geen knop. Geen footage aangeleverd,
-        dus hier staat de poster met een notitie — geen nepbestand dat 404 geeft. */}
-    <div style={{position:'relative'}}>
-      <HeroVideo image={A+'photo-bruiloft-ceremonie.jpg'} kicker="van harte" title="Welkom" height={300}/>
-      <p style={{position:'absolute',left:'var(--space-5)',bottom:'var(--space-4)',margin:0,maxWidth:'52ch',
-        fontSize:'var(--fs-body-s)',lineHeight:'var(--lh-body)',color:'var(--cream-100)'}}>
-        Videovariant: <code style={{fontFamily:'var(--font-body)'}}>video=&quot;…mp4&quot;</code> erbij en dit beeld beweegt —
-        zelfde titel, zelfde overlay, gedempt, lopend, zonder knop. Deze foto is dan de poster. Footage nog aan te leveren.
-      </p>
+  const [n,setN]=React.useState(0);
+  const replay=()=>{try{sessionStorage.removeItem('hr-hero-intro')}catch(e){};setN(n+1)};
+  return <div style={{display:'flex',flexDirection:'column',gap:'var(--space-6)',padding:'var(--space-5) 0'}} key={n}>
+    <div>
+      <div style={{display:'flex',alignItems:'baseline',justifyContent:'space-between',padding:'0 var(--space-5)'}}>
+        <p className="lbl">Met intro &mdash; de scrim trekt open, titel en kicker zetten zich</p>
+        <button className="replay" type="button" onClick={replay}>Opnieuw</button>
+      </div>
+      <HeroVideo image={A+'photo-koetshuis-ontvangst.jpg'} kicker="een kijkje in" title="Het Koetshuis" height={300}/>
     </div>
+    <div>
+      <p className="lbl" style={{padding:'0 var(--space-5)'}}>Zonder intro &mdash; <code style={{fontFamily:'var(--font-body)'}}>intro={'{'}false{'}'}</code>, voor heros onder de vouw</p>
+      <HeroVideo image={A+'photo-bruiloft-ceremonie.jpg'} kicker="van harte" title="Welkom" height={300} intro={false}/>
+    </div>
+    <p style={{margin:0,padding:'0 var(--space-5)',maxWidth:'72ch',fontSize:'var(--fs-body-s)',lineHeight:'var(--lh-body)',color:'var(--text-muted)'}}>
+      De intro beweegt alleen de lagen bóven het beeld: de scrim gaat van dicht naar zijn ruststand (0,7s),
+      de titel komt 10px omhoog op 250ms en de kicker 110ms later. Het beeld zelf blijft stil, dus een video
+      erachter vecht niet mee &mdash; en de opbouw verbergt precies het moment dat de video nog laadt.
+      Speelt eenmalig per bezoek (<code style={{fontFamily:'var(--font-body)'}}>sessionStorage</code>), en met
+      <code style={{fontFamily:'var(--font-body)'}}> prefers-reduced-motion</code> staat alles er meteen.
+      Videovariant: <code style={{fontFamily:'var(--font-body)'}}>video=&quot;&hellip;mp4&quot;</code> erbij en dit beeld beweegt &mdash;
+      zelfde titel, zelfde overlay, gedempt, lopend, zonder knop. Footage nog aan te leveren.
+    </p>
   </div>;
 }
 ReactDOM.createRoot(document.getElementById('root')).render(<Card/>);

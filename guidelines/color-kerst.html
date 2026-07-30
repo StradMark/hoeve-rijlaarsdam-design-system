@@ -1,0 +1,33 @@
+<!-- @dsCard group="Seizoenen" viewport="700x300" name="Kerstlaag" subtitle="December-laag óp winter: zilver naast goud, berry van accent naar dragend accent" -->
+<!DOCTYPE html><html lang="nl" data-season="kerst"><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
+<style>body{margin:0;padding:20px;background:var(--surface-page);font-family:var(--font-body)}
+.row{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-bottom:14px}
+.sw{height:70px;display:flex;align-items:flex-end;padding:8px;font-size:10.5px;letter-spacing:.08em}
+.n{font-size:11px;color:var(--ink-500);margin-top:5px;letter-spacing:.04em}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.demo{background:var(--surface-deep);padding:14px 16px;display:flex;align-items:center;gap:12px}
+.demo b{font-family:var(--font-display);font-weight:400;font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-on-dark)}
+.demo i{width:1px;height:24px;background:var(--accent-alt)}
+.seal{font-family:var(--font-display);font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--kerst-berry-300);border:1px solid var(--kerst-berry-300);padding:5px 9px;font-style:normal}
+.note{font-size:11px;color:var(--text-muted);line-height:1.7;max-width:76ch}
+a{color:var(--text-link)}a:hover{color:var(--text-link-hover)}</style></head><body>
+<div class="row">
+<div><div class="sw" style="background:var(--kerst-silver-300)"></div><div class="n">zilver 300 · #DDE3E6</div></div>
+<div><div class="sw" style="background:var(--kerst-silver-400)"></div><div class="n">zilver 400 · #C3CBCF</div></div>
+<div><div class="sw" style="background:var(--kerst-silver-500)"></div><div class="n">zilver 500 · #A8B2B7</div></div>
+<div><div class="sw" style="background:var(--kerst-silver-600)"></div><div class="n">zilver 600 · #8D979C</div></div>
+<div><div class="sw" style="background:var(--winter-pine-900)"></div><div class="n">pine 900 · #0F2A24</div></div>
+</div>
+<div class="row">
+<div><div class="sw" style="background:var(--kerst-berry-300)"></div><div class="n">berry 300 · #D8B4B0</div></div>
+<div><div class="sw" style="background:var(--kerst-berry-600)"></div><div class="n">berry 600 · #8C393A</div></div>
+<div><div class="sw" style="background:var(--kerst-berry-700)"></div><div class="n">berry 700 · #6E2A2C</div></div>
+<div><div class="sw" style="background:var(--kerst-berry-800)"></div><div class="n">berry 800 · #571F21</div></div>
+<div><div class="sw" style="background:var(--gold-500)"></div><div class="n">goud 500 · #B08344</div></div>
+</div>
+<div class="pair">
+<div class="demo"><i></i><b>Kerstdiner</b><em class="seal">24 dec</em></div>
+<div class="demo" style="background:var(--surface-deep-alt)"><i style="background:var(--gold-400)"></i><b>Kerstborrel</b><em class="seal" style="color:var(--winter-candle-400);border-color:var(--winter-candle-400)">op reservering</em></div>
+</div>
+<div class="note">Zet <code>data-season="kerst"</code> op <code>&lt;html&gt;</code> of op één sectie; de laag erft de rest van winter. Twee regels: op één vlak óf zilver óf goud &mdash; nooit beide (links zilver, rechts kaarslicht). En berry blijft één element per uiting: een zegel, een lijn, een datum &mdash; nooit een vlak en nooit in het woordmerk.</div>
+</body></html>

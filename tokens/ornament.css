@@ -1,0 +1,14 @@
+/* De swirl-ampersand uit de huisstijl als tekstteken.
+   Het team wil overal de & van de huisstijl (BDScript/de swirl), nooit de ampersand van Playfair.
+   Gebruik:  ART <img class="amp amp-caps" src="assets/ornament-swirl-goud.svg" alt="en"> EVENTS
+   De klasse schaalt mee met de font-size van de regel; de kleur zit in het bestand:
+   ornament-swirl-goud.svg / -wit.svg / -ink.svg / -groen.svg.
+   (CSS-mask met currentColor werkt niet betrouwbaar in alle weergaven, daarom kleurvarianten.)
+   Tussen CAPS is dit de standaard — zeker bij ART & EVENTS. */
+.amp{display:inline-block;width:1.62em;height:auto;vertical-align:-.14em}
+/* Tussen caps staat de swirl optisch te laag en te dicht: iets optillen en lucht eromheen. */
+.amp-caps{width:1.5em;vertical-align:-.04em;margin:0 .2em}
+/* amp-sm: alleen voor koppen en kickers die kleiner staan (>= 24px).
+   NIET in doorlopende tekst: onder ~24px worden de haarlijnen een vlekje.
+   In bodycopy (Raleway) mag de gewone & blijven staan — dat is niet de Playfair-&. */
+.amp-sm{width:1.4em;vertical-align:-.12em;margin:0 .06em}

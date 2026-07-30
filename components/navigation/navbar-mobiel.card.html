@@ -1,0 +1,46 @@
+<!-- @dsCard group="Mobiel" viewport="1180x760" name="NavBar — lade op telefoon" subtitle="Onder 900px: logo links, lade-knop rechts, en de hele navigatie als lijst over het scherm. Groepen worden accordeons in plaats van zweefpanelen — hover bestaat niet op een telefoon." -->
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:var(--space-6);background:var(--surface-page);font-family:var(--font-body)}
+.row{display:flex;gap:var(--space-6);align-items:flex-start}
+.lbl{font-family:var(--font-display);font-size:var(--fs-label-s);letter-spacing:var(--ls-label-wide);text-transform:uppercase;color:var(--gold-600);margin:0 0 10px}
+.phone{width:340px;flex:0 0 340px;border:1px solid var(--border-hairline);background:var(--white)}
+.notes{display:flex;flex-direction:column;gap:var(--space-5);flex:1;min-width:300px;padding-top:26px}
+.notes p{margin:0;font-size:var(--fs-body-s);line-height:var(--lh-body);color:var(--text-body)}
+.notes b{font-family:var(--font-display);font-weight:400;font-size:var(--fs-body-l);color:var(--ink-900);display:block;margin-bottom:4px}
+code{color:var(--ink-900)}
+a{color:var(--gold-600)}a:hover{color:var(--gold-500)}</style></head>
+<body><div id="root"></div>
+<script type="text/babel">
+const { NavBar } = window.HoeveRijlaarsdamDesignSystem_374762;
+const A='../../assets/';
+const L=[{label:'De Hoeve',items:['Ons verhaal','De galerie','Chef Wouter']},{label:'Zakelijk',items:['Vergaderen','Bedrijfsfeest','Presentatie']},{label:'Particulier',items:['Bruiloft','Familiefeest','Pop-up restaurant']}];
+const R=[{label:'Ruimtes',items:['De Schuur','De Deel','Het Koetshuis','Het Terras']},'Praktisch','Contact'];
+function Card(){
+  return <div className="row">
+      <div>
+        <p className="lbl">Gesloten</p>
+        <div className="phone"><NavBar narrow={true} logo={A+'logo-lockup.svg'} left={L} right={R} active="De Deel" ctaLabel="Vraag offerte aan"/></div>
+      </div>
+      <div>
+        <p className="lbl">Open, met Ruimtes uitgeklapt</p>
+        <div className="phone" id="unfold"><NavBar narrow={true} defaultDrawerOpen={true} logo={A+'logo-lockup.svg'} left={L} right={R} active="De Deel" ctaLabel="Vraag offerte aan"/></div>
+      </div>
+    <div className="notes">
+      <p><b>De knop, niet een pictogram uit een set</b>Drie lijnen van 1px, dezelfde dikte als de haarlijnen van het systeem. Open worden ze het kruis: de bovenste en onderste draaien, de middelste krimpt weg. Raakvlak 44&times;44px.</p>
+      <p><b>Groepen worden accordeons</b>Een zweefpaneel kan niet op een telefoon. Een tik op een groep vouwt de kinderen eronder open, een tik op een gewone link navigeert direct. E&eacute;n groep tegelijk open, zodat de lijst niet langer wordt dan het scherm.</p>
+      <p><b>Alles in &eacute;&eacute;n lijst</b>Links en rechts van het logo worden op telefoon &eacute;&eacute;n lijst in leesvolgorde &mdash; de gesplitste navigatie is een desktopvorm. De offerte-knop staat onderaan over de volle breedte: de enige handeling die de hoeve echt vraagt.</p>
+      <p><b>Grens op 900px, niet op 599px</b>Zeven links plus een knop passen ook op een tablet van 768px niet naast elkaar. Los te forceren met <code>narrow</code> voor wie de vorm wil vastzetten. Zie <a href="../../guidelines/mobiel-breekpunten.html">Breekpunten</a>.</p>
+    </div>
+  </div>;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Card/>);
+requestAnimationFrame(()=>setTimeout(()=>{
+  const g=[...document.querySelectorAll('#unfold button[aria-expanded]')].find(b=>b.textContent.trim().startsWith('Ruimtes'));
+  g&&g.click();
+},150));
+</script></body></html>

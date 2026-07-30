@@ -1,0 +1,31 @@
+<!-- @dsCard group="Mobiel" viewport="1180x620" name="Breekpunten en meeschalen" subtitle="Drie maten: mobiel tot 599px, tablet tot 1023px, desktop daarboven. De typemaat, het verticale ritme en de marge schalen mee uit tokens — componenten hoeven alleen iets te doen als ze van vórm veranderen." -->
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<style>body{margin:0;padding:var(--space-6);background:var(--surface-page);font-family:var(--font-body);color:var(--text-body)}
+h2{margin:0 0 var(--space-5);font-family:var(--font-display);font-weight:400;font-size:var(--fs-display-s);color:var(--text-heading)}
+table{width:100%;border-collapse:collapse;font-size:var(--fs-body-s);line-height:1.6}
+th,td{text-align:left;padding:11px 14px 11px 0;border-bottom:1px solid var(--border-hairline);vertical-align:top}
+th{font-family:var(--font-display);font-size:var(--fs-label-s);letter-spacing:var(--ls-label-wide);text-transform:uppercase;color:var(--gold-600);font-weight:400}
+td b{font-family:var(--font-display);font-weight:400;font-size:var(--fs-body-l);color:var(--ink-900)}
+.mono{font-variant-numeric:tabular-nums;color:var(--ink-500)}
+.note{margin:var(--space-6) 0 0;font-size:var(--fs-body-s);line-height:var(--lh-body);max-width:86ch}
+.note b{font-weight:var(--fw-body-strong);color:var(--ink-900)}
+.live{margin-top:var(--space-6);padding:var(--space-5);background:var(--white);border:1px solid var(--border-hairline)}
+.live p{margin:0;font-size:var(--fs-body-s);color:var(--text-muted)}
+.live .demo{font-family:var(--font-display);font-size:var(--fs-display-xl);line-height:var(--lh-display);color:var(--text-heading);margin:6px 0 0}
+a{color:var(--gold-600)}a:hover{color:var(--gold-500)}</style></head>
+<body>
+<h2>Drie maten, en verder niets</h2>
+<table>
+<tr><th>Maat</th><th>Van</th><th>Wat er verandert</th></tr>
+<tr><td><b>Mobiel</b></td><td class="mono">tot 599px</td><td>Eén kolom, volle breedte, 20px marge. Display van 64 naar 38px, kicker van 82 naar 46px. Verticaal ritme 96 &rarr; 56px. Navigatie wordt een lade, split-hero stapelt, carousel wordt vegen.</td></tr>
+<tr><td><b>Tablet</b></td><td class="mono">600 &ndash; 1023px</td><td>Twee kolommen. Display naar 52px, ritme naar 72px, marge 24px. De navigatie is tot 900px nog een lade — zeven links en een knop passen daaronder niet naast elkaar.</td></tr>
+<tr><td><b>Desktop</b></td><td class="mono">1024px en op</td><td>Het volle raster van 1180px, alle waarden op hun basiswaarde.</td></tr>
+</table>
+<div class="live">
+<p>Deze kop staat op <code>--fs-display-xl</code> en schaalt live mee — versmal het venster om de sprongen te zien.</p>
+<p class="demo">Winters op de hoeve</p>
+</div>
+<p class="note"><b>Waarom de sprong naar mobiel zo groot is.</b> 64px display op een 390px scherm laat drie woorden per regel over, en de kicker eronder wordt dan breder dan de kop. 38px houdt de titel op één of twee regels. Lopende tekst gaat nooit onder 14px op telefoon, en aanraakbare dingen nooit onder 44px (<code>--touch-min</code>).</p>
+<p class="note"><b>Wat een component zelf moet regelen.</b> Alles wat uit tokens is opgebouwd, schaalt automatisch mee. Alleen wie van vórm verandert heeft eigen regels: <a href="../components/navigation/navbar-mobiel.card.html">NavBar</a> (lade met accordeons), <a href="../components/split-hero/splithero-mobiel.card.html">SplitHero</a> (stapelt, geen hover) en de carousel (vegen in plaats van pijlen).</p>
+</body></html>

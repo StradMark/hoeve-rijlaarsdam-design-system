@@ -1,0 +1,33 @@
+/* Mobiele laag voor de voorbeeldsite.
+   De schermen zijn met inline stijlen gebouwd (React), dus de horizontale marges en de
+   kolomrasters zijn niet met gewone regels te bereiken. Deze laag corrigeert ze met
+   !important — dat is hier de bedoeling en het is de enige plek waar dat gebeurt.
+
+   Wat de componenten zélf van vorm veranderen (navigatie als lade, split-hero gestapeld,
+   carousel op vegen, fotokaarten met permanente feiten, plattegrond met de lijst als
+   bedieningsvlak) zit in de componenten, niet hier. Zie de groep Mobiel in het overzicht. */
+
+/* --- tablet: twee kolommen blijven, maar de marge krimpt ------------------- */
+@media (max-width:1023px){
+  section{padding-left:var(--space-6)!important;padding-right:var(--space-6)!important}
+}
+
+/* --- telefoon -------------------------------------------------------------- */
+@media (max-width:759px){
+  /* marge tussen tekst en schermrand */
+  section{padding-left:var(--gutter)!important;padding-right:var(--gutter)!important}
+
+  /* alle kolomrasters worden één kolom. Op 390px is een tweede kolom een halve regel
+     tekst breed, dus er valt niets te verdelen. */
+  [style*="grid-template-columns"]{grid-template-columns:1fr!important}
+
+  /* een raster dat naast een foto stond, houdt zijn onderlinge ruimte maar niet de
+     kolombreedte: alles wordt volle breedte */
+  [style*="max-width"]{max-width:100%!important}
+
+  /* tabellen en lijsten met vaste kolommen (openingstijden, prijzen) */
+  table{width:100%!important}
+
+  /* de footer regelt zijn eigen stapeling en marges; alleen de lucht tussen de kolommen
+     hoeft hier niet nog eens overschreven te worden */
+}

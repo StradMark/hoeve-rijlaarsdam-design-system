@@ -1,0 +1,44 @@
+<!-- @dsCard group="Mobiel" viewport="1180x800" name="SplitHero — gestapeld op telefoon" subtitle="Onder 760px staan de twee keuzes boven elkaar, elk een halve schermhoogte. De naad kantelt mee en de swirl blijft er: gestapeld staat hij op de horizontale naad, want dat is de enige plek waar de twee kanten elkaar raken." -->
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:var(--space-6);background:var(--surface-page);font-family:var(--font-body)}
+.row{display:flex;gap:var(--space-7);align-items:flex-start}
+.lbl{font-family:var(--font-display);font-size:var(--fs-label-s);letter-spacing:var(--ls-label-wide);text-transform:uppercase;color:var(--gold-600);margin:0 0 10px}
+.phone{width:390px;flex:0 0 390px;border:1px solid var(--border-hairline);overflow:hidden}
+.notes p{margin:0 0 var(--space-5);font-size:var(--fs-body-s);line-height:var(--lh-body);color:var(--text-body);max-width:52ch}
+.notes b{font-family:var(--font-display);font-weight:400;font-size:var(--fs-body-l);color:var(--ink-900);display:block;margin-bottom:4px}
+code{color:var(--ink-900)}
+a{color:var(--gold-600)}a:hover{color:var(--gold-500)}</style></head>
+<body><div id="root"></div>
+<script type="text/babel">
+const { SplitHero } = window.HoeveRijlaarsdamDesignSystem_374762;
+const A='../../assets/';
+const ITEMS=[{label:'Art',ctaLabel:'Naar de galerie',image:A+'photo-koetshuis-expositie.jpg'},
+             {label:'Events',ctaLabel:'Bekijk de mogelijkheden',image:A+'photo-hooiberg-gedekt.jpg'}];
+function Card(){
+  const [run,setRun]=React.useState(0);
+  const replay=()=>{ try{sessionStorage.removeItem('hr-hero-intro')}catch(e){} setRun(r=>r+1); };
+  return <div className="row">
+    <div>
+      <p className="lbl">Telefoon &mdash; 390px</p>
+      <div className="phone" key={run}>
+        <SplitHero narrow={true} fullHeight={false} style={{height:660}} intro={true}
+          ampersandSrc={A+'ornament-swirl.svg'} items={ITEMS} scrollHint="Scroll"/>
+      </div>
+    </div>
+    <div className="notes">
+      <p><b>Twee halve schermen, geen keuze onder de vouw</b>Elke helft krijgt de halve hoogte, dus beide staan in beeld zonder scrollen. Zou de tweede half onder de vouw beginnen, dan is het geen gelijkwaardige keuze meer &mdash; en dat is precies wat deze hero moet doen.</p>
+      <p><b>Geen hover, dus geen uitzetten</b>Op desktop groeit de aangewezen helft naar 1,14 en dimt de ander. Een telefoon heeft geen hover: een tik is meteen de navigatie. De helften blijven dus gelijk, en de knop staat er permanent in plaats van pas op hover.</p>
+      <p><b>De swirl blijft, gekanteld</b>Gestapeld ligt de naad horizontaal en groeit uit het midden naar de zijkanten; de swirl staat er gecentreerd op. Eerder verdween het merkteken helemaal op telefoon &mdash; nu is het juist de plek waar de twee kanten van de hoeve elkaar raken.</p>
+      <p><b>Zelfde intro, zelfde tijden</b>Overlay open, titels 10px omhoog, naad op 620ms, swirl op 900ms, scroll-hint op 1450ms. Er beweegt niets aan het beeld zelf, dus een video erachter vecht ook op telefoon niet mee.</p>
+      <p><b>Grens op 760px</b>Boven die breedte passen twee kolommen met een leesbare titel; daaronder niet. Los te forceren met <code>narrow</code>. Zie <a href="../../guidelines/mobiel-breekpunten.html">Breekpunten</a>.</p>
+      <p><button type="button" onClick={replay} style={{fontFamily:'var(--font-display)',fontSize:'var(--fs-label-s)',letterSpacing:'var(--ls-label)',textTransform:'uppercase',padding:'9px 18px',border:'1px solid var(--border-hairline)',borderRadius:'var(--radius-pill)',background:'none',color:'var(--ink-500)',cursor:'pointer'}}>Speel de intro opnieuw</button></p>
+    </div>
+  </div>;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Card/>);
+</script></body></html>

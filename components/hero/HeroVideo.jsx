@@ -1,7 +1,21 @@
 import React from 'react';
 
-export function HeroVideo({image,video,kicker,title,height=460,showPlay=false,align='center',children,style}){
+export function HeroVideo({image,video,kicker,title,height=460,showPlay=false,align='center',intro=true,children,style}){
   const [hover,setHover]=React.useState(false);
+  /* Intro-motion: de scrim trekt open en de tekst zet zich 10px omhoog — het beeld zelf
+     blijft stil, zodat video erachter niet meevecht. Eén keer per sessie. */
+  const [lit,setLit]=React.useState(()=>{
+    if(!intro) return true;
+    try{ return sessionStorage.getItem('hr-hero-intro')==='1' }catch(e){ return false }
+  });
+  React.useEffect(()=>{
+    if(lit) return;
+    const t=requestAnimationFrame(()=>setLit(true));
+    try{ sessionStorage.setItem('hr-hero-intro','1') }catch(e){}
+    return ()=>cancelAnimationFrame(t);
+  },[lit]);
+  const rise=(delay)=>({opacity:lit?1:0,transform:lit?'none':'translateY(10px)',
+    transition:'opacity .55s var(--ease-out) '+delay+'ms,transform .55s var(--ease-out) '+delay+'ms'});
   // one hero, two sources. A video autoplays muted and loops on load — no play button, no
   // controls, because the footage is atmosphere and not something a visitor chooses to watch.
   // `image` doubles as its poster, so the hero is never empty while the file loads.
@@ -11,9 +25,11 @@ export function HeroVideo({image,video,kicker,title,height=460,showPlay=false,al
     : image ? <img src={image} alt="" style={{position:'absolute',inset:0,width:'100%',height:'100%',objectFit:'cover'}}/>
     : null;
   return (
-    <section style={{position:'relative',height,background:'var(--ink-700)',overflow:'hidden',...style}}>
+    <section data-hero style={{position:'relative',height,background:'var(--ink-700)',overflow:'hidden',...style}}>
+      <style>{'@media(prefers-reduced-motion:reduce){[data-hero] *{transition-duration:.01ms!important}}'}</style>
       {media}
-      <div style={{position:'absolute',inset:0,background:'var(--overlay-photo)'}}/>
+      <div style={{position:'absolute',inset:0,background:'var(--overlay-photo)',
+        opacity:lit?1:1.6,transition:'opacity .7s var(--ease-out)'}}/>
       {(title||kicker)&&(
         /* titels staan verticaal gecentreerd, waar het onderste gradiënt niet komt:
            een eigen band-scrim achter het tekstblok houdt wit leesbaar op lichte foto's */
@@ -30,9 +46,9 @@ export function HeroVideo({image,video,kicker,title,height=460,showPlay=false,al
             paddingTop:kicker?'calc(var(--fs-script-l) * .64)':0}}>
             {kicker&&<span style={{position:'absolute',left:'-.18em',top:0,whiteSpace:'nowrap',
               fontFamily:'var(--font-script)',fontVariantLigatures:'none',fontSize:'var(--fs-script-l)',
-              lineHeight:'var(--lh-script)',color:'var(--cream-100)'}}>{kicker}</span>}
+              lineHeight:'var(--lh-script)',color:'var(--cream-100)',...rise(360)}}>{kicker}</span>}
             {title&&<h1 style={{fontFamily:'var(--font-display)',fontSize:'var(--fs-display-l)',fontWeight:400,
-              textTransform:'uppercase',letterSpacing:'.02em',color:'var(--white)',margin:0}}>{title}</h1>}
+              textTransform:'uppercase',letterSpacing:'.02em',color:'var(--white)',margin:0,...rise(250)}}>{title}</h1>}
           </span>
         )}
         {children}

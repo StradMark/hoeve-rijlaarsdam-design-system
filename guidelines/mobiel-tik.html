@@ -1,0 +1,74 @@
+<!-- @dsCard group="Mobiel" viewport="1180x900" name="Tik in plaats van hover" subtitle="Drie componenten die op desktop van hover leven: de carousel wordt vegen met een teller, fotokaarten zetten hun feiten permanent onder de titel, en de plattegrond draait de rolverdeling om — de kaart wordt een prent, de lijst bedient." -->
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../_ds_bundle.js"></script>
+<style>body{margin:0;padding:var(--space-6);background:var(--surface-page);font-family:var(--font-body)}
+.row{display:flex;gap:var(--space-7);align-items:flex-start;margin-bottom:var(--space-8)}
+.phone{width:360px;flex:0 0 360px;border:1px solid var(--border-hairline);background:var(--white);padding:var(--space-4);box-sizing:border-box}
+.lbl{font-family:var(--font-display);font-size:var(--fs-label-s);letter-spacing:var(--ls-label-wide);text-transform:uppercase;color:var(--gold-600);margin:0 0 10px}
+.notes{flex:1;min-width:280px;padding-top:26px}
+.notes p{margin:0 0 var(--space-5);font-size:var(--fs-body-s);line-height:var(--lh-body);color:var(--text-body);max-width:56ch}
+.notes b{font-family:var(--font-display);font-weight:400;font-size:var(--fs-body-l);color:var(--ink-900);display:block;margin-bottom:4px}
+code{color:var(--ink-900)}
+a{color:var(--gold-600)}a:hover{color:var(--gold-500)}</style></head>
+<body><div id="root"></div>
+<script type="text/babel">
+const { PhotoCarousel, RoomCard, SitePlan } = window.HoeveRijlaarsdamDesignSystem_374762;
+const A='../assets/';
+const FOTOS=[{src:A+'photo-koetshuis-feest.jpg',caption:'Het Koetshuis'},{src:A+'photo-hooiberg-gedekt.jpg',caption:'De Hooiberg'},
+  {src:A+'photo-stal-zoettafel.jpg',caption:'De Stal'},{src:A+'photo-beeldentuin-vogels.jpg',caption:'De Beeldentuin'},
+  {src:A+'photo-atelier.jpg',caption:'Het Atelier'}];
+const SPOTS=[
+  {name:'Woonhuis',x:69.56,y:25.12,w:2.8,h:3.8,image:A+'photo-hoeve-heerlijckheid.jpg',body:'Het monumentale voorhuis aan de Nieuwveenseweg. Hier vindt u ons kantoor.'},
+  {name:'De Stal',x:64.65,y:35.2,w:2.8,h:3.8,href:'Stal',image:A+'photo-stal-zoettafel.jpg',body:'Ruim 110 jaar oud, nu expositieruimte en zaal voor 60 gasten.'},
+  {name:'De Hooiberg',x:55.46,y:43.75,w:2.8,h:3.8,href:'Hooiberg',image:A+'photo-hooiberg.jpg',body:'De vijfhoekige berg; boven plaats voor maximaal 30 gasten.'},
+  {name:'Het Koetshuis',x:65.79,y:48.39,w:2.8,h:3.8,href:'Koetshuis',image:A+'photo-koetshuis-feest.jpg',body:'De grote zaal met eigen entree en bar, tot 250 gasten.'},
+  {name:'Beeldentuin',x:34.33,y:32.54,w:2.8,h:3.8,href:'Beeldentuin',image:A+'photo-beeldentuin-vogels.jpg',body:'Bronzen beelden tussen de hagen, de boomgaard en het water.'},
+  {name:'Parkeren',x:41.8,y:69.35,w:2.8,h:3.8,body:'Ruim eigen terrein direct naast de zalen. Gratis, geen reservering nodig.'}];
+function Card(){
+  return <div>
+    <div className="row">
+      <div>
+        <p className="lbl">Carousel &mdash; vegen</p>
+        <div className="phone"><PhotoCarousel narrow={true} height={210} items={FOTOS} autoplay={false}/></div>
+      </div>
+      <div className="notes">
+        <p><b>De pijlen gaan weg</b>Twee ronde knoppen over de foto kosten op 360px een derde van het beeld, en de duim zit er toch al op. Vegen is de handeling; de foto zelf is het bedieningsvlak.</p>
+        <p><b>Teller in plaats van streepjes</b>Vijf streepjes van 18&times;2px zijn niet te raken. Daar komt <code>3 / 5</code> voor, met de hint <em>Veeg voor meer</em> ernaast die na de eerste veeg verdwijnt &mdash; wie het weet, hoeft het niet nog eens te lezen.</p>
+        <p><b>Alleen horizontaal onderscheppen</b>Een veeg pakt pas als hij overwegend horizontaal is en meer dan 34px lang; verticaal scrollen door de pagina blijft gewoon werken (<code>touch-action: pan-y</code>).</p>
+      </div>
+    </div>
+
+    <div className="row">
+      <div>
+        <p className="lbl">Fotokaart &mdash; feiten permanent</p>
+        <div className="phone"><RoomCard reveal="hover" image={A+'photo-koetshuis-feest.jpg'} caption="Het Koetshuis"
+          meta={['tot 250 gasten','eigen entree','bar']} summary="De grote zaal met eigen bar en entree, geschikt voor een diner tot 250 gasten."
+          readMoreLabel="Lees meer" onReadMore={()=>{}}/></div>
+      </div>
+      <div className="notes">
+        <p><b><code>reveal=&#123;'hover'&#125;</code> wordt genegeerd</b>Deze kaart staat op <code>hover</code> &mdash; op desktop zouden de feiten dus achter een scrim over de foto zitten. Onder 760px valt de kaart altijd terug op <code>always</code>: capaciteit en samenvatting onder de titel, waar ze te lezen zijn zonder ergens op te hoeven mikken.</p>
+        <p><b>De gouden haarlijn blijft</b>Die groeit op desktop onder de titel bij hover. Op telefoon gebeurt dat bij een tik, kort voor de navigatie &mdash; het is de enige bevestiging die het systeem geeft, en die mag niet wegvallen.</p>
+        <p><b>Raakvlakken op 44px</b>&lsquo;Lees meer&rsquo; en de actiebalk van <code>variant=&#123;'bar'&#125;</code> krijgen op telefoon <code>--touch-min</code> als minimumhoogte.</p>
+      </div>
+    </div>
+
+    <div className="row">
+      <div>
+        <p className="lbl">Plattegrond &mdash; lijst bedient</p>
+        <div className="phone"><SitePlan narrow={true} image={A+'map-iso.png'} spots={SPOTS} title="Het erf, van bovenaf"/></div>
+      </div>
+      <div className="notes">
+        <p><b>De rolverdeling draait om</b>De punten zijn percentages van de kaart, dus op 360px krimpen ze naar 20px &mdash; kleiner dan een duim, en dichter bij elkaar dan een vingertop breed is. Daar wordt de kaart een prent om naar te kijken, met de nummers er alleen als verwijzing op, en de lijst eronder is het bedieningsvlak.</p>
+        <p><b>De kaart blijft antwoorden</b>Een tik op een regel klapt de foto en de tekst open &eacute;n laat het bijbehorende nummer op de kaart oplichten. Zo blijft het verband tussen lijst en plek zichtbaar, zonder dat je op de kaart hoeft te mikken.</p>
+        <p><b>Punten uit de leesorde</b>Op telefoon zijn ze <code>aria-hidden</code> en niet aantikbaar &mdash; anders zou een schermlezer alles twee keer aanbieden. De lijst is de enige route, en dat is er precies &eacute;&eacute;n.</p>
+        <p>Zie ook <a href="mobiel-breekpunten.html">Breekpunten</a>, <a href="../components/navigation/navbar-mobiel.card.html">NavBar als lade</a> en <a href="../components/split-hero/splithero-mobiel.card.html">SplitHero gestapeld</a>.</p>
+      </div>
+    </div>
+  </div>;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Card/>);
+</script></body></html>

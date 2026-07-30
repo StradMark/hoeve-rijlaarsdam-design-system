@@ -44,3 +44,51 @@
 --accent-alt-hover:var(--gold-600);
 --overlay-photo:linear-gradient(180deg,rgba(15,42,36,0) 26%,rgba(15,42,36,.62) 100%); /* @kind other */
 }
+
+/* --- Kerst ------------------------------------------------------------------
+   Kerst is geen apart merk en geen apart palet: het is een tijdelijke laag óp
+   winter, voor december alleen. Twee dingen veranderen. Zilver wordt de lijn-
+   en detailkleur naast goud (nooit samen op één vlak), en berry mag van accent
+   naar dragend accent — nog steeds één element per uiting, nooit een vlak.
+
+   Gebruik: zet data-season="kerst" op <html> of op één sectie. De laag erft
+   alles van winter, dus alleen wat kerst echt anders doet staat hieronder.   */
+:root{
+--kerst-silver-600:#8d979c; /* zilver op sneeuw — leesbaar als tekstaccent */
+--kerst-silver-500:#a8b2b7;
+--kerst-silver-400:#c3cbcf; /* de standaardlijn op donker: koud, niet wit */
+--kerst-silver-300:#dde3e6;
+--kerst-berry-800:#571f21;
+--kerst-berry-700:#6e2a2c; /* gelijk aan winter berry — dezelfde kleur, meer rol */
+--kerst-berry-600:#8c393a;
+--kerst-berry-300:#d8b4b0; /* berry op donker, waar 700 wegvalt */
+}
+
+[data-season="kerst"]{
+--surface-page:var(--winter-snow-100);
+--surface-cream:var(--winter-snow-100);
+--surface-sage:var(--winter-pine-700);
+--surface-sage-soft:var(--winter-frost-200);
+--surface-deep:var(--winter-pine-900);
+--surface-deep-alt:#0a1f1a;
+--surface-panel:var(--winter-pine-900);
+--surface-panel-soft:var(--kerst-silver-300);
+
+--text-body:var(--ink-700);
+--text-muted:var(--kerst-silver-600);
+--text-kicker:var(--kerst-berry-700);
+--text-on-dark:var(--winter-snow-100);
+--text-on-dark-muted:var(--kerst-silver-400);
+--text-on-sage:var(--winter-snow-100);
+--text-link:var(--winter-pine-900);
+--text-link-hover:var(--kerst-berry-700);
+
+--border-hairline:var(--kerst-silver-300);
+--border-on-dark:rgba(195,203,207,.34);
+--accent:var(--kerst-berry-700);
+--accent-hover:var(--kerst-berry-800);
+--accent-alt:var(--kerst-silver-600);
+--accent-alt-hover:var(--kerst-silver-500);
+--focus-ring:var(--kerst-silver-400);
+--overlay-photo:linear-gradient(180deg,rgba(10,31,26,0) 24%,rgba(10,31,26,.66) 100%); /* @kind other */
+}

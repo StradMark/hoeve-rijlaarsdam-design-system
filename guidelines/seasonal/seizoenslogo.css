@@ -1,0 +1,158 @@
+/* Seizoenslogo — één bron voor de vier kaarten (winter en kerst, in het vlak en schermvullend).
+   De beweging staat hier; de tekening staat in seizoenslogo-svg.js en de bediening in seizoenslogo.js. */
+/* --- het vlak --------------------------------------------------------------
+   Twee standen. Paneel: het logo staat in zijn eigen groene vlak en de sneeuw dwarrelt
+   binnen dat vlak (de vlokjes zitten in de tekening). Scherm: hetzelfde logo staat vrij op
+   de achtergrond en de sneeuw ligt als eigen laag over het hele beeld — de tekening-vlokjes
+   gaan dan uit. */
+.slogo{cursor:pointer;user-select:none}
+.slogo[data-field=panel]{line-height:0}
+.slogo[data-field=panel] svg.logo{width:100%;height:auto;display:block}
+.slogo[data-field=screen]{position:relative;width:100%;height:100vh;display:grid;place-items:center;overflow:hidden}
+.slogo[data-field=screen] svg.logo{width:min(74%,860px);max-height:62%;position:relative;z-index:1}
+.slogo[data-field=screen] #flakes{display:none}
+.slogo[data-field=screen][data-theme=winter]{background:var(--green-800)}
+.slogo[data-field=screen][data-theme=kerst]{background:var(--winter-pine-900)}
+.snowlayer{position:absolute;top:0;left:0;width:100%;height:100%;z-index:2;pointer-events:none;overflow:hidden}
+.snowlayer .fl{transform-box:fill-box;transform-origin:50% 50%}
+/* --- de bedieningsknoppen -------------------------------------------------- */
+.tabs{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:var(--space-5)}
+.tab{font-family:var(--font-display);font-size:var(--fs-label-s);letter-spacing:var(--ls-label);text-transform:uppercase;white-space:nowrap;
+ padding:8px 16px;border:1px solid var(--border-hairline);border-radius:var(--radius-pill);background:none;color:var(--ink-500);cursor:pointer;
+ transition:background var(--dur-base) var(--ease-out),color var(--dur-base) var(--ease-out),border-color var(--dur-base) var(--ease-out)}
+.tab:hover{border-color:var(--gold-400);color:var(--ink-900)}
+.tab[aria-pressed="true"]{background:var(--winter-pine-800);border-color:var(--winter-pine-800);color:var(--text-on-dark)}
+.hint{margin-top:var(--space-4);text-align:center;font-size:var(--fs-body-xs);letter-spacing:.06em;color:var(--text-muted)}
+.hint b{font-weight:500;color:var(--ink-500)}
+/* op scherm zweven de knoppen over het beeld */
+.overscreen .tabs{position:fixed;z-index:3;left:0;right:0;bottom:22px;margin:0}
+.overscreen .tabs.looks{bottom:64px}
+.overscreen .tab{color:#fff;background:transparent;border:1px solid rgba(255,255,255,.35);border-radius:0;padding:8px 14px}
+.overscreen .tab[aria-pressed=true]{border-color:var(--gold-400);color:var(--gold-300);background:rgba(0,0,0,.18)}
+
+/* --- de pen ---------------------------------------------------------------
+   Net als bij Hoeve: de hartlijn van elke haal komt uit het skelet van de inkt zelf: de letters zijn verdund tot een lijn van
+   één pixel breed, dat skelet is als graaf gelezen (eindpunten en kruispunten), en de takken zijn van links
+   naar rechts aan elkaar geregen tot dertien halen — W, i, n, dan de t van bovenaf naar beneden, de lus eronder,
+   de e, r, s en de uithaal. Elke haal krijgt pathLength="1000", zodat de streepmaat exact op de lijn past en er
+   op t=0 niets zichtbaar is. Het streepje door de t komt als laatste haal, daarna de punt op de i. */
+/* de punt op de i is een tik met de pen, als laatste */
+/* p5f vult de knijpzone van de t direct na de neerhaal op (1,06s) op nauwelijks meer dan de inkt van de haal zelf
+   (2,05), zodat het gaatje niet open blijft staan en er van het streepje niets vooruit licht.
+   Alle stukken van de neerhaal lopen op één snelheid (540 eenheden per seconde), anders kruipt de pen door de knijpzone */
+/* waar een haal over al getekende inkt terugloopt (de W, de n, de s) is dat stuk apart gezet en loopt de pen er
+   vier keer zo snel over — anders lijkt de animatie te haperen omdat er even niets verschijnt */
+/* de neerhaal van de t is bij het kruispunt met het streepje in vijf stukken geknipt en daar tot 1,72 geknepen
+   — smaller dan de inkt van het streepje, zodat dat niet vooruit kan lichten (net als de H van Hoeve) */
+#p0a{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 0.151s linear calc(0.058s + var(--shift,0s)) forwards}
+#p0b{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 0.028s linear calc(0.209s + var(--shift,0s)) forwards}
+#p1{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 0.065s linear calc(0.266s + var(--shift,0s)) forwards}
+#p2{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 0.058s linear calc(0.353s + var(--shift,0s)) forwards}
+#p3{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 0.036s linear calc(0.425s + var(--shift,0s)) forwards}
+#p4a{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 0.057s linear calc(0.475s + var(--shift,0s)) forwards}
+#p4b{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 0.018s linear calc(0.532s + var(--shift,0s)) forwards}
+#p4c{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 0.018s linear calc(0.55s + var(--shift,0s)) forwards}
+/* de knijpzone wordt pas op volle dikte bijgevuld op het moment dat het streepje er dwars door gaat, zodat je die bijvulling niet als losse haal ziet */
+#p5{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 0.118s linear calc(0.586s + var(--shift,0s)) forwards}
+#p6{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 0.048s linear calc(0.722s + var(--shift,0s)) forwards}
+#p7{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 0.065s linear calc(0.791s + var(--shift,0s)) forwards}
+#p8{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 0.151s linear calc(0.878s + var(--shift,0s)) forwards}
+#p9a{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 0.021s linear calc(1.05s + var(--shift,0s)) forwards}
+#p9b{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 0.018s linear calc(1.071s + var(--shift,0s)) forwards}
+#p10{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 0.043s linear calc(1.101s + var(--shift,0s)) forwards}
+#p11{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 0.108s linear calc(1.158s + var(--shift,0s)) forwards}
+#p12{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 0.065s cubic-bezier(.2,.7,.4,1) calc(1.302s + var(--shift,0s)) forwards}
+/* kleine plekken die de pen door haar ronde vorm net niet raakt — ze verschijnen op het moment dat de pen er langs is */
+.dab{transform-box:fill-box;transform-origin:50% 50%;transform:scale(0);animation:tap .08s linear calc(var(--dab) + var(--shift,0s)) forwards}
+#pdot{transform-box:fill-box;transform-origin:50% 50%;transform:scale(0);animation:tap .10s cubic-bezier(.3,1.2,.5,1) calc(var(--dot) + var(--shift,0s)) forwards}
+@keyframes tap{to{transform:scale(1)}}
+@keyframes draw{to{stroke-dashoffset:0}}
+/* de grote vlok komt pas op als het schrift staat */
+#flake{transform-box:fill-box;transform-origin:50% 55%;opacity:0;transform:scale(.94);animation:flakeIn .95s cubic-bezier(.2,.7,.3,1) var(--flake) forwards}
+@keyframes flakeIn{to{opacity:1;transform:none}}
+#capsRectW,#r1RectW,#r2RectW{transform-box:fill-box;transform-origin:0 50%;transform:scaleX(0)}
+#capsRectW{animation:wipe .50s cubic-bezier(.22,.61,.36,1) var(--caps) forwards}
+#r1RectW{animation:wipe .40s cubic-bezier(.3,.7,.3,1) var(--rules) forwards}
+#r2RectW{animation:wipe .40s cubic-bezier(.3,.7,.3,1) calc(var(--rules) + .10s) forwards}
+@keyframes wipe{to{transform:scaleX(1)}}
+#markW{transform-box:fill-box;transform-origin:50% 100%;opacity:0;transform:translateY(2px);animation:markIn .42s cubic-bezier(.2,.8,.3,1) var(--mark) forwards}
+@keyframes markIn{to{opacity:1;transform:none}}
+#tagW{opacity:0;animation:fade .38s ease-out var(--tag) forwards}
+@keyframes fade{to{opacity:1}}
+/* --- dwarrelen ------------------------------------------------------------
+   Elk vlokje zakt in zijn eigen tempo (7–16s) recht naar beneden met een kleine zijwaartse zwaai en een
+   trage draai. Het verschijnt en verdooft binnen dezelfde cyclus, dus de lus loopt naadloos rond. */
+.fl{transform-box:view-box;transform-origin:var(--cx) var(--cy);opacity:0;animation:drift var(--t) linear var(--lag) infinite}
+@keyframes drift{
+ 0%{opacity:0;transform:translate(0,0) rotate(0)}
+ 5%{opacity:var(--op)}
+ 25%{transform:translate(calc(var(--dx) * .25 + var(--sw)),calc(var(--fall) * .25)) rotate(calc(var(--rot) * .25))}
+ 50%{transform:translate(calc(var(--dx) * .5),calc(var(--fall) * .5)) rotate(calc(var(--rot) * .5))}
+ 75%{transform:translate(calc(var(--dx) * .75 - var(--sw)),calc(var(--fall) * .75)) rotate(calc(var(--rot) * .75))}
+ 95%{opacity:var(--op)}
+ 100%{opacity:0;transform:translate(var(--dx),var(--fall)) rotate(var(--rot))}}
+.vA{--shift:0s;--dot:1.46s;--flake:1.64s;--caps:2.09s;--rules:2.16s;--mark:2.14s;--tag:2.49s}
+/* Sneeuw eerst: de grote vlok komt uit de dwarrelende sneeuw op, daarna wordt de naam eronder gezet */
+.vC{--shift:0.72s;--dot:1.46s;--flake:0.22s;--caps:2.42s;--rules:2.49s;--mark:2.47s;--tag:2.82s}
+.vC #flake{animation-duration:0.85s}
+/* Vlok als slot: eerst de naam en het goud, de vlok sluit af */
+.vD{--shift:0s;--dot:1.46s;--caps:1.62s;--rules:1.69s;--mark:1.67s;--flake:2.12s;--tag:2.34s}
+.vD #flake{animation-duration:1.05s}
+/* --- Letterpers -----------------------------------------------------------
+   In plaats van één wisser over RIJLAARSDAM drukt elke letter zich apart aan: negen blokken
+   in het masker, elk met een korte aanslag van onderaf. Zo is ook dit deel een handeling
+   in plaats van een gordijn. De lijnen en het schuurmerk volgen erna. */
+.vE #capsG{clip-path:none}
+.vE #capsRectW{transform:scaleX(1);animation:none}
+.vE{--shift:0s;--dot:1.46s;--flake:1.64s;--caps:2.09s;--rules:2.52s;--mark:2.50s;--tag:2.85s}
+.vE #capsL0{opacity:0;transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(.82);animation:press .17s cubic-bezier(.2,.9,.3,1) calc(var(--caps) + 0.000s) forwards}
+.vE #capsL1{opacity:0;transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(.82);animation:press .17s cubic-bezier(.2,.9,.3,1) calc(var(--caps) + 0.045s) forwards}
+.vE #capsL2{opacity:0;transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(.82);animation:press .17s cubic-bezier(.2,.9,.3,1) calc(var(--caps) + 0.090s) forwards}
+.vE #capsL3{opacity:0;transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(.82);animation:press .17s cubic-bezier(.2,.9,.3,1) calc(var(--caps) + 0.135s) forwards}
+.vE #capsL4{opacity:0;transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(.82);animation:press .17s cubic-bezier(.2,.9,.3,1) calc(var(--caps) + 0.180s) forwards}
+.vE #capsL5{opacity:0;transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(.82);animation:press .17s cubic-bezier(.2,.9,.3,1) calc(var(--caps) + 0.225s) forwards}
+.vE #capsL6{opacity:0;transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(.82);animation:press .17s cubic-bezier(.2,.9,.3,1) calc(var(--caps) + 0.270s) forwards}
+.vE #capsL7{opacity:0;transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(.82);animation:press .17s cubic-bezier(.2,.9,.3,1) calc(var(--caps) + 0.315s) forwards}
+.vE #capsL8{opacity:0;transform-box:fill-box;transform-origin:50% 100%;transform:scaleY(.82);animation:press .17s cubic-bezier(.2,.9,.3,1) calc(var(--caps) + 0.360s) forwards}
+@keyframes press{to{opacity:1;transform:none}}
+.vB.vE #capsL0,.vB.vE #capsL1{opacity:1;transform:none;animation:none}
+/* Alleen dwarrelen: alles staat er al, alleen de sneeuw beweegt */
+.vB #penW path{stroke-dashoffset:0;animation:none}
+.vB .dab{transform:scale(1);animation:none}
+.vB #pdot{transform:scale(1);animation:none}
+.vB #flake{opacity:1;transform:none;animation:none}
+.vB #capsRectW,.vB #r1RectW,.vB #r2RectW{transform:scaleX(1);animation:none}
+.vB #markW{opacity:1;transform:none;animation:none}
+.vB #tagW{opacity:1;animation:none}
+@media (prefers-reduced-motion:reduce){
+ [id^=capsL]{opacity:1;transform:none;animation:none}
+ #penW path{stroke-dashoffset:0;animation:none}
+ .dab{transform:scale(1);animation:none}
+ #pdot{transform:scale(1);animation:none}
+ #flake,#markW,#tagW{opacity:1;transform:none;animation:none}
+ #capsRectW,#r1RectW,#r2RectW{transform:scaleX(1);animation:none}
+ .fl{opacity:.85;animation:none}
+}
+
+/* --- Kerstlaag ---------------------------------------------------------------
+   Alleen kleur verandert; de beweging is die van het winterlogo. Per uitvoering
+   geldt: óf zilver óf goud op één vlak, en berry is één element, nooit een vlak. */
+.slogo[data-theme=kerst] svg.logo>g:first-of-type path{fill:var(--winter-pine-900)}
+.slogo[data-theme=kerst] #flake path{fill:var(--kerst-silver-300)}
+.slogo[data-theme=kerst] .fl>g,.slogo[data-theme=kerst] symbol g{stroke:var(--kerst-silver-300)}
+.slogo[data-theme=kerst].zilver #scriptW path{fill:var(--kerst-silver-400)}
+.slogo[data-theme=kerst].zilver .ruleG path{fill:var(--kerst-silver-500)}
+.slogo[data-theme=kerst].zilver #markW path{fill:var(--kerst-silver-400)}
+.slogo[data-theme=kerst].zilver #markW g:last-of-type path{fill:var(--kerst-silver-600)}
+.slogo[data-theme=kerst].kaarslicht #scriptW path{fill:var(--winter-candle-400)}
+.slogo[data-theme=kerst].kaarslicht .ruleG path{fill:var(--kerst-berry-300)}
+.slogo[data-theme=kerst].kaarslicht .ruleG+.ruleG path{fill:var(--kerst-silver-500)}
+.slogo[data-theme=kerst].kaarslicht #markW path{fill:var(--winter-candle-400)}
+.slogo[data-theme=kerst].kaarslicht #markW g:last-of-type path{fill:var(--kerst-silver-500)}
+.slogo[data-theme=kerst].berry #scriptW path{fill:var(--kerst-silver-400)}
+.slogo[data-theme=kerst].berry .ruleG path{fill:var(--kerst-silver-500)}
+.slogo[data-theme=kerst].berry #markW path{fill:var(--kerst-berry-300)}
+.slogo[data-theme=kerst].berry #markW g:last-of-type path{fill:var(--kerst-silver-500)}
+.slogo[data-theme=kerst] #capsG path{fill:#f6f9fa}
+.slogo[data-theme=kerst] #tagW path{fill:var(--kerst-silver-300)}
+

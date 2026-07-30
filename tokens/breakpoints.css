@@ -1,0 +1,65 @@
+/* --- Breekpunten -------------------------------------------------------------
+   Drie maten, en verder niets. De hoeve heeft geen dashboard nodig; wat er is, is een
+   verhaal met foto's, dus er is één kolom (telefoon), twee kolommen (tablet) en het
+   volle raster (desktop).
+
+     mobiel    tot 599px    één kolom, volle breedte, tekst op 20px marge
+     tablet    600–1023px   twee kolommen, ruimer maar nog niet het volle ritme
+     desktop   1024px en op het volle raster van 1180px
+
+   De tokens hieronder zijn er om in code naar te verwijzen (`@media (max-width: 599px)`
+   laat zich niet uit een var lezen, dus de waarden staan er als documentatie én als
+   waarde voor JS: `getComputedStyle(document.documentElement).getPropertyValue('--bp-mobile')`).
+
+   Daaronder schaalt hetzelfde systeem mee: de typemaat krimpt, het verticale ritme wordt
+   korter en de containermarge wordt smaller. Componenten hoeven dus niets te doen zolang
+   ze in tokens zijn opgebouwd — alleen wie van vorm verandert (navigatie, split-hero,
+   carousel) heeft eigen regels nodig. */
+:root{
+--bp-mobile:599px;
+--bp-tablet:1023px;
+--bp-desktop:1024px;
+/* de marge tussen tekst en schermrand; krimpt mee per maat */
+--gutter:var(--space-6);
+/* minimale aanraakmaat — knoppen, navigatie-items en pijlen op telefoon nooit kleiner */
+--touch-min:44px;
+}
+
+/* --- tablet ---------------------------------------------------------------- */
+@media (max-width:1023px){
+:root{
+--fs-display-xl:52px;
+--fs-display-l:38px;
+--fs-display-m:30px;
+--fs-script-l:66px;
+--fs-script-m:52px;
+--section-y:72px;
+--section-y-tight:48px;
+--gutter:var(--space-5);
+--gap-grid:20px;
+}
+}
+
+/* --- mobiel ----------------------------------------------------------------
+   De sprong is bewust groot: 64px display op een 390px scherm laat drie woorden per
+   regel over. 38px houdt de kop één of twee regels en de kicker eronder leesbaar. */
+@media (max-width:599px){
+:root{
+--fs-display-xl:38px;
+--fs-display-l:30px;
+--fs-display-m:25px;
+--fs-display-s:21px;
+--fs-quote:19px;
+--fs-script-l:46px;
+--fs-script-m:38px;
+--fs-script-s:31px;
+--fs-body-l:15px;
+--fs-body-m:14px;      /* niet kleiner dan 14px voor lopende tekst op telefoon */
+--fs-body-s:12.5px;
+--section-y:56px;
+--section-y-tight:40px;
+--gutter:20px;
+--gap-grid:16px;
+--gap-grid-tight:10px;
+}
+}

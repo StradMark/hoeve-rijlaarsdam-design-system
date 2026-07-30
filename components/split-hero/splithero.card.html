@@ -1,23 +1,37 @@
-<!-- @dsCard group="Heros" viewport="1180x440" name="SplitHero — keuzehero homepage" subtitle="Alleen op de homepage: ART / EVENTS, hover verbreedt de helft, quote-lint onderin" -->
+<!-- @dsCard group="Heros" viewport="1180x560" name="SplitHero — keuzehero homepage" subtitle="Alleen op de homepage: ART / EVENTS, hover verbreedt de helft, quote-lint onderin — met intro-motion die het beeld zelf stil laat" -->
 <!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">
 <link rel="stylesheet" href="../../styles.css">
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 <script src="../../_ds_bundle.js"></script>
-<style>body{padding:0;background:var(--surface-page)}</style></head>
+<style>body{padding:0;background:var(--surface-page)}.lbl{font-family:var(--font-display);font-size:var(--fs-label-s);letter-spacing:var(--ls-label-wide);text-transform:uppercase;color:var(--gold-600);margin:0}.replay{font-family:var(--font-display);font-size:var(--fs-label-s);letter-spacing:var(--ls-label);text-transform:uppercase;padding:8px 16px;border:1px solid var(--border-hairline);border-radius:var(--radius-pill);background:none;color:var(--ink-500);cursor:pointer}.replay:hover{border-color:var(--gold-400);color:var(--ink-900)}</style></head>
 <body><div id="root"></div>
 <script type="text/babel">
 const { SplitHero } = window.HoeveRijlaarsdamDesignSystem_374762;
 const A='../../assets/';
 function Card(){
-  return <div>
-    <SplitHero fullHeight={false} ampersandSrc={A+'ornament-swirl.svg'} style={{height:380}} scrollHint="Scroll"
+  const [n,setN]=React.useState(0);
+  const replay=()=>{try{sessionStorage.removeItem('hr-hero-intro')}catch(e){};setN(n+1)};
+  return <div style={{display:'flex',flexDirection:'column',gap:'var(--space-4)',padding:'var(--space-5) 0 0'}}>
+    <div style={{display:'flex',alignItems:'baseline',justifyContent:'space-between',padding:'0 var(--space-5)'}}>
+      <p className="lbl">Intro: scrim open, tekst zet zich, naad groeit, swirl sluit af</p>
+      <button className="replay" type="button" onClick={replay}>Opnieuw</button>
+    </div>
+    <SplitHero key={n} fullHeight={false} ampersandSrc={A+'ornament-swirl.svg'} style={{height:380}} scrollHint="Scroll"
       caption={<React.Fragment>&ldquo;Daar waar hospitality een kunstvorm is!&rdquo;</React.Fragment>}
       items={[
         {label:'Art',ctaLabel:'Galerie',image:A+'photo-koetshuis-expositie.jpg'},
         {label:'Events',ctaLabel:'Mogelijkheden',image:A+'photo-lounge-zonsondergang.jpg'}
       ]}/>
+    <p style={{margin:0,padding:'0 var(--space-5) var(--space-5)',maxWidth:'78ch',fontSize:'var(--fs-body-s)',lineHeight:'var(--lh-body)',color:'var(--text-muted)'}}>
+      Alleen de lagen bóven het beeld bewegen, want hier kan video achter zitten: de scrim gaat van dicht naar zijn
+      ruststand (0,7s), titel en knop van beide helften komen gelijktijdig 10px omhoog (250 en 330ms &mdash; gelijktijdig,
+      want gestaggerd zou de ene keuze belangrijker laten lijken), de naad groeit uit het midden open (620ms) en de swirl
+      komt als laatste op (900ms) zodat je oog eindigt waar de keuze zit. De scroll-hint volgt op 1,45s, ná de opbouw.
+      Speelt eenmalig per bezoek; met <code style={{fontFamily:'var(--font-body)'}}>intro={'{'}false{'}'}</code> of
+      <code style={{fontFamily:'var(--font-body)'}}> prefers-reduced-motion</code> staat alles er meteen.
+    </p>
   </div>;
 }
 ReactDOM.createRoot(document.getElementById('root')).render(<Card/>);

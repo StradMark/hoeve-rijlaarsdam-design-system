@@ -5,9 +5,10 @@ import { CarouselNav } from '../core/CarouselNav.jsx';
    the neighbours sit smaller and further back. Returns on every page, above the footer.
    Advances on its own, but only while it is on screen and nobody is touching it. */
 export function PhotoCarousel({items=[],height=400,initial=0,edgeArrows=true,arrowTone='deep',
-  interval=5600,autoplay=true,drift=true,tilt=false,onSelect,style}){
+  interval=5600,autoplay=true,drift=true,tilt=false,onSelect,narrow:narrowProp,style}){
   const [i,setI]=React.useState(initial);
-  const [narrow,setNarrow]=React.useState(false);
+  const [narrowAuto,setNarrowAuto]=React.useState(false);
+  const [swiped,setSwiped]=React.useState(false); // de veeg-hint verdwijnt na de eerste veeg
   const [hover,setHover]=React.useState(false); // pointer or finger on the strip
   const [focusIn,setFocusIn]=React.useState(false); // keyboard focus somewhere inside
   const [seen,setSeen]=React.useState(false);   // in the viewport
@@ -15,10 +16,13 @@ export function PhotoCarousel({items=[],height=400,initial=0,edgeArrows=true,arr
   const root=React.useRef(null);
   const touch=React.useRef(null);
   React.useEffect(()=>{
-    const check=()=>setNarrow(window.innerWidth<760);
+    const check=()=>setNarrowAuto(window.innerWidth<760);
     check();window.addEventListener('resize',check);
     return ()=>window.removeEventListener('resize',check);
   },[]);
+  /* narrow is normaal de vensterbreedte; als prop is het ook los te forceren, zodat een kaart
+     de telefoonvorm naast de desktopvorm kan tonen. */
+  const narrow=narrowProp===undefined?narrowAuto:narrowProp;
   const reduced=React.useMemo(()=>typeof matchMedia==='function'&&
     matchMedia('(prefers-reduced-motion: reduce)').matches,[]);
   React.useEffect(()=>{
@@ -54,12 +58,20 @@ export function PhotoCarousel({items=[],height=400,initial=0,edgeArrows=true,arr
       onMouseEnter={hold(true)} onMouseLeave={hold(false)}
       onFocus={()=>setFocusIn(true)}
       onBlur={e=>{if(!e.currentTarget.contains(e.relatedTarget))setFocusIn(false)}}
-      onTouchStart={e=>{setHover(true);touch.current=e.touches[0].clientX}}
-      onTouchEnd={e=>{const x0=touch.current;setHover(false);touch.current=null;
-        if(x0==null)return;const dx=e.changedTouches[0].clientX-x0;if(Math.abs(dx)>44)go(dx<0?1:-1)}}
+      onTouchStart={e=>{setHover(true);touch.current={x:e.touches[0].clientX,y:e.touches[0].clientY}}}
+      onTouchMove={e=>{const t0=touch.current;if(!t0)return;
+        /* alleen een overwegend horizontale veeg pakken — verticaal scrollen door de pagina
+           mag de carousel niet onderscheppen */
+        const dx=e.touches[0].clientX-t0.x, dy=e.touches[0].clientY-t0.y;
+        if(Math.abs(dx)>Math.abs(dy)&&Math.abs(dx)>10&&e.cancelable)e.preventDefault();}}
+      onTouchEnd={e=>{const t0=touch.current;setHover(false);touch.current=null;
+        if(!t0)return;
+        const dx=e.changedTouches[0].clientX-t0.x, dy=e.changedTouches[0].clientY-t0.y;
+        /* 34px is genoeg voor een duim; verticaal overheersende bewegingen negeren */
+        if(Math.abs(dx)>34&&Math.abs(dx)>Math.abs(dy)){go(dx<0?1:-1);setSwiped(true)}}}
       onKeyDown={e=>{if(e.key==='ArrowRight')go(1);if(e.key==='ArrowLeft')go(-1)}}
       tabIndex={0} role="group" aria-label="Foto's" aria-roledescription="carrousel">
-      <div style={{position:'relative',height,overflow:'hidden',
+      <div style={{position:'relative',height,overflow:'hidden',touchAction:narrow?'pan-y':undefined,
         perspective:tilt?Math.round(cardW*1.9):undefined,perspectiveOrigin:'50% 50%'}}>
         {items.map((it,k)=>{
           const d=rel(k), p=pose(d), src=typeof it==='string'?it:it.src, live=d===0;
@@ -92,6 +104,19 @@ export function PhotoCarousel({items=[],height=400,initial=0,edgeArrows=true,arr
             letterSpacing:'var(--ls-label-wide)',textTransform:'uppercase',color:'var(--gold-500)'}}>{active.caption}</span>
         )}
         {/* one hairline per photo; the active one fills over the dwell time so the movement is announced */}
+        {/* op telefoon zijn de streepjes te klein om te raken; daar wordt het een teller met
+           een veeg-hint, en de foto zelf is het bedieningsvlak */}
+        {narrow?(
+          <div style={{display:'flex',alignItems:'center',gap:'var(--space-3)',minHeight:22}}>
+            <span style={{fontFamily:'var(--font-display)',fontSize:'var(--fs-label-s)',
+              letterSpacing:'var(--ls-label-wide)',color:'var(--ink-500)',fontVariantNumeric:'tabular-nums'}}>
+              {i+1} / {n}
+            </span>
+            <span aria-hidden="true" style={{width:1,height:12,background:'var(--border-hairline)'}}/>
+            <span style={{fontSize:'var(--fs-body-xs)',letterSpacing:'.06em',color:'var(--text-muted)',
+              opacity:swiped?0:1,transition:'opacity var(--dur-slow) var(--ease-out)'}}>Veeg voor meer</span>
+          </div>
+        ):(
         <div style={{display:'flex',gap:6}}>
           {items.map((it,k)=>(
             <button key={k} type="button" onClick={()=>jump(k)} aria-label={'Foto '+(k+1)}
@@ -106,9 +131,10 @@ export function PhotoCarousel({items=[],height=400,initial=0,edgeArrows=true,arr
             </button>
           ))}
         </div>
+        )}
         <style>{'@keyframes pc-fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}'}</style>
       </div>
-      {edgeArrows&&(
+      {edgeArrows&&!narrow&&(
         <div style={{position:'absolute',left:0,right:0,top:0,height,display:'flex',
           justifyContent:'space-between',alignItems:'center',padding:'0 var(--space-4)',pointerEvents:'none',zIndex:4}}>
           <div style={{pointerEvents:'auto'}}><CarouselNav direction="prev" tone={arrowTone} onClick={()=>go(-1)}/></div>

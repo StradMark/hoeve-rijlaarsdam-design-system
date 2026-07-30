@@ -1,21 +1,39 @@
-<!-- @dsCard group="Pagina-onderdelen" viewport="1180x200" name="NavBar" subtitle="Gecentreerd logo, gesplitste navigatie, actief item in goud, offerte-knop" -->
+<!-- @dsCard group="Pagina-onderdelen" viewport="1180x560" name="NavBar" subtitle="Gecentreerd logo, gesplitste navigatie, actief item in goud, offerte-knop — vlak en met uitklapmenu (onderste balk staat open)" -->
 <!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">
 <link rel="stylesheet" href="../../styles.css">
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 <script src="../../_ds_bundle.js"></script>
-<style>body{padding:0;background:var(--surface-page)}</style></head>
+<style>body{padding:0;background:var(--surface-page)}.lbl{font-family:var(--font-display);font-size:var(--fs-label-s);letter-spacing:var(--ls-label-wide);text-transform:uppercase;color:var(--gold-600);margin:0 var(--space-6) 8px}</style></head>
 <body><div id="root"></div>
 <script type="text/babel">
 const { NavBar } = window.HoeveRijlaarsdamDesignSystem_374762;
 const A='../../assets/';
-const L=['De Hoeve','Zakelijk','Particulier'], R=['Ruimtes','Over ons','Contact'];
+const FLAT_L=['De Hoeve','Zakelijk','Particulier'], FLAT_R=['Ruimtes','Over ons','Contact'];
+const DD_L=[{label:'De Hoeve',items:['Ons verhaal','De galerie','Chef Wouter']},{label:'Zakelijk',items:['Vergaderen','Bedrijfsfeest','Presentatie']},{label:'Particulier',items:['Bruiloft','Familiefeest','Pop-up restaurant']}];
+const DD_R=[{label:'Ruimtes',items:['De Schuur','De Deel','Het Koetshuis','Het Terras']},'Praktisch','Contact'];
 function Card(){
-  return <div style={{display:'flex',flexDirection:'column',gap:'var(--space-6)',paddingBottom:'var(--space-6)'}}>
-    <NavBar logo={A+'logo-lockup.svg'} left={L} right={R} active="Ruimtes"/>
-    <NavBar logo={A+'logo-mark.svg'} left={L} right={R} active="Contact" ctaLabel="Vraag offerte aan"/>
+  return <div style={{display:'flex',flexDirection:'column',gap:'var(--space-7)',padding:'var(--space-6) 0 260px'}}>
+    <div>
+      <p className="lbl">Vlak &mdash; tot zeven links</p>
+      <NavBar mode="flat" logo={A+'logo-lockup.svg'} left={FLAT_L} right={FLAT_R} active="Ruimtes"/>
+    </div>
+    <div>
+      <p className="lbl">Uitklapmenu &mdash; gesloten</p>
+      <NavBar logo={A+'logo-lockup.svg'} left={DD_L} right={DD_R} active="Contact" ctaLabel="Vraag offerte aan"/>
+    </div>
+    <div>
+      <p className="lbl">Uitklapmenu &mdash; paneel open op Ruimtes</p>
+      <div id="open"><NavBar logo={A+'logo-mark.svg'} left={DD_L} right={DD_R} active="De Deel" ctaLabel="Vraag offerte aan"/></div>
+    </div>
   </div>;
 }
 ReactDOM.createRoot(document.getElementById('root')).render(<Card/>);
+// het onderste paneel staat open, zodat de kaart de uitklapstand ook stil laat zien
+requestAnimationFrame(()=>setTimeout(()=>{
+  const host=document.getElementById('open');
+  const entry=[...host.querySelectorAll('nav > div')].find(d=>d.textContent.trim().startsWith('Ruimtes'));
+  if(entry) entry.dispatchEvent(new MouseEvent('mouseover',{bubbles:true}));
+},120));
 </script></body></html>

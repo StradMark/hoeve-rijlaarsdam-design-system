@@ -1,399 +1,164 @@
 # Hoeve Rijlaarsdam — Art & Events · Design System
 
-Hoeve Rijlaarsdam is een evenementenlocatie in Nieuwkoop: een monumentale boerderij in de polder die vier ruimtes
-verhuurt, een kunstgalerie en beeldentuin heeft, alles in de eigen keuken met een chefkok bereidt, en hostessen /
-hospitality levert aan externe partijen op hun eigen locatie. Eén merk, vier bedrijven — **zaalverhuur,
-kunstgalerij, catering, hospitality** — bij elkaar gehouden door de regel *"Daar waar hospitality een kunstvorm
-is!"*.
+Evenementenlocatie in Nieuwkoop: een monumentale boerderij in de polder met vier verhuurbare ruimtes, een
+kunstgalerie met beeldentuin, een eigen keuken met chefkok, en hospitality op locatie bij externe partijen.
+Eén merk, vier bedrijven — **zaalverhuur, kunstgalerij, catering, hospitality** — bij elkaar gehouden door
+*"Daar waar hospitality een kunstvorm is!"*.
 
-De doelgroepen zijn in de navigatie zelf gesplitst: **Zakelijk** (meetings, congressen, teambuilding, beurzen) en
-**Particulier** (bruiloften, feesten, jubilea, uitvaart & herdenking), met **Catering** en **Hospitality** die zowel
-op de locatie als elders worden geleverd.
+De navigatie splitst op doelgroep, niet op bedrijf: **Zakelijk** (meetings, congressen, teambuilding) en
+**Particulier** (bruiloften, feesten, jubilea, uitvaart), met **Catering** en **Hospitality** die zowel op de
+locatie als elders worden geleverd.
 
-## Gebruikte bronnen
+## Beginnen
 
-| Bron | Wat het opleverde |
+`public/index.html` is de voordeur: de doorklikbare voorbeeldsite, het kaartenoverzicht, de deel- en
+printversies en de losse animaties en plattegrond. Alle front-facing pagina's staan in `public/`; de bronnen
+(kaarten, componenten, tokens, assets) blijven daarbuiten. `styles.css` is het enige bestand dat afnemers
+koppelen.
+
+| Wil je… | Lees |
 | --- | --- |
-| `uploads/WhatsApp Image 2026-07-28 at 18.14.02.jpeg` | Het primaire logo (boerderijmerk + *Hoeve* in script + RIJLAARSDAM + ART & EVENTS) |
-| `uploads/WhatsApp Image 2026-07-27 at 21.32.41*.jpeg` (10 bestanden) | Volledige website-ontwerpen: homepage, zakelijk, particulier, catering, ruimte-detail (Koetshuis), bruiloft, over ons/team & hostessen, praktisch, locatie, contact |
-| **feestenmeetings.nl** (opgehaald 28-07-2026) | Het evenementenbedrijf: echte teksten, paginastructuur, prijzen, capaciteiten, arrangementsnamen |
-| **rijlaarsdam.nl** / galerie.rijlaarsdam.nl | Het kunstbedrijf — **kon niet direct worden opgehaald** (domein geblokkeerd); feiten komen uit zoekresultaten en de vermeldingen op Ontdek/Visit Nieuwkoop en Museumtijdschrift |
-
-Credit in de footer van de originele ontwerpen was *"Design: Not Just Ideas · technische realisatie: Anticipate"*.
-De footer in dit systeem draagt nu: *"Ontwerp: Janneke van Soeren-Aupers · Realisatie: Mark Stradmann · © 2026 Hoeve Rijlaarsdam Hospitality B.V."*
-
-Alle opgehaalde feiten, prijzen, contactgegevens, echte koppenparen en herbruikbare zinnen staan in
-**`guidelines/content-en-feiten.md`** — lees dat bestand voordat je tekst schrijft.
-
-**Er is geen codebase, Figma-bestand, fontbestanden of fotobibliotheek aangeleverd,** en de foto's van de live
-websites konden niet worden gekopieerd (deze omgeving mag geen bestanden van andere domeinen ophalen). Alles
-hieronder is van de ontwerpen afgelezen. Kleuren zijn er per pixel uit gemeten; typografie en spacing zijn gemeten en
-afgerond op een tokenschaal; de foto's in dit project zijn uit de ontwerpen gesneden en dus lage resolutie —
-plaatsvervangend materiaal.
-
-## Het bedrijf in het kort
-
-De galerie bestaat **32 jaar** en is internationaal bekend als plek waar kunst wordt **verkocht, bezichtigd,
-gerestaureerd én getaxeerd** — 19e- en 20e-eeuwse meesters plus hedendaags werk, met een **beeldentuin van twee
-hectare met zo'n 70 sculpturen**. Drie expositieruimtes doen tevens dienst als evenementenruimte: de **stal** (ruim
-110 jaar oud, houten palen in het midden, met werk van de Haagse & Leidsche school), het **koetshuis** (250 gasten,
-uitstekende akoestiek) en de **grote zaal**. **Theehuis De Hooiberg** op hetzelfde terrein serveert koffie en gebak;
-op de eerste etage zit een vergaderruimte, volledig omringd door ramen, voor **maximaal 30 personen**. Parkeren is
-gratis voor circa 60 auto's, met 50 extra plaatsen op aanvraag bij grote bijeenkomsten.
-
-De twee bedrijven hebben vandaag twee websites — `rijlaarsdam.nl` voor Galerie & Beeldentuin, `feestenmeetings.nl`
-voor Feesten & Meetings (Feesten · Meetings · Condoleance · Contact · Offerte), plus een aparte cateringsite. **De
-ontwerpen in `uploads/` zijn het
-plan om die samen te voegen tot één site** onder het ART & EVENTS-logo; daarom splitst de nieuwe navigatie op
-doelgroep (Zakelijk / Particulier) in plaats van op bedrijf.
-
-De juridische naam is **Hoeve Rijlaarsdam Hospitality B.V.** — hospitality zit dus in de bedrijfsnaam. Eigenaresse is
-**Rozemarijn (Roos) Rijlaarsdam**, chef is **Wouter Berghuis**. De meest onderscheidende én best verstopte dienst is
-**hospitality op locatie**: "Onze dames en heren vinden het geweldig om hun kwaliteiten en glimlach op andere
-evenementen te laten zien. Hoeve Rijlaarsdam komt naar u toe!" Daarnaast draait de hoeve een eigen
-**pop-uprestaurantformat** (4 gangen, maximaal 30 gasten per shift, open keuken, kunstenaars die hun werk toelichten)
-en is de oude lijstenmakerij verbouwd tot coachings- en trainingsruimte — het "Ontwikkelatelier" uit de ontwerpen.
-
-De merkregel **"Daar waar hospitality een kunstvorm is!"** vat de positionering al goed samen: niet "wij hebben
-ruimtes", maar kunst, natuur en gastvrijheid als één beleving. Houd die regel als kern; langere
-positioneringsvarianten horen als ondertitel, niet als vervanging. Zie `guidelines/content-en-feiten.md` voor het
-volledige onderzoek, inclusief een duidelijk gemarkeerd deel dat níet is geverifieerd.
-
----
-
-## TEKSTUELE UITGANGSPUNTEN
-
-**Taal.** Altijd Nederlands. Formeel *u* — "Laat ons uw evenement tot in de puntjes verzorgen – zonder zorgen!",
-"Wij gaan graag met u rond de tafel". **De enige uitzondering zijn bruiloften**, waar de live site overschakelt op
-*jullie*: "Bij Hoeve Rijlaarsdam geven jullie elkaar het ja-woord", "Jullie wensen zijn leidend". Houd die scheiding
-aan. Het merk spreekt als **wij** ("wij denken graag met u mee", "onze chef", "wij luisteren aandachtig naar uw
-wensen en ideeën"): warm, maar professioneel.
-
-**De tweedelige kop ís de stem.** Elke sectie opent met een klein stukje script in kleine letters dat *doorloopt* in
-een serif-titel; de twee hebben alleen samen betekenis. De live sites doen dit al in gewone letters — de ontwerpen
-maken er script + serif van:
-
-- *Landelijk* → **Vergaderen** · *Romantische* → **Bruiloften** · *Vrolijke* → **Feesten**
-- *Zorgeloze* → **Verjaardagen** · *Creatieve* → **Workshops** · *Ruimte voor* → **Grote Bijeenkomsten**
-- *(H)eerlijckheid* → **uit eigen tuin** · *Met liefde* → **Gemaakt** · *Persoonlijke* → **Arrangementen**
-
-En uit de ontwerpen:
-
-- *alles over* → **Onze locatie**
-- *van harte* → **Welkom**
-- *heel veel* → **Mooie ruimtes**
-- *veel gestelde* → **Vragen**
-- *hoe wilt u* → **De ruimte gebruiken?**
-- *culinaire* → **Hoogstandjes**
-- *wij zijn goed* → **Bereikbaar**
-- *de plek* → **Waar alles samenkomt** (grensgeval: de titel staat niet los — beter *de plek* → **Onze hoeve**)
-
-**Wanneer werkt de kicker, en wanneer niet.** De kicker is een *aanloop*, geen halve zin; de titel doet het werk.
-Twee tests, en beide moeten kloppen:
-
-1. **Dek de kicker af** — benoemt de titel dan nog steeds waar de sectie over gaat? *Onze locatie* wel, *Waar alles
-   samenkomt* niet. De titel moet los kunnen staan, want hij belandt ook in menu's, tabbladen en zoekresultaten.
-2. **Dek de titel af** — klinkt de kicker dan onafgemaakt? Zo niet, dan is het een eigen zinnetje en hoort het in de
-   bodytekst.
-
-Harde grenzen: **maximaal 2 woorden en 14 tekens**, kleine letters, geen interpunctie, en **nooit langer dan de
-titel** — die blijft altijd het zwaarste element. Het kernwoord staat in de titel, niet in de kicker. Omgekeerd
-geldt: een titel van meer dan ongeveer drie woorden verdraagt geen kicker meer, want dan verdwijnt het sierelement
-ernaast. Kort dan de titel in, of laat de kicker weg.
-
-Welke woordsoorten werken als aanloop: voorzetsel of bijwoord (*alles over*, *van harte*), versterker of telwoord
-(*heel veel*, *oneindig*), bijvoeglijk naamwoord (*culinaire*, *handige*, *veel gestelde*, *landelijk*), of een
-vraagaanzet (*hoe wilt u*). Wat niet werkt: een werkwoord dat de titel moet afmaken, een vraag met vraagteken, of
-een kicker die het onderwerp zelf noemt.
-
-**Geen kicker is een geldige keuze.** Subkoppen binnen een sectie krijgen er nooit een, en een pagina met vijf
-kickers op een rij verliest het effect — reken op één tot drie per pagina. `SectionHeading` waarschuwt in de console
-zodra een kicker te lang is, interpunctie bevat of de titel overschaduwt; dat is een signaal aan de tekstschrijver,
-geen blokkade. Zie `guidelines/kicker-regels.html` voor goede en foute paren naast elkaar.
-
-De titel is zinsvorm (alleen in hero's volledig kapitaal).
-
-**Kapitalen.** Bodytekst is gewone zinsvorm. Kapitalen met ruime letterafstand zijn voorbehouden aan *labels*:
-navigatie, buttons ("VRAAG OFFERTE AAN", "LEES MEER", "BOEK MIJ", "VERSTUREN", "ROUTEBESCHRIJVING"),
-kaartcaptions ("KOETSHUIS", "BEELDENTUIN"), FAQ-vragen en de kopjes in de footer. Hero-titels zijn serif in
-kapitalen ("HET KOETSHUIS", "ART", "EVENTS"). Reviews staan in serif-kapitalen — dat is bewust, geen fout.
+| tekst schrijven | `guidelines/content-en-feiten.md` — prijzen, capaciteiten, contactgegevens, echte koppenparen |
+| weten waar het materiaal vandaan komt | `guidelines/onderzoek-en-bronnen.md` — bronnen, het bedrijf, iconografie, wat nog ontbreekt |
+| de logo-animatie aanpassen | `guidelines/animatie-beslissingen.md` |
+| iets mobiel maken | `guidelines/mobiel-beslissingen.md` |
 
-**Lengte van bodytekst.** Kort. Twee tot vijf regels lichte sans van 14px, maximaal circa 70 tekens breed. Concreet
-boven lyrisch: vierkante meters, aantallen gasten, telefoonnummers, wie je vraagt ("Roos Rijlaarsdam",
-"Loekie Rijlaarsdam").
+## Tekst
 
-**Calls to action.** Eén per sectie, begint met een werkwoord, in de u-vorm: *Vraag offerte aan · Boek mij · Lees
-meer · Bekijk de galerie · Routebeschrijving*. Contactgegevens zijn mensen, geen formulieren: namen met mobiele
-nummers.
+**Nederlands, formeel *u*.** Enige uitzondering: bruiloften gaan op *jullie*. Het merk spreekt als **wij** —
+warm, maar professioneel.
 
-**Nadruk.** De live teksten zetten midden in een zin één woordgroep vet, die de belofte draagt — "**zonder
-zorgen**", "**origineel teamuitje**", "**ruimtelijk, rustig en liefdevol**". Eén vette woordgroep per alinea, nooit
-een hele zin.
+**De tweedelige kop ís de stem.** Een klein stukje script in kleine letters loopt door in een serif-titel:
+*landelijk* → **Vergaderen**, *alles over* → **Onze locatie**, *veel gestelde* → **Vragen**. Twee tests, beide
+moeten kloppen: dek de kicker af — benoemt de titel dan nog waar de sectie over gaat? En dek de titel af —
+klinkt de kicker dan onafgemaakt? Zo niet, dan is het een eigen zinnetje en hoort het in de bodytekst.
 
-**Superlatieven mogen** — dit is horeca, geen zakelijke software: "een dag om nooit te vergeten", "de mooiste dag van
-uw leven…", "Wij zijn gek op feestjes!". Uitroeptekens komen in de live teksten voor, maar spaarzaam; nooit twee in
-één sectie.
+Harde grenzen: **maximaal 2 woorden en 14 tekens**, kleine letters, geen interpunctie, nooit langer dan de
+titel. Het kernwoord staat in de titel. Een titel van meer dan drie woorden verdraagt geen kicker meer. Geen
+kicker is een geldige keuze — reken op één tot drie per pagina. `SectionHeading` waarschuwt in de console;
+zie `guidelines/kicker-regels.html` voor goede en foute paren.
 
-**Gevoelige onderwerpen** krijgen eenvoudige, stille zinnen zonder superlatieven — de condoleance-stem: "Afscheid
-nemen van een dierbare went nooit."
+**Kapitalen** met ruime letterafstand zijn voor labels: navigatie, buttons, kaartcaptions, FAQ-vragen,
+footerkopjes. Hero-titels zijn serif in kapitalen. Bodytekst is gewone zinsvorm.
 
-**Nergens emoji.** Geen KAPITALEN als nadruk binnen een zin.
+**Bodytekst is kort** — twee tot vijf regels, maximaal circa 70 tekens breed. Concreet boven lyrisch:
+vierkante meters, aantallen gasten, telefoonnummers, wie je vraagt. Eén vette woordgroep per alinea, nooit een
+hele zin. Eén CTA per sectie, begint met een werkwoord.
 
-**Losse Engelse uitroepen** komen in de hospitality-teksten voor tussen het Nederlands ("We've got you covered!").
-Spaarzaam gebruiken — maximaal één per pagina, en nooit in de galerie- of condoleancetekst.
+**Superlatieven mogen** — dit is horeca. Uitroeptekens spaarzaam, nooit twee in één sectie. Gevoelige
+onderwerpen krijgen stille zinnen zonder superlatieven. **Nergens emoji**, geen KAPITALEN als nadruk binnen
+een zin.
 
----
-
-## VISUELE UITGANGSPUNTEN
+## Vorm
 
-**Palet (uitgemeten).** Donkergroen `#295E4E` is het merk: quotebalk, panelen, footer, buttons, FAQ-markeringen.
-Saliegroen `#7EAB8C` is de tweede vlakkleur — hele secties staan erop. Goud `#B08344` is *alleen* accent:
-script-koppen, kaartcaptions, de verzendbutton, het actieve navigatie-item; nooit een groot vlak. Wit en crème
-`#FBF8F3` zijn de pagina. Inkt `#16191A` voor koppen, `#5B6362` voor bodytekst. **Maximaal twee achtergrondkleuren
-per pagina** (wit/crème + saliegroen óf donkergroen). Nergens gradiënten, behalve de beschermlaag over foto's.
-
-**Typografie.** Drie rollen, niet meer. De kicker hangt altijd 0,34em links van de titelrand en overlapt hem verticaal — nooit naar binnen inspringen, en nooit met de hand nabouwen; `SectionHeading`, `HeroVideo` en `BenefitsPanel` regelen dit. Gekozen richting: **A · Klassiek & scherp** (zie `guidelines/fontkeuze.html`) — tijdelijke Google-Fonts-vervangers tot de echte fontbestanden er zijn. Display-serif (vervanger: Playfair Display) voor elke kop, navigatie-item,
-button, caption en FAQ-vraag. **BDScript** (vervanger: Italianno) *alleen* voor de script-koppen, met de swirl achter de ‘e’ — die swirl mag ook achter de `&` en elders waar het beeld het verantwoordt. **Raleway** 300 op 14px/1,75 voor alle bodytekst. Bodytekst is bewust klein en licht tegenover
-zeer grote koppen — dat contrast is het ritme van het merk.
-
-**Layout.** Container van 1180px, 96px sectiepadding, 24px grid-gap, drie kolommen als standaard. Volle
-kleurvlakken wisselen af met witte secties. Panelen overlappen: een donkergroen faciliteitenpaneel hangt half over
-een foto, een fotoduo hangt onder een saliegroene band uit, de fotostrook boven de footer staat half op wit en half
-op groen. Niets staat per ongeluk gecentreerd — introteksten wel, tweekolomsbanden niet.
-
-**Sage is een middentoon.** Op `--surface-sage` (#7EAB8C) halen crème (2,4:1) noch donkergroen (2,9:1) genoeg contrast voor kleine tekst. Alles onder 16px op sage staat daarom in `--ink-900` (6,9:1). Dit is de meest gemaakte fout in dit systeem — `Input`, `FaqAccordion` en `PersonCard` hebben er allemaal een aparte tone voor.
-
-**Achtergronden.** Alleen vlakke kleuren en fotografie. Geen patronen, geen texturen, geen illustraties met de hand,
-geen grain. De enige uitzondering is de geïllustreerde plattegrond op de locatiepagina (eigen asset, niet
-aangeleverd).
-
-**Legenda van de plattegronden.** Goud = boekbare ruimte · donker = overige bebouwing · zandkleur = pad
-of erf · lichtbeige vlonder = het terras bij de hooiberg (geen groen!) · sage banen = hagen · sage
-cirkels = bomen · bleekblauw = water.
-
-**Hoeken en lijnen.** Fotografie, panelen, tegels en de gesplitste actiebalk zijn **volledig recht** — 0 radius.
-Volledig ronde pillen zijn voorbehouden aan interactie: buttons, formuliervelden, FAQ-rijen, segmentpillen,
-socialbuttons. Er is vrijwel geen lijnsysteem; een haarlijn verschijnt alleen bij de juridische regel in de footer
-(`rgba(crème,.28)`) en bij focus (goud). Geen schaduwen op kaarten — scheiding komt van kleurvlakken, niet van
-hoogte. `--shadow-card` bestaat alleen voor zwevende overlays.
-
-**Transparantie en blur.** Bijna niet. De enige transparantie in het systeem is het beschermgradiënt onderaan foto's
-(`--overlay-photo`) en de playbutton in de hero op 90% wit. Geen matglas, geen geblurde panelen.
-
-**Fotografie.** Warm daglicht, ongeposeerd, mensen in actie — handen die opmaken, gasten dansend onder lichtjes, de
-chef aan de doorgeefkeuken, bronzen beelden op het gras. Rechttoe rechtaan kleur, licht warm, geen duotoon of zware
-grade. Rechte uitsnedes, 4:3 in grids, 4:5 voor navigatietegels, volle breedte voor hero's.
-
-**Tekstbescherming op fotografie — twee lagen.** Onderaan elke hero ligt `--overlay-photo` (transparant naar 55%
-inkt), voor tekst en knoppen die laag staan. Een **verticaal gecentreerde** herotitel staat búiten het bereik van dat
-gradiënt en krijgt daarom een eigen horizontale band-scrim achter het tekstblok (0 → 46% inkt → 0, tussen 18% en 82%
-van de hoogte). Zonder die tweede laag zakt wit op een lichte foto naar circa 3:1 contrast; met de band blijft het
-boven 4,5:1. Nooit een volvlakke donkere laag over de hele foto — dat maakt het beeld dood.
-
-**Animatie.** Terughoudend. 150ms voor vullingen van buttons en pilrijen, 280ms voor de playbutton, 520ms voor 3%
-inzoomen van een foto bij hover. Easing `cubic-bezier(.22,.61,.36,1)`. Geen stuiter, geen inschuiven bij scrollen,
-geen parallax, geen automatisch draaiende carrousels — die bewegen alleen als op de driehoekjes wordt geklikt.
-
-**Statussen.** Hover maakt een gevulde button donkerder (`--green-900`); outline-buttons worden gevuld; navigatie en
-captions worden goud; foto's zoomen 3% in binnen een vast kader. Klikken verkleint 3%. Uitgeschakeld is 45%
-dekking, dezelfde kleur. Focus is een gouden ring van 2px, 2px offset.
-
-**Vaste elementen.** Alleen de header, en altijd wit — hij wordt nooit transparant over de hero. De
-carrouseldriehoekjes staan vast aan de randen van het scherm, verticaal gecentreerd op de strook die ze bedienen.
-
----
-
-## WINTER RIJLAARSDAM
-
-Het winterthema komt elk jaar terug (advent tot en met januari: kerstdiners, winterpop-up, borrels) en is
-**geen tweede merk**. Dezelfde flessengroen, hetzelfde goud, dezelfde drie typografische rollen — alleen
-het klimaat verandert: saliegroen wijkt voor vorst-neutralen, het groen zakt een stap dieper naar pine
-`#16382F`, en goud wordt op donker het warmere kaarslicht `#D9BD8C`. Berry `#6E2A2C` mag als accent van
-**één element per uiting** (een zegel, een streep) en nooit als vlak.
-
-**Aanzetten met één attribuut.** `data-season="winter"` op `<html>` of op één sectie herschrijft de
-semantische tokens (`tokens/winter.css`); alle bestaande componenten volgen mee, want ze lezen nooit een
-ruwe kleur. Zo is een winterpagina dezelfde pagina, niet een tweede versie ervan.
-
-**`WinterLockup`** is het aangeleverde seizoenslogo als vector: `variant="panel"` (sneeuwvlok-lockup op
-flessengroen), `variant="reversed"` (dezelfde tekening wit/goud op transparant, voor foto's en pine) en
-`variant="wordmark"` (het losse "Winters RIJLAARSDAM" in zwart, wit, goud of currentColor). Het
-**vervangt** het hoofdlogo voor de duur van de campagne — de twee staan nooit samen in één beeld. Panel en
-reversed minimaal 96px hoog (daaronder loopt de sneeuwvlok dicht), wordmark minimaal 34px. Voor een ander
-seizoenswoord (`script="Kerst"`) bouwt het component het lockup typografisch na: alleen voor schetsen op
-scherm, nooit voor drukwerk.
-
-`guidelines/color-winter.html` toont het palet, `components/seasonal/winter-logo.card.html` de tekeningen,
-`templates/winter-rijlaarsdam/` de mockups (social, menukaart, hero, kaartje, bord).
-
-## LOGO-ANIMATIE
-
-`guidelines/logo-animation.html` schrijft het **echte vectorlogo** in vijf tellen op: **Hoeve** wordt met de
-pen geschreven, **RIJLAARSDAM** wist van links open, de twee **strepen** trekken zich, het **schuurmerk** komt
-met een korte lift op zijn plek en **ART & EVENTS** sluit af met een fade. Klik op het logo om opnieuw te
-schrijven; de rusttoestand is het afgemaakte merk, zodat een miniatuur nooit leeg is.
-
-**Hoe het schrijven werkt.** De letters zijn geen namaak meer: het is het woordmerk uit de huisstijl-PDF
-(`assets/logo-hoeve-script.svg`). Over die inkt ligt een masker van **vier pennestreken** — de pen zet de
-H in drie halen (linkerstok naar beneden, rechterstok naar beneden, dan de dwarsstreep van links naar
-rechts) en schrijft daarna `oeve` plus de uithaal in **één doorlopende haal**. Tussen de halen zit een
-gaatje in de tijdlijn: dat is de **pennelichting**, en die maakt het verschil tussen tekenen en schrijven.
-
-De pennenroutes zijn niet op het oog getekend maar **uit de letter gemeten**: voor `oeve` is elk punt van
-de omtrek met de helft van de pendikte naar binnen geschoven (dat geeft de hartlijn), en voor de H is de
-letter gerasterd en per scanlijn het midden van de haal gevolgd. Daardoor loopt het masker exact over de
-inkt en niet ernaast.
-
-Bij de **kruispunten** van de H is elke stok in vijf stukken geknipt: 3,4 breed op de haal zelf, via 2,8
-geknepen naar 2,15 in de vijf eenheden rond het kruispunt — smaller dan de inkt van de stok (2,4), zodat het
-masker de dwarsstreep daar niet kan aanraken en er geen stukje dwarsstreep meelicht voordat de pen er is.
-De haal houdt overal dezelfde dikte; alleen de buitenste inktrand op het kruispunt blijft nog even liggen
-tot de dwarsstreep langskomt en die zelf opvult. De stukken overlappen 0,3 eenheid, anders komen er
-maskernaden in de inkt te staan.
-
-De **snelheid is ongelijk**, zoals bij een hand: traag door de lussen van o, e, v en e, en dan haalt de
-uithaal uit over de laatste 45% van de lijn in 30% van de tijd. Een klein **goudkleurig penpunt** rijdt met
-de streek mee (`offset-path`) en verdwijnt zodra de haal klaar is. Met `prefers-reduced-motion` staat het
-afgemaakte merk er meteen, zonder pen.
-
-**Vier varianten in dezelfde kaart.** De tijden staan in CSS-variabelen, dus elke variant zet alleen die
-variabelen: **Vlotte hand** (2,5s — de H in één vlotte beweging, caps en schuurmerk landen samen in het goud),
-**Letterpers** (2,8s — de caps zetten zich in negen groepen van links naar rechts in plaats van met een wisser),
-**Merk eerst** (2,8s — het schuurmerk staat er eerst, daarna wordt het merk ondertekend) en
-**Alleen schrijven** (2,2s — schuurmerk, strepen en ART & EVENTS staan er al; alleen het schrift beweegt).
-RIJLAARSDAM staat in alle varianten in goud.
-
-**Winter.** `guidelines/logo-animation-winter.html` doet hetzelfde met het winterlogo op het groene vlak.
-Het gouden `Winters` wordt met de pen geschreven in **dertien halen** die niet meer uit de letteromtrek maar uit
-het **skelet van de inkt zelf** komen: de letters zijn verdund tot een lijn van één pixel, dat skelet is als graaf
-gelezen (eindpunten en kruispunten), en de takken zijn van links naar rechts aan elkaar geregen — W, i, n, dan de t
-van bovenaf naar beneden met de lus eronder, de e, r, s en de uithaal, met het streepje door de t en de punt op
-de i als laatste. Elke haal krijgt `pathLength="1000"`, zodat de streepmaat exact op de lijn past en er op t=0
-geen inkt zichtbaar is. Bij het kruispunt met het streepje is de neerhaal van de t in vijf stukken geknipt en de
-pen daar tot 1,72 geknepen — smaller dan de inkt van het streepje, dus dat kan niet vooruit lichten (zelfde
-ingreep als bij de H van Hoeve). Waar een haal over al getekende inkt terugloopt (de W, de n, de s) is dat stuk
-apart gezet en gaat de pen er vier keer zo snel over; anders lijkt de animatie te haperen omdat er even niets
-verschijnt. Elke hartlijn
-ligt daardoor per definitie op de inkt, en de pendikte per haal is de gemeten inktdikte plus een vijfde: dekkend
-zonder de buurletters vooruit te laten lichten (99,6% van de inkt, met zeven kleine tikjes voor de rest).
-Pas als het schrift staat komt de **grote sneeuwvlok** op; daarna landen caps en schuurmerk samen in het goud.
-De dwarrelende vlokjes zijn getekende zesarmige vlokken die over de volle hoogte van het vlak zakken — elk met
-eigen zijwaartse drift (naar links, naar rechts of bijna recht), eigen zwaai, eigen draai en eigen tempo van 11
-tot 23 seconden; grote vlokken zakken sneller en dekkender dan kleine, wat diepte geeft. In het
-statische logo blijven de originele spikkels van de ontwerper staan — de vlokken bestaan alleen in de animatie.
-Naast **Vlotte hand** staan er nog twee opbouwen in dezelfde kaart: **Sneeuw eerst** (3,0s — het vlak begint met sneeuw, daaruit zet de grote vlok zich vast en pas dan wordt de naam eronder geschreven) en **Vlok als slot** (3,2s — eerst de naam, dan landen caps en schuurmerk samen in het goud, en de vlok sluit af als seizoensteken). De vertraging van het schrift zit in één variabele (`--shift`), dus een variant hoeft alleen de tijden te zetten. De vierde variant, **Alleen dwarrelen**, laat het logo staan en beweegt alleen de sneeuw; elk vlokje verdooft aan
-begin en eind van zijn cyclus, dus de lus loopt eeuwig naadloos rond.
-
-## ICONOGRAFIE
-
-De ontwerpen bevatten heel weinig iconografie, en het merk leunt er niet op:
-
-**Sociale iconen — niet zelf ontwerpen.** De footer gebruikt de glyphs van de platforms zelf, via
-`https://cdn.simpleicons.org/instagram/16191A` en `.../facebook/16191A` (Simple Icons, CDN). Dat is een
-bewuste keuze en geen luiheid: het Instagram- en Facebook-merkteken zijn beschermde merken, en de
-richtlijnen van Meta staan de glyph alleen in **zwart of wit** toe — niet in groen, niet in goud, niet
-hertekend, niet in een eigen vorm gegoten. Een "eigen versie in onze stijl" is dus geen optie.
-De merkkleur zit in de **schijf achter** de glyph: sage in rust, wit bij hover. Zo blijft het geheel
-on-brand terwijl het merkteken onaangetast blijft.
-
-Profielen: instagram.com/hoeverijlaarsdam · facebook.com/HoeveRijlaarsdam
-
-- **Het boerderijmonogram** is het enige echte merkteken — gouden dakbalken van 45° boven twee zwarte palen.
-  Beschikbaar als **`assets/logo-mark.svg`** (kleur) en **`assets/logo-mark-mono.svg`** (volgt `currentColor`, voor
-  éénkleurig gebruik op groen of goud). Deze SVG's zijn **uit het vectorlockup van de ontwerper gesneden** — de eerder
-  nagemeten versie is vervangen, zodat het losse merkteken en het merkteken in het logo exact dezelfde tekening zijn.
-  Het merk staat
-  alleen in de smalste navigatievarianten. **Minimaal 32px hoog**: door de balken en de witte tussenruimtes
-  loopt het daaronder dicht en wordt het een vlek. Voor favicon- en app-icoonformaten is een **vereenvoudigde variant
-  met 3 of 4 balken** nodig — die heb ik niet zelf gemaakt, omdat dat de merkgeometrie verandert; vraag die bij de
-  ontwerper op.
-- **Dunne witte lijniconen** op de saliegroene opstellingstegels ("veel opstellingen") en in het bruiloftsraster
-  "Wat maakt het bijzonder" — een stolp-icoon en schematische tafelopstellingen. **Dit zijn eigen illustraties en ze
-  zijn niet aangeleverd.** In plaats van een verkeerde tekening te gebruiken toont `InfoTile` een leeg vierkant kader
-  als er geen `icon` wordt meegegeven; zet de echte bestanden in `assets/icons/` en geef
-  `icon="/assets/icons/….svg"` mee.
-- **Geometrie in plaats van iconen** voor de rest: de playbutton is een CSS-driehoek in een witte cirkel,
-  carrouselbediening bestaat uit losse gevulde driehoekjes (geen cirkel, geen rand), FAQ-markeringen zijn een cirkel
-  met `+` / `−` in de body-sans.
-- **Social**: twee ronde saliegroene buttons in de footer (LinkedIn, Instagram). De echte iconen zijn niet
-  aangeleverd en Lucide bevat bewust geen merklogo's, dus `Footer` zet een **typografisch teken** (`in`, `ig`) in de
-  display-serif in de cirkel. Vervang door de officiële iconen zodra die er zijn.
-- **Er is geen icoonbibliotheek van een CDN gekoppeld.** Niets in dit systeem hangt af van een externe icoonhost.
-- **Bewust niet overgenomen:** de zespuntige floret “✻” die de huidige sites als scheiding tussen kop en bodytekst
-  gebruiken. Die is als gedateerd beoordeeld en is uit het systeem gehaald — gebruik witruimte als scheiding.
-
-Vraag de eigenaar om: de lijniconen voor opstellingen en faciliteiten, de geïllustreerde plattegrond en de
-social-iconen.
-
----
-
-## Inhoudsopgave
-
-De overzichtspagina is in drie lagen geordend: eerst de **fundamenten**, dan de **componenten** per rol, dan de
-**voorbeelden**. De groepsnamen in de kaarten volgen exact deze indeling.
-
-**Fundamenten** — `guidelines/`, 18 specimenkaarten
+**Palet.** Donkergroen `#295E4E` is het merk (quotebalk, panelen, footer, buttons). Saliegroen `#7EAB8C` is de
+tweede vlakkleur. Goud `#B08344` is *alleen* accent: script-koppen, captions, het actieve navigatie-item;
+nooit een groot vlak. Wit en crème `#FBF8F3` zijn de pagina. Inkt `#16191A` voor koppen, `#5B6362` voor tekst.
+**Maximaal twee achtergrondkleuren per pagina.** Nergens gradiënten, behalve de beschermlaag over foto's.
+
+**Sage is een middentoon.** Op `--surface-sage` halen crème noch donkergroen genoeg contrast voor kleine
+tekst. Alles onder 16px op sage staat in `--ink-900`. Dit is de meest gemaakte fout in dit systeem.
+
+**Typografie.** Drie rollen. **Playfair Display** voor elke kop, navigatie-item, button, caption en FAQ-vraag.
+**BDScript** *alleen* voor script-koppen, met de swirl achter de 'e'. **Raleway** 300 op 14px/1,75 voor alle
+bodytekst. De kicker hangt 0,34em links van de titelrand en overlapt hem verticaal — nooit met de hand
+nabouwen; `SectionHeading`, `HeroVideo` en `BenefitsPanel` regelen dit.
+
+**Layout.** Container 1180px, 96px sectiepadding, 24px grid-gap, drie kolommen als standaard. Volle
+kleurvlakken wisselen af met witte secties. Panelen overlappen elkaar en de fotoranden.
+
+**Hoeken.** Fotografie, panelen en tegels zijn volledig recht — 0 radius. Ronde pillen zijn voorbehouden aan
+interactie: buttons, velden, FAQ-rijen, segmentpillen. Geen schaduwen op kaarten; scheiding komt van
+kleurvlakken. Bijna geen transparantie — alleen het beschermgradiënt op foto's en de playbutton.
+
+**Fotografie.** Warm daglicht, ongeposeerd, mensen in actie. Rechte uitsnedes, 4:3 in grids, 4:5 voor
+navigatietegels, volle breedte voor hero's. Geen patronen, texturen of grain.
+
+**Tekstbescherming op foto's — twee lagen.** Onderaan elke hero ligt `--overlay-photo`. Een verticaal
+gecentreerde titel staat buiten dat bereik en krijgt een eigen horizontale band-scrim achter het tekstblok.
+Zonder die tweede laag zakt wit op een lichte foto naar circa 3:1. Nooit een volvlakke donkere laag over de
+hele foto.
+
+**Animatie is terughoudend.** 150ms voor buttonvullingen, 280ms voor de playbutton, 520ms voor 3% inzoomen bij
+hover. Easing `cubic-bezier(.22,.61,.36,1)`. Geen stuiter, geen inschuiven bij scrollen, geen parallax. Hover
+maakt gevulde buttons donkerder, outline-buttons gevuld, navigatie en captions goud. Focus is een gouden ring
+van 2px. Alleen de header staat vast, en altijd wit.
+
+## Seizoenen
+
+**Winter** komt elk jaar terug (advent tot januari) en is **geen tweede merk**: dezelfde kleuren en
+typografie, alleen het klimaat verandert. Saliegroen wijkt voor vorst-neutralen, het groen zakt naar pine
+`#16382F`, goud wordt op donker het warmere kaarslicht `#D9BD8C`. Berry `#6E2A2C` mag als accent van **één
+element per uiting** en nooit als vlak. `data-season="winter"` op `<html>` of één sectie herschrijft de
+semantische tokens (`tokens/winter.css`); alle componenten volgen mee.
+
+**`WinterLockup`** is het aangeleverde seizoenslogo als vector — `panel`, `reversed` en `wordmark`. Het
+**vervangt** het hoofdlogo voor de duur van de campagne; de twee staan nooit samen in één beeld. Panel en
+reversed minimaal 96px hoog, wordmark minimaal 34px.
+
+**Kerst** is een tijdelijke laag óp winter, voor december: `data-season="kerst"` erft alles van winter.
+Zilver wordt de lijn- en detailkleur naast goud — op één vlak óf zilver óf goud, nooit beide — en berry gaat
+van accent naar dragend accent, nog altijd één element per uiting.
+
+**Logo-animaties.** Beide logo's worden met de pen geschreven, in vijf opbouwen die de tijden uit
+CSS-variabelen halen. Vier kaarten (winter en kerst, in het vlak en schermvullend) delen één bron in
+`guidelines/seasonal/`. De uitwerking staat in `guidelines/animatie-beslissingen.md`.
+
+## Mobiel
+
+Drie maten (`tokens/breakpoints.css`), met typemaat, ritme en marge per maat. Componenten die van vórm
+veranderen: **NavBar** wordt een lade, **SplitHero** stapelt, **PhotoCarousel** gaat op vegen, **RoomCard**
+zet zijn feiten permanent onder de titel, **SitePlan** laat de lijst bedienen. De voorbeeldsite is op
+telefoonmaat te bekijken via `ui_kits/website/mobiel.html`. Details in
+`guidelines/mobiel-beslissingen.md`.
+
+## Wat waar staat
+
+Het systeem staat in drie hoofdstukken. `public/overzicht.html` volgt exact deze indeling en volgorde;
+`public/overzicht-fundamenten.html` is hoofdstuk 1 apart, `public/overzicht-deel.html` het geheel zonder de
+fotozware kaarten, en de twee `-print` varianten zijn dezelfde inhoud als document.
+
+**1 · Fundamenten** — 24 kaarten, in `guidelines/`
 
 | Groep | Kaarten |
 | --- | --- |
-| Merk | Logo · Schuurmerk · Fotografie · Vorm en radius · Beweging en states |
+| Merk | Logo · Schuurmerk · Swirl-ampersand · Fotografie |
+| Logo-animatie | Basis · Winter · Winter schermvullend · Kerst · Kerst schermvullend |
 | Kleur | Diepgroen · Sage · Goud · Neutralen · Vlakken in gebruik |
-| Typografie | Display serif · Script-kicker · Gespatieerde kapitalen · Body sans · Kicker-regels · Fontkeuze (3 richtingen) |
-| Ritme en ruimte | Spacing-schaal · Sectieritme |
+| Typografie | Displayserif · Bodycopy · Gespatieerde kapitalen · Script-kicker · Kicker-regels · Kop-varianten |
+| Ritme en vorm | Ruimteschaal · Sectieritme · Vorm en radius · Beweging en states |
 
-**Componenten** — `components/<map>/`, elk met `<Naam>.jsx`, `<Naam>.d.ts`, `<Naam>.prompt.md` en minstens één `@dsCard`-HTML
+**2 · Componenten** — 21 kaarten, in `components/<map>/` (elk met `<Naam>.jsx`, `.d.ts`, `.prompt.md` en minstens één `@dsCard`)
 
-| Groep | Componenten | Map |
-| --- | --- | --- |
-| Knoppen en velden | `Button`, `Input`, `TabPills`, `CarouselNav` | `core/` |
-| Koppen en tekst | `SectionHeading` | `content/` |
-| Kaarten | `RoomCard`, `ImageCaptionCard`, `PersonCard`, `InfoTile` | `content/` |
-| Panelen en quotes | `BenefitsPanel`, `FaqAccordion`, `TestimonialCard` · `SplitPanel` · `QuoteBar` · `PullQuote` | `content/`, `layout/`, `quote-bar/`, `pull-quote/` |
-| Hero's | `SplitHero` (alleen homepage) · `HeroVideo` (alle overige pagina's) | `split-hero/`, `hero/` |
-| Pagina-onderdelen | `NavBar` · `CtaBand` · `PhotoCarousel` · `PageOutro` · `Footer` · `SitePlan` (plan met legenda) · `SiteMap` (eenvoudig, hovertegel) | eigen map per component |
-| Seizoen | `WinterLockup` (het logo in zijn winterjas) | `seasonal/` |
+| Groep | Componenten |
+| --- | --- |
+| Bouwstenen | `Button`, `Input`, `TabPills`, `CarouselNav`, `SectionHeading` |
+| Kaarten | `RoomCard`, `ImageCaptionCard`, `PersonCard`, `InfoTile` |
+| Panelen en quotes | `BenefitsPanel`, `SplitPanel`, `FaqAccordion`, `TestimonialCard`, `PullQuote`, `QuoteBar` |
+| Heros | `SplitHero` (alleen homepage), `HeroVideo` (alle overige pagina's), intro-motion |
+| Pagina-onderdelen | `NavBar`, `CtaBand`, `PhotoCarousel`, `PageOutro`, `Footer` |
+| Plattegrond | `SiteMap` / `SitePlan` — het vlakke plan is leidend, de isometrische versies staan ernaast als verkenning |
 
-**Voorbeelden**
+**3 · Toepassing** — 9 kaarten
+
+| Groep | Kaarten |
+| --- | --- |
+| Seizoenen | Winterpalet · Kerstlaag · Winterlogo (`WinterLockup`) |
+| Mobiel | Breekpunten · NavBar als lade · SplitHero gestapeld · Tik in plaats van hover · Site op telefoon |
+| Voorbeeldsite | De doorklikbare site, 15 pagina's |
+
+**Voorbeelden en losse bestanden**
 
 | Pad | Wat het is |
 | --- | --- |
-| `templates/website-page/` | Startpunt voor een nieuwe paginaopzet (nav · hero · quotebalk · intro · raster · FAQ · footer) — groep "Templates" |
-| `templates/winter-rijlaarsdam/` | Het seizoensthema: `WinterLockup` in vier tonen plus mockups voor social, menukaart, hero en kaartje — groep "Templates" |
-| `ui_kits/website/` | Doorklikbare reconstructie van de site, 15 pagina's, met eigen README — groep "Voorbeeldsite" |
+| `templates/website-page/` | Startpunt voor een nieuwe paginaopzet |
+| `templates/winter-rijlaarsdam/` | Het seizoensthema met mockups voor social, menukaart, hero en kaartje |
+| `public/` | De gegenereerde front-facing pagina's: index, de vier overzichten en de standalone export |
+| `ui_kits/website/` | Doorklikbare reconstructie van de site, 15 pagina's, met eigen README |
+| `tokens/*.css` | Tokenlagen, element-resets en webfontdeclaraties |
+| `assets/` | Logo's als vector, de fonts, de werkplattegrond en circa 45 echte foto's per categorie benoemd. De swirl-ampersand staat los als `ornament-swirl-goud/-wit/-ink/-groen.svg`; gebruik de klasse `.amp` uit `tokens/ornament.css` |
+| `SKILL.md` | Wrapper zodat dit systeem ook vanuit Claude Code te gebruiken is |
 
-**Losse bestanden**
-
-| Pad | Wat het is |
-| --- | --- |
-| `styles.css` | Het enige bestand dat afnemers koppelen — uitsluitend `@import`-regels |
-| `tokens/colors.css` · `typography.css` · `spacing.css` · `effects.css` · `base.css` · `fonts.css` | Tokenlagen, element-resets en webfontdeclaraties |
-| `assets/` | De logo's als **vector**: `logo-lockup.svg` (+ `-goud`, `-liggend`, `-wit`, `-mono`), `logo-wordmark.svg`, `logo-mark.svg` + `logo-mark-mono.svg`, `logo-winter-*.svg`, `ornament-swirl.svg`. Verder `logo.png`/`logo-mark.png` (historie), de werkplattegrond en circa 45 echte foto's, benoemd per categorie (`photo-koetshuis-*`, `photo-hooiberg-*`, `photo-stal-*`, `photo-beeldentuin-*`, `photo-bruiloft-*`, `photo-hoeve-*`, plus culinair en personeel) |
-| `guidelines/content-en-feiten.md` | Tekst- en feitenbank uit de live sites — prijzen, capaciteiten, contactgegevens, echte koppenparen |
-| `SKILL.md` | Wrapper zodat dit systeem ook vanuit Claude Code te gebruiken is (bewust in het Engels: instructie voor de agent) |
-
-### Bewuste toevoegingen
-- **`SplitPanel`** en de hulpstukken `Section` / `Lead` / `FooterStrip` / `CtaBand` in de UI-kit zijn layout-hulp, geen
-  merkcomponenten — de ontwerpen gebruiken deze opbouw steeds, maar het is in geen bron een "component".
-- **`Input`** is afgeleid van het enige offerteformulier in de ontwerpen; geen ander formulierelement (select,
-  checkbox, radio, switch, datumkiezer) komt in het aangeleverde materiaal voor, dus is er geen gemaakt.
-
-### Bekende hiaten — graag aanleveren
-1. **BDScript.** De huisstijl van de ontwerper (`uploads/Logo RIJLAARSDAM huisstijl.pdf`) schrijft **Playfair Display**
-   (koppen, logocombinatie, CAPS; klein voor USP’s; semibold/bold mag op socials) en **Raleway** (bodycopy) voor —
-   die staan nu in de tokens. Alleen **BDScript** ontbreekt nog als bestand (commercieel, niet op Google Fonts);
-   Italianno staat er tijdelijk voor in. Lever het BDScript-bestand aan, dan is alleen `--font-script` een wijziging.
-2. ~~**Logo**~~ Opgelost: alle logoversies staan nu als **vector** in `assets/`, rechtstreeks uit de huisstijl-PDF van
-   de ontwerper gehaald (`logo-lockup.svg`, `-goud`, `-liggend`, `-wit`, `-mono`, `logo-wordmark.svg`,
-   `logo-winter-*.svg`, `ornament-swirl.svg`). Zie de kaarten **Logo**, **Winterlogo** en **Swirl-ornament**.
-   Nog wél de vraag aan de ontwerper: officiële naamgeving en eventuele PMS-waarden.
-3. ~~**Fotografie.**~~ Opgelost: 39 echte foto's van de locatie staan in `assets/` (aangeleverd 28-07-2026, circa 2000px breed). De oude uitsnedes uit de ontwerpen zijn verwijderd.
-4. **Lijniconen** en de **geïllustreerde plattegrond**.
-7. **Winterartwork voor andere seizoenswoorden.** De ontwerper leverde "Winters RIJLAARSDAM"; `Kerst` en
-   `Oud & Nieuw` worden nu typografisch nagebouwd — goed voor schetsen op scherm, niet voor drukwerk.
-5. **Nog ontbrekend beeldmateriaal**: video's voor de hero's (twee rustige loops van 8–12 seconden, één in de galerie en één op een feest), en foto's van de Stal als vergaderruimte en van het Ontwikkelatelier in gebruik.
-6. **Welke cijfers actueel zijn.** Prijzen en capaciteiten in de feitenbank zijn zoals gepubliceerd op
-   feestenmeetings.nl in juli 2026; openingstijden verschillen per bron (zie de notitie in dat bestand).
-
-## Ingang
-
-`index.html` in de projectmap is de voordeur van de export: daar staan de doorklikbare voorbeeldsite (met een levende preview), het kaartenoverzicht, de deel- en printversies en de losse animaties en plattegrond. De overzichten hebben linksboven een terugkoppeling naar de index.
+**Bewuste toevoegingen.** `SplitPanel` en de hulpstukken `Section` / `Lead` / `FooterStrip` / `CtaBand` zijn
+layout-hulp, geen merkcomponenten. `Input` is afgeleid van het enige offerteformulier in de ontwerpen; ander
+formulierelement komt in het materiaal niet voor, dus is er geen gemaakt.

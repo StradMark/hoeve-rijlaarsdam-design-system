@@ -11,9 +11,8 @@ locatie als elders worden geleverd.
 
 ## Beginnen
 
-`public/index.html` is de voordeur: de doorklikbare voorbeeldsite, het kaartenoverzicht, de deel- en
-printversies en de losse animaties en plattegrond. Alle front-facing pagina's staan in `public/`; de bronnen
-(kaarten, componenten, tokens, assets) blijven daarbuiten. `styles.css` is het enige bestand dat afnemers
+`index.html` is de voordeur: de doorklikbare voorbeeldsite, het kaartenoverzicht, de deel- en
+printversies en de losse animaties en plattegrond. `styles.css` is het enige bestand dat afnemers
 koppelen.
 
 | Wil je… | Lees |
@@ -114,8 +113,8 @@ telefoonmaat te bekijken via `ui_kits/website/mobiel.html`. Details in
 
 ## Wat waar staat
 
-Het systeem staat in drie hoofdstukken. `public/overzicht.html` volgt exact deze indeling en volgorde;
-`public/overzicht-fundamenten.html` is hoofdstuk 1 apart, `public/overzicht-deel.html` het geheel zonder de
+Het systeem staat in drie hoofdstukken. `overzicht.html` volgt exact deze indeling en volgorde;
+`overzicht-fundamenten.html` is hoofdstuk 1 apart, `overzicht-deel.html` het geheel zonder de
 fotozware kaarten, en de twee `-print` varianten zijn dezelfde inhoud als document.
 
 **1 · Fundamenten** — 24 kaarten, in `guidelines/`
@@ -153,7 +152,6 @@ fotozware kaarten, en de twee `-print` varianten zijn dezelfde inhoud als docume
 | --- | --- |
 | `templates/website-page/` | Startpunt voor een nieuwe paginaopzet |
 | `templates/winter-rijlaarsdam/` | Het seizoensthema met mockups voor social, menukaart, hero en kaartje |
-| `public/` | De gegenereerde front-facing pagina's: index, de vier overzichten en de standalone export |
 | `ui_kits/website/` | Doorklikbare reconstructie van de site, 15 pagina's, met eigen README |
 | `tokens/*.css` | Tokenlagen, element-resets en webfontdeclaraties |
 | `assets/` | Logo's als vector, de fonts, de werkplattegrond en circa 45 echte foto's per categorie benoemd. De swirl-ampersand staat los als `ornament-swirl-goud/-wit/-ink/-groen.svg`; gebruik de klasse `.amp` uit `tokens/ornament.css` |

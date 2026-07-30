@@ -63,13 +63,21 @@
 #p11{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 0.108s linear calc(1.158s + var(--shift,0s)) forwards}
 #p12{stroke-dasharray:1000;stroke-dashoffset:1000;animation:draw 0.065s cubic-bezier(.2,.7,.4,1) calc(1.302s + var(--shift,0s)) forwards}
 /* kleine plekken die de pen door haar ronde vorm net niet raakt — ze verschijnen op het moment dat de pen er langs is */
-.dab{transform-box:fill-box;transform-origin:50% 50%;transform:scale(0);animation:tap .08s linear calc(var(--dab) + var(--shift,0s)) forwards}
-#pdot{transform-box:fill-box;transform-origin:50% 50%;transform:scale(0);animation:tap .10s cubic-bezier(.3,1.2,.5,1) calc(var(--dot) + var(--shift,0s)) forwards}
+.dab{transform-box:fill-box;transform-origin:50% 50%;transform:scale(0);animation:tap .08s linear calc(var(--dab) + var(--shift,0s)) forwards,dabGlow 7.5s ease-in-out calc(var(--dab) * 6 + 3.4s) infinite}
+#pdot{transform-box:fill-box;transform-origin:50% 50%;transform:scale(0);animation:tap .10s cubic-bezier(.3,1.2,.5,1) calc(var(--dot) + var(--shift,0s)) forwards,dabGlow 7.5s ease-in-out 6.2s infinite}
 @keyframes tap{to{transform:scale(1)}}
+/* De stipjes uit het originele logo blijven staan en lichten af en toe even op — geen knippering:
+   één zachte opleving per negen seconden, per stip verschoven via zijn eigen --dab-tijd.
+   Alleen dekking en gloed bewegen; de transform blijft van 'tap', anders vechten ze om dezelfde as. */
+@keyframes dabGlow{0%,66%,100%{opacity:.82;filter:none}78%,84%{opacity:1;filter:drop-shadow(0 0 3.6px rgba(255,255,255,.95))}}
 @keyframes draw{to{stroke-dashoffset:0}}
 /* de grote vlok komt pas op als het schrift staat */
 #flake{transform-box:fill-box;transform-origin:50% 55%;opacity:0;transform:scale(.94);animation:flakeIn .95s cubic-bezier(.2,.7,.3,1) var(--flake) forwards}
 @keyframes flakeIn{to{opacity:1;transform:none}}
+/* De 31 stipjes die in het originele logo om de vlok heen staan (uit assets/logo-winter-groen.svg).
+   Ze horen bij de tekening, dus ze blijven staan; ze komen met de vlok op en lichten daarna af en toe
+   even op — dezelfde zachte opleving als de spikkels in het schrift, per stip verschoven. */
+.ld{opacity:0;animation:fade .34s ease-out calc(var(--dots,var(--flake)) + var(--i) * .012s) forwards,dabGlow 7.5s ease-in-out calc(5.4s + var(--i) * .27s) infinite}
 #capsRectW,#r1RectW,#r2RectW{transform-box:fill-box;transform-origin:0 50%;transform:scaleX(0)}
 #capsRectW{animation:wipe .50s cubic-bezier(.22,.61,.36,1) var(--caps) forwards}
 #r1RectW{animation:wipe .40s cubic-bezier(.3,.7,.3,1) var(--rules) forwards}
@@ -80,8 +88,11 @@
 #tagW{opacity:0;animation:fade .38s ease-out var(--tag) forwards}
 @keyframes fade{to{opacity:1}}
 /* --- dwarrelen ------------------------------------------------------------
-   Elk vlokje zakt in zijn eigen tempo (7–16s) recht naar beneden met een kleine zijwaartse zwaai en een
-   trage draai. Het verschijnt en verdooft binnen dezelfde cyclus, dus de lus loopt naadloos rond. */
+   De sneeuw is overwegend stipjes (.dt, symbool #sd) met ongeveer één op de zes een echt vlokje
+   (#sf) — zoals de stipjes in het originele logo. Elk deeltje zakt in zijn eigen tempo (11–23s)
+   recht naar beneden met een kleine zijwaartse zwaai en een trage draai. Het verschijnt en verdooft
+   binnen dezelfde cyclus, dus de lus loopt naadloos rond. Stipjes draaien niet zichtbaar, dus ze
+   krijgen wat meer dekking dan de vlokjes. */
 .fl{transform-box:view-box;transform-origin:var(--cx) var(--cy);opacity:0;animation:drift var(--t) linear var(--lag) infinite}
 @keyframes drift{
  0%{opacity:0;transform:translate(0,0) rotate(0)}
@@ -95,9 +106,29 @@
 /* Sneeuw eerst: de grote vlok komt uit de dwarrelende sneeuw op, daarna wordt de naam eronder gezet */
 .vC{--shift:0.72s;--dot:1.46s;--flake:0.22s;--caps:2.42s;--rules:2.49s;--mark:2.47s;--tag:2.82s}
 .vC #flake{animation-duration:0.85s}
-/* Vlok als slot: eerst de naam en het goud, de vlok sluit af */
-.vD{--shift:0s;--dot:1.46s;--caps:1.62s;--rules:1.69s;--mark:1.67s;--flake:2.12s;--tag:2.34s}
-.vD #flake{animation-duration:1.05s}
+/* Vlok als slot: eerst de naam en het goud, daarna dwarrelt de grote vlok aan.
+   Hij komt van linksboven binnen, zwaait één keer door en legt zich stil op zijn plek — zelfde
+   beweging als de kleine vlokjes, alleen eenmalig en trager. Geen inklappen. */
+.vD{--shift:0s;--dot:1.46s;--caps:1.62s;--rules:1.69s;--mark:1.67s;--flake:1.28s;--tag:2.34s}
+.vD{--dots:3.62s}
+.vD #flake{animation:flakeDrift 2.25s linear var(--flake) forwards}
+/* Soepel, niet rigide: de vlok valt in één doorlopende S naar beneden. De horizontale zwaai en de
+   draai lopen niet gelijk op met de val, dus er is geen moment waarop alles tegelijk omslaat — dat
+   was wat de eerdere versie hoekig maakte. De verticale val vertraagt richting het einde (de stappen
+   worden kleiner), de laatste graad draai loopt door tot voorbij de landing.
+   De vlok begint te vallen terwijl RIJLAARSDAM nog wordt gezet (--flake staat vóór --caps): zo blijft
+   het een echte dwarrel van ruim twee seconden, maar duurt de hele opbouw niet langer dan de andere
+   vier. Sneller laten vallen maakte het een val in plaats van een dwarrel. */
+@keyframes flakeDrift{
+ 0%{opacity:0;transform:translate(13px,-58px) rotate(-11deg)}
+ 14%{opacity:.45}
+ 26%{transform:translate(2px,-40px) rotate(-4deg)}
+ 42%{opacity:.85;transform:translate(-7px,-25px) rotate(3deg)}
+ 58%{transform:translate(-6px,-14px) rotate(6deg)}
+ 72%{transform:translate(-1px,-7px) rotate(4deg)}
+ 84%{transform:translate(2px,-3px) rotate(2deg)}
+ 93%{transform:translate(1px,-1px) rotate(.8deg)}
+ 100%{opacity:1;transform:none}}
 /* --- Letterpers -----------------------------------------------------------
    In plaats van één wisser over RIJLAARSDAM drukt elke letter zich apart aan: negen blokken
    in het masker, elk met een korte aanslag van onderaf. Zo is ook dit deel een handeling
@@ -118,9 +149,10 @@
 .vB.vE #capsL0,.vB.vE #capsL1{opacity:1;transform:none;animation:none}
 /* Alleen dwarrelen: alles staat er al, alleen de sneeuw beweegt */
 .vB #penW path{stroke-dashoffset:0;animation:none}
-.vB .dab{transform:scale(1);animation:none}
-.vB #pdot{transform:scale(1);animation:none}
+.vB .dab{transform:scale(1);animation:dabGlow 7.5s ease-in-out calc(var(--dab) * 6) infinite}
+.vB #pdot{transform:scale(1);animation:dabGlow 7.5s ease-in-out 2.8s infinite}
 .vB #flake{opacity:1;transform:none;animation:none}
+.vB .ld{opacity:.82;animation:dabGlow 7.5s ease-in-out calc(var(--i) * .27s) infinite}
 .vB #capsRectW,.vB #r1RectW,.vB #r2RectW{transform:scaleX(1);animation:none}
 .vB #markW{opacity:1;transform:none;animation:none}
 .vB #tagW{opacity:1;animation:none}
@@ -130,6 +162,7 @@
  .dab{transform:scale(1);animation:none}
  #pdot{transform:scale(1);animation:none}
  #flake,#markW,#tagW{opacity:1;transform:none;animation:none}
+ .ld{opacity:.9;animation:none}
  #capsRectW,#r1RectW,#r2RectW{transform:scaleX(1);animation:none}
  .fl{opacity:.85;animation:none}
 }
@@ -139,7 +172,9 @@
    geldt: óf zilver óf goud op één vlak, en berry is één element, nooit een vlak. */
 .slogo[data-theme=kerst] svg.logo>g:first-of-type path{fill:var(--winter-pine-900)}
 .slogo[data-theme=kerst] #flake path{fill:var(--kerst-silver-300)}
+.slogo[data-theme=kerst] #logodots path{fill:var(--kerst-silver-300)}
 .slogo[data-theme=kerst] .fl>g,.slogo[data-theme=kerst] symbol g{stroke:var(--kerst-silver-300)}
+.slogo[data-theme=kerst] symbol circle{fill:var(--kerst-silver-300)}
 .slogo[data-theme=kerst].zilver #scriptW path{fill:var(--kerst-silver-400)}
 .slogo[data-theme=kerst].zilver .ruleG path{fill:var(--kerst-silver-500)}
 .slogo[data-theme=kerst].zilver #markW path{fill:var(--kerst-silver-400)}

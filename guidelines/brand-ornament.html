@@ -1,20 +1,31 @@
-<!-- @dsCard group="Merk" viewport="700x230" name="Swirl-ampersand" subtitle="Het &-teken uit de huisstijl — tussen kapitalen, en als scheiding" -->
+<!-- @dsCard group="Merk" viewport="700x430" name="Swirl-ampersand" subtitle="Het &-teken uit de huisstijl — tussen kapitalen, en als scheiding" -->
 <!DOCTYPE html><html lang="nl"><head><meta charset="utf-8"><link rel="stylesheet" href="../styles.css">
-<style>body{margin:0;padding:22px;background:var(--surface-page);font-family:var(--font-body)}
-.row{display:flex;gap:34px;align-items:center;flex-wrap:wrap}
-.note{font-size:11px;line-height:1.7;color:var(--ink-300);margin-top:18px;max-width:78ch}</style></head><body>
+<style>body{margin:0;padding:22px;background:var(--surface-page);font-family:var(--font-body);color:var(--ink-500)}
+.l{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-300);margin:0 0 8px}
+.caps{font-family:var(--font-display);font-weight:400;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-900);display:flex;align-items:center;flex-wrap:wrap}
+.band{background:var(--surface-deep);padding:16px 20px;margin-top:6px}
+.band .caps{color:var(--cream-100)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start;margin-bottom:20px}
+.bad{position:relative;display:inline-flex;align-items:center}
+.bad::after{content:"";position:absolute;left:-4px;right:-4px;top:50%;height:1px;background:#9A4B3B}
+.note{font-size:11.5px;line-height:1.6;max-width:84ch;margin:16px 0 0}
+.note b{color:var(--ink-900);font-weight:500}code{font-size:.92em}</style></head><body>
 <div class="row">
-<img src="../assets/ornament-swirl.svg" alt="" style="height:56px;width:auto">
-<div style="display:flex;align-items:center;gap:10px">
-<span style="font-family:var(--font-display);font-size:26px;color:var(--ink-900)">Art</span>
-<img src="../assets/ornament-swirl.svg" alt="en" style="height:30px;width:auto">
-<span style="font-family:var(--font-display);font-size:26px;color:var(--ink-900)">Events</span>
+<div><p class="l">standaard &mdash; tussen kapitalen</p>
+<div class="caps" style="font-size:26px">Art<img class="amp amp-caps" src="../assets/ornament-swirl-goud.svg" alt="en">Events</div>
+<div class="band"><div class="caps" style="font-size:20px">Kunst<img class="amp amp-caps" src="../assets/ornament-swirl-wit.svg" alt="en">Gastvrijheid</div></div></div>
+<div><p class="l">als los merkteken</p>
+<img src="../assets/ornament-swirl-goud.svg" alt="" style="height:52px;width:auto">
+<p class="l" style="margin:14px 0 8px">kleurvarianten</p>
+<div style="display:flex;align-items:center;gap:14px"><img src="../assets/ornament-swirl-goud.svg" alt="" style="height:26px"><img src="../assets/ornament-swirl-ink.svg" alt="" style="height:26px"><img src="../assets/ornament-swirl-groen.svg" alt="" style="height:26px"><span style="background:var(--surface-deep);padding:6px 10px"><img src="../assets/ornament-swirl-wit.svg" alt="" style="height:26px;display:block"></span></div></div>
 </div>
-<div style="background:var(--surface-deep);padding:16px 22px;display:flex;align-items:center;gap:12px">
-<span style="font-family:var(--font-display);font-size:20px;color:var(--cream-100)">Kunst</span>
-<img src="../assets/ornament-swirl.svg" alt="en" style="height:26px;width:auto;filter:brightness(0) invert(1)">
-<span style="font-family:var(--font-display);font-size:20px;color:var(--cream-100)">Gastvrijheid</span>
+<div class="row" style="margin-bottom:0">
+<div><p class="l">niet in doorlopende tekst</p>
+<span class="bad" style="font-size:14px">Onze galerie <img class="amp amp-sm" src="../assets/ornament-swirl-goud.svg" alt="en" style="width:1.4em"> beeldentuin</span>
+<p class="note" style="margin-top:10px">Onder ±24px worden de haarlijnen een vlekje. In bodycopy blijft de gewone <code>&amp;</code> van Raleway staan &mdash; dat is niet de ampersand waar het team over viel.</p></div>
+<div><p class="l">niet de &amp; van Playfair</p>
+<span class="bad" style="font-family:var(--font-display);font-size:26px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-900)">Art &amp; Events</span>
+<p class="note" style="margin-top:10px">In koppen, labels en het logo hoort altijd de swirl te staan, nooit het getypte teken.</p></div>
 </div>
-</div>
-<div class="note"><code>ornament-swirl.svg</code>, vector uit de huisstijl. De ontwerper schrijft de swirl achter de <i>e</i> van <i>Hoeve</i> voor, en staat hem ook toe achter de <code>&amp;</code> en elders waar het beeld het verantwoordt. Gebruik hem <b style="color:var(--ink-500);font-weight:500">maximaal één keer per uiting</b> en nooit binnen een lopende tekstregel — hij is een sieraad, geen leesteken. Op donker: <code>filter:brightness(0) invert(1)</code>.</div>
+<p class="note"><b>Gebruik.</b> <code>&lt;img class="amp amp-caps" src="assets/ornament-swirl-goud.svg" alt="en"&gt;</code> tussen twee woorden; de klasse uit <code>tokens/ornament.css</code> schaalt mee met de regel. Kies het bestand op ondergrond: <b>goud</b> op wit en cr&egrave;me, <b>wit</b> op flessengroen en foto&rsquo;s, <b>ink</b> voor zwart-wit, <b>groen</b> op licht. De ontwerper schrijft de swirl voor achter de <i>e</i> van <i>Hoeve</i> in het logo, en tussen kapitalen &mdash; zeker bij <b>ART &amp; EVENTS</b>.</p>
 </body></html>

@@ -66,7 +66,7 @@ const IMG = {
   water:'../../assets/photo-omgeving-water.jpg',
   gazon:'../../assets/photo-hoeve-gazon.jpg',
   logo:'../../assets/logo-lockup.svg',
-  swirl:'../../assets/ornament-swirl.svg'
+  swirl:'../../assets/ornament-swirl-wit.svg'
 };
 
 const FOOTER_COLS = [

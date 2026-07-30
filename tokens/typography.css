@@ -4,6 +4,11 @@
    de ligatuurtabel van het font laat b f h k l s anders verdwijnen. Zie tokens/fonts.css. */
 --font-script:"BDScript","Italianno","Segoe Script",cursive;
 --font-script-bd:"BDScript","Italianno","Segoe Script",cursive;
+/* Merkcontext (logo, lockup, seizoenslogo, merkkop): BDScript ZONDER vervanger.
+   De handgeschreven toets is het merk zelf en mag niet door een ander script-font
+   worden ingevuld — liever tijdelijk niets dan een look-alike. Gebruik dit overal
+   waar de tekst onderdeel is van het merk, en --font-script voor gewone kickers. */
+--font-script-logo:"BDScript";
 --font-body:"Raleway","Helvetica Neue",Arial,sans-serif;
 
 /* display serif — section titles, page titles, card captions, nav, buttons */

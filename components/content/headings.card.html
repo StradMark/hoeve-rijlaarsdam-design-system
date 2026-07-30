@@ -1,28 +1,34 @@
-<!-- @dsCard group="Bouwstenen" viewport="700x360" name="SectionHeading" subtitle="Script-kicker over de serif-titel — drie maten, links en gecentreerd, licht en donker" -->
+<!-- @dsCard group="Bouwstenen" viewport="700x400" name="SectionHeading" subtitle="Script-kicker over de serif-titel — drie maten, en de tonen per ondergrond" -->
 <!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">
 <link rel="stylesheet" href="../../styles.css">
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 <script src="../../_ds_bundle.js"></script>
-<style>body{padding:0;background:var(--surface-page)}.pad{padding:18px}</style></head>
+<style>body{margin:0;padding:0;background:var(--surface-page)}.pad{padding:20px}
+.l{font-family:var(--font-body);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-300);margin:0 0 10px}
+.note{margin:0;padding:16px 20px 18px;font-family:var(--font-body);font-size:11.5px;line-height:1.6;color:var(--ink-500)}
+.note b{color:var(--ink-900);font-weight:500}</style></head>
 <body><div id="root"></div>
 <script type="text/babel">
-const DS=window.HoeveRijlaarsdamDesignSystem_374762;const A='../../assets/';
-const { SectionHeading } = DS;
+const { SectionHeading } = window.HoeveRijlaarsdamDesignSystem_374762;
 function Card(){
   return <div>
-    <div className="pad" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:20}}>
-      <SectionHeading kicker="van harte" title="Welkom" size="l"/>
-      <SectionHeading kicker="alles over" title="Onze locatie" size="m"/>
+    <div className="pad" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:24}}>
+      <div><p className="l">groot · links · op wit</p><SectionHeading kicker="van harte" title="Welkom" size="l"/></div>
+      <div><p className="l">klein · gecentreerd · op wit</p><SectionHeading kicker="culinaire" title="Hoogstandjes" align="center" size="s"/></div>
     </div>
-    <div style={{background:'var(--surface-sage)',padding:18}}>
-      <SectionHeading tone="onColor" kicker="heel veel" title="Mooie ruimtes" align="center" size="m"/>
+    <div style={{display:'grid',gridTemplateColumns:'1fr 1fr'}}>
+      <div style={{background:'var(--surface-sage)',padding:20}}>
+        <p className="l" style={{color:'var(--cream-100)',opacity:.8}}>tone="onSage" · kicker wordt crème</p>
+        <SectionHeading tone="onSage" kicker="heel veel" title="Mooie ruimtes" size="m"/>
+      </div>
+      <div style={{background:'var(--surface-deep)',padding:20}}>
+        <p className="l" style={{color:'var(--sage-200)',opacity:.85}}>tone="onDeep" · kicker wordt sage</p>
+        <SectionHeading tone="onDeep" kicker="alles over" title="Onze locatie" size="m"/>
+      </div>
     </div>
-    <div className="pad" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:20}}>
-      <SectionHeading kicker="de plek" title="Waar alles samenkomt" size="s"/>
-      <SectionHeading kicker="culinaire" title="Hoogstandjes" align="center" size="s"/>
-    </div>
+    <p className="note"><b>Toon volgt de ondergrond.</b> Op wit en crème is de kicker goud; op sage wordt hij crème en op flessengroen sage &mdash; <b>goud staat nooit op lichtgroen</b>. Wanneer een kicker wél werkt als tekst, staat op de kaart <i>Kicker-regels</i>; hij is altijd in kleine letters.</p>
   </div>;
 }
 ReactDOM.createRoot(document.getElementById('root')).render(<Card/>);

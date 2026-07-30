@@ -2,7 +2,7 @@ import React from 'react';
 
 /* Full-viewport doorway hero: two equal choices, calm motion on hover, one scroll hint.
    Only ever used on the homepage — every other page uses <HeroVideo>. */
-export function SplitHero({items=[],caption,intro=true,ampersand=true,ampersandSrc='/assets/ornament-swirl.svg',offset=64,fullHeight=true,scrollHint='Scroll',onScrollHint,narrow:narrowProp,style}){
+export function SplitHero({items=[],caption,intro=true,ampersand=true,ampersandSrc='/assets/ornament-swirl-wit.svg',offset=64,fullHeight=true,scrollHint='Scroll',onScrollHint,narrow:narrowProp,style}){
   const [hover,setHover]=React.useState(-1);
   const [narrowAuto,setNarrowAuto]=React.useState(false);
   const [top,setTop]=React.useState(offset);
@@ -102,7 +102,7 @@ export function SplitHero({items=[],caption,intro=true,ampersand=true,ampersandS
           <img src={ampersandSrc} alt="en" style={{position:'absolute',left:'50%',top:'50%',
             transform:(narrow?'translate(-50%,-50%)':'translate(-36%,-50%)')+' scale('+(lit?1:.94)+')',pointerEvents:'none',
             width:narrow?'clamp(58px,17vw,88px)':'clamp(76px,8vw,140px)',height:'auto',
-            filter:'brightness(0) invert(1) drop-shadow(0 1px 6px rgba(22,25,26,.45))',
+            filter:'drop-shadow(0 1px 6px rgba(22,25,26,.45))',
             opacity:hover>-1?0:lit?1:0,
             transition:lit?'opacity var(--dur-base) var(--ease-out),transform .6s var(--ease-out)':'opacity .6s var(--ease-out) 900ms,transform .6s var(--ease-out) 900ms'}}/>
         )}

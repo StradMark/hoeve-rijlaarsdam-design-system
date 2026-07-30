@@ -5,6 +5,13 @@
      Raleway                  -> geschreven tekst (bodycopy)
    Alle drie zijn de echte, voorgeschreven fonts. BDScript is aangeleverd door de ontwerper.
 
+   LET OP 0 — BDScript wordt NOOIT vervangen. In merkcontext (logo, lockup, seizoenslogo, merkkop)
+   gebruik je --font-script-logo: dat is "BDScript" zonder fallback. De handgeschreven toets is het
+   belangrijkste onderdeel van het logo; een look-alike (Italianno, Segoe Script) mag er niet voor
+   doorgaan. Ontbreekt het bestand, dan hoort dat op te vallen, niet weggepoetst te worden.
+   font-display:swap blijft staan zodat tekst niet onzichtbaar blijft — controleer bij twijfel met
+   document.fonts.check('16px BDScript').
+
    LET OP 1 — @import moet boven elke andere regel staan, anders negeert de parser hem stilzwijgend.
    LET OP 2 — BDScript heeft een defecte ligatuurtabel: standaardligaturen vervangen b f h k l s door
    vormen zonder breedte, waardoor die letters op hun buur stapelen en verdwijnen ("van harte" -> "van arte").

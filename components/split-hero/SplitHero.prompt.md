@@ -14,4 +14,4 @@ One-line: the homepage's full-viewport choice between ART and EVENTS — never u
 
 Hover widens that half to 1.14, lifts its dark veil, plays/eases its clip 5% in over 3s, flips the pill to white and fades the swirl out. Without `video` the still gets the same slow scale, so it works before the footage exists. Below 760px the halves stack, the swirl is dropped and all hover behaviour goes with it — the pills carry the choice. The caption strip stays inside the viewport so the page states its purpose without scrolling.
 
-**De naad draagt de swirl uit de huisstijl** (`assets/ornament-swirl.svg`, wit gefilterd), niet een getypte `&`. Zet `ampersandSrc` op het juiste pad zodra de pagina niet vanuit de projectroot wordt geserveerd; `ampersand={false}` haalt hem weg als de foto's op de naad al te druk zijn.
+**De naad draagt de swirl uit de huisstijl** (`assets/ornament-swirl-wit.svg`, wit gefilterd), niet een getypte `&`. Zet `ampersandSrc` op het juiste pad zodra de pagina niet vanuit de projectroot wordt geserveerd; `ampersand={false}` haalt hem weg als de foto's op de naad al te druk zijn.

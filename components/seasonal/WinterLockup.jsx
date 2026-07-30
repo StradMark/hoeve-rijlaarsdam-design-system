@@ -35,6 +35,10 @@ export function WinterLockup({
     const scriptColor=onDark?'var(--winter-candle-400)':tone==='mono'?ink:'var(--gold-500)';
     const rule=onDark?'var(--border-on-dark)':tone==='gold'?'var(--gold-500)':'var(--ink-900)';
     const markStyle=onDark?{filter:'brightness(0) invert(1)'}:tone==='mono'?{filter:'brightness(0)'}:undefined;
+    /* De ampersand in de tagline is de swirl uit de huisstijl, niet de & van Playfair.
+       Tussen kapitalen is dat de vaste regel — zie guidelines/brand-ornament.html. */
+    const swirl=assetBase+(onDark?'ornament-swirl-wit.svg':tone==='gold'?'ornament-swirl-goud.svg':'ornament-swirl-ink.svg');
+    const parts=String(tagline||'').split('&');
     return (
       <div style={{display:'flex',alignItems:'flex-end',gap:'.34em',fontSize:em+'px',lineHeight:1,...style}}>
         {showMark&&<img src={assetBase+(tone==='light'?'logo-mark.svg':'logo-mark-mono.svg')} alt="" aria-hidden="true"
@@ -51,7 +55,12 @@ export function WinterLockup({
             <span style={{flex:1,height:'.09em',background:rule,minWidth:'1.2em'}}></span>
             {/* kleinste tekst van het merk — klem op --fs-label-s, anders valt hij weg */}
             <span style={{fontFamily:'var(--font-display)',fontSize:'max(.34em, var(--fs-label-s))',
-              letterSpacing:'var(--ls-label-wide)',color:ink,whiteSpace:'nowrap'}}>{tagline}</span>
+              letterSpacing:'var(--ls-label-wide)',color:ink,whiteSpace:'nowrap',display:'inline-flex',alignItems:'center'}}>
+              {parts.length>1
+                ? parts.map((p,i)=><React.Fragment key={i}>{i>0&&<img src={swirl} alt="en"
+                    style={{width:'1.5em',height:'auto',margin:'0 .2em',verticalAlign:'-.04em'}}/>}{p.trim()}</React.Fragment>)
+                : tagline}
+            </span>
           </div>}
         </div>
       </div>

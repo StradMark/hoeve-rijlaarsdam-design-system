@@ -29,7 +29,8 @@
       "guidelines/color-sage.html",
       "guidelines/color-gold.html",
       "guidelines/color-neutrals.html",
-      "guidelines/color-semantic.html"
+      "guidelines/color-semantic.html",
+      "guidelines/kleur-combinaties.html"
      ]
     ],
     [
@@ -39,8 +40,7 @@
       "guidelines/type-body.html",
       "guidelines/type-label.html",
       "guidelines/type-script.html",
-      "guidelines/kicker-regels.html",
-      "guidelines/kop-varianten.html"
+      "guidelines/kicker-regels.html"
      ]
     ],
     [
@@ -143,7 +143,7 @@
  "meta": {
   "guidelines/brand-logo.html": {
    "name": "Logo",
-   "sub": "Alle aangeleverde versies als vector: hoofdlockup, goud, liggend, wit, mono en woordmerk",
+   "sub": "Alle aangeleverde versies als vector — goud is de leidende versie, wit de tweede",
    "vp": "700x520"
   },
   "guidelines/brand-mark.html": {
@@ -154,7 +154,7 @@
   "guidelines/brand-ornament.html": {
    "name": "Swirl-ampersand",
    "sub": "Het &-teken uit de huisstijl — tussen kapitalen, en als scheiding",
-   "vp": "700x230"
+   "vp": "700x430"
   },
   "guidelines/brand-photography.html": {
    "name": "Fotografie",
@@ -168,18 +168,18 @@
   },
   "guidelines/logo-animation-winter.html": {
    "name": "Winter",
-   "sub": "Winters Rijlaarsdam wordt geschreven op het eigen groene vlak, met dwarrelende sneeuw — vijf opbouwen, waaronder letterpers-caps",
-   "vp": "700x470"
+   "sub": "Winters Rijlaarsdam wordt geschreven op het eigen groene vlak, met dwarrelende stipjes en hier en daar een vlokje — vijf opbouwen",
+   "vp": "700x560"
   },
   "guidelines/logo-animation-winter-scherm.html": {
    "name": "Winter — schermvullende sneeuw",
-   "sub": "Dezelfde vijf opbouwen, maar met de sneeuw over het hele beeld in plaats van in het vlak",
+   "sub": "Dezelfde vijf opbouwen, met de stipjes en vlokjes over het hele beeld in plaats van in het vlak",
    "vp": "700x470"
   },
   "guidelines/logo-animation-kerst.html": {
    "name": "Kerst",
    "sub": "De kerstlaag over het winterlogo: zilver, kaarslicht of berry-zegel, met berry op precies één element — drie uitvoeringen",
-   "vp": "700x470"
+   "vp": "700x590"
   },
   "guidelines/logo-animation-kerst-scherm.html": {
    "name": "Kerst — schermvullende sneeuw",
@@ -211,6 +211,11 @@
    "sub": "Hoe de vier vlakken zich over een pagina stapelen",
    "vp": "700x200"
   },
+  "guidelines/kleur-combinaties.html": {
+   "name": "Kleurcombinaties",
+   "sub": "Wat mag op welk vlak — en de combinaties die niet werken",
+   "vp": "700x490"
+  },
   "guidelines/type-display.html": {
    "name": "Displayserif",
    "sub": "Playfair Display 400 — elke kop, caption, navigatie-item en knop",
@@ -229,17 +234,12 @@
   "guidelines/type-script.html": {
    "name": "Script-kicker",
    "sub": "BDScript — hangt links van de titel en overlapt hem verticaal; altijd met font-variant-ligatures:none",
-   "vp": "700x300"
+   "vp": "700x600"
   },
   "guidelines/kicker-regels.html": {
    "name": "Kicker-regels",
    "sub": "Wanneer werkt de script-kicker, en wanneer niet",
-   "vp": "700x400"
-  },
-  "guidelines/kop-varianten.html": {
-   "name": "Kop-varianten",
-   "sub": "Twee manieren om de systeemkop het systeem zelf te laten tonen",
-   "vp": "1180x880"
+   "vp": "700x470"
   },
   "guidelines/spacing-scale.html": {
    "name": "Ruimteschaal",
@@ -273,8 +273,8 @@
   },
   "components/content/headings.card.html": {
    "name": "SectionHeading",
-   "sub": "Script-kicker over de serif-titel — drie maten, links en gecentreerd, licht en donker",
-   "vp": "700x360"
+   "sub": "Script-kicker over de serif-titel — drie maten, en de tonen per ondergrond",
+   "vp": "700x400"
   },
   "components/content/cards.card.html": {
    "name": "Fotokaarten — ruimtes",
@@ -308,8 +308,8 @@
   },
   "components/quote-bar/quotebar.card.html": {
    "name": "QuoteBar",
-   "sub": "Volle breedte, diepgroen, gespatieerde serif-kapitalen",
-   "vp": "1180x250"
+   "sub": "Volle breedte, diepgroen, serif in kleine letters &mdash; nooit in kapitalen",
+   "vp": "1180x340"
   },
   "components/split-hero/splithero.card.html": {
    "name": "SplitHero — keuzehero homepage",

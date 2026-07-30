@@ -62,11 +62,24 @@ Pas als het schrift staat komt de **grote sneeuwvlok** op; daarna landen caps en
 
 ## De sneeuw
 
-De dwarrelende vlokjes zijn getekende zesarmige vlokken die over de volle hoogte van het vlak zakken — elk
-met eigen zijwaartse drift (naar links, naar rechts of bijna recht), eigen zwaai, eigen draai en eigen tempo
-van 11 tot 23 seconden; grote vlokken zakken sneller en dekkender dan kleine, wat diepte geeft. Elk vlokje
-verdooft aan begin en eind van zijn cyclus, dus de lus loopt naadloos rond. In het statische logo blijven de
-originele spikkels van de ontwerper staan — de vlokken bestaan alleen in de animatie.
+De sneeuw is **overwegend stipjes** met ongeveer één op de zes een echt zesarmig vlokje. Dat is op verzoek van
+de ontwerper: de stipjes in het originele logo zijn de toon, en een beeld vol getekende vlokken werd te
+illustratief. Er zijn dus twee symbolen — `#sd` (stip, gevuld) en `#sf` (vlok, lijnwerk) — die dezelfde baan
+volgen. Stipjes zijn kleiner en iets dekkender, omdat er geen lijnwerk is dat op afstand wegvalt.
+
+Elk deeltje zakt over de volle hoogte van het vlak met eigen zijwaartse drift (naar links, naar rechts of
+bijna recht), eigen zwaai, eigen draai en eigen tempo van 11 tot 23 seconden; grote deeltjes zakken sneller en
+dekkender dan kleine, wat diepte geeft. Elk deeltje verdooft aan begin en eind van zijn cyclus, dus de lus
+loopt naadloos rond.
+
+De **31 stipjes die in het originele logo om de vlok heen staan** (`#logodots`, overgenomen uit
+`assets/logo-winter-groen.svg`) horen bij de tekening en blijven dus staan: ze komen met de grote vlok op,
+per stip 12 ms na elkaar (in ‚Vlok als slot’ pas ná de landing, via `--dots`), en lichten daarna af en toe even op: één opleving per 7,5 seconden, naar 100% dekking met een fijne gloed. Dat was de vraag van de ontwerper: niet
+vervangen door vallende sneeuw, maar laten staan en soms even oplichten.
+
+Dezelfde opleving zit op de **spikkels in het schrift** (`.dab`, en de punt op de i):
+één zachte opleving per negen seconden, per stip verschoven via zijn eigen `--dab`-tijd. Alleen dekking en
+gloed bewegen — de `transform` blijft van de pen-aanslag, anders vechten twee animaties om dezelfde as.
 
 Twee valkuilen die hier zijn opgelost: het draaipunt moet in paneelcoördinaten staan (anders slingert een
 vlok met veel draai in een boog het beeld uit), en de fase mag niet uit de x-positie komen (dan valt de sneeuw
@@ -86,7 +99,7 @@ zit in één variabele (`--shift`).
 | Vlotte hand | De naam wordt geschreven, dan komt de vlok op en landen caps en schuurmerk samen in het goud |
 | Letterpers | RIJLAARSDAM wordt niet weggeveegd maar in negen letterblokken één voor één aangedrukt (mask `capsMaskW`, aanslag van onderaf, 45 ms ertussen) — ook dat deel een handeling in plaats van een gordijn |
 | Sneeuw eerst | Het beeld begint met sneeuw; daaruit zet de vlok zich vast en pas dan wordt de naam eronder geschreven |
-| Vlok als slot | Eerst de naam en het goud, de vlok sluit af als seizoensteken |
+| Vlok als slot | Eerst de naam en het goud; de grote vlok dwarrelt van linksboven aan (`flakeDrift`, 2,25s) in één doorlopende S en begint al te vallen terwijl de caps zich zetten: de zwaai en de draai lopen niet gelijk op met de val, dus er is geen moment waarop alles tegelijk omslaat. De stipjes van het logo komen pas op als hij geland is (`--dots`), anders overlappen twee bewegingen |
 | Alleen dwarrelen | Het logo staat er al; alleen de sneeuw beweegt, eindeloos |
 
 Het zwarte logo (`guidelines/logo-animation.html`) heeft dezelfde opzet met vier opbouwen: Vlotte hand,

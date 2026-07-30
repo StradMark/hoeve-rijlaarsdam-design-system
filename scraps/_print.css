@@ -1,0 +1,21 @@
+doc-page:not(:defined){visibility:hidden}
+*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+*{animation-delay:-99s !important;animation-duration:.001s !important;animation-iteration-count:1 !important;animation-fill-mode:both !important;animation-play-state:running !important;transition-duration:0s !important}
+body{font-family:var(--font-body);color:var(--text-body)}
+.kick{font-family:var(--font-script);font-variant-ligatures:none;font-size:40px;line-height:.8;color:var(--gold-500);margin:0 0 -4px -2px}
+h1{margin:0 0 6px;font-family:var(--font-display);font-weight:400;font-size:38px;letter-spacing:.04em;text-transform:uppercase;color:var(--text-heading)}
+.sub{margin:0 0 14px;font-family:var(--font-display);font-weight:400;font-size:15px;letter-spacing:.16em;text-transform:uppercase;color:var(--text-body)}
+.lede{margin:0 0 10px;font-size:var(--fs-body-m);line-height:var(--lh-body)}
+.toc{margin:16px 0 0;padding:14px 0 0;border-top:1px solid var(--border-hairline);font-size:var(--fs-body-s);line-height:1.9}
+.toc b{display:block;font-family:var(--font-script);font-variant-ligatures:none;font-weight:400;font-size:22px;color:var(--gold-500);margin-top:8px}
+.ch{margin:0 0 14px;font-family:var(--font-script);font-variant-ligatures:none;font-size:30px;line-height:1;color:var(--gold-500);break-before:page;break-after:avoid}
+h2{margin:22px 0 14px;font-family:var(--font-display);font-weight:400;font-size:22px;letter-spacing:.02em;color:var(--text-heading);break-after:avoid}
+.ch+h2{margin-top:0}
+figure{margin:0 0 24px;break-inside:avoid}
+figcaption{margin-bottom:8px}
+figcaption b{font-family:var(--font-display);font-weight:400;font-size:16px;color:var(--text-heading)}
+figcaption span{display:block;font-size:var(--fs-body-s);color:var(--text-muted)}
+.frame{overflow:hidden;border:1px solid var(--border-hairline);background:#fff}
+iframe{border:0;display:block;transform-origin:0 0}
+.tail{margin-top:26px;padding-top:14px;border-top:1px solid var(--border-hairline);font-size:var(--fs-body-s);color:var(--text-muted)}
+a{color:var(--gold-600)}a:hover{color:var(--gold-500)}

@@ -1,5 +1,7 @@
 import React from 'react';
 
+/* Goud staat nooit op lichtgroen (1,3:1, en het goud wordt vaal) — zie guidelines/kleur-combinaties.html.
+   tone="gold" hoort op wit, crème of flessengroen; op een sage-band gebruik je 'white'. */
 export function CarouselNav({direction='next',tone='sage',onClick,style}){
   const [hover,setHover]=React.useState(false);
   const color=tone==='sage'?'var(--sage-500)':tone==='gold'?'var(--gold-500)':tone==='deep'?'var(--green-900)':'var(--white)';

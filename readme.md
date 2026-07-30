@@ -121,10 +121,10 @@ fotozware kaarten, en de twee `-print` varianten zijn dezelfde inhoud als docume
 
 | Groep | Kaarten |
 | --- | --- |
-| Merk | Logo · Schuurmerk · Swirl-ampersand · Fotografie |
+| Merk | Logo (goud leidend) · Schuurmerk · Swirl-ampersand (het &-teken, tussen kapitalen) · Fotografie |
 | Logo-animatie | Basis · Winter · Winter schermvullend · Kerst · Kerst schermvullend |
-| Kleur | Diepgroen · Sage · Goud · Neutralen · Vlakken in gebruik |
-| Typografie | Displayserif · Bodycopy · Gespatieerde kapitalen · Script-kicker · Kicker-regels · Kop-varianten |
+| Kleur | Diepgroen · Sage · Goud · Neutralen · Vlakken in gebruik · Kleurcombinaties |
+| Typografie | Displayserif · Bodycopy · Gespatieerde kapitalen · Script-kicker · Kicker-regels |
 | Ritme en vorm | Ruimteschaal · Sectieritme · Vorm en radius · Beweging en states |
 
 **2 · Componenten** — 21 kaarten, in `components/<map>/` (elk met `<Naam>.jsx`, `.d.ts`, `.prompt.md` en minstens één `@dsCard`)

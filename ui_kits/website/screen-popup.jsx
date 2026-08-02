@@ -16,13 +16,13 @@ function PopupScreen({onNavigate}){
 
     <Section background="var(--surface-sage)" pad="var(--section-y-tight) var(--space-8)">
       <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'var(--gap-grid)'}}>
-        <InfoTile title="Vier gangen" body="Een menu dat wij speciaal voor deze dagen samenstellen, uit de open keuken."/>
-        <InfoTile title="Maximaal 30 gasten" body="Per shift dertig personen, aan tafels tussen de kunstwerken. Geheel exclusief."/>
-        <InfoTile title="Lunch of diner" body="Kies de middagshift of de avondshift; voor groepen maken wij een eigen arrangement."/>
+        <InfoTile caption="inside" title="Vier gangen" body="Een menu dat wij speciaal voor deze dagen samenstellen, uit de open keuken."/>
+        <InfoTile caption="inside" title="Maximaal 30 gasten" body="Per shift dertig personen, aan tafels tussen de kunstwerken. Geheel exclusief."/>
+        <InfoTile caption="inside" title="Lunch of diner" body="Kies de middagshift of de avondshift; voor groepen maken wij een eigen arrangement."/>
       </div>
     </Section>
 
-    <SplitPanel image={IMG.koetshuisExpo} ratio="4 / 3">
+    <SplitPanel image={IMG.koetshuisExpo} ratio="4 / 3" background="var(--surface-cream)">
       <BenefitsPanel kicker="zo verloopt" title="De avond" items={programma}/>
     </SplitPanel>
 
@@ -36,14 +36,14 @@ function PopupScreen({onNavigate}){
     </Section>
 
     <Section pad="var(--section-y-tight) var(--space-8)">
-      <SectionHeading kicker="bekijk ook onze" title="Andere avonden" align="center" size="l" style={{textAlign:'center'}}/>
+      <SectionHeading kicker="bekijk ook" title="Andere avonden" align="center" size="l" style={{textAlign:'center'}}/>
       <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'var(--gap-grid)',marginTop:'var(--space-7)'}}>
         <RoomCard image={IMG.flatlay} caption="Wijnproeverij" readMoreLabel="Reserveer" onReadMore={()=>onNavigate('Contact')}/>
         <RoomCard image={IMG.hapjes} caption="Walking dinner" readMoreLabel="Reserveer" onReadMore={()=>onNavigate('Contact')}/>
         <RoomCard image={IMG.scones} caption="High tea" readMoreLabel="Reserveer" onReadMore={()=>onNavigate('Contact')}/>
       </div>
     </Section>
-    <PageEnd page="popup" tone="cream" kicker="een avond" title="Om te onthouden"
+    <PageEnd page="popup" tone="cream" kicker="onthouden" title="Een avond om nooit te vergeten"
       body="Vier gangen tussen de kunstwerken, met maximaal dertig gasten per avond. Reserveer telefonisch of laat uw gegevens achter." onCta={()=>onNavigate('Contact')}/>
   </React.Fragment>;
 }

@@ -24,6 +24,12 @@ export interface NavBarProps {
   onCta?: () => void;
   /** fires with the clicked label, parent or child alike */
   onNavigate?: (item: string) => void;
+  /** blijft bij scrollen bovenaan staan, met een gouden haarlijn zodra de pagina beweegt.
+   *  Zet uit voor een kaart of mockup waar de balk stil moet blijven. Standaard aan. */
+  sticky?: boolean;
   style?: React.CSSProperties;
 }
+/**
+ * @startingPoint section="Layout" subtitle="Gecentreerd logo, gesplitste navigatie en de offerte-knop" viewport="1280x88"
+ */
 export declare function NavBar(props: NavBarProps): JSX.Element;

@@ -34,6 +34,8 @@
 --text-on-dark:var(--winter-snow-100);
 --text-on-dark-muted:var(--winter-frost-400);
 --text-on-sage:var(--winter-snow-100);
+--text-on-sage-body:var(--winter-snow-100);
+--rule-on-sage:rgba(255,255,255,.42);
 --text-link:var(--winter-pine-800);
 
 --border-hairline:var(--winter-frost-300);
@@ -80,6 +82,8 @@
 --text-on-dark:var(--winter-snow-100);
 --text-on-dark-muted:var(--kerst-silver-400);
 --text-on-sage:var(--winter-snow-100);
+--text-on-sage-body:var(--winter-snow-100);
+--rule-on-sage:rgba(255,255,255,.42);
 --text-link:var(--winter-pine-900);
 --text-link-hover:var(--kerst-berry-700);
 

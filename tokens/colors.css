@@ -43,6 +43,12 @@
 --text-on-dark:var(--cream-100);
 --text-on-dark-muted:var(--sage-200);
 --text-on-sage:var(--white);
+/* Op sage is alles wit — vaste huisstijlkeuze. Wit haalt op sage-500 rekenkundig 2,6:1, dus
+   sage draagt alleen groot zetsel: display-koppen, prijsregels, korte labels vanaf 14px.
+   Moet er kleine of lange tekst op groen staan, gebruik dan --surface-deep (crème, 9,8:1)
+   of --surface-sage-soft met --green-900 (8,4:1). */
+--text-on-sage-body:var(--white);
+--rule-on-sage:rgba(255,255,255,.5);
 --text-link:var(--green-800);
 --text-link-hover:var(--gold-500);
 

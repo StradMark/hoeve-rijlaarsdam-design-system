@@ -1,0 +1,36 @@
+<!-- @dsCard group="Inhoudsblokken" viewport="1180x1740" name="TabbedDetail" subtitle="Pillen die één foto-en-tekstpaneel wisselen — het meest herhaalde blok van de site, op wit en op sage" -->
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;background:var(--white)}.lbl{font-family:var(--font-display);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-500);padding:22px 40px 0;margin:0}.note{font-size:11.5px;line-height:1.7;color:var(--text-muted);max-width:92ch;padding:0 40px 30px;margin:14px 0 0}.note b{color:var(--text-body);font-weight:500}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const { TabbedDetail } = window.HoeveRijlaarsdamDesignSystem_374762;
+const A='../../assets/';
+const DAG=[
+  {label:'Ontvangst',image:A+'photo-bruiloft-poort.jpg',body:'Gasten komen binnen door de groene poort, met koffie en iets zoets uit eigen patisserie op het gazon.'},
+  {label:'Ceremonie',image:A+'photo-bruiloft-ceremonie.jpg',body:'Buiten tussen de beelden, met de binnenlocatie als achterwacht wanneer het weer omslaat.'},
+  {label:'Borrel',image:A+'photo-bruiloft-tuin.jpg',body:'Twee hectare tuin om in te lopen, terwijl de fotograaf zijn gang gaat.'},
+  {label:'Diner',image:A+'photo-bruiloft-tafel.jpg',body:'Een lange tafel in de Stal of het Koetshuis, met een menu van onze eigen chef.'}
+];
+const RUIMTE=[
+  {label:'Koetshuis',image:A+'photo-koetshuis-bijeenkomst.jpg',body:'De grootste zaal, tot 250 gasten, met uitstekende akoestiek voor een congres of feest.',ctaLabel:'Naar het Koetshuis',onCta:()=>{}},
+  {label:'Hooiberg',image:A+'photo-hooiberg-flipover.jpg',body:'Rondom ramen, uitzicht over de polder, tot 30 personen. De vergaderruimte van de hoeve.',ctaLabel:'Naar de Hooiberg',onCta:()=>{}},
+  {label:'Stal',image:A+'photo-stal-zoettafel.jpg',body:'Ruim honderd jaar oud, houten palen in het midden, werk van de Haagse en Leidse school aan de wand.',ctaLabel:'Naar de Stal',onCta:()=>{}}
+];
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.Fragment>
+    <p className="lbl">op wit &mdash; met kop, lead en zonder actie</p>
+    <TabbedDetail kicker="het verloop" title="Van de dag"
+      lead="Een dag zoals wij hem vaak zien. Niets hiervan staat vast &mdash; kies het moment om te zien wat er dan gebeurt."
+      items={DAG}/>
+    <p className="lbl">op sage &mdash; met een actie per paneel, foto rechts</p>
+    <TabbedDetail tone="sage" kicker="welke ruimte" title="Past bij u?" imageSide="right" items={RUIMTE}/>
+    <p className="note"><b>Elke pil hoort een paneel te hebben.</b> De inhoud zit in <code>items</code>, niet in de
+    pagina eromheen &mdash; zo kan er geen pillenrij ontstaan die niets doet. <b>Op sage staat de bodytekst in inkt</b>,
+    niet in cr&egrave;me: sage is een middentoon en alles onder 16px haalt daar anders geen contrast. De actie is
+    optioneel en er is er h&oacute;&oacute;gstens &eacute;&eacute;n per paneel.</p>
+  </React.Fragment>
+);
+</script></body></html>

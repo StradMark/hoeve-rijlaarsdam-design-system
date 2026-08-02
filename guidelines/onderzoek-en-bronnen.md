@@ -21,7 +21,7 @@ Alle opgehaalde feiten, prijzen, contactgegevens, echte koppenparen en herbruikb
 **Bij de start was er geen codebase, Figma-bestand, fontbestand of fotobibliotheek aangeleverd,** en de foto's van
 de live websites konden niet worden gekopieerd (deze omgeving mag geen bestanden van andere domeinen ophalen). Het
 systeem is toen van de ontwerpen afgelezen: kleuren zijn er per pixel uit gemeten, typografie en spacing gemeten en
-afgerond op een tokenschaal. Inmiddels zijn de vectorlogo's, de fonts en 39 echte foto's wél aangeleverd — zie
+afgerond op een tokenschaal. Inmiddels zijn de vectorlogo's, de fonts en 44 echte foto's wél aangeleverd — zie
 Bekende hiaten hieronder voor wat er nog open staat.
 
 ## Het bedrijf in het kort
@@ -57,7 +57,7 @@ volledige onderzoek, inclusief een duidelijk gemarkeerd deel dat níet is geveri
 
 1. **Logo.** Alle versies staan als vector in `assets/`, uit de huisstijl-PDF. Nog open: officiële
    naamgeving en eventuele PMS-waarden.
-2. **Lijniconen** voor opstellingen en faciliteiten, en de **geïllustreerde plattegrond**.
+2. **Lijniconen voor faciliteiten** (parkeren, wifi, beamer, rolstoeltoegang) en de **geïllustreerde plattegrond**. De negen opstellingsiconen zijn inmiddels zelf getekend.
 3. **Winterartwork voor andere seizoenswoorden.** De ontwerper leverde "Winters RIJLAARSDAM"; `Kerst` en
    `Oud & Nieuw` worden nu typografisch nagebouwd — goed voor schetsen op scherm, niet voor drukwerk.
 4. **Beeldmateriaal**: video's voor de hero's (twee rustige loops van 8–12 seconden, één in de galerie en
@@ -66,7 +66,7 @@ volledige onderzoek, inclusief een duidelijk gemarkeerd deel dat níet is geveri
 5. **Welke cijfers actueel zijn.** Prijzen en capaciteiten in de feitenbank zijn zoals gepubliceerd op
    feestenmeetings.nl in juli 2026; openingstijden verschillen per bron.
 
-Opgelost sinds de start: het logo als vector, 39 echte foto's van de locatie (circa 2000px breed), en
+Opgelost sinds de start: het logo als vector, 44 echte foto's van de locatie (circa 2000px breed), en
 BDScript als fontbestand (`assets/fonts/BDScript-Regular.woff2` + `.otf`) — alle drie de voorgeschreven
 fonts zijn dus echt. Italianno is alleen nog terugval in de font-stack.
 
@@ -86,8 +86,11 @@ merkteken in het logo exact dezelfde tekening zijn. Minimaal 32px hoog: daaronde
 favicon-formaten is een vereenvoudigde variant met 3 of 4 balken nodig — die verandert de merkgeometrie, dus
 vraag die bij de ontwerper op.
 
-**Lijniconen** op de opstellingstegels en in het bruiloftsraster zijn eigen illustraties en niet aangeleverd.
-`InfoTile` toont een leeg kader zonder `icon`-prop; zet de echte bestanden in `assets/icons/`.
+**Lijniconen** voor de zaalopstellingen zijn zelf getekend naar de stijl van de mockups (witte lijn, stoelen van
+boven met rugleuning): negen plattegronden in `assets/icons/opstelling-*.svg`, gebruikelijke opstellingen uit de
+zaalverhuur. Verder komt er geen iconenset: een opstellingsicoon draagt informatie die een foto niet geeft — waar
+de stoelen staan — terwijl sfeeronderwerpen als bruiloften al door echte fotografie worden gedekt. Een
+lijntekening naast een foto van hetzelfde onderwerp is daar een stap terug.
 
 **De rest is geometrie**: de playbutton is een CSS-driehoek in een witte cirkel, carrouselbediening losse
 gevulde driehoekjes, FAQ-markeringen een cirkel met `+` / `−`. Er hangt niets af van een externe icoonhost.

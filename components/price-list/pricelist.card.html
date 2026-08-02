@@ -1,0 +1,48 @@
+<!-- @dsCard group="Kaarten" viewport="1180x720" name="PriceList" subtitle="Label, detail en bedrag op één regel — op wit, op het donkergroene paneel en op sage" -->
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;background:var(--white);padding:34px 40px}.note{font-size:11.5px;line-height:1.7;color:var(--text-muted);max-width:92ch;margin:26px 0 0}.note b{color:var(--text-body);font-weight:500}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const { PriceList } = window.HoeveRijlaarsdamDesignSystem_374762;
+const zaalhuur=[
+  {label:'Dagdeel',detail:'9.00–13.00 of 13.00–17.00',amount:'€ 395'},
+  {label:'Avond',detail:'vanaf 18.00',amount:'€ 475'},
+  {label:'Hele dag',detail:'9.00–17.00',amount:'€ 525'}
+];
+const sage=[
+  {label:'Polderpracht',detail:'4 uur',amount:'€ 15,50 p.p.'},
+  {label:'Borrel na',detail:'uit eigen keuken',amount:'op aanvraag'}
+];
+const extras=[
+  {label:'Energy break',detail:'huisgemaakte quiche',amount:'€ 7,50'},
+  {label:'Healthy break',detail:'smoothie met vers fruit',amount:'€ 6,50'},
+  {label:'Borrel',detail:'2 consumpties en warme snacks',amount:'€ 12,50'}
+];
+ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.Fragment>
+    <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'var(--gap-grid)'}}>
+      <div style={{background:'var(--surface-deep)',padding:'var(--space-6)'}}>
+        <PriceList kicker="Zaalhuur" tone="onDeep" items={zaalhuur} note="Alle bedragen zijn exclusief btw."/>
+      </div>
+      <div style={{background:'var(--white)',padding:'var(--space-6)',boxShadow:'inset 0 0 0 1px var(--border-hairline)'}}>
+        <PriceList kicker="Extra&rsquo;s" items={extras}/>
+      </div>
+    </div>
+    <div style={{background:'var(--surface-sage)',padding:'var(--space-6)',marginTop:'var(--gap-grid)'}}>
+      <PriceList kicker="Op sage" tone="onSage" items={sage} note="Sage draagt alleen groot zetsel."/>
+    </div>
+    <p className="note"><b>Bedragen zijn tekst, geen getallen</b> &mdash; &ldquo;op aanvraag&rdquo; is een geldige
+    prijs. De site leest alle bedragen uit <code>prijzen.jsx</code>, dat <code>content-en-feiten.md</code> volgt;
+    typ nooit een bedrag rechtstreeks in een pagina. <b>Alles is exclusief btw</b>, en dat hoort onder de eerste
+    lijst van een pagina te staan, niet onder elke.</p>
+    <p className="note"><b>Op sage is alles wit</b> &mdash; tekst en haarlijn, via
+    <code>--text-on-sage-body</code> en <code>--rule-on-sage</code>. Rekenkundig haalt wit op sage 2,6:1, dus
+    <b>sage draagt alleen groot zetsel</b>: display-koppen, prijsregels en korte labels vanaf 14px. Lopende
+    tekst, bijschriften of kleine caps horen op flessengroen met cr&egrave;me (9,8:1) of op zacht sage met
+    donkergroen (8,4:1). In het winterthema is de sage-band donkergroen; de tokens draaien vanzelf mee.</p>
+  </React.Fragment>
+);
+</script></body></html>

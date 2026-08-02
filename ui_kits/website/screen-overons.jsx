@@ -1,11 +1,6 @@
-const TEAM=[
-  {name:'Roos Rijlaarsdam',role:'Eigenaresse · feesten en meetings',phone:'06 - 58 98 59 63',img:'roos'},
-  {name:'Wouter Berghuis',role:'Chef-kok en patissier',img:'wouter'}
-];
-
 function OverOnsScreen({onNavigate}){
   return <React.Fragment>
-    <HeroVideo image={IMG.hoeve} kicker="wie wij" title="Zijn" height={440}/>
+    <HeroVideo image={IMG.hoeve} kicker="over ons" title="Wie wij zijn" height={440}/>
     <QuoteBar>&ldquo;Daar waar hospitality een kunstvorm is!&rdquo;</QuoteBar>
 
     <Section pad="var(--section-y-tight) var(--space-8)">
@@ -25,7 +20,7 @@ function OverOnsScreen({onNavigate}){
       </div>
       <div style={{display:'grid',gridTemplateColumns:'repeat(2,1fr)',gap:'var(--gap-grid)',marginTop:'var(--space-7)',
         maxWidth:640,marginLeft:'auto',marginRight:'auto'}}>
-        {TEAM.map(p=><PersonCard key={p.name} image={IMG[p.img]} name={p.name} role={p.role} phone={p.phone}/>)}
+        {CONTENT.team.map(p=><PersonCard key={p.name} image={IMG[p.img]} name={p.name} role={p.role} phone={p.phone}/>)}
       </div>
       <p style={{margin:'var(--space-6) auto 0',textAlign:'center',fontSize:'var(--fs-body-s)',
         lineHeight:'var(--lh-body)',color:'var(--text-body)',maxWidth:'62ch'}}>
@@ -42,11 +37,11 @@ function OverOnsScreen({onNavigate}){
       <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'var(--space-8)',alignItems:'center'}}>
         <div style={{aspectRatio:'4 / 3',overflow:'hidden'}}><img src={IMG.bediening} alt="" style={{width:'100%',height:'100%',objectFit:'cover'}}/></div>
         <div>
-          <SectionHeading kicker="onze gastvrouwen" title="Ook bij u" size="l"/>
+          <SectionHeading kicker="op locatie" title="Onze gastvrouwen bij u" size="l"/>
           <Lead>Onze gastvrouwen en gastheren zijn een groot deel van waarom gasten terugkomen. Daarom laten wij hun kwaliteiten en glimlach ook graag op andere evenementen zien — zakelijk, een private diner waar extra mensen bij nodig zijn, of ondersteuning op grotere evenementen. Hoeve Rijlaarsdam komt naar u toe.</Lead>
           <div style={{marginTop:'var(--space-6)',display:'flex',gap:'var(--space-4)'}}>
             <Button tone="primary" onClick={()=>onNavigate('Hospitality')}>Lees meer</Button>
-            <Button tone="outline" onClick={()=>onNavigate('Contact')}>Vraag offerte aan</Button>
+            <Button tone="outlineDark" onClick={()=>onNavigate('Contact')}>Vraag offerte aan</Button>
           </div>
         </div>
       </div>
@@ -68,7 +63,7 @@ function OverOnsScreen({onNavigate}){
       </p>
     </Section>
 
-    <PageEnd page="overons" tone="cream" kicker="wij zijn goed" title="Bereikbaar"
+    <PageEnd page="overons" tone="cream" kicker="goed" title="Bereikbaar"
       body="Bel ons, mail ons, of kom langs voor een kop koffie. Wij vertellen graag wat er mogelijk is."
       onCta={()=>onNavigate('Contact')}/>
   </React.Fragment>;

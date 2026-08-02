@@ -1,0 +1,251 @@
+<!-- @dsCard group="Verkenning" viewport="1180x5580" name="Merkteken — voorstel" subtitle="Eén samengevoegd voorstel: de R op de regel, één lettertype in het merk, en de rolverdeling met schuurmerk en handschrift" -->
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8"><title>Merkteken — voorstel</title><link rel="stylesheet" href="../styles.css">
+<style>body{margin:0;padding:38px 40px 34px;background:var(--surface-page);font-family:var(--font-body);color:var(--text-body)}
+.kick{font-family:var(--font-script-logo,var(--font-script));font-variant-ligatures:none;font-size:34px;line-height:.8;color:var(--gold-500);margin:0 0 2px -1px}
+h1{margin:0;font-family:var(--font-display);font-weight:400;font-size:27px;letter-spacing:.03em;color:var(--text-heading)}
+.lede{max-width:90ch;margin:14px 0 0;font-size:var(--fs-body-s);line-height:var(--lh-body);color:var(--text-muted)}
+.lede b{color:var(--text-body);font-weight:500}
+.status{display:inline-block;margin-top:16px;padding:7px 14px;border:1px solid var(--gold-300);font-family:var(--font-display);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-600)}
+h3{margin:0 0 3px;font-family:var(--font-display);font-weight:400;font-size:19px;color:var(--text-heading)}
+.sec{margin-top:34px;padding-top:22px;border-top:1px solid var(--border-hairline)}
+.sec>p{max-width:90ch;margin:6px 0 0;font-size:11.5px;line-height:1.7;color:var(--text-muted)}
+.sec>p b{color:var(--text-body);font-weight:500}
+.strip{display:flex;flex-wrap:wrap;margin-top:20px;border:1px solid var(--border-hairline)}
+.bay{flex:1 1 0;min-width:0;padding:26px 14px 16px;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:15px;border-right:1px solid var(--border-hairline)}
+.bay:last-child{border-right:0}
+.bay.dark{background:var(--surface-deep)}
+.bay.cream{background:var(--surface-cream)}
+.bay.pick{box-shadow:inset 0 0 0 1px var(--gold-500)}
+.lbl{font-family:var(--font-display);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--text-muted);text-align:center}
+.bay.dark .lbl{color:var(--text-on-dark-muted)}
+.bay.pick .lbl{color:var(--gold-600)}
+.sub{font-size:10.5px;line-height:1.55;color:var(--text-muted);text-align:center;max-width:100%}
+.bay.dark .sub{color:var(--text-on-dark-muted)}
+.no{position:relative;display:inline-block}
+.no::after{content:"";position:absolute;left:-8px;right:-8px;top:50%;height:1px;background:var(--gold-500);transform:rotate(-9deg)}
+.sc{font-family:var(--font-script-logo);font-variant-ligatures:none;line-height:.8;display:block}
+.scw{font-family:var(--font-script-logo);font-variant-ligatures:none;line-height:.9;color:var(--text-heading);margin-top:.06em}
+.mk{display:inline-grid;justify-items:center;line-height:1;color:var(--gold-500)}
+.mk .R{display:block;height:0.72em;width:0.6163em;fill:currentColor}
+.mk .caps{font-family:var(--font-display);font-weight:400;text-transform:uppercase;white-space:nowrap;color:var(--text-heading);line-height:1;letter-spacing:.3em;padding-left:.3em}
+.mk .rl{display:block;height:1px;background:currentColor;width:100%}
+.mk.float .rl{margin:.15em 0 .105em}
+.mk.stub .rl{width:.5em;margin:.16em 0 0}
+.mk.none .rl{display:none}
+.mk.on-dark{color:var(--gold-300)}
+.mk.on-dark .caps,.mk.on-dark .scw{color:var(--cream-100)}
+.mkh{display:inline-grid;grid-auto-flow:column;align-items:center;gap:.42em;line-height:1;color:var(--gold-500)}
+.mkh .R{display:block;height:0.72em;width:0.6163em;fill:currentColor}
+.mkh .vr{width:1px;height:.62em;background:currentColor;display:block}
+.mkh .caps{font-family:var(--font-display);text-transform:uppercase;white-space:nowrap;color:var(--text-heading);letter-spacing:.3em;padding-left:.3em;line-height:1}
+.mkh.on-dark{color:var(--gold-300)}.mkh.on-dark .caps{color:var(--cream-100)}
+.gauge{position:relative;display:inline-block}
+.gauge::before,.gauge::after{content:"";position:absolute;left:-14px;right:-14px;height:1px;background:var(--gold-300);opacity:.85}
+.gauge::before{top:0}.gauge::after{bottom:0}
+.pair{display:flex;align-items:flex-end;gap:26px}
+.tbl{width:100%;border-collapse:collapse;margin-top:20px;font-size:11.5px}
+.tbl th,.tbl td{text-align:left;padding:11px 14px;border-bottom:1px solid var(--border-hairline);vertical-align:top;line-height:1.6}
+.tbl th{font-family:var(--font-display);font-weight:400;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-600);border-bottom-color:var(--gold-300)}
+.tbl td:first-child{font-family:var(--font-display);font-size:13px;color:var(--text-heading);white-space:nowrap}
+.tbl .w{color:var(--text-body)}
+.menu{width:140px;height:196px;background:#fff;border:1px solid var(--border-hairline);display:flex;flex-direction:column;align-items:center;padding:20px 16px 14px;box-sizing:border-box}
+.menu .lines{width:100%;display:grid;gap:6px;margin:14px 0 auto}
+.menu .lines em{display:block;height:1px;background:var(--ink-100)}
+.menu .lines em:nth-child(2){width:70%}.menu .lines em:nth-child(4){width:56%}
+.letter{width:150px;height:196px;background:#fff;border:1px solid var(--border-hairline);display:flex;flex-direction:column;padding:16px 16px 14px;box-sizing:border-box}
+.letter .lines{display:grid;gap:6px;margin:0 0 auto}
+.letter .lines em{display:block;height:1px;background:var(--ink-100)}
+.letter .lines em:nth-child(3){width:64%}.letter .lines em:nth-child(6){width:78%}
+.letter .ft{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;padding-top:9px;border-top:1px solid var(--gold-300)}
+.letter .ft .adr{font-size:5.2px;line-height:1.75;letter-spacing:.02em;color:var(--text-muted)}
+.mail{width:180px;display:flex;flex-direction:column;gap:9px}
+.mail .lines{display:grid;gap:5px}.mail .lines em{display:block;height:1px;background:var(--ink-100)}
+.mail .lines em:nth-child(3){width:62%}
+.mail .signrow{display:flex;align-items:center;gap:11px;padding-top:9px;border-top:1px solid var(--gold-300)}
+.mail .who{font-size:9px;line-height:1.6;color:var(--text-muted)}
+.mail .who b{display:block;font-family:var(--font-display);font-size:11px;font-weight:400;color:var(--text-heading)}
+.napkin{width:132px;height:104px;background:var(--cream-200);display:flex;align-items:flex-end;justify-content:flex-end;padding:12px 14px;box-sizing:border-box}
+.board{width:158px;height:118px;background:var(--surface-deep);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px}
+.card{width:150px;height:96px;background:#fff;border:1px solid var(--border-hairline);display:flex;flex-direction:column;justify-content:space-between;padding:12px;box-sizing:border-box}
+.card .nm{font-family:var(--font-display);font-size:8px;white-space:nowrap;letter-spacing:.16em;text-transform:uppercase;color:var(--text-heading)}
+.card .dt{font-size:5.4px;white-space:nowrap;line-height:1.7;color:var(--text-muted)}
+.web{width:186px;height:150px;background:var(--surface-deep);display:flex;flex-direction:column;box-sizing:border-box}
+.web .top{display:flex;align-items:center;justify-content:space-between;padding:10px 12px}
+.web .nav{display:flex;gap:8px}
+.web .nav i{display:block;width:16px;height:2px;background:var(--cream-200);opacity:.6}
+.web .body{flex:1;display:flex;flex-direction:column;justify-content:space-between}
+.web .mid{display:grid;gap:5px;padding:0 14px}
+.web .mid i{display:block;height:2px;background:var(--cream-200);opacity:.28}
+.web .mid i:nth-child(2){width:74%}.web .mid i:nth-child(4){width:56%}
+.web .ft{display:flex;justify-content:center;padding:0 0 12px;border-top:1px solid rgba(255,255,255,.14);padding-top:12px;margin-top:12px}
+.gate{width:150px;height:150px;background:var(--green-900);display:flex;align-items:center;justify-content:center}
+.plate{width:150px;height:96px;background:var(--cream-200);display:flex;align-items:center;justify-content:center;gap:14px}
+.foot{margin-top:30px;padding-top:16px;border-top:1px solid var(--border-hairline);font-size:11.5px;line-height:1.7;color:var(--text-muted);max-width:98ch}
+.foot b{color:var(--text-body);font-weight:500}
+.ask{margin-top:18px;padding:18px 20px;background:var(--surface-cream);max-width:98ch}
+.ask h4{margin:0 0 8px;font-family:var(--font-display);font-weight:400;font-size:14px;color:var(--text-heading)}
+.ask ol{margin:0;padding-left:18px;font-size:11.5px;line-height:1.75;color:var(--text-muted)}
+.ask ol b{color:var(--text-body);font-weight:500}
+a{color:var(--gold-600)}a:hover{color:var(--gold-500)}</style></head><body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="rr" viewBox="36.6341 271.7819 25.685 30.008"><g transform="matrix(1 0 0 -1 0 841.8898)"><path d="M 36.6341 570.1079 C 37.2161 570.0801 37.978 570.0523 38.92 570.0246 C 39.8622 569.9971 40.7903 569.9832 41.7047 569.9832 C 43.007 569.9832 44.2539 569.9971 45.4453 570.0246 C 46.6367 570.0523 47.4817 570.0662 47.9806 570.0662 C 50.2248 570.0662 52.0883 569.7476 53.5706 569.1104 C 55.0531 568.4732 56.1614 567.6072 56.8956 566.5127 C 57.6298 565.4183 57.9969 564.1923 57.9969 562.8345 C 57.9969 562.0034 57.8307 561.1167 57.4982 560.1745 C 57.1657 559.2325 56.5909 558.3458 55.7734 557.5147 C 54.9561 556.6833 53.8407 555.9976 52.4276 555.4573 C 51.0146 554.917 49.2273 554.6469 47.0662 554.6469 L 43.0761 554.6469 L 43.0761 555.478 L 46.6506 555.478 C 48.6179 555.478 50.1211 555.7898 51.16 556.4132 C 52.1991 557.0365 52.9055 557.8679 53.2797 558.9068 C 53.6536 559.946 53.8407 561.1028 53.8407 562.3773 C 53.8407 564.5662 53.3211 566.2633 52.2822 567.4686 C 51.243 568.6739 49.4629 569.2765 46.9414 569.2765 C 45.667 569.2765 44.8356 569.0409 44.4478 568.5701 C 44.0597 568.099 43.8659 567.1431 43.8659 565.7023 L 43.8659 545.0876 C 43.8659 544.0901 43.9489 543.342 44.1153 542.8431 C 44.2814 542.3445 44.6071 542.012 45.0918 541.8456 C 45.5769 541.6795 46.2903 541.5687 47.2323 541.5131 L 47.2323 540.682 C 46.5951 540.7373 45.7985 540.7722 44.8427 540.786 C 43.8866 540.7997 42.9239 540.8067 41.9542 540.8067 C 40.8733 540.8067 39.8622 540.7997 38.92 540.786 C 37.978 540.7722 37.2161 540.7373 36.6341 540.682 L 36.6341 541.5131 C 37.5761 541.5687 38.2895 541.6795 38.7746 541.8456 C 39.2596 542.012 39.585 542.3445 39.7514 542.8431 C 39.9175 543.342 40.0005 544.0901 40.0005 545.0876 L 40.0005 565.7023 C 40.0005 566.7273 39.9175 567.4825 39.7514 567.9675 C 39.585 568.4522 39.2596 568.7847 38.7746 568.965 C 38.2895 569.145 37.5761 569.2487 36.6341 569.2765 Z Z M 43.2425 555.3533 C 44.7386 555.298 45.9162 555.2357 46.7753 555.1662 C 47.6342 555.097 48.3338 555.0347 48.8741 554.9794 C 49.4144 554.9238 49.934 554.8547 50.4326 554.7716 C 52.289 554.4666 53.6261 553.9056 54.4433 553.0881 C 55.2609 552.2709 55.8635 551.0032 56.2513 549.2854 L 57.2905 545.046 C 57.5674 543.8268 57.8514 542.9472 58.1423 542.4069 C 58.4334 541.8666 58.8835 541.6104 59.4933 541.6379 C 59.9641 541.6656 60.359 541.8181 60.6776 542.0951 C 60.9962 542.3723 61.3358 542.7462 61.6961 543.2173 L 62.3194 542.7601 C 61.7374 541.9012 61.1348 541.243 60.5115 540.786 C 59.8881 540.3288 59.0083 540.1001 57.8721 540.1001 C 56.8471 540.1001 55.9466 540.4051 55.1707 541.0145 C 54.3949 541.624 53.8129 542.8157 53.4251 544.5887 L 52.5107 548.7449 C 52.2615 549.9366 51.9775 550.9687 51.6589 551.8414 C 51.34 552.7142 50.8969 553.3999 50.3289 553.8986 C 49.7608 554.3974 48.9226 554.6469 47.8142 554.6469 L 43.3256 554.6469 Z"></path></g></symbol></defs></svg>
+
+<p class="kick">verkenning</p>
+<h1>Merkteken &mdash; voorstel</h1>
+<p class="lede">Het huidige schuurmerk vertelt <b>waar</b> het bedrijf zit, niet <b>wat</b> het is &mdash; en een gevel met balken is het meest gekopieerde teken in de trouwbranche. Dit is de samengevoegde uitkomst van die verkenning: &eacute;&eacute;n voorstel voor een merkteken naast het volledige lockup, met de maten uitgemeten, de rolverdeling ten opzichte van het schuurmerk en het handschrift, en de plekken waar het terechtkomt. <b>De R is de getekende kapitaal uit RIJLAARSDAM</b> &mdash; geen nieuwe letter, maar een die al in de huisstijl zit.</p>
+<div class="status">Voorstel &middot; ter beoordeling door de ontwerper</div>
+
+<div class="sec">
+<h3>Drie stemmen, drie rollen</h3>
+<p>Er zijn drie tekens en ze doen alle drie iets anders. Het <b>handschrift</b> spreekt &mdash; het is het enige element dat klinkt als een mens en volgens de ontwerper het hart van het logo. De <b>R</b> ondertekent &mdash; kort en formeel, de afzender. Het <b>schuurmerk</b> wijst de weg &mdash; een gebouw op afstand. Merk het verschil in richting: het handschrift <b>loopt</b>, de R <b>staat</b>, het schuurmerk <b>is er</b>. Per vlak kiest &eacute;&eacute;n stem de toon; nooit twee stemmen in &eacute;&eacute;n regel.</p>
+<div class="strip">
+<div class="bay "><span class="sc" style="font-size:52px;color:var(--gold-500)">Welkom</span><div class="lbl">Handschrift &middot; BDScript</div><div class="sub">Spreekt. Uitnodiging, groet, het woord dat de gast aanspreekt.</div></div>
+<div class="bay "><span class="mk float" style="font-size:58px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:62%"></span><span class="caps" style="font-size:15.50px">Rijlaarsdam</span></span><div class="lbl">R op de regel</div><div class="sub">Ondertekent. Afzender, eigendom, herkomst.</div></div>
+<div class="bay "><img src="../assets/logo-mark.svg" alt="" style="height:86px"><div class="lbl">Schuurmerk</div><div class="sub">Wijst de weg. Plek, aankomst, monument.</div></div>
+<div class="bay cream"><div style="display:grid;justify-items:center;gap:14px"><img src="../assets/logo-hoeve-script.svg" alt="Hoeve" style="height:40px"><span style="font-family:var(--font-display);font-size:14px;letter-spacing:.3em;padding-left:.3em;color:var(--text-heading)">RIJLAARSDAM</span></div><div class="lbl">In het logo staan er twee</div><div class="sub">Handschrift boven getekende caps &mdash; het bouwprincipe waar alles uit komt.</div></div>
+<div class="bay "><span class="no"><div style="display:flex;align-items:center;gap:14px"><span class="sc" style="font-size:34px;color:var(--gold-500)">Welkom</span><span class="mk float" style="font-size:34px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:62%"></span></span></div></span><div class="lbl">Niet in &eacute;&eacute;n regel</div><div class="sub">Spreken en ondertekenen tegelijk: dan doet geen van beide zijn werk.</div></div>
+</div>
+</div>
+
+<div class="sec">
+<h3>&Eacute;&eacute;n lettertype in het merk</h3>
+<p><b>Het merkteken bestaat uit &eacute;&eacute;n lettertype: Playfair Display.</b> De R en het woord eronder komen allebei uit RIJLAARSDAM en zijn dus familie &mdash; de streep verbindt gelijksoortige vormen. Een merk dat twee lettertypes nodig heeft is in de praktijk onwerkbaar: het is niet na te maken in een e-mailhandtekening, een Word-sjabloon of door een leverancier, en bij elke nieuwe tak moet iemand met de hand een woord tekenen. Het handschrift heeft daarom een <b>eigen plek buiten het teken</b> &mdash; niet erin, niet eronder.</p>
+<p style="margin-top:10px"><b>Er is ook een harde reden.</b> BDScript is een onvolledig font: zeven kapitalen &mdash; <b>A C I P T U W</b> &mdash; en ook de cijfers 2, 7 en 9 en de meeste leestekens ontbreken. Elk ontbrekend teken valt stil terug op een ander lettertype, midden in het woord. Namen als <i>Keuken</i>, <i>Galerie</i>, <i>Events</i> en <i>Rijlaarsdam</i> zijn met dit font dus niet te zetten; ze bestaan alleen als getekende vector. Het handschrift kan daarom geen namen dragen &mdash; alleen zinnen die met een van die zeven letters beginnen, of met een kleine letter.</p>
+<div class="strip">
+<div class="bay pick"><span class="mk float" style="font-size:62px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:62%"></span><span class="caps" style="font-size:16.57px">Catering</span></span><div class="lbl">&Eacute;&eacute;n lettertype &mdash; voorstel</div><div class="sub">R en woord uit dezelfde letter. Overal reproduceerbaar.</div></div>
+<div class="bay "><span class="no"><span class="mk float" style="font-size:62px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:62%"></span><span class="scw" style="font-size:26px">Catering</span></span></span><div class="lbl">Handschrift eronder &mdash; niet</div><div class="sub">Twee handen op &eacute;&eacute;n teken; de streep scheidt in plaats van te verbinden.</div></div>
+<div class="bay "><span class="no"><span class="sc" style="font-size:30px;color:var(--ink-900)">Galerie</span></span><div class="lbl">De kapitaal valt terug</div><div class="sub">BDScript heeft geen G. De hoofdletter komt uit een ander lettertype &mdash; zichtbaar en onbedoeld.</div></div>
+<div class="bay pick"><div style="display:grid;justify-items:center;gap:14px"><span class="sc" style="font-size:26px;color:var(--gold-500)">Uit onze keuken</span><span class="mkh" style="font-size:26px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="vr"></span><span class="caps" style="font-size:6.95px">Rijlaarsdam</span></span></div><div class="lbl">Naast elkaar, op afstand &mdash; goed</div><div class="sub">Het handschrift spreekt bovenaan, de R ondertekent onderaan.</div></div>
+<div class="bay "><span class="no"><div style="display:grid;justify-items:center;gap:2px"><img src="../assets/logo-hoeve-script.svg" alt="Hoeve" style="height:30px"><span class="mk float" style="font-size:40px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:62%"></span><span class="caps" style="font-size:10.69px">Rijlaarsdam</span></span></div></span><div class="lbl">Gestapeld &mdash; niet</div><div class="sub">Dit is het volledige logo half nagebouwd. Gebruik dan het echte lockup.</div></div>
+</div>
+</div>
+
+<div class="sec">
+<h3>De verhouding letter&ndash;woord</h3>
+<p>Vier trappen, alleen de woordgrootte verandert. De maat is de <b>hoogte van de caps ten opzichte van de hoogte van de R</b>. Onder 20% wordt de naam een voetnoot en gaat de letter domineren; boven 32% verliest de R zijn rol als initiaal en worden het twee elementen naast elkaar. <b>26%</b> is de rustigste stand: het woord heeft gewicht en de letter blijft de baas. Alles hieronder is een verhouding van &eacute;&eacute;n maat, dus het beeld blijft op elk formaat gelijk.</p>
+<div class="strip">
+<div class="bay "><span class="gauge"><span class="mk float" style="font-size:54px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl"></span><span class="caps" style="font-size:10.80px">Rijlaarsdam</span></span></span><div class="lbl">20%</div><div class="sub">Ondergeschikt; de naam wordt bijna een voetnoot.</div></div>
+<div class="bay pick"><span class="gauge"><span class="mk float" style="font-size:54px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl"></span><span class="caps" style="font-size:14.43px">Rijlaarsdam</span></span></span><div class="lbl">26% &mdash; voorkeur</div><div class="sub">Letter en woord in balans. Hierop staat de rest van de kaart.</div></div>
+<div class="bay "><span class="gauge"><span class="mk float" style="font-size:54px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl"></span><span class="caps" style="font-size:17.77px">Rijlaarsdam</span></span></span><div class="lbl">32%</div><div class="sub">Woord wint; de R wordt een versiering.</div></div>
+<div class="bay "><span class="gauge"><span class="mk float" style="font-size:54px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl"></span><span class="caps" style="font-size:22.22px">Rijlaarsdam</span></span></span><div class="lbl">40% &mdash; te ver</div><div class="sub">Twee losse elementen boven elkaar.</div></div>
+</div>
+</div>
+
+<div class="sec">
+<h3>Tweaks op de zwevende regel</h3>
+<p>De zwevende regel is het uitgangspunt: de lucht boven de regel iets ruimer dan eronder, zodat de regel bij het woord hoort en niet aan de letter hangt. Zelfde verhouding, vier knoppen om aan te draaien. De <b>korte regel</b> is de zuinigste &mdash; hij hoeft niet zo breed te zijn als het woord om het woord te dragen, en houdt het merk smal. De <b>ruime spati&euml;ring</b> sluit het dichtst aan op RIJLAARSDAM in het logo zelf.</p>
+<div class="strip">
+<div class="bay "><span class="mk float" style="font-size:58px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl"></span><span class="caps" style="font-size:15.50px">Rijlaarsdam</span></span><div class="lbl">Regel op woordbreedte</div><div class="sub">De regel loopt zo breed als de naam.</div></div>
+<div class="bay pick"><span class="mk float" style="font-size:58px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:62%"></span><span class="caps" style="font-size:15.50px">Rijlaarsdam</span></span><div class="lbl">Korte regel &middot; voorkeur</div><div class="sub">Smaller dan het woord; lichter en compacter.</div></div>
+<div class="bay "><span class="mk float" style="font-size:58px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl"></span><span class="caps" style="font-size:15.50px;letter-spacing:0.42em;padding-left:0.42em">Rijlaarsdam</span></span><div class="lbl">Ruime spati&euml;ring</div><div class="sub">.42em &mdash; zoals RIJLAARSDAM in het logo staat.</div></div>
+<div class="bay "><span class="mk float" style="font-size:58px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl"></span><span class="caps" style="font-size:15.50px;letter-spacing:0.18em;padding-left:0.18em">Rijlaarsdam</span></span><div class="lbl">Krappe spati&euml;ring</div><div class="sub">.18em &mdash; strakker, moderner, minder huisstijl.</div></div>
+</div>
+<div class="strip">
+<div class="bay pick"><span class="mk float" style="font-size:62px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:62%"></span><span class="caps" style="font-size:16.57px">Rijlaarsdam</span></span><div class="lbl">Alleen de naam &middot; standaard</div><div class="sub">De gangbare stand, op alles wat binnen het huis blijft.</div></div>
+<div class="bay "><span class="mk float" style="font-size:62px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:80%"></span><span class="caps" style="font-size:16.57px">Hoeve Rijlaarsdam</span></span><div class="lbl">Met &lsquo;Hoeve&rsquo; erbij</div><div class="sub">Voluit, voor buiten eigen kring. Vraagt een bredere plek.</div></div>
+</div>
+</div>
+
+<div class="sec">
+<h3>Maatladder</h3>
+<p>De caps zijn onder <b>8px in druk en 10px op scherm</b> niet meer te lezen, ook niet met minder spati&euml;ring. Het merk valt daarom in stappen terug in plaats van door te schalen. De <b>letter met het korte streepje</b> doet hier het meeste werk: klein, herkenbaar, en nog altijd een merk in plaats van een losse letter.</p>
+<div class="strip">
+<div class="bay "><span class="mk float" style="font-size:60px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:62%"></span><span class="caps" style="font-size:16.04px">Rijlaarsdam</span></span><div class="lbl">Groot &middot; vanaf 60px</div><div class="sub">Gevel, menukaart, briefpapier, eerste pagina.</div></div>
+<div class="bay "><span class="mk float" style="font-size:46px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:62%"></span><span class="caps" style="font-size:12.30px">Rijlaarsdam</span></span><div class="lbl">Midden &middot; 40&ndash;60px</div><div class="sub">Servet, kaartje, e-mailhandtekening.</div></div>
+<div class="bay pick"><span class="mk stub" style="font-size:32px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl"></span></span><div class="lbl">Klein &middot; 20&ndash;40px</div><div class="sub">Letter met kort streepje. Naamspeld, zegel, tabblad.</div></div>
+<div class="bay "><span class="mk none" style="font-size:20px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl"></span></span><div class="lbl">Minimaal &middot; onder 20px</div><div class="sub">Kale letter, alleen waar de afzender al vaststaat: favicon, avatar, watermerk.</div></div>
+<div class="bay "><span class="mkh" style="font-size:34px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="vr"></span><span class="caps" style="font-size:9.09px">Rijlaarsdam</span></span><div class="lbl">Horizontaal</div><div class="sub">Header, briefvoet, band langs een pagina.</div></div>
+</div>
+</div>
+
+<div class="sec">
+<h3>De takken van het bedrijf</h3>
+<p>De <b>R blijft staan</b> &mdash; die is van het huis en van Roos &mdash; en alleen het woord onder de regel verandert. Elke tak krijgt een eigen teken zonder dat er een tweede merk ontstaat. Dat het woord in caps staat en niet in handschrift is hier het verschil tussen een systeem en handwerk: een nieuwe tak is een kwestie van typen.</p>
+<div class="strip">
+<div class="bay "><span class="mk float" style="font-size:54px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:62%"></span><span class="caps" style="font-size:14.43px">Rijlaarsdam</span></span><div class="lbl">Het huis</div></div>
+<div class="bay "><span class="mk float" style="font-size:54px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:62%"></span><span class="caps" style="font-size:14.43px">Gastvrouwen</span></span><div class="lbl">Hospitality</div></div>
+<div class="bay "><span class="mk float" style="font-size:54px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:62%"></span><span class="caps" style="font-size:14.43px">Keuken</span></span><div class="lbl">Catering</div></div>
+<div class="bay "><span class="mk float" style="font-size:54px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:62%"></span><span class="caps" style="font-size:14.43px">Galerie</span></span><div class="lbl">Beeldentuin</div></div>
+<div class="bay "><span class="mk float" style="font-size:54px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:62%"></span><span class="caps" style="font-size:14.43px">Events</span></span><div class="lbl">Bruiloften en events</div></div>
+</div>
+<p style="margin-top:16px">Moeten de takken fysiek uit elkaar te houden zijn &mdash; kleding, bestelbus, bordjes in de tuin &mdash; dan dragen <b>letter en regel</b> de kleur van de tak terwijl het woord in inkt blijft. Alleen doen als het echt nodig is: vijf kleuren maken van een familie snel een verzameling. Goud blijft van het huis.</p>
+<div class="strip">
+<div class="bay "><span class="mk float" style="font-size:48px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:62%"></span><span class="caps" style="font-size:12.83px">Rijlaarsdam</span></span><div class="lbl">Goud &middot; het huis</div></div>
+<div class="bay "><span class="mk float" style="font-size:48px;color:var(--green-800)"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:62%"></span><span class="caps" style="font-size:12.83px">Gastvrouwen</span></span><div class="lbl">Diepgroen</div></div>
+<div class="bay "><span class="mk float" style="font-size:48px;color:var(--green-700)"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:62%"></span><span class="caps" style="font-size:12.83px">Keuken</span></span><div class="lbl">Middengroen</div></div>
+<div class="bay "><span class="mk float" style="font-size:48px;color:var(--ink-900)"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:62%"></span><span class="caps" style="font-size:12.83px">Galerie</span></span><div class="lbl">Inkt</div></div>
+<div class="bay "><span class="mk float" style="font-size:48px;color:var(--gold-600)"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:62%"></span><span class="caps" style="font-size:12.83px">Events</span></span><div class="lbl">Diep goud</div></div>
+</div>
+</div>
+
+<div class="sec">
+<h3>Op cr&egrave;me en op diepgroen</h3>
+<p>Op donker gaat de letter naar het lichtere goud en het woord naar cr&egrave;me &mdash; anders valt de naamregel dicht. Goud op sage blijft verboden, ook hier.</p>
+<div class="strip">
+<div class="bay "><span class="mk float" style="font-size:56px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:62%"></span><span class="caps" style="font-size:14.97px">Rijlaarsdam</span></span><div class="lbl">Op wit</div></div>
+<div class="bay cream"><span class="mk float" style="font-size:56px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:62%"></span><span class="caps" style="font-size:14.97px">Rijlaarsdam</span></span><div class="lbl">Op cr&egrave;me</div></div>
+<div class="bay dark"><span class="mk float on-dark" style="font-size:56px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:62%"></span><span class="caps" style="font-size:14.97px">Rijlaarsdam</span></span><div class="lbl">Op diepgroen</div></div>
+<div class="bay dark"><span class="mk stub on-dark" style="font-size:34px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl"></span></span><div class="lbl">Klein op diepgroen</div></div>
+<div class="bay dark"><span class="mkh on-dark" style="font-size:30px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="vr"></span><span class="caps" style="font-size:8.02px">Rijlaarsdam</span></span><div class="lbl">Horizontaal op donker</div></div>
+</div>
+</div>
+
+<div class="sec">
+<h3>Schuurmerk of R &mdash; de verdeling per drager</h3>
+<p>Ze concurreren niet, want ze zeggen iets anders. Het schuurmerk is <b>gebouwd</b> &mdash; recht, symmetrisch, van balken; de R is <b>getekend</b> &mdash; met druk in de haal. De vuistregel: <b>hoe dichter bij de gast, hoe eerder de R</b>. Een gebouw kondigt zich aan met een gebouw; een mens ondertekent met een letter. De maatgrens beslist de rest: het schuurmerk heeft minimaal 32px nodig voordat de balken dichtlopen, de R blijft tot ver daaronder leesbaar.</p>
+<table class="tbl">
+<tr><th>Drager</th><th>Teken</th><th>Waarom</th></tr>
+<tr><td>Gevel, hek, bordje aan de weg</td><td class="w">Schuurmerk</td><td>De bezoeker zoekt een pl&eacute;k. Het silhouet werkt op afstand en in &eacute;&eacute;n kleur.</td></tr>
+<tr><td>Website &mdash; koptekst</td><td class="w">Volledig lockup</td><td>De eerste ontmoeting; daar hoort de naam volledig te staan, niet een teken.</td></tr>
+<tr><td>Website &mdash; voettekst, favicon</td><td class="w">R</td><td>De naam is al gevallen. Hier volstaat de afzender.</td></tr>
+<tr><td>Brochure, prijslijst &mdash; omslag</td><td class="w">Schuurmerk</td><td>Het stuk gaat over de locatie; het gebouw is het onderwerp.</td></tr>
+<tr><td>Brief, e-mail, ondertekening</td><td class="w">R</td><td>Iemand schrijft dit. De afzender is een mens.</td></tr>
+<tr><td>Menukaart, servet, tafelkaartje</td><td class="w">R</td><td>Alles wat de gast in handen krijgt, komt van de keuken en de gastvrouwen.</td></tr>
+<tr><td>Bordje in de tuin, bij een beeld</td><td class="w">R &mdash; tak Galerie</td><td>Onderdeel van de galerie, niet van het gebouw.</td></tr>
+<tr><td>Bestelbus, kleding, doos</td><td class="w">R &mdash; tak</td><td>Mensen onderweg. De tak zegt wie er komt.</td></tr>
+<tr><td>Sociale media &mdash; profielbeeld</td><td class="w">R</td><td>Rond en klein; de balken van het schuurmerk lopen daar in elkaar.</td></tr>
+<tr><td>Advertentie, samenwerking, pers</td><td class="w">Volledig lockup</td><td>Buiten eigen kring moet de naam er altijd voluit bij.</td></tr>
+<tr><td>Welkom, aanhef, proost, dank</td><td class="w">Handschrift</td><td>Geen naam maar een uitnodiging &mdash; de enige stem die een mens laat horen.</td></tr>
+</table>
+<div class="strip">
+<div class="bay "><img src="../assets/logo-mark.svg" alt="" style="height:86px"><div class="lbl">96px &mdash; goed</div></div>
+<div class="bay "><img src="../assets/logo-mark.svg" alt="" style="height:32px"><div class="lbl">32px &mdash; grens</div></div>
+<div class="bay "><span class="no"><img src="../assets/logo-mark.svg" alt="" style="height:18px"></span><div class="lbl">18px &mdash; loopt dicht</div></div>
+<div class="bay pick"><span class="mk stub" style="font-size:24px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl"></span></span><div class="lbl">R op 24px &mdash; goed</div></div>
+<div class="bay "><span class="no"><span class="pair"><img src="../assets/logo-mark.svg" alt="" style="height:50px"><span class="mk stub" style="font-size:38px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl"></span></span></span></span><div class="lbl">Niet naast elkaar</div><div class="sub">Twee merktekens op &eacute;&eacute;n regel: geen van beide wint.</div></div>
+</div>
+</div>
+
+<div class="sec">
+<h3>In gebruik</h3>
+<p>Op ware grootte, zodat de maatladder te controleren is. Staan het schuurmerk en de R toch op hetzelfde stuk, dan met <b>een hele pagina of een hele zijde ertussen</b> &mdash; kop en voet, voor- en achterkant. En waar het handschrift meedoet: de hand opent bovenaan, de R sluit af onderaan.</p>
+<div class="strip">
+<div class="bay "><div class="letter"><div class="lines"><em></em><em></em><em></em><em></em><em></em><em></em><em></em><em></em></div><div class="ft"><div class="adr">Nieuwveenseweg 59, Nieuwkoop<br>085 888 3211<br>hoeverijlaarsdam.nl</div><span class="mk stub" style="font-size:26px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl"></span></span></div></div><div class="lbl">Brieffooter</div></div>
+<div class="bay "><div class="menu"><span class="sc" style="font-size:22px;color:var(--gold-500)">Uit onze keuken</span><div class="lines"><em></em><em></em><em></em><em></em><em></em><em></em><em></em></div><span class="mk float" style="font-size:30px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:62%"></span><span class="caps" style="font-size:8.02px">Keuken</span></span></div><div class="lbl">Menukaart</div><div class="sub">Handschrift opent, R ondertekent.</div></div>
+<div class="bay "><div class="mail"><div style="margin-bottom:2px"><span class="sc" style="font-size:22px;color:var(--gold-500)">Welkom Anna,</span></div><div class="lines"><em></em><em></em><em></em><em></em><em></em></div><div class="signrow"><span class="mkh" style="font-size:24px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="vr"></span></span><div class="who"><b>Roos Rijlaarsdam</b>Gastvrouw</div></div></div><div class="lbl">E-mail</div><div class="sub">De aanhef in de hand, de ondertekening in de R.</div></div>
+<div class="bay "><div class="napkin"><span class="mk stub" style="font-size:28px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl"></span></span></div><div class="lbl">Servet</div></div>
+<div class="bay "><div class="board"><span class="sc" style="font-size:28px;color:var(--gold-300)">Welkom</span><img src="../assets/logo-mark-mono.svg" alt="" style="height:26px;filter:brightness(0) invert(1)"></div><div class="lbl">Bord bij de oprit</div><div class="sub">Handschrift spreekt, schuurmerk wijst. De R hoort hier niet.</div></div>
+</div>
+<div class="strip">
+<div class="bay "><div style="display:flex;gap:12px"><div class="card"><div style="display:flex;justify-content:center;align-items:center;flex:1"><img src="../assets/logo-mark.svg" alt="" style="height:34px"></div></div><div class="card" style="width:172px;justify-content:flex-end"><div style="display:flex;align-items:center;gap:9px"><span class="mkh" style="font-size:24px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="vr"></span></span><div><div class="nm">Roos Rijlaarsdam</div><div class="dt">Gastvrouw &middot; 06 12 34 56 78</div></div></div></div></div><div class="lbl">Visitekaartje &mdash; voor- en achterkant</div><div class="sub">E&eacute;n teken per zijde. Het gebouw voorop, de afzender achterop.</div></div>
+<div class="bay "><div class="web"><div class="top"><img src="../assets/logo-mark-mono.svg" alt="" style="height:20px;filter:brightness(0) invert(1)"><div class="nav"><i></i><i></i><i></i></div></div><div class="body"><div class="mid"><i></i><i></i><i></i><i></i></div><div class="ft"><span class="mk float on-dark" style="font-size:26px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:62%"></span><span class="caps" style="font-size:6.95px">Rijlaarsdam</span></span></div></div></div><div class="lbl">Website</div><div class="sub">Schuurmerk in de kop, R in de voet &mdash; een hele pagina ertussen.</div></div>
+<div class="bay "><div class="gate"><img src="../assets/logo-mark-mono.svg" alt="" style="height:64px;filter:brightness(0) invert(1)"></div><div class="lbl">Bij het hek</div><div class="sub">Alleen het gebouw. Op afstand leesbaar.</div></div>
+</div>
+<div class="strip">
+<div class="bay "><div class="plate"><span class="mk float" style="font-size:34px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl" style="width:62%"></span><span class="caps" style="font-size:9.09px">Keuken</span></span></div><div class="lbl">Op tafel</div><div class="sub">Alleen de R. Het gebouw is al gevonden.</div></div>
+<div class="bay "><span class="no"><div class="plate" style="background:#fff"><img src="../assets/logo-mark.svg" alt="" style="height:40px"><span class="mk stub" style="font-size:34px"><svg class="R" viewBox="0 0 25.685 30.008" aria-hidden="true"><use href="#rr" width="25.685" height="30.008"></use></svg><span class="rl"></span></span></div></span><div class="lbl">Niet zo</div><div class="sub">Gelijke maat, gelijke plek: twee logo&rsquo;s die vechten.</div></div>
+</div>
+</div>
+
+<p class="foot"><b>Het voorstel in het kort.</b> Een merkteken naast het lockup: de <b>R uit RIJLAARSDAM</b> met een zwevende regel eronder, caps op <b>26%</b> van de letterhoogte, regel op ongeveer <b>62%</b> van de woordbreedte, spati&euml;ring .3em. <b>Alles in Playfair Display</b> &mdash; het teken heeft nooit een tweede lettertype nodig. Twee vaste terugvalstanden: letter met kort streepje tussen 20 en 40px, kale letter daaronder. De takken delen de letter en wisselen alleen het woord; kleur per tak is een middel voor fysieke dragers, geen uitgangspunt. Drie standen naast elkaar: <b>lockup</b> waar de naam voor het eerst valt, <b>schuurmerk</b> waar de plek het onderwerp is, <b>R</b> op alles wat een mens overhandigt of ondertekent en op alles wat klein moet. Het <b>handschrift</b> houdt zijn eigen taak: alles wat de gast aanspreekt &mdash; welkom, aanhef, proost, dank. Nooit alle drie op &eacute;&eacute;n vlak, en nooit twee stemmen in &eacute;&eacute;n regel.</p>
+
+<div class="ask">
+<h4>Wat wij graag van de ontwerper horen</h4>
+<ol>
+<li>Is de <b>R uit RIJLAARSDAM</b> de juiste bron, of hoort een merkteken een eigen getekende letter te zijn?</li>
+<li>Klopt <b>26% / 62% / .3em</b> als vaste verhouding, of wilt u die anders zetten?</li>
+<li>Mogen <b>lockup en merkteken op dezelfde drager</b> staan als er genoeg afstand tussen zit &mdash; kop en voet, voor- en achterkant &mdash; of nooit?</li>
+<li>Blijft het <b>schuurmerk</b> op termijn alleen nog buiten leven? Als de R op alles binnen staat is dat een re&euml;le uitkomst.</li>
+<li>Is de afspraak <b>&eacute;&eacute;n lettertype in het teken</b> ook uw voorkeur, of ziet u een handgeschreven variant die w&eacute;l werkbaar is?</li>
+</ol>
+</div>
+</body></html>

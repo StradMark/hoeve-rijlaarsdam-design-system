@@ -9,8 +9,9 @@ De vier seizoenskaarten (winter en kerst, elk in het vlak en schermvullend) ware
 animatie van ~105 kB. Ze zijn nu vier bestanden van ~1 kB die drie gedeelde bronnen in `guidelines/seasonal/`
 laden:
 
-- `seizoenslogo-svg.js` — de tekening: alle halen, maskers, de grote vlok, caps, schuurmerk en de vlokjes
-  in het vlak.
+- `seizoenslogo.svg` — de tekening: alle halen, maskers, de grote vlok, caps, schuurmerk en de vlokjes
+  in het vlak. Als los bestand, niet als JS-string: zo laadt hij alleen op de kaarten die hem tonen in
+  plaats van in de bundel van elke afnemer terecht te komen.
 - `seizoenslogo.css` — de beweging (pen, wisser, dwarrelen), de vijf opbouwen, de kerstlaag en de twee
   vlakstanden.
 - `seizoenslogo.js` — de bediening: knoppen, toelichting, opnieuw schrijven en de schermvullende sneeuwlaag.

@@ -17,15 +17,15 @@ function Card(){
   return <div style={{display:'flex',flexDirection:'column',gap:'var(--space-7)',padding:'var(--space-6) 0 260px'}}>
     <div>
       <p className="lbl">Vlak &mdash; tot zeven links</p>
-      <NavBar mode="flat" logo={A+'logo-lockup.svg'} left={FLAT_L} right={FLAT_R} active="Ruimtes"/>
+      <NavBar sticky={false} mode="flat" logo={A+'logo-lockup.svg'} left={FLAT_L} right={FLAT_R} active="Ruimtes"/>
     </div>
     <div>
       <p className="lbl">Uitklapmenu &mdash; gesloten</p>
-      <NavBar logo={A+'logo-lockup.svg'} left={DD_L} right={DD_R} active="Contact" ctaLabel="Vraag offerte aan"/>
+      <NavBar sticky={false} logo={A+'logo-lockup.svg'} left={DD_L} right={DD_R} active="Contact" ctaLabel="Vraag offerte aan"/>
     </div>
     <div>
       <p className="lbl">Uitklapmenu &mdash; paneel open op Ruimtes</p>
-      <div id="open"><NavBar logo={A+'logo-mark.svg'} left={DD_L} right={DD_R} active="De Deel" ctaLabel="Vraag offerte aan"/></div>
+      <div id="open"><NavBar sticky={false} logo={A+'logo-mark.svg'} left={DD_L} right={DD_R} active="De Deel" ctaLabel="Vraag offerte aan"/></div>
     </div>
   </div>;
 }

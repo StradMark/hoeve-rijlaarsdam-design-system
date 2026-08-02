@@ -22,6 +22,12 @@ export interface RoomCardProps {
    * essential in it.
    */
   reveal?: 'always' | 'hover';
+  /**
+   * Which field the card stands on. 'light' (default) = gold caption on white or cream;
+   * 'onSage' = white caption and ink facts, because gold on sage is forbidden;
+   * 'onDeep' = candle gold on the deep-green panel.
+   */
+  tone?: 'light' | 'onSage' | 'onDeep';
   readMoreLabel?: string;
   bookLabel?: string;
   onReadMore?: () => void;
@@ -31,4 +37,7 @@ export interface RoomCardProps {
   ratio?: string;
   style?: React.CSSProperties;
 }
+/**
+ * @startingPoint section="Blokken" subtitle="Fotokaart voor een ruimte, met feiten eronder" viewport="400x420"
+ */
 export declare function RoomCard(props: RoomCardProps): JSX.Element;

@@ -11,7 +11,7 @@ const DS = new Proxy(window.HoeveRijlaarsdamDesignSystem_374762 || {}, {
     };
   }
 });
-const { PullQuote, PageOutro, CtaBand, PhotoCarousel, SectionHeading, QuoteBar, RoomCard, ImageCaptionCard, InfoTile, PersonCard, SiteMap, SitePlan, BenefitsPanel, TestimonialCard, FaqAccordion, Button, Input, TabPills, CarouselNav, NavBar, HeroVideo, SplitHero, SplitPanel, Footer } = DS;
+const { PullQuote, PageOutro, CtaBand, PhotoCarousel, SectionHeading, QuoteBar, RoomCard, ImageCaptionCard, InfoTile, PersonCard, SiteMap, SitePlan, BenefitsPanel, FaqAccordion, TabbedDetail, Select, Choice, ChoiceGroup, FormStatus, EmptyState, Skeleton, LoadingRegion, Lightbox, PriceList, Button, Input, TabPills, CarouselNav, NavBar, HeroVideo, SplitHero, SplitPanel, Footer } = DS;
 
 const IMG = {
   gallery:'../../assets/photo-koetshuis-expositie.jpg',
@@ -70,7 +70,7 @@ const IMG = {
 };
 
 const FOOTER_COLS = [
-  {title:'Hoeve Rijlaarsdam',lines:[{text:'Nieuwveenseweg 59'},{text:'2421 LB Nieuwkoop'},{text:'06 - 42 57 63 95',strong:true},{text:'info@rijlaarsdam.nl',strong:true}]},
+  {title:'Hoeve Rijlaarsdam',lines:[{text:'Nieuwveenseweg 59'},{text:'2421 LB Nieuwkoop'},{text:'085 888 3211',strong:true},{text:'info@hoeverijlaarsdam.nl',strong:true}]},
   {title:'Neem contact op',lines:[{text:'Feesten en meetings',strong:true},{text:'Roos Rijlaarsdam: 06 - 58 98 59 63'},{text:'Galerie & beeldentuin',strong:true},{text:'Loekie Rijlaarsdam: 06 - 42 57 63 95'}]},
   {title:'Openingstijden galerie',lines:[{label:'Ma t/m do',text:'op afspraak'},{label:'Vrij & za',text:'11.00 - 17.00 uur'},{label:'Zondag',text:'13.00 - 17.00 uur'}]}
 ];
@@ -161,27 +161,54 @@ const CAROUSELS={
   ]
 };
 
+/* De gebundelde Footer loopt één compilatie achter op de bron. Kreeg hij objecten terwijl hij
+   ze nog niet kent, dan rendert React ze als child en crasht elke pagina — dus eerst kijken of
+   de bundel de {label, href}-vorm al aankan, en anders alleen de juridische regels tonen. */
+const FOOTER_HAS_HREF=/l\.href/.test(String(DS.Footer||''));
+const FOOT_LINKS=FOOTER_HAS_HREF
+  ?[{label:'Agenda',href:'#Agenda'},{label:'Afscheid nemen',href:'#Afscheid'},'Algemene voorwaarden','Cookies','Privacy']
+  :['Algemene voorwaarden','Cookies','Privacy'];
+
+/* De gebundelde componenten lopen één compilatie achter op de bron. Een scherm dat een
+   gloednieuw component aanroept crasht dan met "Element type is invalid" — daarom een
+   eenvoudige terugval tot de bundel is bijgewerkt. */
+const EmptyStateSafe = DS.EmptyState || (({title,children,action})=>
+  <div role="status" style={{textAlign:'center',padding:'var(--space-8) var(--space-6)'}}>
+    {title&&<h3 style={{margin:0,fontFamily:'var(--font-display)',fontWeight:400,
+      fontSize:'var(--fs-display-s)',color:'var(--text-heading)'}}>{title}</h3>}
+    {children&&<p style={{margin:'var(--space-3) auto 0',maxWidth:'46ch',fontSize:'var(--fs-body-s)',
+      lineHeight:'var(--lh-body)',color:'var(--text-muted)'}}>{children}</p>}
+    {action&&<div style={{marginTop:'var(--space-6)'}}>{action}</div>}
+  </div>);
+
 function PageEnd({page='home',tone='cream',kicker,title,body,onCta}){
+  /* Klikken op het middelste beeld opende tot nu toe niets: PhotoCarousel vuurt onSelect,
+     maar er luisterde niemand. Nu opent het de foto op ware grootte. */
+  const fotos=CAROUSELS[page]||CAROUSELS.home;
+  const [zoom,setZoom]=React.useState(null);
   return <React.Fragment>
-    <PageOutro tone={tone} items={CAROUSELS[page]||CAROUSELS.home} height={400}
+    <PageOutro tone={tone} items={fotos} height={400} onSelect={(it,k)=>setZoom(k)}
       kicker={kicker} title={title} body={body} onCta={onCta}/>
-    <Footer columns={FOOTER_COLS}/>
+    <Footer columns={FOOTER_COLS} links={FOOT_LINKS}/>
+    {zoom!==null&&Lightbox&&<Lightbox items={fotos} index={zoom} onIndex={setZoom} onClose={()=>setZoom(null)}/>}
   </React.Fragment>;
 }
 
-function ReviewRow({tone='sage'}){
-  const q='\u201cEen bijzondere locatie die is samen te vatten als ruimtelijk, rustig en liefdevol. Alles werd tot in de puntjes verzorgd \u2014 wij hadden er geen omkijken naar.\u201d';
-  return <div style={{position:'relative'}}>
-    <Section pad="var(--section-y-tight) var(--space-8) 0">
-      <SectionHeading kicker="mooie reactie" title="Van klanten" align="center" size="m"/>
-    </Section>
-    <Section pad="var(--space-6) var(--space-8) var(--section-y-tight)">
-      <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'var(--space-6)'}}>
-        <TestimonialCard tone={tone} quote={q} attribution="Voornaam en Achternaam, uit Nieuwkoop"/>
-        <TestimonialCard tone={tone} quote={q} attribution="Voornaam en Achternaam, uit Nieuwkoop"/>
-      </div>
-    </Section>
-  </div>;
+/* De kaarten moeten van de band afsteken: op een crème band worden ze diepgroen, op wit
+   blijven ze crème. Zonder die regel staat er crème op crème en verdwijnt de kaartvorm. */
+function ReviewRow({tone,background}){
+  const kaartToon=tone||(background?'deep':'cream');
+  const q='Een bijzondere locatie, samen te vatten als ruimtelijk, rustig en liefdevol. Alles werd tot in de puntjes verzorgd \u2014 wij hadden er geen omkijken naar.';
+  const q2='Onze gasten praten er nog steeds over. De tuin, het eten, en vooral de mensen die het draaiende houden.';
+  /* Eén Section, niet twee: als kop en kaarten elk hun eigen sectie hebben staan er twee
+     vlakken van dezelfde kleur tegen elkaar. */
+  return <Section background={background} pad="var(--section-y-tight) var(--space-8)">
+    <SectionHeading kicker="mooie reactie" title="Van klanten" align="center" size="m"/>
+    <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'var(--space-6)',marginTop:'var(--space-6)'}}>
+      <PullQuote compact tone={kaartToon} name="Anna en Joost" role="uit Nieuwkoop">{q}</PullQuote>
+      <PullQuote compact tone={kaartToon} name="Marijke de Wit" role="uit Alphen aan den Rijn">{q2}</PullQuote>
+    </div>
+  </Section>;
 }
 
 const FAQ_ITEMS=[
@@ -193,5 +220,5 @@ const FAQ_ITEMS=[
 ];
 
 Object.assign(window,{DS,IMG,FOOTER_COLS,CAROUSELS,Section,Lead,PageEnd,CtaBand,PageOutro,PullQuote,ReviewRow,FAQ_ITEMS,
-  PhotoCarousel,SectionHeading,QuoteBar,RoomCard,ImageCaptionCard,InfoTile,PersonCard,SiteMap,SitePlan,BenefitsPanel,TestimonialCard,FaqAccordion,
+  PhotoCarousel,SectionHeading,QuoteBar,RoomCard,ImageCaptionCard,InfoTile,PersonCard,SiteMap,SitePlan,BenefitsPanel,FaqAccordion,TabbedDetail,PriceList,Select,Choice,ChoiceGroup,FormStatus,EmptyState:EmptyStateSafe,Skeleton,LoadingRegion,Lightbox,
   Button,Input,TabPills,CarouselNav,NavBar,HeroVideo,SplitHero,SplitPanel,Footer});

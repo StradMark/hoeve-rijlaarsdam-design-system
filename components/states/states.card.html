@@ -1,0 +1,76 @@
+<!-- @dsCard group="Inhoudsblokken" viewport="1180x900" name="Lege en laadstaten" subtitle="EmptyState en Skeleton — wat er staat als er niets is, en de vorm van wat er komt terwijl het laadt" -->
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:26px 32px;background:var(--surface-page)}
+.head{display:flex;align-items:baseline;gap:14px;padding:22px 0 14px;border-top:1px solid var(--border-hairline)}
+.head:first-child{border-top:0;padding-top:0}
+.head b{font-family:var(--font-display);font-weight:400;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-600)}
+.head span{font-size:11px;line-height:1.6;color:var(--text-muted)}
+.row{display:grid;grid-template-columns:1fr 1fr 1fr;gap:var(--gap-grid)}
+.note{font-size:11.5px;line-height:1.7;color:var(--text-muted);max-width:96ch;margin:0;padding:20px 0 10px;border-top:1px solid var(--border-hairline)}
+.note b{color:var(--text-body);font-weight:500}</style></head>
+<body><div id="root"></div>
+<script type="text/babel">
+const { EmptyState, Skeleton, LoadingRegion, Button } = window.HoeveRijlaarsdamDesignSystem_374762;
+function Card(){
+  const [laden,setLaden]=React.useState(true);
+  React.useEffect(()=>{const t=setInterval(()=>setLaden(v=>!v),2600);return ()=>clearInterval(t)},[]);
+  return <React.Fragment>
+    <div className="head"><b>Leeg</b><span>Geen fout, dus geen illustratie en geen uitroepteken. Zeg waarom het leeg is en wat er wél kan.</span></div>
+    <div className="row">
+      <div style={{background:'var(--white)',boxShadow:'inset 0 0 0 1px var(--border-hairline)'}}>
+        <EmptyState title="Nog niets gepland"
+          action={<Button tone="outlineDark" size="sm">Bekijk alles</Button>}>
+          Er staat op dit moment geen pop-upavond op de kalender. Wij plannen er een paar per seizoen.
+        </EmptyState>
+      </div>
+      <div style={{background:'var(--surface-sage)'}}>
+        <EmptyState tone="sage" title="Geen zaal gevonden"
+          action={<Button tone="white" size="sm">Wis het filter</Button>}>
+          Met dit aantal gasten past geen van onze zalen. Bel ons — vaak kan er meer dan de filter laat zien.
+        </EmptyState>
+      </div>
+      <div style={{background:'var(--surface-deep)'}}>
+        <EmptyState tone="deep" title="Nog geen reacties">
+          Zodra gasten iets over deze zaal schrijven, staat het hier.
+        </EmptyState>
+      </div>
+    </div>
+
+    <div className="head"><b>Laden</b><span>De vorm van wat er komt, zodat de pagina niet opspringt als de inhoud landt. Een gouden lijn schrijft in en trekt weer weg &mdash; onze eigen haarlijn, geen grijze glans. Wisselt hier elke paar seconden.</span></div>
+    <LoadingRegion label="Agenda wordt geladen" busy={laden}>
+      <div className="row">
+        {laden
+          ? [0,1,2].map(i=><Skeleton key={i} variant="card" delay={i*0.14}/>)
+          : [['Brons in de boomgaard','12 sep'],['Pop-up — oogst','27 sep'],['Kijkdag bruidsparen','5 okt']].map(([t,d])=>
+              <div key={t}>
+                <div style={{aspectRatio:'4 / 3',background:'var(--ink-100)'}}/>
+                <div style={{marginTop:'var(--space-4)',fontFamily:'var(--font-display)',fontSize:'var(--fs-label-m)',
+                  letterSpacing:'var(--ls-label)',textTransform:'uppercase',color:'var(--text-accent)'}}>{d}</div>
+                <p style={{margin:'var(--space-2) 0 0',fontSize:'var(--fs-body-s)',color:'var(--text-body)'}}>{t}</p>
+              </div>)}
+      </div>
+    </LoadingRegion>
+
+    <div className="head"><b>Varianten</b><span>Tekstregels, één beeldvlak, en het donkere paneel.</span></div>
+    <div className="row">
+      <Skeleton lines={4}/>
+      <Skeleton variant="image" ratio="4 / 3"/>
+      <div style={{background:'var(--surface-deep)',padding:'var(--space-6)'}}><Skeleton tone="dark" lines={4}/></div>
+    </div>
+
+    <p className="note"><b>Een skelet, geen spinner.</b> Een spinner zegt alleen &ldquo;wacht&rdquo;; een skelet
+    zegt hoeveel er komt en waar het komt te staan, en de pagina springt niet op als de inhoud landt. Neem de
+    vorm van het echte blok over &mdash; drie kaarten die laden zijn drie kaartskeletten, niet één grijze balk.
+    Onder <code>prefers-reduced-motion</code> staat de lijn stil. <b>Wikkel het gebied in
+    <code> LoadingRegion</code></b>, anders hoort een schermlezer niets: het skelet zelf is
+    <code> aria-hidden</code>. <b>Een lege staat is geen fout</b> &mdash; ging er wél iets stuk, dan is het
+    <code> FormStatus</code> met <code>variant=&quot;error&quot;</code>.</p>
+  </React.Fragment>;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Card/>);
+</script></body></html>

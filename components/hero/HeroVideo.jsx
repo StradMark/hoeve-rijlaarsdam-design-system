@@ -1,6 +1,9 @@
 import React from 'react';
+import { checkKicker } from '../content/SectionHeading.jsx';
 
 export function HeroVideo({image,video,kicker,title,height=460,showPlay=false,align='center',intro=true,children,style}){
+  /* Dezelfde kickerregels als SectionHeading: een hero is niet vrijgesteld. */
+  if(kicker) checkKicker(kicker,title);
   const [hover,setHover]=React.useState(false);
   /* Intro-motion: de scrim trekt open en de tekst zet zich 10px omhoog — het beeld zelf
      blijft stil, zodat video erachter niet meevecht. Eén keer per sessie. */

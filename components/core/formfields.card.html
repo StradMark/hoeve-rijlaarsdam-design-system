@@ -1,0 +1,93 @@
+<!-- @dsCard group="Formulier" viewport="1180x1120" name="Keuzes en meldingen" subtitle="Select, checkbox en radio met hun groep, en de melding na verzenden — op de drie vlakken" -->
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;background:var(--white);padding:32px 40px}.lbl{font-family:var(--font-display);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-500);margin:0 0 12px}.note{font-size:11.5px;line-height:1.7;color:var(--text-muted);max-width:94ch;margin:24px 0 0}.note b{color:var(--text-body);font-weight:500}.row{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap-grid);margin-bottom:var(--gap-grid)}</style></head><body><div id="root"></div>
+<script type="text/babel">
+const { Select, Choice, ChoiceGroup, FormStatus, Button } = window.HoeveRijlaarsdamDesignSystem_374762;
+const GELEGENHEID=['Bruiloft','Bedrijfsfeest','Vergadering of training','Jubileum of verjaardag','Anders'];
+const RUIMTE=[{value:'koetshuis',label:'Koetshuis — tot 250 gasten'},
+  {value:'hooiberg',label:'Hooiberg — tot 30 personen'},
+  {value:'stal',label:'Stal — besloten, tot 60 gasten'},
+  {value:'atelier',label:'Ontwikkelatelier — coaching en strategie'}];
+
+function Demo(){
+  const [sent,setSent]=React.useState(false);
+  const [gasten,setGasten]=React.useState('');
+  const [akkoord,setAkkoord]=React.useState(false);
+  return (
+    <React.Fragment>
+      <div className="row">
+        <div style={{background:'var(--surface-deep)',padding:'var(--space-6)'}}>
+          <p className="lbl" style={{color:'var(--sage-200)'}}>Op het donkergroene paneel — waar het offerteformulier staat</p>
+          <div style={{display:'grid',gap:'var(--space-3)'}}>
+            <Select label="Gelegenheid" options={GELEGENHEID} required/>
+            <Select label="Ruimte" options={RUIMTE} placeholder="Nog geen voorkeur"
+              hint="Weet u het nog niet? Wij denken graag mee."/>
+            <ChoiceGroup legend="Welk dagdeel" columns={3}>
+              {['Ochtend','Middag','Avond'].map(d=>
+                <Choice key={d} type="radio" name="dagdeel" value={d} label={d}/>)}
+            </ChoiceGroup>
+          </div>
+        </div>
+        <div style={{background:'var(--surface-deep)',padding:'var(--space-6)'}}>
+          <p className="lbl" style={{color:'var(--sage-200)'}}>Keuzevelden en foutstaat</p>
+          <ChoiceGroup legend="Waar mogen wij aan denken" hint="Meerdere antwoorden mogelijk">
+            <Choice label="Catering uit eigen keuken" defaultChecked/>
+            <Choice label="Gastvrouwen en bediening"/>
+            <Choice label="Rondleiding door de galerie" hint="Circa 45 minuten, tussen de gangen door"/>
+          </ChoiceGroup>
+          <div style={{marginTop:'var(--space-5)',display:'grid',gap:'var(--space-3)'}}>
+            <Select label="Aantal gasten" options={['1 – 20','20 – 50','50 – 100','100 – 250']}
+              value={gasten} onChange={e=>setGasten(e.target.value)}
+              error={gasten?undefined:'Kies een aantal, dan weten wij welke zaal past.'}/>
+            <ChoiceGroup error={akkoord?undefined:'U moet akkoord gaan voordat wij uw aanvraag mogen bewaren.'}>
+              <Choice label="Ik ga akkoord met de privacyverklaring" invalid={!akkoord}
+                checked={akkoord} onChange={e=>setAkkoord(e.target.checked)}/>
+            </ChoiceGroup>
+          </div>
+        </div>
+      </div>
+      <div className="row">
+        <div style={{background:'var(--surface-sage)',padding:'var(--space-6)'}}>
+          <p className="lbl" style={{color:'var(--white)'}}>Op sage</p>
+          <div style={{display:'grid',gap:'var(--space-3)'}}>
+            <Select label="Gelegenheid" tone="onSage" options={GELEGENHEID}/>
+            <ChoiceGroup legend="Dagdeel" tone="onSage" columns={3}>
+              {['Ochtend','Middag','Avond'].map(d=>
+                <Choice key={d} type="radio" name="dagdeel-sage" value={d} label={d} tone="onSage"/>)}
+            </ChoiceGroup>
+          </div>
+        </div>
+        <div style={{background:'var(--surface-cream)',padding:'var(--space-6)'}}>
+          <p className="lbl">Op cr&egrave;me en wit</p>
+          <div style={{display:'grid',gap:'var(--space-3)'}}>
+            <Select label="Ruimte" tone="onLight" options={RUIMTE}/>
+            <Choice tone="onLight" label="Stuur mij de brochure per e-mail"/>
+            <Choice tone="onLight" type="radio" name="hoe" value="mail" label="Liever per e-mail benaderd" defaultChecked/>
+            <Choice tone="onLight" type="radio" name="hoe" value="tel" label="Liever gebeld"/>
+          </div>
+        </div>
+      </div>
+      <div className="row">
+        <FormStatus title="Dank u, uw aanvraag is verstuurd"
+          action={<Button tone="white" onClick={()=>setSent(!sent)}>Nog een aanvraag</Button>}>
+          Wij nemen binnen twee werkdagen contact met u op. Heeft u haast? Bel Roos op 06 - 58 98 59 63.
+        </FormStatus>
+        <FormStatus variant="error" title="Versturen is niet gelukt">
+          Controleer uw internetverbinding en probeer het opnieuw, of mail ons direct op info@hoeverijlaarsdam.nl.
+        </FormStatus>
+      </div>
+      <p className="note"><b>Twee of meer keuzes horen in een <code>ChoiceGroup</code></b> &mdash; een echte
+      fieldset met legend, zodat de vraag v&oacute;&oacute;r elke optie wordt voorgelezen. De groep draagt ook de
+      foutmelding en, bij radio&rsquo;s, de gedeelde <code>name</code>. <b>Radio of checkbox is geen stijlkeuze:</b>
+      een radio kan niet meer uitgezet worden, dus gebruik die alleen als een standaardantwoord eerlijk is.
+      <b>Geen vinkje, geen kruis</b> in de meldingen: succes is de sage-band, mislukken dezelfde
+      steenkleur als de veldfouten.</p>
+    </React.Fragment>
+  );
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo/>);
+</script></body></html>

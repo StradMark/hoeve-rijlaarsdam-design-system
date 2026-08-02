@@ -24,9 +24,9 @@ export interface PhotoCarouselProps {
   /** true coverflow: the side frames rotate away in perspective. Richer, distinctly less calm —
    *  compare the two on the card before choosing. Dropped on narrow screens. */
   tilt?: boolean;
-  /** triangle arrows pinned to the page edges, the brand's carousel control */
-  edgeArrows?: boolean;
-  /** arrow colour — default 'deep' because this section's background is cream; use 'sage' only on a sage band */
+  /** prev/next naast de streepjes; standaard uit — vegen, pijltoetsen, de zijfoto's en de streepjes volstaan */
+  arrows?: boolean;
+  /** kleur van de pijlen; volgt de band waarop de carousel staat, niet de foto */
   arrowTone?: 'deep' | 'sage' | 'gold' | 'white';
   /** fires when the already-active frame is clicked */
   onSelect?: (item: PhotoCarouselItem | string, index: number) => void;

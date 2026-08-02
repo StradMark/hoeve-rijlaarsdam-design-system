@@ -1,15 +1,23 @@
-<!-- @dsCard group="Panelen en quotes" viewport="1180x760" name="PullQuote" subtitle="Met portret, en de drie kleurvarianten" -->
+<!-- @dsCard group="Inhoudsblokken" viewport="1180x1170" name="PullQuote" subtitle="Iemand die praat — vol over de hele band met portret, of compact als review in een raster. Nooit in kapitalen." -->
 <!DOCTYPE html><html lang="nl"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 <script src="../../_ds_bundle.js"></script>
-<style>body{margin:0;background:var(--white)}</style></head><body><div id="root"></div>
+<style>body{margin:0;background:var(--white)}
+.head{display:flex;align-items:baseline;gap:14px;padding:26px 40px 14px;border-top:1px solid var(--border-hairline)}
+.head:first-child{border-top:0}
+.head b{font-family:var(--font-display);font-weight:400;font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-600)}
+.head span{font-size:11px;line-height:1.6;color:var(--text-muted)}
+.gut{padding:0 40px}
+.note{font-size:11.5px;line-height:1.7;color:var(--text-muted);max-width:94ch;margin:0;padding:22px 40px 30px;border-top:1px solid var(--border-hairline)}
+.note b{color:var(--text-body);font-weight:500}</style></head><body><div id="root"></div>
 <script type="text/babel">
 const { PullQuote } = window.HoeveRijlaarsdamDesignSystem_374762;
 const A='../../assets/';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.Fragment>
+    <div className="head"><b>Vol</b><span>Een eigen band over de volle breedte. Met portret voor een naam die ertoe doet, zonder portret voor een uitspraak die op zichzelf staat.</span></div>
     <PullQuote portrait={A+'photo-chef-buitenkeuken.jpg'} name="Wouter Berghuis" role="Chef-kok en patissier" tone="cream">
       Roos en ik kunnen lezen en schrijven met elkaar, we delen samen een gedachte zonder deze uit te hoeven spreken. Dat komt de beleving van de gasten ten goede.
     </PullQuote>
@@ -19,6 +27,22 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     <PullQuote tone="deep" name="Roos Rijlaarsdam" role="Hospitality">
       Hoe mooier en gelijkmatiger je bereidt, hoe lekkerder het eindproduct.
     </PullQuote>
+    <div className="head"><b>Compact</b><span>Dezelfde stem in kaartvorm: geen portret, quote een maat kleiner. Twee of drie naast elkaar boven de afsluiting van een pagina. Nooit op sage — die band draagt alleen groot zetsel.</span></div>
+    <div className="gut" style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'var(--gap-grid)'}}>
+      <PullQuote compact tone="cream" name="Anna en Joost" role="uit Nieuwkoop">
+        Een bijzondere locatie, samen te vatten als ruimtelijk, rustig en liefdevol. Alles werd tot in de puntjes verzorgd &mdash; wij hadden er geen omkijken naar.
+      </PullQuote>
+      <PullQuote compact tone="deep" name="Marijke de Wit" role="uit Alphen aan den Rijn">
+        Onze gasten praten er nog steeds over. De tuin, het eten, en vooral de mensen die het draaiende houden.
+      </PullQuote>
+    </div>
+    <p className="note"><b>Reviews staan in gewone zin, niet in kapitalen.</b> Een review van dertig woorden in
+    gespatieerde kapitalen leest niemand; de aanhalingstekens zeggen al dat het een citaat is. Dit was een eigen
+    <code> TestimonialCard</code> &mdash; nu de <code>compact</code>-vorm hiervan, zodat er nog maar twee
+    quote-vormen bestaan: een <b>band met een slogan</b> (<code>QuoteBar</code>) of een <b>mens die iets zegt</b>
+    (<code>PullQuote</code>). <b>Compact staat nooit op sage:</b> wit op sage haalt 2,6:1 en die band draagt
+    alleen groot zetsel — de volle vorm hierboven mag er w&eacute;l staan, want die zet 23px. Vraag je toch om
+    sage, dan valt compact terug op cr&egrave;me.</p>
   </React.Fragment>
 );
 </script></body></html>

@@ -13,7 +13,10 @@ export function Input({
   const [inner,setInner]=React.useState(defaultValue||'');
   const val=value!==undefined?value:inner;
   const filled=String(val??'').length>0;
-  const up=focus||filled;          // label sits above the field
+  // A date or time input always paints its own dd-mm-jjjj skeleton, so an empty label
+  // sitting inside the field would collide with it. Those types start risen.
+  const alwaysUp=type==='date'||type==='time'||type==='datetime-local'||type==='month';
+  const up=focus||filled||alwaysUp;   // label sits above the field
   // ONE table per tone instead of ternaries off a dark/light boolean: a two-state boolean
   // silently gives any third tone the wrong branch. Sage is a mid tone where nothing but
   // ink-900 clears 4.5:1 — not cream (2.4), not green-900 (2.9), not the error red (2.1),
@@ -21,8 +24,8 @@ export function Input({
   const TONES={
     onDark : {risen:'var(--cream-100)',help:'var(--cream-100)',helpOpacity:.8,
               err:'var(--field-error-on-dark)',border:'var(--field-error-on-dark)',rest:'transparent'},
-    onSage : {risen:'var(--ink-900)',   help:'var(--ink-900)',  helpOpacity:1,
-              err:'var(--ink-900)',     border:'var(--field-error)',rest:'transparent'},
+    onSage : {risen:'var(--text-on-sage-body)',   help:'var(--text-on-sage-body)',  helpOpacity:1,
+              err:'var(--text-on-sage-body)',     border:'var(--field-error)',rest:'transparent'},
     onLight: {risen:'var(--ink-500)',   help:'var(--ink-500)',  helpOpacity:1,
               err:'var(--field-error)', border:'var(--field-error)',rest:'var(--border-hairline)'}
   };
@@ -63,7 +66,8 @@ export function Input({
           letterSpacing:up?'var(--ls-label)':'0',
           textTransform:up?'uppercase':'none',
           color:up?t.risen:'var(--ink-500)',
-          lineHeight:1.5,cursor:disabled?'not-allowed':'text',
+          // Resting label must share the field's line box, or it sits a hair above centre.
+          lineHeight:up?1.5:'var(--lh-body)',cursor:disabled?'not-allowed':'text',
           transition:'top var(--dur-base) var(--ease-out),left var(--dur-base) var(--ease-out),'+
             'font-size var(--dur-base) var(--ease-out),letter-spacing var(--dur-base) var(--ease-out),'+
             'color var(--dur-base) var(--ease-out)'}}>

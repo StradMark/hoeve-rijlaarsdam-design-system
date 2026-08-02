@@ -1,0 +1,46 @@
+<!-- @dsCard group="Bouwstenen" viewport="900x330" name="Pillen en pijlen" subtitle="TabPills en CarouselNav — de twee schakelaars van de site, op elk vlak waar ze voorkomen" -->
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;padding:20px;background:var(--surface-page)}.band{display:grid;grid-template-columns:96px 1fr auto;align-items:center;gap:24px;padding:18px 20px}.lbl{font-family:var(--font-display);font-size:9.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-500);margin:0}.arrows{display:flex;gap:12px;align-items:center}.note{font-size:11px;line-height:1.65;color:var(--text-muted);margin:14px 0 0}.note b{color:var(--text-body);font-weight:500}</style></head>
+<body><div id="root"></div>
+<script type="text/babel">
+const { TabPills, CarouselNav } = window.HoeveRijlaarsdamDesignSystem_374762;
+function Card(){
+  const [a,setA]=React.useState('Catering');
+  const [b,setB]=React.useState('Diner');
+  return <React.Fragment>
+    <div style={{display:'grid',gap:14}}>
+      <div className="band" style={{background:'var(--surface-cream)'}}>
+        <p className="lbl">Op licht</p>
+        <TabPills tone="onLight" items={['Zakelijk','Catering','Particulier']} value={a} onChange={setA}/>
+        <div className="arrows">
+          <CarouselNav direction="prev" tone="gold"/>
+          <CarouselNav direction="next" tone="gold"/>
+          <CarouselNav direction="next" tone="deep" disabled/>
+        </div>
+      </div>
+      <div className="band" style={{background:'var(--surface-sage)'}}>
+        <p className="lbl" style={{color:'var(--white)'}}>Op sage</p>
+        <TabPills tone="onSage" items={['Diner','Borrel','Lunch']} value={b} onChange={setB}/>
+        <div className="arrows">
+          <CarouselNav direction="prev" tone="white"/>
+          <CarouselNav direction="next" tone="white"/>
+        </div>
+      </div>
+    </div>
+    <p className="note"><b>Een pillenrij hoort altijd iets te wisselen.</b> Voor het patroon &ldquo;pillen boven
+    &eacute;&eacute;n foto-en-tekstpaneel&rdquo; bestaat <code>TabbedDetail</code> &mdash; gebruik die, dan kan er
+    geen rij ontstaan die niets doet. Losse <code>TabPills</code> alleen als de pillen een raster filteren.{' '}
+    <b>De pijlen zijn een haarlijn</b>, geen massieve driehoek &mdash; dezelfde getrokken lijn als de gouden
+    regels elders. Ze staan <b>altijd als paar</b>, nooit los, en nooit als enige manier om verder te komen: de
+    carousel is ook met vegen en met het toetsenbord te bedienen. De derde pijl hierboven is de{' '}
+    <b>uitgeschakelde staat</b>, voor het einde van een carousel die niet rondloopt. <b>Goud nooit op sage</b>{' '}
+    &mdash; 1,3:1; daar is de pijl wit.</p>
+  </React.Fragment>;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Card/>);
+</script></body></html>

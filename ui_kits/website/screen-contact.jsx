@@ -1,5 +1,26 @@
 function ContactScreen({onNavigate,focus}){
+  /* Het formulier volgt het template templates/offerte-pagina — dat is de canonieke versie.
+     Wijzig daar eerst, dan hier. */
+  const [v,setV]=React.useState({});
+  const [errors,setErrors]=React.useState({});
+  const [akkoord,setAkkoord]=React.useState(false);
+  const [tried,setTried]=React.useState(false);
   const [sent,setSent]=React.useState(false);
+  const set=f=>e=>{const value=e&&e.target?e.target.value:e;
+    setV(s=>({...s,[f]:value}));setErrors(s=>{const n={...s};delete n[f];return n});};
+  const field=(name,extra)=>Object.assign({name,value:v[name]||'',onChange:set(name),
+    error:tried?errors[name]:undefined},extra||{});
+  const verstuur=e=>{
+    e.preventDefault();
+    const n={};
+    if(!v.voornaam) n.voornaam='Vul uw voornaam in.';
+    if(!v.achternaam) n.achternaam='Vul uw achternaam in.';
+    if(!v.email) n.email='Vul uw e-mailadres in.';
+    else if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v.email)) n.email='Dit adres lijkt niet te kloppen.';
+    if(!v.gelegenheid) n.gelegenheid='Kies een gelegenheid, dan weten wij wie er meekijkt.';
+    if(!akkoord) n.akkoord='U moet akkoord gaan voordat wij uw aanvraag mogen bewaren.';
+    setErrors(n);setTried(true);setSent(Object.keys(n).length===0);
+  };
   const form=React.useRef(null);
   const token=focus&&focus.n;
   React.useEffect(()=>{
@@ -35,11 +56,11 @@ function ContactScreen({onNavigate,focus}){
             textTransform:'uppercase',color:'var(--white)',margin:'0 0 var(--space-3)',fontWeight:400}}>Hoeve Rijlaarsdam</h3>
           <div style={{fontSize:'var(--fs-body-s)',lineHeight:1.9}}>
             <div>Nieuwveenseweg 59</div><div>2421 LB Nieuwkoop</div>
-            <div style={{fontWeight:'var(--fw-body-strong)'}}>info@feestenmeetings.nl</div>
+            <div style={{fontWeight:'var(--fw-body-strong)'}}>info@hoeverijlaarsdam.nl</div>
             <div style={{fontWeight:'var(--fw-body-strong)'}}>085 888 3211</div>
           </div>
           <div style={{marginTop:'var(--space-5)',display:'flex',gap:'var(--space-3)',flexWrap:'wrap'}}>
-            <Button tone="outlineLight" size="sm" onClick={()=>onNavigate('Locatie')}>Bekijk het erf</Button>
+            <Button tone="outlineLight" size="sm" onClick={()=>onNavigate('Praktisch')}>Bekijk de plattegrond</Button>
             <Button tone="outlineLight" size="sm" onClick={()=>onNavigate('Praktisch')}>Route en parkeren</Button>
           </div>
           <h3 style={{fontFamily:'var(--font-display)',fontSize:'var(--fs-label-l)',letterSpacing:'var(--ls-label)',
@@ -54,19 +75,46 @@ function ContactScreen({onNavigate,focus}){
           <p style={{fontSize:'var(--fs-body-s)',color:'var(--text-on-dark)',lineHeight:'var(--lh-body)',margin:'var(--space-5) 0'}}>
             Laat uw gegevens achter en vertel kort wat u van plan bent. Wij gaan graag met u rond de tafel om er een prachtig evenement van te maken.</p>
           {sent
-            ? <div role="status" style={{background:'var(--sage-400)',color:'var(--white)',padding:'var(--space-5)',fontSize:'var(--fs-body-s)'}}>Dank u — uw aanvraag staat bij ons binnen. Wij nemen binnen één werkdag contact op.</div>
-            : <form noValidate onSubmit={e=>{e.preventDefault();setSent(true);}} style={{display:'grid',gap:'var(--space-3)'}}>
+            ? <FormStatus title="Dank u, uw aanvraag is verstuurd"
+                action={<Button tone="white" onClick={()=>{setV({});setErrors({});setAkkoord(false);setTried(false);setSent(false)}}>Nog een aanvraag</Button>}>
+                Wij nemen binnen twee werkdagen contact met u op met een voorstel op maat. Heeft u haast? Bel Roos op 06 - 58 98 59 63.
+              </FormStatus>
+            : <form noValidate onSubmit={verstuur} style={{display:'grid',gap:'var(--space-3)'}}>
                 <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'var(--space-3)'}}>
-                  <Input label="Voornaam" name="voornaam" required/>
-                  <Input label="Achternaam" name="achternaam" required/>
+                  <Input label="Voornaam" required {...field('voornaam')}/>
+                  <Input label="Achternaam" required {...field('achternaam')}/>
                 </div>
                 <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'var(--space-3)'}}>
-                  <Input label="E-mailadres" name="email" type="email" required/>
-                  <Input label="Telefoonnummer" name="telefoon" type="tel" placeholder="06 - 12 34 56 78"/>
+                  <Input label="E-mailadres" type="email" required {...field('email')}/>
+                  <Input label="Telefoonnummer" type="tel" {...field('telefoon')}/>
                 </div>
-                <Input label="Uw aanvraag" name="aanvraag" multiline rows={3}
+                <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'var(--space-3)'}}>
+                  <Select label="Gelegenheid" required {...field('gelegenheid',{options:['Bruiloft','Bedrijfsfeest','Vergadering of training','Jubileum of verjaardag','Rondleiding galerie','Anders']})}/>
+                  <Select label="Aantal gasten" {...field('gasten',{options:['1 \u2013 20','20 \u2013 50','50 \u2013 100','100 \u2013 250']})}/>
+                </div>
+                <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'var(--space-3)'}}>
+                  <Select label="Ruimte" placeholder="Nog geen voorkeur" {...field('ruimte',{options:[
+                    {value:'koetshuis',label:'Koetshuis \u2014 tot 250 gasten'},
+                    {value:'hooiberg',label:'Hooiberg \u2014 tot 30 personen'},
+                    {value:'stal',label:'Stal \u2014 besloten, tot 60 gasten'},
+                    {value:'atelier',label:'Ontwikkelatelier \u2014 coaching en strategie'}]})}/>
+                  <Input label="Gewenste datum" type="date" {...field('datum')}/>
+                </div>
+                <ChoiceGroup legend="Welk dagdeel" columns={3} value={v.dagdeel} onChange={set('dagdeel')}>
+                  {['Ochtend','Middag','Avond'].map(d=>
+                    <Choice key={d} type="radio" name="dagdeel" value={d} label={d}/>)}
+                </ChoiceGroup>
+                <Input label="Uw aanvraag" multiline rows={3} {...field('bericht')}
                   hint="Datum, aantal gasten en gelegenheid helpen ons het meest."/>
-                <div><Button tone="gold" type="submit">Versturen</Button></div>
+                <ChoiceGroup error={tried?errors.akkoord:undefined}>
+                  <Choice label="Ik ga akkoord met de privacyverklaring" checked={akkoord}
+                    invalid={tried&&!!errors.akkoord}
+                    onChange={e=>{setAkkoord(e.target.checked);setErrors(s=>{const n={...s};delete n.akkoord;return n})}}/>
+                </ChoiceGroup>
+                <div style={{display:'flex',alignItems:'center',gap:'var(--space-5)',flexWrap:'wrap'}}>
+                  <Button tone="gold" type="submit">Versturen</Button>
+                  <span style={{fontSize:'var(--fs-label-s)',color:'var(--sage-200)'}}>Wij reageren binnen twee werkdagen.</span>
+                </div>
               </form>}
         </div>
       </div>
@@ -74,18 +122,18 @@ function ContactScreen({onNavigate,focus}){
 
     <Section pad="var(--section-y-tight) var(--space-8)">
       <div style={{textAlign:'center'}}>
-        <SectionHeading kicker="handig om te" title="Weten" align="center" size="l"/>
+        <SectionHeading kicker="meer" title="Handig om te weten" align="center" size="l"/>
         <Lead align="center" width="70ch">Route, parkeren, openingstijden en tarieven staan bij elkaar op de praktische pagina. Wilt u eerst zien hoe het erf eruitziet, loop dan de plattegrond door.</Lead>
         <div style={{display:'flex',gap:'var(--space-4)',justifyContent:'center',marginTop:'var(--space-6)'}}>
           <Button tone="primary" onClick={()=>onNavigate('Praktisch')}>Praktische informatie</Button>
-          <Button tone="outlineDark" onClick={()=>onNavigate('Locatie')}>Plattegrond</Button>
+          <Button tone="outlineDark" onClick={()=>onNavigate('Praktisch')}>Plattegrond</Button>
         </div>
       </div>
     </Section>
 
     <PageEnd page="contact" tone="sage" kicker="van harte" title="Welkom"
       body="Loop gerust een keer binnen om de plek te zien. Bellen mag ook — dan weet u binnen vijf minuten of het past."
-      ctaLabel="Bel ons" onCta={()=>onNavigate('Praktisch')}/>
+      ctaLabel="Vraag offerte aan" onCta={()=>onNavigate('Contact')}/>
   </React.Fragment>;
 }
 window.ContactScreen=ContactScreen;

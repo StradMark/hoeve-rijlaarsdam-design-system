@@ -6,10 +6,12 @@ import React from 'react';
       survive scanning and touch; 'hover' hides them behind a scrim over the photo, which reads
       well on desktop but does not exist on a phone. Prefer 'always'.
    2. `variant` — 'quiet' (default) gives one gold action with a growing rule; 'bar' is the
-      split dark/sage action bar from the original comps, for two actions per card. */
+      split dark/sage action bar from the original comps, for two actions per card.
+   3. `tone` — which field the card stands on. Gold is forbidden on sage, so onSage swaps the
+      caption and rule to white and the facts to ink; onDeep uses the lighter candle gold. */
 export function RoomCard({
   image,caption,meta=[],summary,
-  variant='quiet',reveal='always',
+  variant='quiet',reveal='always',tone='light',
   readMoreLabel='Lees meer',bookLabel='Boek mij',onReadMore,onBook,
   ratio='4 / 5',style
 }){
@@ -26,6 +28,10 @@ export function RoomCard({
   const [h1,setH1]=React.useState(false);const [h2,setH2]=React.useState(false);
   const metaLine=meta.filter(Boolean).join('  ·  ');
   const clickable=!!onReadMore;
+  const onSage=tone==='onSage',onDeep=tone==='onDeep';
+  const capColor=onSage?'var(--text-on-sage-body)':onDeep?'var(--gold-300)':'var(--text-accent)';
+  const ruleColor=onSage?'var(--rule-on-sage)':onDeep?'var(--gold-300)':'var(--gold-500)';
+  const factColor=onSage?'var(--text-on-sage-body)':onDeep?'var(--cream-100)':'var(--ink-500)';
   const bar={flex:1,textAlign:'center',fontFamily:'var(--font-display)',fontSize:'var(--fs-label-s)',
     letterSpacing:'var(--ls-label)',textTransform:'uppercase',padding:'7px 4px',cursor:'pointer',
     transition:'background var(--dur-fast) var(--ease-out)',border:'none',lineHeight:1.4};
@@ -56,28 +62,28 @@ export function RoomCard({
       )}
       <div style={{marginTop:'var(--space-4)',textAlign:variant==='bar'?'center':'left'}}>
         {caption&&<div style={{fontFamily:'var(--font-display)',fontSize:'var(--fs-label-l)',
-          letterSpacing:'var(--ls-label)',textTransform:'uppercase',color:'var(--text-accent)'}}>{caption}</div>}
+          letterSpacing:'var(--ls-label)',textTransform:'uppercase',color:capColor}}>{caption}</div>}
         {variant==='quiet'&&(
           /* the only hover flourish: a gold hairline growing under the caption. No shadow, no
              radius, no lifting — the brand separates by colour field, not elevation. */
-          <div style={{height:1,marginTop:'var(--space-1)',background:'var(--gold-500)',
+          <div style={{height:1,marginTop:'var(--space-1)',background:ruleColor,
             width:hover?'100%':'0%',transition:'width var(--dur-slow) var(--ease-out)'}}/>
         )}
         {show==='always'&&metaLine&&(
           /* De feitenregel staat in hetzelfde lettertype als de titel erboven (Playfair, gespatieerd),
              niet in Raleway: op verzoek van de ontwerper — titel en feiten horen bij elkaar. */
           <p style={{margin:'var(--space-2) 0 0',fontFamily:'var(--font-display)',fontSize:'var(--fs-label-s)',
-            letterSpacing:'var(--ls-label)',lineHeight:1.6,color:'var(--ink-500)'}}>{metaLine}</p>
+            letterSpacing:'var(--ls-label)',lineHeight:1.6,color:factColor}}>{metaLine}</p>
         )}
         {show==='always'&&summary&&(
           <p style={{margin:'var(--space-2) 0 0',fontSize:'var(--fs-body-s)',lineHeight:'var(--lh-body)',
-            color:'var(--ink-500)',maxWidth:'34ch'}}>{summary}</p>
+            color:factColor,maxWidth:'34ch'}}>{summary}</p>
         )}
         {variant==='quiet'&&clickable&&(
           <span style={{display:'inline-flex',alignItems:'center',marginTop:'var(--space-3)',
             minHeight:narrow?'var(--touch-min)':undefined,fontFamily:'var(--font-display)',
             fontSize:'var(--fs-label-s)',letterSpacing:'var(--ls-label)',textTransform:'uppercase',
-            color:hover?'var(--green-800)':'var(--text-accent)',
+            color:hover?(onSage?'var(--ink-900)':onDeep?'var(--white)':'var(--green-800)'):capColor,
             transition:'color var(--dur-fast) var(--ease-out)'}}>{readMoreLabel}</span>
         )}
       </div>

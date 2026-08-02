@@ -1,7 +1,6 @@
 function HospitalityScreen({onNavigate}){
-  const [tab,setTab]=React.useState('Zakelijk');
   return <React.Fragment>
-    <HeroVideo image={IMG.bediening} kicker="wij komen naar u toe" title="Hospitality op locatie" height={440}/>
+    <HeroVideo image={IMG.bediening} kicker="wij komen" title="Hospitality op locatie" height={440}/>
     <QuoteBar>&ldquo;Daar waar hospitality een kunstvorm is!&rdquo;</QuoteBar>
 
     <Section pad="var(--section-y-tight) var(--space-8)">
@@ -16,14 +15,14 @@ function HospitalityScreen({onNavigate}){
 
     <Section background="var(--surface-sage)" pad="var(--section-y-tight) var(--space-8)">
       <div style={{textAlign:'center'}}>
-        <SectionHeading kicker="waar u ons" title="Kunt inzetten" align="center" size="l" tone="onSage"/>
+        <SectionHeading kicker="inzet" title="Waar u ons kunt inzetten" align="center" size="l" tone="onSage"/>
         <p style={{maxWidth:'74ch',margin:'var(--space-5) auto 0',fontSize:'var(--fs-body-s)',
           lineHeight:'var(--lh-body)',color:'var(--white)'}}>Wij nemen het voor u uit handen — zowel het culinaire gedeelte als de aankleding van het evenement kunt u aan ons overlaten.</p>
       </div>
       <div style={{display:'grid',gridTemplateColumns:'repeat(3,1fr)',gap:'var(--gap-grid)',marginTop:'var(--space-7)'}}>
-        <RoomCard image={IMG.koetshuisBijeenkomst} caption="Zakelijke events" readMoreLabel="Plan een gesprek" onReadMore={()=>onNavigate('Contact')}/>
-        <RoomCard image={IMG.bruiloftTafel} caption="Private dining" readMoreLabel="Plan een gesprek" onReadMore={()=>onNavigate('Contact')}/>
-        <RoomCard image={IMG.koetshuisFeest} caption="Grote evenementen" readMoreLabel="Plan een gesprek" onReadMore={()=>onNavigate('Contact')}/>
+        <RoomCard tone="onSage" image={IMG.koetshuisBijeenkomst} caption="Zakelijke events" readMoreLabel="Plan een gesprek" onReadMore={()=>onNavigate('Contact')}/>
+        <RoomCard tone="onSage" image={IMG.bruiloftTafel} caption="Private dining" readMoreLabel="Plan een gesprek" onReadMore={()=>onNavigate('Contact')}/>
+        <RoomCard tone="onSage" image={IMG.koetshuisFeest} caption="Grote evenementen" readMoreLabel="Plan een gesprek" onReadMore={()=>onNavigate('Contact')}/>
       </div>
     </Section>
 
@@ -31,17 +30,15 @@ function HospitalityScreen({onNavigate}){
       <BenefitsPanel kicker="wat wij" title="Meebrengen" items={['Gastvrouwen en gastheren','Chef en keukenbrigade','Volledige mise en place','Aankleding en styling','Bar en tapinstallatie','Servies, glaswerk en linnen','Streekproducten en eigen tuin','Draaiboek en aansturing op de dag']}/>
     </SplitPanel>
 
-    <Section pad="var(--section-y-tight) var(--space-8)">
-      <div style={{textAlign:'center'}}>
-        <SectionHeading kicker="voor welke" title="Gelegenheid" align="center" size="l"/>
-        <Lead align="center" width="72ch">Vertel ons waar en wanneer, dan stellen wij het team en het menu samen. Uw wensen zijn hierbij altijd leidend — wij leveren echt maatwerk.</Lead>
-        <div style={{display:'flex',justifyContent:'center',marginTop:'var(--space-6)'}}>
-          <TabPills tone="onLight" items={['Zakelijk','Private dining','Kerst en jubilea']} value={tab} onChange={setTab}/>
-        </div>
-      </div>
-    </Section>
-    <ReviewRow/>
-    <PageEnd page="hospitality" tone="cream" kicker="wij komen" title="Naar u toe"
+    <TabbedDetail kicker="voor welke" title="Gelegenheid"
+      lead="Vertel ons waar en wanneer, dan stellen wij het team en het menu samen. Uw wensen zijn hierbij altijd leidend — wij leveren echt maatwerk."
+      items={[
+        {label:'Zakelijk',image:IMG.bediening,body:'Gastvrouwen, gastheren en een chef op uw eigen locatie, met draaiboek en aansturing op de dag.'},
+        {label:'Private dining',image:IMG.bruiloftTafel,body:'Een volledig verzorgd diner voor een select gezelschap, inclusief mise en place, servies, glaswerk en linnen.'},
+        {label:'Kerst en jubilea',image:IMG.koetshuisFeest,body:'Grootschalige feesten waarbij iedereen verwend mag worden — van de bar tot de styling.'}
+      ]}/>
+    <ReviewRow background="var(--surface-cream)"/>
+    <PageEnd page="hospitality" tone="sage" kicker="op locatie" title="Wij komen naar u toe"
       body="Een private diner voor relaties of een grootschalig kerstfeest waarbij iedereen verwend mag worden. Wij worden enorm geprikkeld om bijzondere belevingen op maat te maken."
       onCta={()=>onNavigate('Contact')}/>
   </React.Fragment>;

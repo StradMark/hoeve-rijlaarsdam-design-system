@@ -4,7 +4,7 @@ import { CarouselNav } from '../core/CarouselNav.jsx';
 /* Centre-focused photo carousel: the middle frame is full size and full colour,
    the neighbours sit smaller and further back. Returns on every page, above the footer.
    Advances on its own, but only while it is on screen and nobody is touching it. */
-export function PhotoCarousel({items=[],height=400,initial=0,edgeArrows=true,arrowTone='deep',
+export function PhotoCarousel({items=[],height=400,initial=0,arrows=false,arrowTone='deep',
   interval=5600,autoplay=true,drift=true,tilt=false,onSelect,narrow:narrowProp,style}){
   const [i,setI]=React.useState(initial);
   const [narrowAuto,setNarrowAuto]=React.useState(false);
@@ -117,30 +117,35 @@ export function PhotoCarousel({items=[],height=400,initial=0,edgeArrows=true,arr
               opacity:swiped?0:1,transition:'opacity var(--dur-slow) var(--ease-out)'}}>Veeg voor meer</span>
           </div>
         ):(
-        <div style={{display:'flex',gap:6}}>
+        /* De pijlen staan naast de streepjes, niet over de foto's: op een beeld hangt hun
+           leesbaarheid af van wat er toevallig achter zit, en dan moet elke pagina een eigen
+           kleur kiezen. Hier staan ze op de bandkleur en volstaat één toon. */
+        <div style={{display:'flex',alignItems:'center',gap:'var(--space-5)'}}>
+          {arrows&&<CarouselNav direction="prev" tone={arrowTone} size={36} onClick={()=>go(-1)}/>}
+          <div style={{display:'flex',gap:6}}>
           {items.map((it,k)=>(
             <button key={k} type="button" onClick={()=>jump(k)} aria-label={'Foto '+(k+1)}
-              style={{width:k===i?34:18,height:2,padding:0,border:'none',cursor:'pointer',
+              aria-current={k===i||undefined}
+              style={{width:k===i?34:18,height:22,padding:0,border:'none',cursor:'pointer',
+                background:'transparent',position:'relative',display:'grid',alignItems:'center',
+                transition:'width var(--dur-base) var(--ease-out)'}}>
+              <span aria-hidden="true" style={{display:'block',height:2,width:'100%',
                 background:k===i?'rgba(176,131,68,.28)':'rgba(22,25,26,.16)',position:'relative',
-                transition:'width var(--dur-base) var(--ease-out),background var(--dur-base) var(--ease-out)'}}>
-              {k===i&&(
-                <span key={tick} style={{position:'absolute',inset:0,background:'var(--gold-500)',
-                  transformOrigin:'left',transform:'scaleX(1)',
-                  animation:running?'pc-fill '+interval+'ms linear forwards':'none'}}/>
-              )}
+                transition:'background var(--dur-base) var(--ease-out)'}}>
+                {k===i&&(
+                  <span key={tick} style={{position:'absolute',inset:0,background:'var(--gold-500)',
+                    transformOrigin:'left',transform:'scaleX(1)',
+                    animation:running?'pc-fill '+interval+'ms linear forwards':'none'}}/>
+                )}
+              </span>
             </button>
           ))}
+          </div>
+          {arrows&&<CarouselNav direction="next" tone={arrowTone} size={36} onClick={()=>go(1)}/>}
         </div>
         )}
         <style>{'@keyframes pc-fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}'}</style>
       </div>
-      {edgeArrows&&!narrow&&(
-        <div style={{position:'absolute',left:0,right:0,top:0,height,display:'flex',
-          justifyContent:'space-between',alignItems:'center',padding:'0 var(--space-4)',pointerEvents:'none',zIndex:4}}>
-          <div style={{pointerEvents:'auto'}}><CarouselNav direction="prev" tone={arrowTone} onClick={()=>go(-1)}/></div>
-          <div style={{pointerEvents:'auto'}}><CarouselNav direction="next" tone={arrowTone} onClick={()=>go(1)}/></div>
-        </div>
-      )}
     </div>
   );
 }

@@ -1,4 +1,4 @@
-<!-- @dsCard group="Kaarten" viewport="700x760" name="Fotokaarten — ruimtes" subtitle="RoomCard: feiten altijd zichtbaar (aanbevolen), op hover, en de gesplitste balk uit de ontwerpen" -->
+<!-- @dsCard group="Kaarten" viewport="700x1080" name="Fotokaarten — ruimtes" subtitle="RoomCard: feiten altijd zichtbaar (aanbevolen), op hover, de gesplitste balk, en de sage-variant zonder goud" -->
 <!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">
 <link rel="stylesheet" href="../../styles.css">
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
@@ -27,6 +27,14 @@ function Card(){
     <div>
       <p style={label}>Feiten op hover — alleen desktop</p>
       <div style={grid}>{rooms.map(r=><RoomCard key={r.caption} {...r} reveal="hover" onReadMore={()=>{}}/>)}</div>
+    </div>
+    <div style={{background:'var(--surface-sage)',margin:'0 calc(var(--space-6) * -1)',padding:'var(--space-6)'}}>
+      <p style={{...label,color:'var(--white)'}}>Op sage — goud is daar verboden, dus wit opschrift en feiten in inkt</p>
+      <div style={grid}>
+        {rooms.slice(0,2).map(r=><RoomCard key={r.caption} {...r} ratio="4 / 3" tone="onSage" onReadMore={()=>{}}/>)}
+        <ImageCaptionCard image={A+'photo-hoeve-heerlijckheid.jpg'} caption="De Hoeve" ratio="4 / 3" tone="onSage"
+          body="Ook het bijschrift van de fotokaart gaat mee."/>
+      </div>
     </div>
     <div>
       <p style={label}>Gesplitste balk uit de ontwerpen — twee acties</p>

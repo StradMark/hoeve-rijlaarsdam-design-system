@@ -1,0 +1,47 @@
+<!-- @dsCard group="Kaarten" viewport="1180x1180" name="Zaalopstellingen" subtitle="InfoTile met plattegrondicoon: negen gebruikelijke opstellingen, met vuistregel per persoon" -->
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{margin:0;background:var(--surface-page);font-family:var(--font-body)}
+.wrap{padding:30px}.lbl{font-family:var(--font-display);font-size:var(--fs-label-s);letter-spacing:var(--ls-label-wide);text-transform:uppercase;color:var(--text-muted);margin:0 0 12px}
+.g{display:grid;gap:26px}.g3{grid-template-columns:repeat(3,1fr)}
+.note{font-size:11px;line-height:1.7;color:var(--ink-300);margin:18px 0 0}
+a{color:var(--text-link)}a:hover{color:var(--text-link-hover)}</style></head>
+<body><div id="root"></div>
+<script type="text/babel">
+const DS=window.HoeveRijlaarsdamDesignSystem_374762;
+const { InfoTile } = DS;
+const I=n=>'../../assets/icons/opstelling-'+n+'.svg';
+const SETUPS=[
+  ['theater','Theater','0,5 m² p.p.','Rijen stoelen naar één punt. Voor een lezing of presentatie aan een grote groep.'],
+  ['cabaret','Cabaret','1 m² p.p.','Eilanden met een open zijde naar het podium. Programma én overleg aan tafel.'],
+  ['school','School','1,5 m² p.p.','Rijen met tafels: meeschrijven bij een training of een langere sessie.'],
+  ['u-vorm','U-vorm','2,5 m² p.p.','Iedereen ziet iedereen en de spreker staat in de opening. Tot ongeveer twintig personen.'],
+  ['carre','Carré','2,5 m² p.p.','Een gesloten ring zonder kop. Voor het gesprek waarin niemand voorzit.'],
+  ['bestuurstafel','Bestuurstafel','2,5 m² p.p.','Eén lange tafel met koppen. Bestuursoverleg en kleine vergadering.'],
+  ['banket','Banket','1,5 tot 2 m² p.p.','Ronde tafels van acht of tien. De opstelling voor een zittend diner.'],
+  ['receptie','Receptie','1 m² p.p.','Statafels, geen stoelen. Ontvangst, borrel en netwerken.'],
+  ['feest','Feest','1,5 m² p.p.','Buffet, twee bars, tafels aan de zijkant en een vrije vloer voor het podium.']
+];
+function Card(){
+  return <div className="wrap">
+    <p className="lbl">tone sage · opschrift in goud onder de tegel, zoals in de ontwerpen</p>
+    <div className="g g3">
+      {SETUPS.map(([k,t,m,b])=><InfoTile key={k} icon={I(k)} title={t} meta={m} body={b}/>)}
+    </div>
+    <p className="lbl" style={{marginTop:30}}>opschrift in de tegel — voor tegels op een gekleurde sectie</p>
+    <div className="g g3">
+      <InfoTile caption="inside" iconSize={76} title="Vrije indeling" body="U bepaalt zelf hoe de zaal wordt ingericht."/>
+      <InfoTile caption="inside" tone="sageLight" icon={I('banket')} iconSize={76} title="Eigen keuken" meta="tot 250 gasten" body="Alles wordt ter plekke bereid door onze chef."/>
+      <InfoTile caption="inside" tone="deep" icon={I('receptie')} iconSize={76} title="Gratis parkeren" body="Ruime parkeergelegenheid op eigen terrein."/>
+    </div>
+    <p className="note"><b style={{color:'var(--ink-500)',fontWeight:500}}>Het opschrift staat onder de tegel, in goud op wit</b> &mdash; zoals in de ontwerpen, en daar is goud toegestaan.
+    Staat de tegelrij zelf op een gekleurd vlak, dan gaat het opschrift met <code>caption="inside"</code> in de tegel en wordt het wit of diepgroen: goud op sage blijft verboden.
+    Het icoon wordt als masker ingekleurd met de tekstkleur van de tegel, dus één set SVG's werkt op alle vier de tonen. Bestanden: <code>assets/icons/opstelling-*.svg</code>.</p>
+  </div>;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Card/>);
+</script></body></html>

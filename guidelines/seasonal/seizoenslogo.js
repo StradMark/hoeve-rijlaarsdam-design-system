@@ -2,8 +2,13 @@
    Een kaart zet één element neer:
      <div class="slogo" data-field="panel|screen" data-theme="winter|kerst" data-looks="…"></div>
    en dit bestand vult de tekening, bouwt de knoppen en (op scherm) de sneeuwlaag.
-   Vier opbouwen: vA vlotte hand, vC sneeuw eerst, vD vlok als slot, vB alleen dwarrelen. */
-(() => {
+   Vier opbouwen: vA vlotte hand, vC sneeuw eerst, vD vlok als slot, vB alleen dwarrelen.
+
+   De tekening staat als seizoenslogo.svg ernaast en wordt hier opgehaald. Als JS-bestand
+   met de opmaak in een string kwam die 113 KB in de bundel van elke afnemer terecht, ook
+   op pagina's zonder seizoenslogo; als los bestand laadt hij alleen waar hij nodig is. */
+const SVG_URL=new URL('seizoenslogo.svg',(document.currentScript&&document.currentScript.src)||location.href);
+(async () => {
 const VARIANTS=[['vA','Vlotte hand'],['vE','Letterpers'],['vC','Sneeuw eerst'],['vD','Vlok als slot'],['vB','Alleen dwarrelen']];
 const NOTE={
  vA:'<b>Vlotte hand</b> · 3,3s · de W, dan i en n, dan de t van bovenaf naar beneden met de lus eronder, dan de e, r en s met de uithaal, en als laatste de streep door de t en de punt op de i — daarna komt de vlok op en landen caps en schuurmerk samen',
@@ -22,7 +27,14 @@ if(!root) return;
 const field=root.dataset.field||'panel', theme=root.dataset.theme||'winter';
 const looksList=(root.dataset.looks||'').split(' ').filter(Boolean);
 let look=looksList[0]||'', variant='vA';
-const svgHTML=window.SEIZOENSLOGO_SVG;
+let svgHTML;
+try{
+  const res=await fetch(SVG_URL);
+  svgHTML=await res.text();
+}catch(e){
+  console.error('seizoenslogo: kon seizoenslogo.svg niet laden',e);
+  return;
+}
 
 /* knoppen en toelichting: op paneel onder het logo, op scherm erover */
 const host=root.parentNode;                 // buiten het logo, anders wist opnieuw schrijven de knoppen

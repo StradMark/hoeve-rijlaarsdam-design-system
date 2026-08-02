@@ -15,4 +15,7 @@ export interface HeroVideoProps {
   children?: React.ReactNode;
   style?: React.CSSProperties;
 }
+/**
+ * @startingPoint section="Heros" subtitle="Paginahero met script-kicker over een foto of video" viewport="1280x460"
+ */
 export declare function HeroVideo(props: HeroVideoProps): JSX.Element;

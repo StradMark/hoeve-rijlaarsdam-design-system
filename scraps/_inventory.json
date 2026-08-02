@@ -411,5 +411,15 @@
    "sub": "Vijftien pagina&#39;s, dropdownnavigatie, hash-routing — de site waar alle componenten samenkomen",
    "vp": "1280x900"
   }
+ },
+ "components/content/opstellingen.card.html": {
+  "name": "Zaalopstellingen",
+  "sub": "InfoTile met plattegrondicoon: negen gebruikelijke opstellingen, met vuistregel per persoon",
+  "vp": "1180x1180"
+ },
+ "components/content/people.card.html": {
+  "name": "PersonCard",
+  "sub": "Portret met rol en telefoon, of met Boek mij als actie",
+  "vp": "700x330"
  }
 }

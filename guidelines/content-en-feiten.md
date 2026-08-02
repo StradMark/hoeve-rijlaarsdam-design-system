@@ -61,6 +61,9 @@ Dit is de meest onderscheidende dienst én de best verstopte: hij staat nu allee
 | Condoleance | — |
 | Galerie & Beeldentuin | Agenda · Nieuws · Audiotour · Onze boerderij · Het Koetshuis · Plattegrond · Over ons |
 
+**Alle bedragen zijn work in progress** en nog niet geverifieerd bij de opdrachtgever; de voorbeeldsite leest
+ze uit `ui_kits/website/prijzen.jsx`, dat dit bestand volgt. Wijzig een prijs altijd op beide plekken.
+
 **Huur vergaderlocatie** (excl. btw; incl. gebruik van 75-inch tv-scherm, flip-over, vergaderbox en gratis wifi):
 dagdeel 9.00–13.00 of 13.00–17.00 **€ 395** · avond vanaf 18.00 **€ 475** · hele dag 9.00–17.00 **€ 525**.
 
@@ -85,7 +88,8 @@ teambuildingsdag; te combineren met de catering van de hoeve.
 | Roos Rijlaarsdam | 06 58985963 |
 | Loekie Rijlaarsdam | 06 42576395 |
 | Openingstijden galerie | maandag t/m donderdag op afspraak · vrijdag & zaterdag 11.00–17.00 · zondag 13.00–17.00 (altijd op weekvolgorde tonen, startend op maandag) |
-| Social | facebook.com/HoeveRijlaarsdam |
+| Instagram | instagram.com/hoeverijlaarsdam |
+| Facebook | facebook.com/HoeveRijlaarsdam |
 | Genoemde partner | Wouter Berghuis |
 
 *Let op:* oudere vermeldingen geven donderdag t/m zaterdag 10.00–17.00. Zowel de ontwerpen als de huidige

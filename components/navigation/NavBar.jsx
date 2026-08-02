@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from '../core/Button.jsx';
 
 /* Items are either a plain string or {label, items:[...]} — the latter opens a panel on hover/focus. */
-export function NavBar({logo,left=[],right=[],active,mode='dropdown',ctaLabel='Offerte',onCta,onNavigate,narrow:narrowProp,defaultDrawerOpen=false,style}){
+export function NavBar({logo,left=[],right=[],active,mode='dropdown',ctaLabel='Offerte',onCta,onNavigate,narrow:narrowProp,defaultDrawerOpen=false,sticky=true,style}){
   const [open,setOpen]=React.useState(null);
   /* Onder 900px past een gesplitste navigatie met zeven links en een knop niet meer naast
      elkaar; dan wordt het logo links, een lade-knop rechts, en de hele navigatie een lijst
@@ -24,6 +24,21 @@ export function NavBar({logo,left=[],right=[],active,mode='dropdown',ctaLabel='O
   const enter=(k)=>{clearTimeout(close.current);setOpen(k)};
   const leave=()=>{clearTimeout(close.current);close.current=setTimeout(()=>setOpen(null),140)};
   React.useEffect(()=>()=>clearTimeout(close.current),[]);
+
+  /* De balk blijft staan bij scrollen: de pagina's zijn lang en de weg naar Contact of een
+     andere zaal mag geen terugreis naar boven zijn. Boven aan de pagina is hij nog vlak, zodat
+     hij op de hero zweeft; zodra er iets onder de balk door is gegaan komt de gouden haarlijn. */
+  const [scrolled,setScrolled]=React.useState(false);
+  React.useEffect(()=>{
+    if(!sticky) return;
+    const on=()=>setScrolled(window.scrollY>8);
+    on();window.addEventListener('scroll',on,{passive:true});
+    return ()=>window.removeEventListener('scroll',on);
+  },[sticky]);
+  const bar=sticky?{position:'sticky',top:0,
+    borderBottom:'1px solid '+(scrolled?'var(--gold-300)':'transparent'),
+    boxShadow:scrolled?'0 1px 12px rgba(22,25,26,.06)':'none',
+    transition:'border-color var(--dur-base) var(--ease-out),box-shadow var(--dur-base) var(--ease-out)'}:null;
 
   const go=(item)=>{setOpen(null);setDrawer(false);onNavigate&&onNavigate(item)};
   const labelOf=(it)=>typeof it==='string'?it:it.label;
@@ -85,7 +100,7 @@ export function NavBar({logo,left=[],right=[],active,mode='dropdown',ctaLabel='O
     const rowLabel={fontFamily:'var(--font-display)',fontSize:'var(--fs-label-l)',letterSpacing:'var(--ls-label)',
       textTransform:'uppercase',textDecoration:'none',background:'none',border:0,padding:0,textAlign:'left',cursor:'pointer'};
     return (
-      <header style={{background:'var(--white)',position:'relative',zIndex:30,...style}}>
+      <header style={{background:'var(--white)',position:'relative',zIndex:30,...bar,...style}}>
         <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',gap:'var(--space-4)',padding:'8px var(--gutter)'}}>
           <a href="#" onClick={e=>{e.preventDefault();go(labelOf(left[0])||'home')}} style={{lineHeight:0}}>
             {logo?<img src={logo} alt="Hoeve Rijlaarsdam" style={{height:38}}/>:
@@ -146,7 +161,7 @@ export function NavBar({logo,left=[],right=[],active,mode='dropdown',ctaLabel='O
 
   return (
     <header style={{background:'var(--white)',display:'grid',gridTemplateColumns:'1fr auto 1fr',
-      alignItems:'center',gap:'var(--space-5)',padding:'10px var(--space-6)',position:'relative',zIndex:30,...style}}>
+      alignItems:'center',gap:'var(--space-5)',padding:'10px var(--space-6)',position:'relative',zIndex:30,...bar,...style}}>
       <nav style={{display:'flex',alignItems:'center',gap:'var(--space-5)'}}>{left.map(item)}</nav>
       <a href="#" onClick={e=>{e.preventDefault();go(labelOf(left[0])||'home')}} style={{lineHeight:0}}>
         {logo?<img src={logo} alt="Hoeve Rijlaarsdam" style={{height:44}}/>:

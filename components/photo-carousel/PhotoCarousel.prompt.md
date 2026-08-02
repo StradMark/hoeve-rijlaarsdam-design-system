@@ -18,4 +18,10 @@ engages — hover, keyboard focus, a finger on the strip — and it never runs o
 `prefers-reduced-motion`. Under the photo sit one hairline per frame; the active one fills in gold
 over the dwell time, which answers "why did that move" before it moves. Arrow keys and swipe work.
 
+**Geen pijlen, standaard.** De strip is al op vier manieren te bedienen: vegen, pijltoetsen, klikken op een
+zijfoto, en de streepjes eronder — die nu een raakvlak van 22px hebben in plaats van de haarlijn zelf. Een
+vijfde bediening voegt niets toe en was de enige die per pagina een eigen kleur nodig had. `arrows` zet ze
+alsnog aan; ze staan dan náást de streepjes, nooit over de foto's, en `arrowTone` volgt de band (`deep` op
+crème, `white` op sage of flessengroen), niet het beeld.
+
 `autoplay={false}` for a strip the user should steer themselves (e.g. a room's own gallery).

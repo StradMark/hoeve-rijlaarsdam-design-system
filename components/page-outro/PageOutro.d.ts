@@ -14,11 +14,15 @@ export interface PageOutroProps {
   tone?: 'cream' | 'sage';
   /** overridden automatically: white arrows on a coloured band, deep on cream */
   arrowTone?: 'deep' | 'sage' | 'gold' | 'white';
-  kicker?: string;
-  title?: string;
+  kicker?: string;  title?: string;
   body?: React.ReactNode;
   ctaLabel?: string;
   onCta?: () => void;
+  /** fires when the visitor clicks the centre photo — hang a Lightbox on it */
+  onSelect?: (item: PhotoCarouselItem | string, index: number) => void;
   style?: React.CSSProperties;
 }
+/**
+ * @startingPoint section="Layout" subtitle="De vaste afsluiting: CTA-band met de fotocarousel eroverheen" viewport="1280x720"
+ */
 export declare function PageOutro(props: PageOutroProps): JSX.Element;

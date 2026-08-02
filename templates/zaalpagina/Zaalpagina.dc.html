@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Zaalpagina" description="Het paginatype dat vier keer voorkomt: hero, feiten, faciliteiten, de zaalopstellingen met iconen, prijzen, FAQ en de andere ruimtes. Vul de gegevens bovenin de logica in." -->
+<helmet><script src="./ds-base.js"></script><style>body{margin:0;background:#fff}</style></helmet>
+<div style="font-family:var(--font-body);color:var(--text-body)">
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.NavBar" logo="../../assets/logo-lockup.svg" active="Ruimtes" dc-props="{{ navProps }}" hint-size="100%,88px"></x-import>
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.HeroVideo" image="{{ heroImage }}" kicker="een kijkje in" title="{{ zaalTitel }}" height="{{ heroHeight }}" hint-size="100%,440px"></x-import>
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.QuoteBar" hint-size="100%,46px">&ldquo;{{ zaalQuote }}&rdquo;</x-import>
+
+<section style="padding:80px 64px"><div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
+<div>
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.SectionHeading" kicker="handige" title="Informatie" size="l" hint-size="100%,110px"></x-import>
+<p style="max-width:60ch;margin:24px 0 0;font-size:var(--fs-body-s);line-height:var(--lh-body);color:var(--text-body);text-wrap:pretty">{{ zaalLead }}</p>
+</div>
+<div style="aspect-ratio:4 / 3;overflow:hidden"><img src="{{ zaalFoto }}" alt="" style="width:100%;height:100%;object-fit:cover"></div>
+</div></section>
+
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.SplitPanel" image="{{ paneelFoto }}" ratio="4 / 3" hint-size="100%,420px">
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.BenefitsPanel" kicker="alle" title="Faciliteiten" dc-props="{{ faciliteiten }}" hint-size="100%,360px"></x-import>
+</x-import>
+
+<section style="padding:80px 64px"><div style="max-width:1180px;margin:0 auto">
+<div style="text-align:center">
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.SectionHeading" kicker="veel" title="Opstellingen" align="center" size="l" hint-size="100%,110px"></x-import>
+<p style="max-width:76ch;margin:24px auto 0;font-size:var(--fs-body-s);line-height:var(--lh-body);color:var(--text-body);text-wrap:pretty">{{ opstellingenLead }}</p>
+</div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px">
+<sc-for list="{{ opstellingen }}" as="o" hint-placeholder-count="6">
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.InfoTile" icon="{{ o.icon }}" title="{{ o.title }}" body="{{ o.body }}" hint-size="100%,220px"></x-import>
+</sc-for>
+</div>
+</div></section>
+
+<section style="background:var(--surface-deep);padding:80px 64px"><div style="max-width:1180px;margin:0 auto">
+<div style="text-align:center;margin-bottom:48px"><x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.SectionHeading" kicker="wat kost" title="Een dag hier" align="center" size="l" tone="onDeep" hint-size="100%,110px"></x-import></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:64px">
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.PriceList" kicker="Zaalhuur" tone="onDeep" note="Alle bedragen zijn exclusief btw." dc-props="{{ zaalhuur }}" hint-size="100%,200px"></x-import>
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.PriceList" kicker="Extra&rsquo;s" tone="onDeep" dc-props="{{ extras }}" hint-size="100%,200px"></x-import>
+</div>
+</div></section>
+
+<section style="background:var(--surface-cream);padding:80px 64px"><div style="max-width:900px;margin:0 auto">
+<div style="text-align:center;margin-bottom:40px"><x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.SectionHeading" kicker="veel gevraagd" title="Vragen" align="center" size="l" hint-size="100%,110px"></x-import></div>
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.FaqAccordion" tone="onLight" dc-props="{{ faqProps }}" hint-size="100%,300px"></x-import>
+</div></section>
+
+<section style="padding:80px 64px"><div style="max-width:1180px;margin:0 auto">
+<div style="text-align:center"><x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.SectionHeading" kicker="bekijk ook" title="Andere ruimtes" align="center" size="l" hint-size="100%,110px"></x-import></div>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px">
+<sc-for list="{{ andereRuimtes }}" as="r" hint-placeholder-count="3">
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.RoomCard" image="{{ r.image }}" caption="{{ r.caption }}" ratio="4 / 3" dc-props="{{ r.props }}" hint-size="100%,320px"></x-import>
+</sc-for>
+</div>
+</div></section>
+
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.PageOutro" kicker="landelijk" title="Waar alles samenkomt" body="U mag de locatie altijd vrijblijvend komen bezichtigen. Wij gaan graag met u rond de tafel — onder het genot van een kop koffie." ctaLabel="Vraag offerte aan" dc-props="{{ outroProps }}" hint-size="100%,720px"></x-import>
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.Footer" dc-props="{{ footerProps }}" hint-size="100%,280px"></x-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+/* Zaalpagina — vul ZAAL in en de hele pagina volgt. De vier zaalpagina's van de site
+   (Koetshuis, Hooiberg, Stal, Ontwikkelatelier) draaien op precies deze opbouw; houd ze
+   gelijk door hier te wijzigen en daarna ui_kits/website/screen-ruimte.jsx bij te trekken. */
+const ZAAL = {
+  titel: 'Het Koetshuis',
+  quote: 'De grootste zaal, met uitzicht over de polder',
+  hero: 'photo-koetshuis-ontvangst.jpg',
+  foto: 'photo-koetshuis-expositie.jpg',
+  paneel: 'photo-koetshuis-feest.jpg',
+  lead: 'Een congres, symposium of seminar krijgt een grote meerwaarde door een inspirerende locatie. Onze grote expositieruimte heeft een capaciteit van 250 gasten en een uitstekend akoestisch vermogen, en kan op verschillende manieren worden ingericht. U mag altijd vrijblijvend komen bezichtigen.',
+  faciliteiten: ['Gratis wifi', '75 inch tv-scherm', 'Flip-over en vergaderbox', 'Flexibele zaalopstellingen',
+    'Capaciteit tot 250 gasten', 'Uitstekende akoestiek', 'Catering uit eigen keuken', 'Uitzicht over de polder',
+    'Beeldentuin van twee hectare', 'Gratis parkeren, circa 60 auto’s', 'Grotendeels rolstoelvriendelijk'],
+  opstellingenLead: 'Van carré tot theater: wij bouwen de zaal om naar wat uw programma vraagt. Twijfelt u over de beste vorm? Wij denken graag met u mee.',
+  opstellingen: ['Carré', 'U-vorm', 'Theater', 'Cabaret', 'Eiland', 'Diner'],
+  andere: [
+    { caption: 'Hooiberg', image: 'photo-hooiberg.jpg', meta: ['30 gasten boven', 'Eigen bar'] },
+    { caption: 'Stal', image: 'photo-stal-zoettafel.jpg', meta: ['Intiem', 'Haagse en Leidsche school'] },
+    { caption: 'Ontwikkelatelier', image: 'photo-atelier.jpg', meta: ['Kleine groepen', 'Coaching en training'] }
+  ]
+};
+
+/* Eén omschrijving per opstellingsvorm, gedeeld door alle zaalpagina's. Zonder deze regels
+   staat er onder elk icoon dezelfde placeholder. */
+const OPSTELLING = {
+  'Carré': { icon: 'carre', body: 'Iedereen kijkt elkaar aan, niemand zit vooraan. Voor overleg waarin elke stem meetelt, tot ongeveer dertig personen.' },
+  'U-vorm': { icon: 'u-vorm', body: 'Open aan één kant, zodat er een spreker of scherm past. De vorm voor een training waarin ook gewerkt wordt.' },
+  'Theater': { icon: 'theater', body: 'Stoelen in rijen, geen tafels. De meeste mensen in de zaal, voor een lezing of presentatie zonder aantekeningen.' },
+  'Cabaret': { icon: 'cabaret', body: 'Ronde tafels met een vrije kant naar voren. Voor een programma dat wisselt tussen luisteren en samen werken.' },
+  'Eiland': { icon: 'cabaret', body: 'Losse tafelgroepen door de zaal. Voor een dag met parallelle sessies of een beurs met standhouders.' },
+  'School': { icon: 'school', body: 'Rijen met tafels, allemaal naar voren. Voor een cursusdag waarop mensen schrijven of een laptop gebruiken.' },
+  'Diner': { icon: 'banket', body: 'Lange tafels of ronde tafels van acht. Voor een diner na afloop, of een avond die daar meteen mee begint.' },
+  'Private dining': { icon: 'banket', body: 'Eén tafel, klein gezelschap, de chef die zelf uitserveert. Tot ongeveer twintig gasten.' },
+  'Wijnproeverij': { icon: 'banket', body: 'Een lange tafel met glazen op rij, de balken boven u. Onze chef verzorgt de bijpassende hapjes.' },
+  'Receptie': { icon: 'receptie', body: 'Statafels en ruimte om te lopen. Voor een ontvangst of borrel waarbij iedereen elkaar spreekt.' },
+  'Ontvangst': { icon: 'receptie', body: 'De eerste twintig minuten: koffie, jassen, mensen die binnendruppelen.' },
+  'Netwerkborrel': { icon: 'receptie', body: 'Statafels verspreid, de bar open. Voor een borrel waarin het gesprek het programma is.' },
+  'Borrel na het diner': { icon: 'receptie', body: 'De zaal wordt omgebouwd terwijl uw gasten buiten staan. Daarna de bar open en ruimte om te dansen.' },
+  'Verjaardag': { icon: 'feest', body: 'Zitten waar u wilt, een hoek voor de taart. Voor een feest waar drie generaties komen.' },
+  'Expositie': { icon: 'feest', body: 'De wanden vrij, het werk op ooghoogte, en ruimte om er langs te lopen.' },
+  'Vergadering': { icon: 'bestuurstafel', body: 'Één tafel, iedereen aan het woord, scherm en flip-over binnen handbereik.' },
+  'Bestuursoverleg': { icon: 'bestuurstafel', body: 'Besloten, één tafel, geen doorloop. Voor een raad of bestuur dat een dag ongestoord wil werken.' },
+  'Bestuurssessie': { icon: 'bestuurstafel', body: 'Een dag met een besluit aan het eind. Kleine groep, flip-over, en een lunch die niet onderbreekt.' },
+  'Meeting': { icon: 'bestuurstafel', body: 'De standaardvorm: één tafel, tot ongeveer twaalf mensen, alles binnen handbereik.' },
+  'Coaching': { icon: 'bestuurstafel', body: 'Kleine kring, geen tafel ertussen. Voor een dag die over mensen gaat en niet over stukken.' },
+  'Eén-op-één': { icon: 'bestuurstafel', body: 'Twee stoelen bij het raam. Voor een coachgesprek of een beoordeling die rust vraagt.' },
+  'Workshop': { icon: 'carre', body: 'Werktafels met ruimte om iets neer te leggen. Voor een dag waarop handen bezig zijn.' },
+  'Brainstorm': { icon: 'carre', body: 'Weinig meubilair, veel wand. Voor een ochtend waarin de uitkomst nog niet vaststaat.' },
+  'Strategiesessie': { icon: 'carre', body: 'Ruimte aan de wand voor plaknotities, en een tafel die makkelijk aan de kant kan.' },
+  'Training': { icon: 'school', body: 'Rijen of een U-vorm, afhankelijk van de trainer. Wij zetten hem klaar zoals u het wilt.' }
+};
+
+class Component extends DCLogic {
+  renderVals() {
+    const img = n => '../../assets/' + n;
+    const icon = n => '../../assets/icons/opstelling-' + n + '.svg';
+    return {
+      heroHeight: 440,
+      navProps: { left: ['De Hoeve', 'Zakelijk', 'Particulier'], right: ['Ruimtes', 'Over ons', 'Contact'] },
+
+      zaalTitel: ZAAL.titel,
+      zaalQuote: ZAAL.quote,
+      zaalLead: ZAAL.lead,
+      heroImage: img(ZAAL.hero),
+      zaalFoto: img(ZAAL.foto),
+      paneelFoto: img(ZAAL.paneel),
+      faciliteiten: { items: ZAAL.faciliteiten },
+
+      opstellingenLead: ZAAL.opstellingenLead,
+      opstellingen: ZAAL.opstellingen.map(n => {
+        const o = OPSTELLING[n] || { icon: 'carre', body: '' };
+        return { title: n, body: o.body, icon: icon(o.icon) };
+      }),
+
+      zaalhuur: { items: [
+        { label: 'Dagdeel', detail: '9.00–13.00 of 13.00–17.00', amount: '€ 395' },
+        { label: 'Avond', detail: 'vanaf 18.00', amount: '€ 475' },
+        { label: 'Hele dag', detail: '9.00–17.00', amount: '€ 525' }
+      ] },
+      extras: { items: [
+        { label: 'Energy break', detail: 'huisgemaakte quiche', amount: '€ 7,50' },
+        { label: 'Healthy break', detail: 'smoothie met vers fruit', amount: '€ 6,50' },
+        { label: 'Borrel', detail: '2 consumpties en warme snacks', amount: '€ 12,50' }
+      ] },
+
+      andereRuimtes: ZAAL.andere.map(r => ({
+        caption: r.caption, image: img(r.image), props: { meta: r.meta, readMoreLabel: 'Bekijk ' + r.caption, onReadMore: () => {} }
+      })),
+
+      faqProps: { items: [
+        { question: 'Hoeveel gasten kunnen er terecht?', answer: 'Het Koetshuis biedt ruimte aan maximaal 250 gasten; in de Hooiberg en de Stal ontvangen we groepen vanaf 20 personen.' },
+        { question: 'Is er parkeergelegenheid?', answer: 'Ja, op eigen terrein en gratis. Er is plaats voor ongeveer zestig auto’s.' },
+        { question: 'Verzorgt u ook de catering?', answer: 'Wij hebben een eigen keuken en een eigen chef. Van een boerenlunch tot een walking dinner tussen de kunst.' },
+        { question: 'Mogen wij eerst komen kijken?', answer: 'Graag zelfs. Wij lopen de zaal en de beeldentuin met u door, zonder verplichtingen.' }
+      ] },
+
+      outroProps: { tone: 'sage',
+        items: ['photo-hoeve-heerlijckheid.jpg', 'photo-beeldentuin-vogels.jpg', 'photo-koetshuis-expositie.jpg', 'photo-lounge-zonsondergang.jpg', 'photo-bruiloft-tuin.jpg'].map(img) },
+      footerProps: { columns: [
+        { title: 'Hoeve Rijlaarsdam', lines: [{ text: 'Nieuwveenseweg 59' }, { text: '2421 LB Nieuwkoop' }, { text: '085 888 3211', strong: true }, { text: 'info@hoeverijlaarsdam.nl', strong: true }] },
+        { title: 'Neem contact op', lines: [{ text: 'Feesten en meetings', strong: true }, { text: 'Bel Roos: 06 - 58 98 59 63' }, { text: 'Galerie & beeldentuin', strong: true }, { text: 'Bel Loeke: 06 - 42 57 63 95' }] },
+        { title: 'Openingstijden galerie', lines: [{ label: 'Ma t/m do', text: 'op afspraak' }, { label: 'Vrij & za', text: '11.00 - 17.00 uur' }, { label: 'Zondag', text: '13.00 - 17.00 uur' }] }
+      ] }
+    };
+  }
+}
+</script>
+</body>
+</html>

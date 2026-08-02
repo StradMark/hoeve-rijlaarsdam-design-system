@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Offertepagina" description="De enige conversie van de site: aanvraagformulier met alle veldsoorten, validatie en de melding na verzenden, naast de gegevens die een bezoeker nodig heeft om te durven versturen." -->
+<helmet><script src="./ds-base.js"></script><style>body{margin:0;background:#fff}</style></helmet>
+<div style="font-family:var(--font-body);color:var(--text-body)">
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.NavBar" logo="../../assets/logo-lockup.svg" active="Contact" dc-props="{{ navProps }}" hint-size="100%,88px"></x-import>
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.HeroVideo" image="../../assets/photo-gazon.jpg" kicker="vertel ons" title="Wat u van plan bent" height="{{ heroHeight }}" hint-size="100%,360px"></x-import>
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.QuoteBar" hint-size="100%,46px">&ldquo;Wij gaan graag met u rond de tafel&rdquo;</x-import>
+
+<section style="background:var(--surface-sage);padding:64px"><div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1.25fr .75fr;gap:48px;align-items:start">
+
+<div style="background:var(--surface-deep);padding:48px">
+<sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.FormStatus" title="Dank u, uw aanvraag is verstuurd" action="{{ opnieuwKnop }}" hint-size="100%,200px">Wij nemen binnen twee werkdagen contact met u op met een voorstel op maat. Heeft u haast? Bel Roos op 06 - 58 98 59 63.</x-import>
+</sc-if>
+<sc-if value="{{ nietVerstuurd }}" hint-placeholder-val="{{ true }}">
+<div>
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.SectionHeading" kicker="aanvragen" title="Offerte" tone="onDeep" size="l" hint-size="100%,110px"></x-import>
+<p style="max-width:52ch;margin:20px 0 32px;font-size:var(--fs-body-s);line-height:var(--lh-body);color:var(--text-on-dark)">Laat uw gegevens achter en vertel kort wat u van plan bent. Hoe meer u invult, hoe scherper ons voorstel &mdash; alleen de velden met een sterretje hebben wij echt nodig.</p>
+<form onSubmit="{{ verstuur }}" noValidate="{{ true }}" style="display:grid;gap:16px">
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.Input" label="Voornaam" required="{{ true }}" dc-props="{{ voornaam }}" hint-size="100%,64px"></x-import>
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.Input" label="Achternaam" required="{{ true }}" dc-props="{{ achternaam }}" hint-size="100%,64px"></x-import>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.Input" label="E-mailadres" type="email" required="{{ true }}" dc-props="{{ email }}" hint-size="100%,64px"></x-import>
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.Input" label="Telefoonnummer" type="tel" dc-props="{{ telefoon }}" hint-size="100%,64px"></x-import>
+</div>
+
+<div style="height:1px;background:rgba(251,248,243,.18);margin:8px 0"></div>
+
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.Select" label="Gelegenheid" required="{{ true }}" dc-props="{{ gelegenheid }}" hint-size="100%,64px"></x-import>
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.Select" label="Aantal gasten" dc-props="{{ gasten }}" hint-size="100%,64px"></x-import>
+</div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.Select" label="Ruimte" placeholder="Nog geen voorkeur" dc-props="{{ ruimte }}" hint-size="100%,64px"></x-import>
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.Input" label="Gewenste datum" type="date" dc-props="{{ datum }}" hint-size="100%,64px"></x-import>
+</div>
+
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.ChoiceGroup" legend="Welk dagdeel" columns="{{ drie }}" dc-props="{{ dagdeelGroep }}" hint-size="100%,80px">
+<sc-for list="{{ dagdelen }}" as="d" hint-placeholder-count="3">
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.Choice" type="radio" name="dagdeel" label="{{ d }}" value="{{ d }}" hint-size="100%,44px"></x-import>
+</sc-for>
+</x-import>
+
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.ChoiceGroup" legend="Waar mogen wij aan denken" hint="Meerdere antwoorden mogelijk" hint-size="100%,160px">
+<sc-for list="{{ wensen }}" as="w" hint-placeholder-count="4">
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.Choice" label="{{ w.label }}" hint="{{ w.hint }}" hint-size="100%,44px"></x-import>
+</sc-for>
+</x-import>
+
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.Input" label="Uw vraag of wens" multiline="{{ true }}" rows="{{ drie }}" hint="Vertel gerust waar u aan denkt; wij bellen u voor de rest." dc-props="{{ bericht }}" hint-size="100%,120px"></x-import>
+
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.ChoiceGroup" dc-props="{{ akkoordGroep }}" hint-size="100%,60px">
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.Choice" label="Ik ga akkoord met de privacyverklaring" dc-props="{{ akkoord }}" hint-size="100%,44px"></x-import>
+</x-import>
+
+<div style="display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:8px">
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.Button" tone="gold" type="submit" hint-size="150px,44px">Versturen</x-import>
+<span style="font-size:var(--fs-label-s);color:var(--sage-200)">Wij reageren binnen twee werkdagen.</span>
+</div>
+</form>
+</div>
+</sc-if>
+</div>
+
+<div>
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.SectionHeading" kicker="of gewoon" title="Even bellen" tone="onSage" size="m" hint-size="100%,100px"></x-import>
+<div style="margin-top:20px;font-size:var(--fs-body-s);line-height:1.9;color:var(--white)">
+<div style="font-weight:var(--fw-body-strong)">Feesten en meetings</div>
+<div>Roos Rijlaarsdam &middot; 06 - 58 98 59 63</div>
+<div style="font-weight:var(--fw-body-strong);margin-top:12px">Galerie en beeldentuin</div>
+<div>Loekie Rijlaarsdam &middot; 06 - 42 57 63 95</div>
+<div style="margin-top:12px">Nieuwveenseweg 59, Nieuwkoop</div>
+<div>085 888 3211</div>
+</div>
+<div style="height:1px;background:rgba(255,255,255,.5);margin:28px 0"></div>
+<div style="font-family:var(--font-display);font-size:var(--fs-label-s);letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--white)">Wat er daarna gebeurt</div>
+<ol style="margin:16px 0 0;padding:0;list-style:none;display:grid;gap:16px;counter-reset:s">
+<sc-for list="{{ stappen }}" as="s" hint-placeholder-count="3">
+<li style="display:grid;grid-template-columns:24px 1fr;gap:12px;align-items:baseline;font-size:var(--fs-body-s);line-height:var(--lh-body);color:var(--white)">
+<span style="font-family:var(--font-display);font-size:var(--fs-body-l);color:var(--white)">{{ s.n }}</span>
+<span>{{ s.text }}</span>
+</li>
+</sc-for>
+</ol>
+</div>
+
+</div></section>
+
+<section style="padding:80px 64px"><div style="max-width:900px;margin:0 auto">
+<div style="text-align:center;margin-bottom:40px"><x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.SectionHeading" kicker="veel gestelde" title="Vragen" align="center" size="l" hint-size="100%,110px"></x-import></div>
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.FaqAccordion" tone="onLight" dc-props="{{ faqProps }}" hint-size="100%,300px"></x-import>
+</div></section>
+
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.PageOutro" kicker="liever eerst" title="Even rondkijken" body="Loop vrijblijvend een rondje over het erf en door de beeldentuin. Dan weet u binnen een kwartier of het past." ctaLabel="Plan een bezoek" dc-props="{{ outroProps }}" hint-size="100%,720px"></x-import>
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.Footer" dc-props="{{ footerProps }}" hint-size="100%,280px"></x-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { v: {}, errors: {}, akkoord: false, tried: false, sent: false };
+
+  set(field) {
+    return e => {
+      const value = e && e.target ? e.target.value : e;
+      this.setState(s => {
+        const errors = { ...s.errors };
+        delete errors[field];              // een fout verdwijnt zodra hij is opgelost
+        return { v: { ...s.v, [field]: value }, errors };
+      });
+    };
+  }
+
+  validate() {
+    const v = this.state.v, e = {};
+    if (!v.voornaam) e.voornaam = 'Vul uw voornaam in.';
+    if (!v.achternaam) e.achternaam = 'Vul uw achternaam in.';
+    if (!v.email) e.email = 'Vul uw e-mailadres in.';
+    else if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v.email)) e.email = 'Dit adres lijkt niet te kloppen.';
+    if (!v.gelegenheid) e.gelegenheid = 'Kies een gelegenheid, dan weten wij wie er meekijkt.';
+    if (!this.state.akkoord) e.akkoord = 'U moet akkoord gaan voordat wij uw aanvraag mogen bewaren.';
+    return e;
+  }
+
+  field(name, extra) {
+    return Object.assign({
+      name,
+      value: this.state.v[name] || '',
+      onChange: this.set(name),
+      error: this.state.tried ? this.state.errors[name] : undefined
+    }, extra || {});
+  }
+
+  renderVals() {
+    const img = n => '../../assets/' + n;
+    const R = React.createElement;
+    return {
+      heroHeight: 360,
+      drie: 3,
+      sent: this.state.sent,
+      nietVerstuurd: !this.state.sent,
+      navProps: { left: ['De Hoeve', 'Zakelijk', 'Particulier'], right: ['Ruimtes', 'Over ons', 'Contact'] },
+
+      voornaam: this.field('voornaam'),
+      achternaam: this.field('achternaam'),
+      email: this.field('email'),
+      telefoon: this.field('telefoon'),
+      datum: this.field('datum'),
+      bericht: this.field('bericht'),
+      gelegenheid: this.field('gelegenheid', { options: ['Bruiloft', 'Bedrijfsfeest', 'Vergadering of training', 'Jubileum of verjaardag', 'Rondleiding galerie', 'Anders'] }),
+      gasten: this.field('gasten', { options: ['1 – 20', '20 – 50', '50 – 100', '100 – 250'] }),
+      ruimte: this.field('ruimte', {
+        options: [
+          { value: 'koetshuis', label: 'Koetshuis — tot 250 gasten' },
+          { value: 'hooiberg', label: 'Hooiberg — tot 30 personen' },
+          { value: 'stal', label: 'Stal — besloten, tot 60 gasten' },
+          { value: 'atelier', label: 'Ontwikkelatelier — coaching en strategie' }
+        ],
+        hint: 'Weet u het nog niet? Wij denken graag mee.'
+      }),
+
+      dagdelen: ['Ochtend', 'Middag', 'Avond'],
+      dagdeelGroep: { value: this.state.v.dagdeel, onChange: this.set('dagdeel') },
+      wensen: [
+        { label: 'Catering uit eigen keuken' },
+        { label: 'Gastvrouwen en bediening' },
+        { label: 'Rondleiding door de galerie', hint: 'Circa 45 minuten, tussen de gangen door' },
+        { label: 'Aankleding en styling' }
+      ],
+      akkoord: {
+        checked: this.state.akkoord,
+        invalid: this.state.tried && !!this.state.errors.akkoord,
+        onChange: e => this.setState(s => {
+          const errors = { ...s.errors }; delete errors.akkoord;
+          return { akkoord: e.target.checked, errors };
+        })
+      },
+      akkoordGroep: { error: this.state.tried ? this.state.errors.akkoord : undefined },
+
+      verstuur: e => {
+        e.preventDefault();
+        const errors = this.validate();
+        this.setState({ errors, tried: true, sent: Object.keys(errors).length === 0 });
+      },
+      opnieuwKnop: R(window.HoeveRijlaarsdamDesignSystem_374762.Button,
+        { tone: 'white', onClick: () => this.setState({ v: {}, errors: {}, akkoord: false, tried: false, sent: false }) },
+        'Nog een aanvraag'),
+
+      stappen: [
+        { n: '1', text: 'Wij lezen uw aanvraag en bellen u binnen twee werkdagen om de details door te nemen.' },
+        { n: '2', text: 'U ontvangt een voorstel op maat, met de zaal, het menu en de prijs per onderdeel.' },
+        { n: '3', text: 'Komt u langs om de plek te zien? Dan pas beslist u — vrijblijvend tot dat moment.' }
+      ],
+
+      faqProps: { items: [
+        { question: 'Hoe snel krijg ik antwoord?', answer: 'Wij reageren binnen twee werkdagen. Heeft u haast, bel dan gerust; vaak weet u binnen een kwartier of het past.' },
+        { question: 'Zit ik ergens aan vast?', answer: 'Nee. Een aanvraag is vrijblijvend, en ook na het voorstel beslist u pas als u de plek heeft gezien.' },
+        { question: 'Kan ik eerst komen kijken?', answer: 'Graag zelfs. Wij lopen het erf en de beeldentuin met u door en laten de zalen zien die bij uw gelegenheid passen.' },
+        { question: 'Wat kost een dag hier?', answer: 'Zaalhuur begint bij € 395 voor een dagdeel; arrangementen vanaf € 15,50 per persoon. In het voorstel staat alles per onderdeel uitgesplitst.' }
+      ] },
+
+      outroProps: { tone: 'cream',
+        items: ['photo-hoeve-heerlijckheid.jpg', 'photo-beeldentuin-vogels.jpg', 'photo-koetshuis-expositie.jpg', 'photo-lounge-zonsondergang.jpg', 'photo-bruiloft-tuin.jpg'].map(img) },
+      footerProps: { columns: [
+        { title: 'Hoeve Rijlaarsdam', lines: [{ text: 'Nieuwveenseweg 59' }, { text: '2421 LB Nieuwkoop' }, { text: '085 888 3211', strong: true }, { text: 'info@hoeverijlaarsdam.nl', strong: true }] },
+        { title: 'Neem contact op', lines: [{ text: 'Feesten en meetings', strong: true }, { text: 'Bel Roos: 06 - 58 98 59 63' }, { text: 'Galerie & beeldentuin', strong: true }, { text: 'Bel Loeke: 06 - 42 57 63 95' }] },
+        { title: 'Openingstijden galerie', lines: [{ label: 'Ma t/m do', text: 'op afspraak' }, { label: 'Vrij & za', text: '11.00 - 17.00 uur' }, { label: 'Zondag', text: '13.00 - 17.00 uur' }] }
+      ] }
+    };
+  }
+}
+</script>
+</body>
+</html>

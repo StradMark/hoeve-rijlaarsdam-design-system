@@ -3,7 +3,7 @@ import * as React from 'react';
 export interface BenefitsPanelProps {
   kicker?: string;
   title?: string;
-  /** short plain lines — no bullets, no icons, one per row */
+  /** short plain lines — the panel puts a gold hairline dash in front of each */
   items: string[];
   tone?: 'deep' | 'sage';
   style?: React.CSSProperties;

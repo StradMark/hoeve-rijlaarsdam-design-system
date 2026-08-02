@@ -7,62 +7,93 @@
 </head>
 <body>
 <x-dc>
-<!-- @template name="Website page" description="Hoeve Rijlaarsdam page skeleton: nav, hero, quote bar, intro, gallery grid, FAQ, CTA, footer." -->
+<!-- @template name="Website page" description="Complete paginaopbouw van Hoeve Rijlaarsdam: nav, hero, quotebalk, intro, zalenraster, pillenblok, prijzen, FAQ en de vaste afsluiting." -->
 <helmet><script src="./ds-base.js"></script><style>body{margin:0;background:#fff}</style></helmet>
 <div style="font-family:var(--font-body);color:var(--text-body)">
-<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.NavBar" logo="../../assets/logo-lockup.svg" active="Ruimtes" dc-props="{{ navProps }}" hint-size="100%,88px"></x-import>
-<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.HeroVideo" image="../../assets/photo-lounge-zonsondergang.jpg" kicker="een kijkje in" title="Het Koetshuis" height="440" hint-size="100%,440px"></x-import>
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.NavBar" logo="../../assets/logo-lockup.svg" active="Zakelijk" dc-props="{{ navProps }}" hint-size="100%,88px"></x-import>
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.HeroVideo" image="../../assets/photo-koetshuis-bijeenkomst.jpg" kicker="vergaderen in" title="De polder" height="{{ heroHeight }}" hint-size="100%,440px"></x-import>
 <x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.QuoteBar" hint-size="100%,46px">&ldquo;Daar waar hospitality een kunstvorm is!&rdquo;</x-import>
+
 <section style="padding:96px 64px"><div style="max-width:1180px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center">
 <div>
-<div style="font-family:var(--font-script);font-variant-ligatures:none;font-size:38px;line-height:.9;color:var(--gold-500);margin-bottom:-.24em;margin-left:-.18em">handige</div>
-<h2 style="font-family:var(--font-display);font-size:44px;line-height:1.1;color:var(--ink-900);font-weight:400;margin:0">Informatie</h2>
-<p style="max-width:60ch;margin:24px 0 0;font-size:14px;line-height:1.75;color:var(--ink-500)">Ruimte om te ontmoeten, te inspireren en te beleven. Het Koetshuis biedt alles wat u nodig heeft voor een succesvolle bijeenkomst: circa 300 m², plaats voor maximaal 250 gasten en een vrije indeling.</p>
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.SectionHeading" kicker="handige" title="Informatie" size="l" hint-size="100%,110px"></x-import>
+<p style="max-width:60ch;margin:24px 0 0;font-size:var(--fs-body-s);line-height:var(--lh-body);color:var(--text-body);text-wrap:pretty">Ruimte om te ontmoeten, te inspireren en te beleven. Een monumentale boerderij in de polder van Nieuwkoop, met vier verhuurbare ruimtes, een beeldentuin van twee hectare en een eigen keuken.</p>
 </div>
 <div style="aspect-ratio:4 / 3;overflow:hidden"><img src="../../assets/photo-koetshuis-expositie.jpg" alt="" style="width:100%;height:100%;object-fit:cover"></div>
 </div></section>
-<section style="background:var(--surface-sage);padding:64px"><div style="max-width:1180px;margin:0 auto">
-<div style="text-align:center">
-<div style="font-family:var(--font-script);font-variant-ligatures:none;font-size:52px;line-height:.9;color:var(--cream-100);margin-bottom:-.24em;margin-left:-.18em">heel veel</div>
-<h2 style="font-family:var(--font-display);font-size:44px;line-height:1.1;color:#fff;font-weight:400;margin:0">Mooie ruimtes</h2>
-</div>
+
+<section style="background:var(--surface-sage);padding:80px 64px"><div style="max-width:1180px;margin:0 auto">
+<div style="text-align:center"><x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.SectionHeading" kicker="heel veel" title="Mooie ruimtes" align="center" size="l" tone="onSage" hint-size="100%,110px"></x-import></div>
 <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px">
-<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.RoomCard" image="../../assets/photo-koetshuis-expositie.jpg" caption="Hooiberg" hint-size="100%,300px"></x-import>
-<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.RoomCard" image="../../assets/photo-hoeve-heerlijckheid.jpg" caption="Stal" hint-size="100%,300px"></x-import>
-<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.RoomCard" image="../../assets/photo-voorgerecht.jpg" caption="Beeldentuin" hint-size="100%,300px"></x-import>
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.RoomCard" image="../../assets/photo-koetshuis-expositie.jpg" caption="Koetshuis" tone="onSage" ratio="4 / 3" summary="Vrij indeelbaar, met kunst aan de wand." dc-props="{{ koetshuisProps }}" hint-size="100%,300px"></x-import>
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.RoomCard" image="../../assets/photo-hooiberg-gedekt.jpg" caption="Hooiberg" tone="onSage" ratio="4 / 3" summary="Rondom ramen, uitzicht over de polder." dc-props="{{ hooibergProps }}" hint-size="100%,300px"></x-import>
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.RoomCard" image="../../assets/photo-stal-zoettafel.jpg" caption="Stal" tone="onSage" ratio="4 / 3" summary="Ruim honderd jaar oud, met de originele balken." dc-props="{{ stalProps }}" hint-size="100%,300px"></x-import>
 </div>
 </div></section>
-<section style="background:var(--surface-deep);padding:64px"><div style="max-width:1180px;margin:0 auto">
-<div style="text-align:center;margin-bottom:32px">
-<div style="font-family:var(--font-script);font-variant-ligatures:none;font-size:52px;line-height:.9;color:var(--sage-300);margin-bottom:-.24em;margin-left:-.18em">veel gestelde</div>
-<h2 style="font-family:var(--font-display);font-size:44px;line-height:1.1;color:#fff;font-weight:400;margin:0">Vragen</h2>
+
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.TabbedDetail" kicker="wat viert u" title="Bij ons?" dc-props="{{ tabProps }}" hint-size="100%,520px"></x-import>
+
+<section style="background:var(--surface-deep);padding:80px 64px"><div style="max-width:1180px;margin:0 auto">
+<div style="text-align:center;margin-bottom:48px"><x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.SectionHeading" kicker="wat kost" title="Een dag hier" align="center" size="l" tone="onDeep" hint-size="100%,110px"></x-import></div>
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:48px">
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.PriceList" kicker="Zaalhuur" tone="onDeep" note="Alle bedragen zijn exclusief btw." dc-props="{{ zaalhuurProps }}" hint-size="100%,200px"></x-import>
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.PriceList" kicker="Extra&rsquo;s" tone="onDeep" dc-props="{{ extrasProps }}" hint-size="100%,200px"></x-import>
 </div>
-<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.FaqAccordion" dc-props="{{ faqProps }}" hint-size="100%,240px"></x-import>
 </div></section>
+
+<section style="padding:80px 64px"><div style="max-width:900px;margin:0 auto">
+<div style="text-align:center;margin-bottom:40px"><x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.SectionHeading" kicker="veel gestelde" title="Vragen" align="center" size="l" hint-size="100%,110px"></x-import></div>
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.FaqAccordion" tone="onLight" dc-props="{{ faqProps }}" hint-size="100%,300px"></x-import>
+</div></section>
+
+<x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.PageOutro" kicker="kom eens" title="Langs in de polder" body="Loop vrijblijvend een rondje over het erf en door de beeldentuin. Wij vertellen u graag wat er mogelijk is." ctaLabel="Vraag offerte aan" dc-props="{{ outroProps }}" hint-size="100%,720px"></x-import>
 <x-import component-from-global-scope="HoeveRijlaarsdamDesignSystem_374762.Footer" dc-props="{{ footerProps }}" hint-size="100%,280px"></x-import>
 </div>
-
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
   renderVals() {
+    const img = n => '../../assets/' + n;
     return {
+      heroHeight: 440,
       navProps: { left: ['De Hoeve','Zakelijk','Particulier'], right: ['Ruimtes','Over ons','Contact'] },
+      koetshuisProps: { meta: ['250 gasten','300 m²'] },
+      hooibergProps: { meta: ['30 personen','Boven'] },
+      stalProps: { meta: ['60 gasten','Besloten'] },
+      tabProps: { tone: 'light', items: [
+        { label: 'Vergaderen', image: img('photo-hooiberg-flipover.jpg'),
+          body: 'Een dag ongestoord werken met uitzicht over de polder, inclusief scherm, flip-over en onbeperkt koffie uit eigen keuken.' },
+        { label: 'Bedrijfsfeest', image: img('photo-koetshuis-feest.jpg'),
+          body: 'De bar in de Hooiberg open, de festoonverlichting aan, en een menu dat onze chef samen met u samenstelt.' },
+        { label: 'Bruiloft', image: img('photo-bruiloft-ceremonie.jpg'),
+          body: 'Trouwen tussen de beelden, met het Koetshuis als achterwacht wanneer het weer omslaat.' }
+      ] },
+      zaalhuurProps: { items: [
+        { label: 'Dagdeel', detail: '9.00–13.00 of 13.00–17.00', amount: '€ 395' },
+        { label: 'Avond', detail: 'vanaf 18.00', amount: '€ 475' },
+        { label: 'Hele dag', detail: '9.00–17.00', amount: '€ 525' }
+      ] },
+      extrasProps: { items: [
+        { label: 'Energy break', detail: 'huisgemaakte quiche', amount: '€ 7,50' },
+        { label: 'Healthy break', detail: 'smoothie met vers fruit', amount: '€ 6,50' },
+        { label: 'Borrel', detail: '2 consumpties en warme snacks', amount: '€ 12,50' }
+      ] },
       faqProps: { items: [
         { question: 'Hoeveel gasten kunnen er terecht?', answer: 'Het Koetshuis biedt ruimte aan maximaal 250 gasten; in de Hooiberg en de Stal ontvangen we groepen vanaf 20 personen.' },
-        { question: 'Is er parkeergelegenheid?' },
-        { question: 'Verzorgt u ook de catering?' },
-        { question: 'Kunnen wij de galerie afhuren?' }
+        { question: 'Is er parkeergelegenheid?', answer: 'Ja, op eigen terrein en gratis. Er is plaats voor ongeveer tachtig auto’s.' },
+        { question: 'Verzorgt u ook de catering?', answer: 'Wij hebben een eigen keuken en een eigen chef. Van een boerenlunch tot een walking dinner tussen de kunst.' },
+        { question: 'Kunnen wij de galerie afhuren?', answer: 'De beeldentuin en de expositieruimtes zijn los of samen met een zaal te huren.' }
       ] },
+      outroProps: { tone: 'cream',
+        items: ['photo-hoeve-heerlijckheid.jpg','photo-beeldentuin-vogels.jpg','photo-koetshuis-expositie.jpg','photo-lounge-zonsondergang.jpg','photo-bruiloft-tuin.jpg'].map(img) },
       footerProps: { columns: [
-        { title: 'Hoeve Rijlaarsdam', lines: [{text:'Nieuwveenseweg 59'},{text:'2421 LB Nieuwkoop'},{text:'06 - 42 57 63 95',strong:true},{text:'info@rijlaarsdam.nl',strong:true}] },
-        { title: 'Neem contact op', lines: [{text:'Feesten en meetings',strong:true},{text:'Bel Roos: 06 - 58 98 59 63'},{text:'Galerie & beeldentuin',strong:true},{text:'Bel Loeke: 06 - 42 57 63 95'}] },
-        { title: 'Openingstijden galerie', lines: [{label:'Ma t/m do',text:'op afspraak'},{label:'Vrij & za',text:'11.00 - 17.00 uur'},{label:'Zondag',text:'13.00 - 17.00 uur'}] }
-      ] }
+          { title: 'Hoeve Rijlaarsdam', lines: [{text:'Nieuwveenseweg 59'},{text:'2421 LB Nieuwkoop'},{text:'085 888 3211',strong:true},{text:'info@hoeverijlaarsdam.nl',strong:true}] },
+          { title: 'Neem contact op', lines: [{text:'Feesten en meetings',strong:true},{text:'Bel Roos: 06 - 58 98 59 63'},{text:'Galerie & beeldentuin',strong:true},{text:'Bel Loeke: 06 - 42 57 63 95'}] },
+          { title: 'Openingstijden galerie', lines: [{label:'Ma t/m do',text:'op afspraak'},{label:'Vrij & za',text:'11.00 - 17.00 uur'},{label:'Zondag',text:'13.00 - 17.00 uur'}] }
+        ] }
     };
   }
 }
-
 </script>
 </body>
 </html>

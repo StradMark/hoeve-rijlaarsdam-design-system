@@ -15,19 +15,20 @@ oplevert. Elke pagina is direct aan te roepen via de hash, bijvoorbeeld `index.h
 ## Schermen
 | Bestand | Staat voor |
 | --- | --- |
-| `screen-home.jsx` | Homepage — gesplitste ART / EVENTS-hero, welkomrij, mogelijkheden-band, CTA |
+| `screen-home.jsx` | Homepage — gesplitste ART / EVENTS-hero, welkomrij, mogelijkheden-band, de vier ruimtes, reviews, CTA |
 | `screen-ruimte.jsx` | Ruimtedetail (Koetshuis) — hero-video, faciliteitenpaneel, opstellingenraster, FAQ, andere ruimtes |
-| `screen-catering.jsx` | Catering — diner-, borrel- en lunchgalerijen, segmentpillen, reviews |
+| `screen-catering.jsx` | Catering — menu per gang, de chef, catering op locatie, reviews. De losse Chef-pagina is hierin opgegaan |
 | `screen-contact.jsx` | Contact — offerteformulier, bereikbaarheidskaarten, openingstijden & parkeren |
 | `screen-hospitality.jsx` | **Nieuw** — Hospitality op locatie: inzet, wat wij meebrengen, gelegenheden |
-| `screen-chef.jsx` | Chef Wouter Berghuis: het verhaal van de voorbereiding, gerechten per moment, keuken en bediening als één |
 | `screen-popup.jsx` | Pop-uprestaurant: vier gangen, max 30 gasten, verloop van de avond, reserveren |
 | `screen-galerie.jsx` | Galerie en beeldentuin — de Art-kant waar de gesplitste hero naartoe wijst; drie expositieruimtes als pillen, openingstijden |
 | `screen-zakelijk.jsx` | Zakelijk — vier toepassingen, zaalkiezer, arrangementen en zaalhuurtarieven, workshops |
-| `screen-particulier.jsx` | Particulier — feesten, verjaardagen, jubilea, high tea, en condoleance in een eigen stillere sectie |
+| `screen-particulier.jsx` | Particulier — feesten, verjaardagen, jubilea, high tea; verwijst door naar Afscheid |
+| `screen-afscheid.jsx` | Afscheid — condoleance in besloten kring. Bewust niet in de navigatie; bereikbaar via Particulier en de footer |
+| `screen-agenda.jsx` | Agenda — exposities, pop-upavonden en open dagen bij elkaar, met filter per soort |
 | `screen-bruiloft.jsx` | Bruiloften — verloop van de dag als pillen, wat het bijzonder maakt, FAQ |
 | `screen-overons.jsx` | Over ons — vaste aanspreekpunten, gastvrouwen op locatie, boekbaar team |
-| `screen-praktisch.jsx` | Praktisch — adres, openingstijden, parkeren, zaalhuurtarieven, FAQ |
+| `screen-praktisch.jsx` | Praktisch — adres, openingstijden, de isometrische plattegrond, bereikbaarheid, tarieven, FAQ. Locatie is hierin opgegaan |
 
 `parts.jsx` bevat de hulpstukken die alle schermen delen (Section, Lead, ReviewRow, PageEnd, de fotosets per
 pagina en de footergegevens). PageEnd is een dun laagje om `PageOutro` + `Footer`: elke pagina sluit af met de
@@ -50,14 +51,13 @@ items staan niet in de ontwerpen.
 - Het offerteformulier verstuurt naar een bevestigingsstatus.
 
 ## Bewust niet gereconstrueerd
-- De **plattegrond met fotopins** op de locatiepagina en de **lijniconen voor tafelopstellingen** — beide zijn eigen
-  illustraties die niet zijn aangeleverd. `InfoTile` toont zijn lege kader in plaats van een vervangend icoon; de
-  plattegrondsectie is weggelaten in plaats van nagemaakt. De socialbuttons in de footer dragen een typografisch
+- De **plattegrond met fotopins** op de locatiepagina — een eigen illustratie die niet is aangeleverd; de sectie is
+  weggelaten in plaats van nagemaakt. De **lijniconen voor tafelopstellingen** zijn inmiddels wél getekend
+  (`assets/icons/opstelling-*.svg`) en zitten in de opstellingensectie. De socialbuttons in de footer dragen een typografisch
   teken (`in`, `ig`).
 - De **video's** in de hero's zijn stills met de playbutton van het merk.
 - De fotografie is uit ontwerpen van lage resolutie gesneden en dus zacht. Vervang die door de echte bibliotheek.
 
-| `screen-locatie.jsx` | Locatie — interactieve plattegrond (`SiteMap`) met acht hotspots, bereikbaarheid, rondleiding-CTA |
 
 ## Rolverdeling Contact, Praktisch en Locatie
 

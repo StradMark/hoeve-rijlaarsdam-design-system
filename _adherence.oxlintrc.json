@@ -23,16 +23,21 @@
               "components/footer/**",
               "components/hero/**",
               "components/layout/**",
+              "components/lightbox/**",
               "components/navigation/**",
               "components/page-outro/**",
               "components/photo-carousel/**",
+              "components/price-list/**",
               "components/pull-quote/**",
               "components/quote-bar/**",
               "components/seasonal/**",
               "components/site-map/**",
               "components/split-hero/**",
+              "components/states/**",
+              "components/tabbed-detail/**",
               "doc-page.js",
               "guidelines/seasonal/**",
+              "md.js",
               "ui_kits/website/**"
             ],
             "message": "Import design-system components from 'index.js', not component internals."
@@ -75,8 +80,8 @@
         "message": "<Button> size must be one of 'sm' | 'md' | 'lg'."
       },
       {
-        "selector": "JSXOpeningElement[name.name='CarouselNav'] > JSXAttribute > JSXIdentifier[name!=/^(?:direction|tone|onClick|style|key|ref|className|style|children)$/]",
-        "message": "<CarouselNav> doesn't accept that prop. Declared props: direction, tone, onClick, style."
+        "selector": "JSXOpeningElement[name.name='CarouselNav'] > JSXAttribute > JSXIdentifier[name!=/^(?:direction|tone|size|disabled|onClick|style|key|ref|className|style|children)$/]",
+        "message": "<CarouselNav> doesn't accept that prop. Declared props: direction, tone, size, disabled, onClick, style."
       },
       {
         "selector": "JSXOpeningElement[name.name='CarouselNav'] > JSXAttribute[name.name='direction'] > Literal[value!=/^(?:prev|next)$/]",
@@ -87,12 +92,32 @@
         "message": "<CarouselNav> tone must be one of 'sage' | 'gold' | 'deep' | 'white'."
       },
       {
+        "selector": "JSXOpeningElement[name.name='Choice'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|hint|type|checked|defaultChecked|onChange|value|name|value|id|tone|disabled|invalid|style|key|ref|className|style|children)$/]",
+        "message": "<Choice> doesn't accept that prop. Declared props: label, hint, type, checked, defaultChecked, onChange, value, name, value, id, tone, disabled, invalid, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Choice'] > JSXAttribute[name.name='type'] > Literal[value!=/^(?:checkbox|radio)$/]",
+        "message": "<Choice> type must be one of 'checkbox' | 'radio'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Choice'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:onDark|onSage|onLight)$/]",
+        "message": "<Choice> tone must be one of 'onDark' | 'onSage' | 'onLight'."
+      },
+      {
         "selector": "JSXOpeningElement[name.name='CtaBand'] > JSXAttribute > JSXIdentifier[name!=/^(?:kicker|title|body|ctaLabel|onCta|tone|bleed|style|key|ref|className|style|children)$/]",
         "message": "<CtaBand> doesn't accept that prop. Declared props: kicker, title, body, ctaLabel, onCta, tone, bleed, style."
       },
       {
         "selector": "JSXOpeningElement[name.name='CtaBand'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:cream|sage)$/]",
         "message": "<CtaBand> tone must be one of 'cream' | 'sage'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='EmptyState'] > JSXAttribute > JSXIdentifier[name!=/^(?:title|children|action|tone|style|key|ref|className|style|children)$/]",
+        "message": "<EmptyState> doesn't accept that prop. Declared props: title, children, action, tone, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='EmptyState'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:light|sage|deep)$/]",
+        "message": "<EmptyState> tone must be one of 'light' | 'sage' | 'deep'."
       },
       {
         "selector": "JSXOpeningElement[name.name='FaqItem'] > JSXAttribute > JSXIdentifier[name!=/^(?:question|answer|key|ref|className|style|children)$/]",
@@ -103,6 +128,14 @@
         "message": "<FooterLine> doesn't accept that prop. Declared props: text, label, strong."
       },
       {
+        "selector": "JSXOpeningElement[name.name='FormStatus'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|title|children|action|style|key|ref|className|style|children)$/]",
+        "message": "<FormStatus> doesn't accept that prop. Declared props: variant, title, children, action, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='FormStatus'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:success|error)$/]",
+        "message": "<FormStatus> variant must be one of 'success' | 'error'."
+      },
+      {
         "selector": "JSXOpeningElement[name.name='HeroVideo'] > JSXAttribute > JSXIdentifier[name!=/^(?:image|kicker|title|height|showPlay|align|children|style|key|ref|className|style|children)$/]",
         "message": "<HeroVideo> doesn't accept that prop. Declared props: image, kicker, title, height, showPlay, align, children, style."
       },
@@ -111,16 +144,28 @@
         "message": "<HeroVideo> align must be one of 'center' | 'left'."
       },
       {
-        "selector": "JSXOpeningElement[name.name='ImageCaptionCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:image|caption|body|ratio|href|style|key|ref|className|style|children)$/]",
-        "message": "<ImageCaptionCard> doesn't accept that prop. Declared props: image, caption, body, ratio, href, style."
+        "selector": "JSXOpeningElement[name.name='ImageCaptionCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:image|caption|body|ratio|tone|href|style|key|ref|className|style|children)$/]",
+        "message": "<ImageCaptionCard> doesn't accept that prop. Declared props: image, caption, body, ratio, tone, href, style."
       },
       {
-        "selector": "JSXOpeningElement[name.name='InfoTile'] > JSXAttribute > JSXIdentifier[name!=/^(?:icon|title|body|tone|style|key|ref|className|style|children)$/]",
-        "message": "<InfoTile> doesn't accept that prop. Declared props: icon, title, body, tone, style."
+        "selector": "JSXOpeningElement[name.name='ImageCaptionCard'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:light|onSage|onDeep)$/]",
+        "message": "<ImageCaptionCard> tone must be one of 'light' | 'onSage' | 'onDeep'."
       },
       {
-        "selector": "JSXOpeningElement[name.name='InfoTile'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:sage|sageLight)$/]",
-        "message": "<InfoTile> tone must be one of 'sage' | 'sageLight'."
+        "selector": "JSXOpeningElement[name.name='InfoTile'] > JSXAttribute > JSXIdentifier[name!=/^(?:icon|iconSize|title|meta|body|tone|caption|captionTone|style|key|ref|className|style|children)$/]",
+        "message": "<InfoTile> doesn't accept that prop. Declared props: icon, iconSize, title, meta, body, tone, caption, captionTone, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='InfoTile'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:sage|sageLight|cream|deep)$/]",
+        "message": "<InfoTile> tone must be one of 'sage' | 'sageLight' | 'cream' | 'deep'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='InfoTile'] > JSXAttribute[name.name='caption'] > Literal[value!=/^(?:below|inside)$/]",
+        "message": "<InfoTile> caption must be one of 'below' | 'inside'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='InfoTile'] > JSXAttribute[name.name='captionTone'] > Literal[value!=/^(?:gold|onDark)$/]",
+        "message": "<InfoTile> captionTone must be one of 'gold' | 'onDark'."
       },
       {
         "selector": "JSXOpeningElement[name.name='Input'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|placeholder|hint|error|type|value|defaultValue|onChange|name|id|tone|multiline|rows|required|disabled|style|fieldStyle|key|ref|className|style|children)$/]",
@@ -131,16 +176,20 @@
         "message": "<Input> tone must be one of 'onDark' | 'onSage' | 'onLight'."
       },
       {
-        "selector": "JSXOpeningElement[name.name='NavBar'] > JSXAttribute > JSXIdentifier[name!=/^(?:logo|left|right|active|mode|ctaLabel|onCta|onNavigate|style|key|ref|className|style|children)$/]",
-        "message": "<NavBar> doesn't accept that prop. Declared props: logo, left, right, active, mode, ctaLabel, onCta, onNavigate, style."
+        "selector": "JSXOpeningElement[name.name='LightboxItem'] > JSXAttribute > JSXIdentifier[name!=/^(?:src|caption|key|ref|className|style|children)$/]",
+        "message": "<LightboxItem> doesn't accept that prop. Declared props: src, caption."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='NavBar'] > JSXAttribute > JSXIdentifier[name!=/^(?:logo|left|right|active|mode|ctaLabel|onCta|onNavigate|sticky|style|key|ref|className|style|children)$/]",
+        "message": "<NavBar> doesn't accept that prop. Declared props: logo, left, right, active, mode, ctaLabel, onCta, onNavigate, sticky, style."
       },
       {
         "selector": "JSXOpeningElement[name.name='NavBar'] > JSXAttribute[name.name='mode'] > Literal[value!=/^(?:dropdown|flat)$/]",
         "message": "<NavBar> mode must be one of 'dropdown' | 'flat'."
       },
       {
-        "selector": "JSXOpeningElement[name.name='PageOutro'] > JSXAttribute > JSXIdentifier[name!=/^(?:items|height|overlap|tone|arrowTone|kicker|title|body|ctaLabel|onCta|style|key|ref|className|style|children)$/]",
-        "message": "<PageOutro> doesn't accept that prop. Declared props: items, height, overlap, tone, arrowTone, kicker, title, body, ctaLabel, onCta, style."
+        "selector": "JSXOpeningElement[name.name='PageOutro'] > JSXAttribute > JSXIdentifier[name!=/^(?:items|height|overlap|tone|arrowTone|kicker|title|body|ctaLabel|onCta|onSelect|style|key|ref|className|style|children)$/]",
+        "message": "<PageOutro> doesn't accept that prop. Declared props: items, height, overlap, tone, arrowTone, kicker, title, body, ctaLabel, onCta, onSelect, style."
       },
       {
         "selector": "JSXOpeningElement[name.name='PageOutro'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:cream|sage)$/]",
@@ -163,8 +212,12 @@
         "message": "<PhotoCarouselItem> doesn't accept that prop. Declared props: src, caption."
       },
       {
-        "selector": "JSXOpeningElement[name.name='PullQuote'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|name|role|portrait|tone|align|style|key|ref|className|style|children)$/]",
-        "message": "<PullQuote> doesn't accept that prop. Declared props: children, name, role, portrait, tone, align, style."
+        "selector": "JSXOpeningElement[name.name='PriceRow'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|detail|amount|key|ref|className|style|children)$/]",
+        "message": "<PriceRow> doesn't accept that prop. Declared props: label, detail, amount."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='PullQuote'] > JSXAttribute > JSXIdentifier[name!=/^(?:children|name|role|portrait|tone|align|compact|style|key|ref|className|style|children)$/]",
+        "message": "<PullQuote> doesn't accept that prop. Declared props: children, name, role, portrait, tone, align, compact, style."
       },
       {
         "selector": "JSXOpeningElement[name.name='PullQuote'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:cream|sage|deep)$/]",
@@ -179,8 +232,8 @@
         "message": "<QuoteBar> doesn't accept that prop. Declared props: children, style."
       },
       {
-        "selector": "JSXOpeningElement[name.name='RoomCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:image|caption|meta|summary|variant|reveal|readMoreLabel|bookLabel|onReadMore|onBook|ratio|style|key|ref|className|style|children)$/]",
-        "message": "<RoomCard> doesn't accept that prop. Declared props: image, caption, meta, summary, variant, reveal, readMoreLabel, bookLabel, onReadMore, onBook, ratio, style."
+        "selector": "JSXOpeningElement[name.name='RoomCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:image|caption|meta|summary|variant|reveal|tone|readMoreLabel|bookLabel|onReadMore|onBook|ratio|style|key|ref|className|style|children)$/]",
+        "message": "<RoomCard> doesn't accept that prop. Declared props: image, caption, meta, summary, variant, reveal, tone, readMoreLabel, bookLabel, onReadMore, onBook, ratio, style."
       },
       {
         "selector": "JSXOpeningElement[name.name='RoomCard'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:quiet|bar)$/]",
@@ -189,6 +242,10 @@
       {
         "selector": "JSXOpeningElement[name.name='RoomCard'] > JSXAttribute[name.name='reveal'] > Literal[value!=/^(?:always|hover)$/]",
         "message": "<RoomCard> reveal must be one of 'always' | 'hover'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='RoomCard'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:light|onSage|onDeep)$/]",
+        "message": "<RoomCard> tone must be one of 'light' | 'onSage' | 'onDeep'."
       },
       {
         "selector": "JSXOpeningElement[name.name='SectionHeading'] > JSXAttribute > JSXIdentifier[name!=/^(?:kicker|title|align|tone|size|style|key|ref|className|style|children)$/]",
@@ -207,6 +264,10 @@
         "message": "<SectionHeading> size must be one of 's' | 'm' | 'l'."
       },
       {
+        "selector": "JSXOpeningElement[name.name='SelectOption'] > JSXAttribute > JSXIdentifier[name!=/^(?:value|label|disabled|key|ref|className|style|children)$/]",
+        "message": "<SelectOption> doesn't accept that prop. Declared props: value, label, disabled."
+      },
+      {
         "selector": "JSXOpeningElement[name.name='SiteMapSpot'] > JSXAttribute > JSXIdentifier[name!=/^(?:name|x|y|w|h|side|image|body|href|linkLabel|key|ref|className|style|children)$/]",
         "message": "<SiteMapSpot> doesn't accept that prop. Declared props: name, x, y, w, h, side, image, body, href, linkLabel."
       },
@@ -217,6 +278,18 @@
       {
         "selector": "JSXOpeningElement[name.name='SitePlan'] > JSXAttribute > JSXIdentifier[name!=/^(?:image|spots|alt|title|hint|onSelect|openOnHover|style|key|ref|className|style|children)$/]",
         "message": "<SitePlan> doesn't accept that prop. Declared props: image, spots, alt, title, hint, onSelect, openOnHover, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Skeleton'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|lines|ratio|width|height|tone|delay|style|key|ref|className|style|children)$/]",
+        "message": "<Skeleton> doesn't accept that prop. Declared props: variant, lines, ratio, width, height, tone, delay, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Skeleton'] > JSXAttribute[name.name='variant'] > Literal[value!=/^(?:text|image|card)$/]",
+        "message": "<Skeleton> variant must be one of 'text' | 'image' | 'card'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='Skeleton'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:light|dark)$/]",
+        "message": "<Skeleton> tone must be one of 'light' | 'dark'."
       },
       {
         "selector": "JSXOpeningElement[name.name='SplitHeroItem'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|ctaLabel|image|video|onSelect|key|ref|className|style|children)$/]",
@@ -231,20 +304,16 @@
         "message": "<SplitPanel> imageSide must be one of 'left' | 'right'."
       },
       {
+        "selector": "JSXOpeningElement[name.name='TabbedDetailItem'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|image|title|body|alt|ctaLabel|onCta|key|ref|className|style|children)$/]",
+        "message": "<TabbedDetailItem> doesn't accept that prop. Declared props: label, image, title, body, alt, ctaLabel, onCta."
+      },
+      {
         "selector": "JSXOpeningElement[name.name='TabPills'] > JSXAttribute > JSXIdentifier[name!=/^(?:items|value|onChange|tone|style|key|ref|className|style|children)$/]",
         "message": "<TabPills> doesn't accept that prop. Declared props: items, value, onChange, tone, style."
       },
       {
         "selector": "JSXOpeningElement[name.name='TabPills'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:onSage|onLight)$/]",
         "message": "<TabPills> tone must be one of 'onSage' | 'onLight'."
-      },
-      {
-        "selector": "JSXOpeningElement[name.name='TestimonialCard'] > JSXAttribute > JSXIdentifier[name!=/^(?:quote|attribution|tone|style|key|ref|className|style|children)$/]",
-        "message": "<TestimonialCard> doesn't accept that prop. Declared props: quote, attribution, tone, style."
-      },
-      {
-        "selector": "JSXOpeningElement[name.name='TestimonialCard'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:sage|deep)$/]",
-        "message": "<TestimonialCard> tone must be one of 'sage' | 'deep'."
       },
       {
         "selector": "JSXOpeningElement[name.name='WinterLockup'] > JSXAttribute > JSXIdentifier[name!=/^(?:variant|tone|size|assetBase|script|word|tagline|showMark|style|key|ref|className|style|children)$/]",
@@ -281,13 +350,22 @@
       "CarouselNav": {
         "replaces": []
       },
+      "Choice": {
+        "replaces": []
+      },
       "CtaBand": {
+        "replaces": []
+      },
+      "EmptyState": {
         "replaces": []
       },
       "FaqItem": {
         "replaces": []
       },
       "FooterLine": {
+        "replaces": []
+      },
+      "FormStatus": {
         "replaces": []
       },
       "HeroVideo": {
@@ -302,6 +380,9 @@
       "Input": {
         "replaces": []
       },
+      "LightboxItem": {
+        "replaces": []
+      },
       "NavBar": {
         "replaces": []
       },
@@ -312,6 +393,9 @@
         "replaces": []
       },
       "PhotoCarouselItem": {
+        "replaces": []
+      },
+      "PriceRow": {
         "replaces": []
       },
       "PullQuote": {
@@ -326,10 +410,16 @@
       "SectionHeading": {
         "replaces": []
       },
+      "SelectOption": {
+        "replaces": []
+      },
       "SiteMapSpot": {
         "replaces": []
       },
       "SitePlan": {
+        "replaces": []
+      },
+      "Skeleton": {
         "replaces": []
       },
       "SplitHeroItem": {
@@ -338,10 +428,10 @@
       "SplitPanel": {
         "replaces": []
       },
-      "TabPills": {
+      "TabbedDetailItem": {
         "replaces": []
       },
-      "TestimonialCard": {
+      "TabPills": {
         "replaces": []
       },
       "WinterLockup": {
@@ -428,6 +518,7 @@
       "--radius-none",
       "--radius-pill",
       "--radius-xs",
+      "--rule-on-sage",
       "--sage-100",
       "--sage-200",
       "--sage-300",
@@ -467,6 +558,7 @@
       "--text-on-dark",
       "--text-on-dark-muted",
       "--text-on-sage",
+      "--text-on-sage-body",
       "--touch-min",
       "--white",
       "--winter-berry-700",
@@ -520,6 +612,8 @@
       "--text-on-dark": "font",
       "--text-on-dark-muted": "font",
       "--text-on-sage": "font",
+      "--text-on-sage-body": "font",
+      "--rule-on-sage": "color",
       "--text-link": "font",
       "--text-link-hover": "font",
       "--border-hairline": "color",

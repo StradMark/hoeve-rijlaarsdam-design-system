@@ -70,7 +70,10 @@ export function Footer({columns=[],social=['instagram','facebook'],legal='Ontwer
           justifyContent:'space-between',gap:narrow?'var(--space-3)':'var(--space-5)',
           fontSize:'var(--fs-body-xs)',color:'var(--sage-200)'}}>
           <span>{legal}</span>
-          <span style={{display:'flex',flexWrap:'wrap',gap:'var(--space-4)'}}>{links.map(l=><a key={l} href="#" style={{color:'var(--sage-200)'}}>{l}</a>)}</span>
+          <span style={{display:'flex',flexWrap:'wrap',gap:'var(--space-4)'}}>{links.map(l=>{
+            const label=typeof l==='string'?l:l.label, href=typeof l==='string'?'#':(l.href||'#');
+            return <a key={label} href={href} style={{color:'var(--sage-200)'}}>{label}</a>;
+          })}</span>
         </div>
       </div>
     </footer>

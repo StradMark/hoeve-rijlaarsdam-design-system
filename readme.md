@@ -127,34 +127,37 @@ fotozware kaarten, en de twee `-print` varianten zijn dezelfde inhoud als docume
 | Typografie | Displayserif · Bodycopy · Gespatieerde kapitalen · Script-kicker · Kicker-regels |
 | Ritme en vorm | Ruimteschaal · Sectieritme · Vorm en radius · Beweging en states |
 
-**2 · Componenten** — 21 kaarten, in `components/<map>/` (elk met `<Naam>.jsx`, `.d.ts`, `.prompt.md` en minstens één `@dsCard`)
+**2 · Componenten** — 25 kaarten, in `components/<map>/` (elk met `<Naam>.jsx`, `.d.ts`, `.prompt.md` en minstens één `@dsCard`)
 
 | Groep | Componenten |
 | --- | --- |
-| Bouwstenen | `Button`, `Input`, `TabPills`, `CarouselNav`, `SectionHeading` |
-| Kaarten | `RoomCard`, `ImageCaptionCard`, `PersonCard`, `InfoTile` |
-| Panelen en quotes | `BenefitsPanel`, `SplitPanel`, `FaqAccordion`, `TestimonialCard`, `PullQuote`, `QuoteBar` |
+| Bouwstenen | `SectionHeading`, `Button`, `TabPills`, `CarouselNav` |
+| Formulier | `Input`, `Select`, `Choice`, `ChoiceGroup`, `FormStatus` |
+| Kaarten | `RoomCard`, `PriceList`, `ImageCaptionCard`, `PersonCard`, `InfoTile` |
+| Inhoudsblokken | `BenefitsPanel` + `SplitPanel` (vast paar), `PullQuote`, `QuoteBar`, `FaqAccordion`, `TabbedDetail`, `PhotoCarousel`, `EmptyState`, `Skeleton` + `LoadingRegion`, `Lightbox` |
 | Heros | `SplitHero` (alleen homepage), `HeroVideo` (alle overige pagina's), intro-motion |
-| Pagina-onderdelen | `NavBar`, `CtaBand`, `PhotoCarousel`, `PageOutro`, `Footer` |
+| Pagina-onderdelen | `NavBar`, `CtaBand`, `PageOutro`, `Footer` — het chroom dat elke pagina heeft |
 | Plattegrond | `SiteMap` / `SitePlan` — het vlakke plan is leidend, de isometrische versies staan ernaast als verkenning |
 
-**3 · Toepassing** — 9 kaarten
+**3 · Toepassing** — 12 kaarten
 
 | Groep | Kaarten |
 | --- | --- |
 | Seizoenen | Winterpalet · Kerstlaag · Winterlogo (`WinterLockup`) |
 | Mobiel | Breekpunten · NavBar als lade · SplitHero gestapeld · Tik in plaats van hover · Site op telefoon |
-| Voorbeeldsite | De doorklikbare site, 15 pagina's |
+| Voorbeeldsite | De doorklikbare site, 14 pagina's |
 
 **Voorbeelden en losse bestanden**
 
 | Pad | Wat het is |
 | --- | --- |
+| `templates/zaalpagina/` | Het paginatype dat vier keer voorkomt: hero, faciliteiten, opstellingen met iconen, prijzen, FAQ en de andere ruimtes. Vul `ZAAL` in en de pagina volgt |
+| `templates/offerte-pagina/` | De aanvraagpagina: alle veldsoorten, validatie en de melding na verzenden. Canonieke versie van het offerteformulier — `screen-contact.jsx` volgt dit bestand |
 | `templates/website-page/` | Startpunt voor een nieuwe paginaopzet |
 | `templates/winter-rijlaarsdam/` | Het seizoensthema met mockups voor social, menukaart, hero en kaartje |
-| `ui_kits/website/` | Doorklikbare reconstructie van de site, 15 pagina's, met eigen README |
+| `ui_kits/website/` | Doorklikbare reconstructie van de site, 14 pagina's, met eigen README |
 | `tokens/*.css` | Tokenlagen, element-resets en webfontdeclaraties |
-| `assets/` | Logo's als vector, de fonts, de werkplattegrond en circa 45 echte foto's per categorie benoemd. De swirl-ampersand staat los als `ornament-swirl-goud/-wit/-ink/-groen.svg`; gebruik de klasse `.amp` uit `tokens/ornament.css` |
+| `assets/` | Logo's als vector, de fonts, de werkplattegrond en 44 echte foto's per categorie benoemd. De swirl-ampersand staat los als `ornament-swirl-goud/-wit/-ink/-groen.svg`; gebruik de klasse `.amp` uit `tokens/ornament.css` |
 | `SKILL.md` | Wrapper zodat dit systeem ook vanuit Claude Code te gebruiken is |
 
 **Bewuste toevoegingen.** `SplitPanel` en de hulpstukken `Section` / `Lead` / `FooterStrip` / `CtaBand` zijn

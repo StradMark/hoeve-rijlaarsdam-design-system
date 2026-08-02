@@ -19,3 +19,9 @@ room — two buttons per tile times four tiles is eight decisions in one grid.
 
 `variant="bar"` restores the split dark/sage action bar from the comps for the rare card that
 needs both verbs; leave `onBook` off and it becomes one full-width bar.
+
+**Op een gekleurd vlak: `tone`.** Goud op sage is verboden, dus `tone="onSage"` zet opschrift, feiten en lijn op
+`--text-on-sage-body` en `--rule-on-sage` — wit, de huisstijlkeuze. Wit haalt op sage rekenkundig 2,6:1, dus
+sage draagt alleen groot zetsel; kleine bijschriften horen op flessengroen of zacht sage (sage is een middentoon; crème haalt daar onder 16px geen contrast). Op het
+donkergroene paneel gebruikt `tone="onDeep"` het lichtere kaarslichtgoud. Laat de kaart nooit op sage staan
+met de standaardtoon — dat is de meest gemaakte fout in dit systeem.

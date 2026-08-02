@@ -1,8 +1,8 @@
-const NAV_LEFT=[{label:'De Hoeve',items:['Over ons','Locatie','Praktisch']},
+const NAV_LEFT=[{label:'De Hoeve',items:['Over ons','Praktisch','Agenda']},
   {label:'Art',items:['Galerie','Beeldentuin']},
   {label:'Events',items:['Zakelijk','Particulier','Bruiloft']}];
 const NAV_RIGHT=[{label:'Ruimtes',items:['Koetshuis','Hooiberg','Stal','Ontwikkelatelier']},
-  {label:'Culinair',items:['Chef','Hospitality','Pop-up']},
+  {label:'Culinair',items:['Catering','Hospitality','Pop-up']},
   'Contact'];
 
 class Boundary extends React.Component{
@@ -46,10 +46,11 @@ function App(){
     : page==='Galerie'||page==='Beeldentuin'||page==='Art' ? <GalerieScreen view={page==='Beeldentuin'?'Beeldentuin':'Galerie'} onNavigate={setPage}/>
     : page==='Bruiloft' ? <BruiloftScreen onNavigate={setPage}/>
     : page==='Over ons' ? <OverOnsScreen onNavigate={setPage}/>
-    : page==='Praktisch' ? <PraktischScreen onNavigate={setPage}/>
-    : page==='Locatie' ? <LocatieScreen onNavigate={setPage}/>
+    : page==='Praktisch'||page==='Locatie' ? <PraktischScreen onNavigate={setPage}/>
+    : page==='Agenda' ? <AgendaScreen onNavigate={setPage}/>
+    : page==='Afscheid' ? <AfscheidScreen onNavigate={setPage}/>
+    : page==='Catering' ? <CateringScreen onNavigate={setPage}/>
     : page==='Hospitality' ? <HospitalityScreen onNavigate={setPage}/>
-    : page==='Chef' ? <ChefScreen onNavigate={setPage}/>
     : page==='Pop-up' ? <PopupScreen onNavigate={setPage}/>
     : page==='Zakelijk'||page==='Events' ? <ZakelijkScreen onNavigate={setPage}/>
     : page==='Particulier' ? <ParticulierScreen onNavigate={setPage}/>

@@ -5,9 +5,12 @@ import React from 'react';
 const seen=new Set();
 /* Kicker-regels (zie readme.md → "De kicker"): max 2 woorden / 14 tekens, geen eigen zin,
    en het kernwoord staat in de titel. Waarschuwen, niet afkappen — de tekstschrijver beslist. */
-function checkKicker(kicker,title){
-  if(typeof kicker!=='string'||seen.has(kicker)) return;
-  seen.add(kicker);
+export function checkKicker(kicker,title){
+  /* Sleutel op kicker én titel: dezelfde kicker kan op een andere pagina een kortere titel
+     krijgen en dán pas de regel overtreden — op alleen de kicker ontsnapt dat geval. */
+  const key=kicker+'|'+title;
+  if(typeof kicker!=='string'||seen.has(key)) return;
+  seen.add(key);
   const words=kicker.trim().split(/\s+/).length;
   if(words>2||kicker.length>14)
     console.warn('[SectionHeading] kicker "'+kicker+'" is te lang ('+words+' woorden, '+kicker.length+' tekens) — max 2 woorden / 14 tekens.');

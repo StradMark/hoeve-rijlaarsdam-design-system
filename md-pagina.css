@@ -1,0 +1,29 @@
+/* Opmaak voor de pagina's die een .md-bestand tonen (readme.html, wijzigingen.html).
+   Dezelfde koppen, streepjes en tabellen als in het systeem zelf. */
+body{margin:0;background:var(--surface-page);color:var(--text-body);font-family:var(--font-body)}
+.wrap{max-width:860px;margin:0 auto;padding:72px 40px 64px}
+.kick{font-family:var(--font-script);font-variant-ligatures:none;font-size:44px;line-height:.8;color:var(--gold-500);margin:0 0 -2px -2px}
+h1{margin:0;font-family:var(--font-display);font-weight:400;font-size:42px;letter-spacing:.03em;color:var(--text-heading)}
+.lede{max-width:66ch;margin:20px 0 0;font-size:var(--fs-body-m);line-height:var(--lh-body);color:var(--text-muted)}
+#doc h2{margin:52px 0 0;padding-top:22px;border-top:1px solid var(--gold-300);font-family:var(--font-display);font-weight:400;font-size:26px;letter-spacing:.02em;color:var(--text-heading)}
+#doc h3{margin:34px 0 0;font-family:var(--font-display);font-weight:400;font-size:var(--fs-label-m);letter-spacing:var(--ls-label);text-transform:uppercase;color:var(--gold-600)}
+#doc h4{margin:26px 0 0;font-family:var(--font-display);font-weight:400;font-size:var(--fs-label-s);letter-spacing:var(--ls-label-wide);text-transform:uppercase;color:var(--ink-500)}
+#doc p{max-width:72ch;margin:16px 0 0;font-size:var(--fs-body-s);line-height:var(--lh-body)}
+#doc ul{margin:14px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+#doc li{display:grid;grid-template-columns:14px 1fr;gap:var(--space-3);align-items:baseline;font-size:var(--fs-body-s);line-height:var(--lh-body)}
+#doc li i{display:block;height:1px;background:var(--gold-500);transform:translateY(-.35em)}
+#doc blockquote{margin:20px 0 0;padding:16px 20px;background:var(--surface-cream);font-size:var(--fs-body-s);line-height:var(--lh-body);max-width:72ch}
+#doc hr{margin:36px 0 0;border:0;border-top:1px solid var(--border-hairline)}
+#doc code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.92em;background:var(--surface-cream);padding:1px 5px;color:var(--ink-900)}
+#doc strong{font-weight:var(--fw-body-strong);color:var(--text-body)}
+#doc em{font-style:italic}
+.tabelwrap{margin:18px 0 0;overflow-x:auto}
+#doc table{width:100%;border-collapse:collapse;font-size:var(--fs-body-xs);line-height:1.65}
+#doc th{text-align:left;padding:10px 14px 10px 0;border-bottom:1px solid var(--gold-300);font-family:var(--font-display);font-weight:400;font-size:var(--fs-label-s);letter-spacing:var(--ls-label-wide);text-transform:uppercase;color:var(--gold-600);white-space:nowrap}
+#doc td{padding:11px 14px 11px 0;border-bottom:1px solid var(--border-hairline);vertical-align:top}
+#doc td:first-child{color:var(--ink-900)}
+a{color:var(--gold-600)}a:hover{color:var(--gold-500)}
+.quick{display:flex;flex-wrap:wrap;gap:10px;margin-top:48px;padding-top:26px;border-top:1px solid var(--border-hairline)}
+.quick a{padding:9px 16px;border:1px solid var(--border-hairline);font-family:var(--font-display);font-size:var(--fs-label-s);letter-spacing:var(--ls-label-wide);text-transform:uppercase;color:var(--text-body);text-decoration:none;transition:border-color 150ms ease,color 150ms ease}
+.quick a:hover{border-color:var(--gold-500);color:var(--gold-600)}
+.fout{margin-top:32px;padding:20px 22px;background:var(--surface-cream);font-size:var(--fs-body-s)}
